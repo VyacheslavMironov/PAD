@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+a, p, h1, h2, h3{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3% 3% 2% 3%;
+    box-shadow: 2px 1px 31px -8px #222;
+}
+
+
+/* Специальные классы */
+.center{
+    text-align: center;
+}
+/* END */
+
+
+header .logotype{
+    color: #222;
+}
+
+header .logotype{}
+
+header .logotype .logotype_link{
+    color: #222;
+    text-decoration: none;
+}
+header .logotype .logotype_link .logotype_link-text{
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+}
+
+header .btn{
+    border-radius: 0.3em;
+    width: 4em;
+    padding: 0.4em;
+    background-color: #fc312d;
+    letter-spacing: 0.5px;
+    font-size: 18px;
+    box-shadow: 2px 1px 4px 1px #22222245;
+}
+
+header .btn .btn_link{
+    color: #fff;
+    text-decoration: none;
+}
+
+main.wrapper{
+    min-height: 100%;
+}
