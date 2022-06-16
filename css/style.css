@@ -9,58 +9,164 @@ html,
 body{
     height: 100%;
 }
+body{
+    width: 100%;
+    background-color: #F5F5F5;
+}
 
 a, p, h1, h2, h3{
     font-family: 'Roboto Condensed', sans-serif;
 }
+a{
+    cursor: pointer;
+}
+label{
+    display: block;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 39px;
+    color: #222;
+}
 
+header,
+main,
+footer{
+    max-width: 100vw;
+}
 header{
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.3% 3% 2% 3%;
-    box-shadow: 2px 1px 31px -8px #222;
+    box-shadow: 11px 11px 14px rgba(0, 0, 0, 0.08);
 }
-
 
 /* Специальные классы */
 .center{
     text-align: center;
 }
+.contianer{
+    padding: 5% 3%;
+    max-width: 100%;
+}
+.wrapper{
+    min-height: 100%;
+}
+.right{
+    float: right;
+}
 /* END */
 
-
-header .logotype{
-    color: #222;
-}
-
-header .logotype{}
-
-header .logotype .logotype_link{
+/* .logotype{} */
+.logotype .logotype_link{
     color: #222;
     text-decoration: none;
 }
-header .logotype .logotype_link .logotype_link-text{
+.logotype .logotype_link .logotype_link-text{
     font-size: 30px;
     font-weight: bold;
     letter-spacing: 1.3px;
 }
 
-header .btn{
-    border-radius: 0.3em;
-    width: 4em;
-    padding: 0.4em;
-    background-color: #fc312d;
+
+/* Button */
+.btn{
+    width: 5.5em;
     letter-spacing: 0.5px;
     font-size: 18px;
-    box-shadow: 2px 1px 4px 1px #22222245;
 }
 
-header .btn .btn_link{
+.btn .btn_link{
+    width: 100%;
+    display: block;
+    height: 100%;
+    padding: 0.4em;
+    background: #FC3131;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
     color: #fff;
     text-decoration: none;
 }
+/* END */
 
-main.wrapper{
-    min-height: 100%;
+/* Card */
+.card{
+    width: 50%;
+    margin: 0 auto;
+    /* box-shadow: 0px 1px 13px -4px #222;
+    border-radius: 0.3em; */
+    background: #FFFFFF;
+    box-shadow: 11px 11px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 25px;
+    padding: 2em;
 }
+/* Header */
+.card .card_header{
+    margin-bottom: 5%;
+}
+/* .card .card_header .card_header-text{} */
+.card .card_header .card_header-text h3{
+    font-size: 28px;
+}
+/* .card .card_header .card_header-bottom{} */
+.card .card_header .card_header-bottom .card_header-bottom__max{
+    margin: 0 auto;
+    position: relative;
+    top: 15px;
+    height: 6px;
+    background-color: #D9D9D9;
+    width: 20%;
+}
+.card .card_header .card_header-bottom .card_header-bottom__min{
+    margin: 0 auto;
+    position: relative;
+    top: 20px;
+    height: 6px;
+    background-color: #D9D9D9;
+    width: 15%;
+}
+/* Body */
+.card .card_body{
+
+}
+/* END */
+
+
+/* Forms */
+form .form{
+    width: 100%;
+    height: 100%;
+}
+.form .form_step{
+    margin: 0 auto;
+    width: 52%;
+
+}
+.form .form_input{
+    margin-bottom: .9rem;
+}
+.form .form_button{
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+.form .form_input input, .form .form_input select{
+    border: none;
+    margin: 0 auto;
+    padding: .5rem;
+    width: 100%;
+    background: #D9D9D9;
+    border-radius: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #222;
+}
+.form .form_input select:focus{
+    border-radius: 12px 12px 0px 0px;
+    border: none;
+}
+/* END */
