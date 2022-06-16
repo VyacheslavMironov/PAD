@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/media.css" type="text/css">
     <!-- CDN: BoxIcons -->
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    <!-- CDN: Vue.Js -->
+    <script src="https://unpkg.com/vue@3"></script>
 </head>
 <body>
     <header>
@@ -25,9 +27,31 @@
     </header>
 
     <main class="wrapper">
-        <section class="contianer">
+        <section class="contianer" id="card">
+            <card-registration></card-registration>
+        </section>
+    </main>
+    
+    <footer>222222222</footer>
+
+    
+    <!-- Скрипты для формы регистрации -->
+    <script src="./scripts/js/signup_form.js" type="text/javascript"></script>
+
+    <script type="module">
+        /*
+            Компонент карточки для формы регистрации.
+            Может вскоре найду способ повсеместного её
+            сипользования. 
+        */
+        let app_card_registration = Vue.createApp({});
+        app_card_registration.component('card-registration', {
+            template: `
             <div class="card">
                 <div class="card_header">
+                    <div class="card_header-step">
+                        <p id="step_count" class="center">1</p>
+                    </div>
                     <div class="card_header-text">
                         <h3 class="center">Регистрация</h3>
                     </div>
@@ -36,49 +60,134 @@
                         <div class="card_header-bottom__min"></div>
                     </div>
                 </div>
-                <div class="card_body">
+                <div class="card_body" id="form-registration">
                     <form id="app-registration" class="card_body-steps">
                         <div class="form">
                             <div class="form_step">
-                                <div class="form_step-one">
-                                    <div class="form_input">
-                                        <label>Наименование организации</label>
-                                        <input type="text" name="organization_name">
-                                    </div>
-                                    <div class="form_input" id="">
-                                        <section>
-                                            <label>Тип Организации</label>
-                                            <select name="organization_type">
-                                                <option value="Колледж">Колледж</option>
-                                                <option value="Школа">Школа</option>
-                                                <option value="Спортивная секция">Спортивная секция</option>
-                                            </select>
-                                        </section>
-                                    </div>
-                                    <div class="form_button">
-                                        <div class="btn right center">
-                                            <a id="one" class="btn_link">Далее</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="form_step-two">
-                                    <div class="form_input"></div>
-                                    <div class="form_input"></div>
-                                    <div class="form_button"></div>
-                                </div> -->
-                                <!-- <div class="form_step-free">
-                                    <div class="form_input"></div>
-                                    <div class="form_input"></div>
-                                    <div class="form_button"></div>
-                                </div> -->
+                                <div id="one_form"><form-registration-step_one></form-registration-step_one></div>
+                                <div id="two_form"><form-registration-step_two></form-registration-step_two></div>
+                                <div id="free_form"><form-registration-step_free></form-registration-step_free></div>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </section>
-    </main>
-    
-    <footer>222222222</footer>
+            `
+        });
+        app_card_registration.mount('#card');
+    </script>
+
+    <script type="module">
+        //  Компонент самой формы для карточки описанной выше.
+        let step_one = Vue.createApp({});
+        step_one.component('form-registration-step_one', {
+            template:`
+            <div class="form_step-1">
+                <div class="form_input">
+                    <label>Наименование организации</label>
+                    <input type="text" name="organization_name">
+                </div>
+                <!-- Автоподгрузка элементов -->
+                <div class="form_input" id="organizations"></div>
+                <!-- END -->
+                <div class="form_button">
+                    <div class="btn right center">
+                        <a id="one" class="btn_link">Далее</a>
+                    </div>
+                </div>
+            </div>      
+            `
+        });
+        step_one.mount('#one_form');
+    </script>
+
+    <script type="module">
+        //  Компонент самой формы для карточки описанной выше.
+        let step_two = Vue.createApp({});
+        step_two.component('form-registration-step_two', {
+            template:`
+            <div class="form_step-2">
+                <div class="form_input">
+                    <label>Имя</label>
+                    <input type="text" name="ferst_name">
+                </div>
+                <div class="form_input">
+                    <label>Фамилия</label>
+                    <input type="text" name="last_name">
+                </div>
+                <div class="form_input">
+                    <label>Имя</label>
+                    <input type="email" name="email">
+                </div>
+                <div class="form_input">
+                    <label>Пароль</label>
+                    <input type="password" name="password1">
+                </div>
+                <div class="form_input">
+                    <label>Пароль ещё раз</label>
+                    <input type="password" name="password2">
+                </div>
+                <!-- END -->
+                <div class="form_button">
+                    <div class="btn right center">
+                        <a id="two" class="btn_link">Далее</a>
+                    </div>
+                </div>
+            </div>      
+            `
+        });
+        step_two.mount('#two_form');
+    </script>
+
+<script type="module">
+    //  Компонент самой формы для карточки описанной выше.
+    let step_free = Vue.createApp({});
+    step_free.component('form-registration-step_free', {
+        template:`
+        <div class="form_step-3">
+            <br>
+            <p class="text-form mt-3 mb-2">
+                Подождите немного...<br>
+                Проводится настройка рабочего окружения
+            </p>
+            <div class="process mb-2">
+                <div class="process_item"></div>
+            </div>
+        </div>      
+        `
+    });
+    step_free.mount('#free_form');
+</script>
+
+    <!-- Представление опций селектора -->
+    <script type="module">
+        const { createApp } = Vue
+        // Обрабатывает элемент с идентификатором #organizations
+        createApp({
+            data(){
+                return {
+                    step: 1,
+                    type_array: ['Колледж', 'Школа', 'Спортивная секция']
+                }
+            },
+            
+            template: `
+                <section>
+                    <label>Тип Организации</label>
+                    <select name="organization_type">
+                        <option v-for="item in type_array" value="{{item}}">{{item}}</option>
+                    </select>
+                </section>
+            `,
+            mounted() {
+                function getTypeOrganizations(){
+                    /*
+                    Тут будет запрос к серверу на получение данных
+                    и заполнение списка - type_array. Пока это будет статично.
+                    */
+                }
+            }
+            }).mount('#organizations')
+    </script>
 </body>
 </html>
