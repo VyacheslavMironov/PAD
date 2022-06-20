@@ -97,6 +97,10 @@ header{
     color: #fff;
     text-decoration: none;
 }
+.btn .btn_link:hover{
+    transition: .7s;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 40%);
+}
 /* END */
 
 /* Card */
@@ -109,6 +113,10 @@ header{
     box-shadow: 11px 11px 14px rgba(0, 0, 0, 0.08);
     border-radius: 25px;
     padding: 2em;
+}
+.card:hover{
+    transition: .6s;
+    box-shadow: 11px 11px 14px rgb(0 0 0 / 14%);
 }
 /* Header */
 .card .card_header{
