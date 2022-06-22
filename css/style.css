@@ -19,6 +19,7 @@ a, p, h1, h2, h3{
 }
 a{
     cursor: pointer;
+    text-decoration: none;
 }
 label{
     display: block;
@@ -35,13 +36,16 @@ main,
 footer{
     max-width: 100vw;
 }
-header{
+header, footer{
     background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.3% 3% 2% 3%;
     box-shadow: 11px 11px 14px rgba(0, 0, 0, 0.08);
+}
+footer{
+    box-shadow: 11px -2px 14px rgb(0 0 0 / 8%);
 }
 /* Отступы */
 .mt-3{
@@ -67,7 +71,7 @@ header{
 }
 /* END */
 
-/* .logotype{} */
+
 .logotype .logotype_link{
     color: #222;
     text-decoration: none;
@@ -226,5 +230,27 @@ form .form{
     height: 2em;
     background: #FA6E6E;
     border-radius: 10px;
+}
+/* END */
+
+/* Footer */
+.footer{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer .footer_content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 33px;
+}
+.footer .footer_content .footer_content-item a{
+    color: #222222;
+}
+.footer .footer_content .footer_content-item a:hover{
+    color: #646464;
 }
 /* END */

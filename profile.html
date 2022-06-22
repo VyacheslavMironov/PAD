@@ -11,22 +11,40 @@
     <link rel="stylesheet" href="css/media.css" type="text/css">
     <!-- CDN: BoxIcons -->
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    <!-- CDN: Vue.Js -->
+    <script src="https://unpkg.com/vue@3"></script>
 </head>
-<body>
+<body id="app">
     <header>
-        <div class="logotype">
+        <div  class="logotype">
             <a href="#" class="logotype_link">
                 <h2 class="logotype_link-text center">PAD</h2>
+                <!-- <button_link-component link="signin.html" class="center" text="Вход"></button_link-component> -->
             </a>
         </div>
-        <div class="btn center">
-            <a href="signin.html" class="btn_link">Вход</a>
-        </div>
+        <section class="contianer" id="menu">
+            <div class="header">
+                <div class="header_content">
+                    <div class="header_content-items">
+                        <ul>
+                            <a href="#"><li>Журнал</li></a>
+                            <a href="#"><li>Расписание</li></a>
+                            <a href="#"><li>Тесты</li></a>
+                            <a href="#"><li>Статистика</li></a>
+                        </ul>
+                    </div>
+                    <div class="header_content-submenu">
+                        <i class='bx bxs-message-rounded'></i>
+                        <i class='bx bx-menu'></i>
+                    </div>
+                </div>
+            </div>
+        </section>
     </header>
 
     <main class="wrapper">
         <section class="contianer" id="card">
-            <card-component></card-component>
+            <!-- Пока так оставлю... -->
         </section>
     </main>
     
@@ -56,6 +74,8 @@
         </div>
     </footer>
 </body>
-<!-- Карточка входа -->
-<script src="scripts/js/components/card-signin.js"></script>
+
+<!-- Подключение компонентов представляющие шаги регистрации формы. -->
+<script src="scripts/js/components/button_link.js"></script>
+<script src="scripts/js/components/card.js"></script>
 </html>
