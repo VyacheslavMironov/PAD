@@ -13,7 +13,7 @@ button.component('button_link-component', {
     },
     template:`
     <div class="btn">
-        <a href="{{ link }}" class="btn_link">{{ text }}</a>
+        <a v-bind:href="link" class="btn_link">{{ text }}</a>
     </div>
     `
 });
