@@ -52,24 +52,61 @@
             <div id="jounal-app" class="journal">
                 <!-- Месячный переключатель -->
                 <mount-count></mount-count>
-                <div class="journal_info">
-                    <div class="card df">
-                        <button_link-component text="Отметки" link="journal.html"></button_link-component>
-                        <button_link-component text="Годовые" link="journal.annual.html"></button_link-component>
-                        <button_link-component text="Итоговые" link="journal.results.html"></button_link-component>
-                        <button_link-component text="Контрольные" link="#"></button_link-component>
+                <div class="journal_groups">
+                    <div id="groups" class="card">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form"><!-- Компонент -->
+                                            <div  class="form_input mb-0">
+                                                <group-select></group-select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="card journal_data">
-                    <div class="df">
-                        <div class="row-sb">
-                            <div class="table">
-                                <table-student>
-                                    <lesson-select default></lesson-select>
-                                </table-student>
+                <div class="journal_info">
+                    <div id="" class="card df">
+                        <button_link-component text="1 неделя" link="#"></button_link-component>
+                        <button_link-component text="2 неделя" link="#"></button_link-component>
+                        <button_link-component text="3 неделя" link="#"></button_link-component>
+                        <button_link-component text="4 неделя" link="#"></button_link-component>
+                    </div>
+                </div>
+
+                <div class="df">
+                    <div id="jounal_week-app" class="card w-12">
+                        <week-list></week-list>
+                    </div>
+                    <div class="card journal_data-admin">
+                        <div id="add">
+                            <button-add></button-add>
+                        </div>
+                        <div id="error_data" class="card_error">
+                            <div class="card_error-content">
+                                <h3 class="card_error-content_text">Данных нет</h3>
+                                <p class="card_error-content_text">
+                                    Нажмите на кнопку добавить строку<br>
+                                    и вы добавите новую запись.
+                                </p>
                             </div>
                         </div>
-                        
+                        <div id="start_info" class="card_ajs">
+                            <div class="card_ajs-content">
+                                <h3 class="card_ajs-content_text">Выберите день недели</h3>
+                            </div>
+                        </div>
+                        <div id="x-dn" class="df">
+                            <div class="row-sb">
+                                <div id="table" class="table">
+                                    <table-admin></table-admin>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,11 +146,13 @@
     </footer>
 </body>
 
+<!-- Компонент списка групп или классов -->
+<script src="scripts/js/components/journal/group_select.js"></script>
+<!-- Компонент таблицы администратора -->
+<script src="scripts/js/components/journal/table_admin.js"></script>
 
-<!-- Компонент таблицы студента -->
-<script src="scripts/js/components/journal/table_student.js"></script>
-<!-- Компонент списка предметов -->
-<script src="scripts/js/components/journal/lesson_select.js"></script>
+<!-- Кнопка добавления строки  -->
+<script src="scripts/js/components/journal/button_add_string.js"></script>
 <!-- Подключение компонента ссылочеой кнопки. -->
 <script src="scripts/js/components/button_link.js"></script>
 <!-- Подключение компонента ссылочеой кнопки. -->
@@ -122,10 +161,16 @@
 <script src="scripts/js/components/user_menu/submenu.js"></script>
 <!-- Компонент карточки -->
 <script src="scripts/js/components/card.js"></script>
+<!-- Компонент списка дней недели -->
+<script src="scripts/js/components/journal/week_list.js"></script>
 <!-- Компонент счётчика месяца -->
 <script src="scripts/js/components/journal/mounth_count.js"></script>
+<!-- Компонент списка предметов -->
+<script src="scripts/js/components/journal/full_select.js"></script>
 <!-- Логика меню -->
 <script src="scripts/js/menu.js"></script>
 <!-- Логика кнопки наверх -->
 <script src="scripts/js/top_screen.js"></script>
+<!-- Логика кликов на элементы -->
+<script src="scripts/js/click.js"></script>
 </html>

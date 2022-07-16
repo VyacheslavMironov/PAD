@@ -14,7 +14,7 @@
      <!-- CDN: Vue.Js -->
      <script src="https://unpkg.com/vue@3"></script>
 </head>
-<body>
+<body id="app">
     <header>
         <div class="logotype">
             <a href="#" class="logotype_link">
@@ -22,13 +22,15 @@
             </a>
         </div>
         <div class="btn center">
-            <a href="signin.html" class="btn_link">Вход</a>
+            <button_link-component link="signin.html" class="center" text="Вход"></button_link-component>
         </div>
     </header>
 
     <main class="wrapper">
         <section class="contianer" id="card">
-            <card-component></card-component>
+            <card-component id="signin" form title="Вход" component="signin" class="p4">
+               <form-login-component></form-login-component>
+            </card-component>
         </section>
     </main>
     
@@ -58,6 +60,11 @@
         </div>
     </footer>
 </body>
-<!-- Карточка входа -->
-<script src="scripts/js/components/card-signin.js"></script>
+
+<!-- Подключение компонентов представляющие шаги регистрации формы. -->
+<script src="scripts/js/components/button_link.js"></script>
+<!-- Компонент формы -->
+<script src="scripts/js/components/signin-form.js"></script>
+<!-- Компонент карточки -->
+<script src="scripts/js/components/card.js"></script>
 </html>

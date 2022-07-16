@@ -54,9 +54,9 @@
                 <mount-count></mount-count>
                 <div class="journal_info">
                     <div class="card df">
-                        <button_link-component text="Отметки" link="journal.html"></button_link-component>
-                        <button_link-component text="Годовые" link="journal.annual.html"></button_link-component>
-                        <button_link-component text="Итоговые" link="journal.results.html"></button_link-component>
+                        <button_link-component text="Отметки" link="journal.teacher.html"></button_link-component>
+                        <button_link-component text="Годовые" link="journal.annual.teacher.html"></button_link-component>
+                        <button_link-component text="Итоговые" link="journal.results.teacher.html"></button_link-component>
                         <button_link-component text="Контрольные" link="#"></button_link-component>
                     </div>
                 </div>
@@ -64,9 +64,9 @@
                     <div class="df">
                         <div class="row-sb">
                             <div class="table">
-                                <table-student>
-                                    <lesson-select default></lesson-select>
-                                </table-student>
+                                <table-teacher>
+                                    <lesson-select></lesson-select>
+                                </table-teacher>
                             </div>
                         </div>
                         
@@ -111,7 +111,7 @@
 
 
 <!-- Компонент таблицы студента -->
-<script src="scripts/js/components/journal/table_student.js"></script>
+<script src="scripts/js/components/journal/table_teacher.js"></script>
 <!-- Компонент списка предметов -->
 <script src="scripts/js/components/journal/lesson_select.js"></script>
 <!-- Подключение компонента ссылочеой кнопки. -->
@@ -128,4 +128,6 @@
 <script src="scripts/js/menu.js"></script>
 <!-- Логика кнопки наверх -->
 <script src="scripts/js/top_screen.js"></script>
+<!-- Логика кликов на элементы -->
+<script src="scripts/js/click.js"></script>
 </html>

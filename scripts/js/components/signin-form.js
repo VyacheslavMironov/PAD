@@ -1,34 +1,24 @@
 //  Компонент самой формы для карточки описанной выше.
-let card = Vue.createApp({});
-card.component('card-component', {
+let component_login = Vue.createApp({});
+component_login.component('form-login-component', {
     template:`
-    <div class="card">
-        <div class="card_header">
-            <div class="card_header-text">
-                <h3 class="center">Вход</h3>
-            </div>
-            <div class="card_header-bottom">
-                <div class="card_header-bottom__max"></div>
-                <div class="card_header-bottom__min"></div>
-            </div>
-        </div>
-        <div class="card_body" id="form-login">
-            <form method="POST">
-                <div class="form">
-                    <div class="form_input">
-                    <label>Фамилия</label>
-                    <input type="text" id="last_name">
+    <form method="POST">
+        <div class="form">
+        <div class="form_step">
+                <div class="form_input">
+                    <label>E-mail</label>
+                    <input type="email" id="email" name="email">
                 </div>
                 <div class="form_input">
                     <label>Фамилия</label>
-                    <input type="text" id="last_name">
+                    <input type="password" id="password" name="password">
                 </div>
                 <div class="btn">
-                <button type="submit"  class="btn_link">пкупуп</button>
+                    <button type="submit" class="btn_link">Войти</button>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>     
+    </form>   
     `
 });
-card.mount('#card');
+component_login.mount('#signin');

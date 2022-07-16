@@ -21,6 +21,20 @@ a{
     cursor: pointer;
     text-decoration: none;
 }
+svg{
+    width: 24%;
+    height: 24%;
+}
+svg:hover{
+    transition: .6s;
+    fill: rgb(214, 24, 24)!important;
+}
+ul li{
+    list-style: none;
+}
+ul li.active::marker{
+    color: #fc3131;
+}
 label{
     display: block;
     font-family: 'Inter';
@@ -39,26 +53,83 @@ footer{
 header, footer{
     background-color: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 1.3% 3% 2% 3%;
     box-shadow: 11px 11px 14px rgba(0, 0, 0, 0.08);
 }
 footer{
+    /* justify-content: space-between!important; */
     box-shadow: 11px -2px 14px rgb(0 0 0 / 8%);
 }
+
 /* Отступы */
+.p4{
+    padding: 4em!important;
+}
 .mt-3{
     margin-top: 3rem;
 }
 .mb-2{
     margin-bottom: 2rem;
 }
+.mb-3{
+    margin-bottom: 3rem;
+}
+.mt-1{
+    margin-top: 1em;
+}
+.mb-0{
+    margin-bottom: 0!important;
+}
+/* END */
+
+/* Специальные айдишники */
+#data_form{
+    display: none;
+}
 
 /* END */
+
 /* Специальные классы */
+.row-sb{
+    display: flex;
+    justify-content: space-between;
+}
+.row-sa{
+    display: flex;
+    justify-content: space-around;
+}
+.round{
+    border-radius: 5em;
+}
+.w-12{
+    width: 12%!important;
+}
+.w-20{
+    width: 20%!important;
+}
+.w-30{
+    width: 30%!important;
+}
+.w-69{
+    width: 69%!important;
+}
+.w-80{
+    width: 80%;
+}
+.h-6{
+    height: 6em!important;
+}
+.b-circle{
+    border-radius: 3em;
+}
 .center{
     text-align: center;
+}
+.m-center{
+    display: block;
+    margin: 0 auto;
 }
 .contianer{
     padding: 5% 3%;
@@ -67,12 +138,28 @@ footer{
 .wrapper{
     min-height: 100%;
 }
+.right-78{
+    position: relative;
+    left: 78%;
+}
 .right{
     float: right;
 }
+.df{
+    display: flex;
+}
+.df-center{
+    display: flex;
+    align-items: center;
+}
+.br-0{
+    border-radius: 0!important;
+}
 /* END */
 
-
+.logotype{
+    width: 10%;
+}
 .logotype .logotype_link{
     color: #222;
     text-decoration: none;
@@ -90,7 +177,28 @@ footer{
     letter-spacing: 0.5px;
     font-size: 18px;
 }
-
+.btn_top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4%;
+    height: 3em;
+    background-color: #fff;
+    z-index: 99999999;
+    box-shadow: 0px 0px 28px -4px rgb(0 0 0 / 30%);
+    position: fixed;
+    top: 85%;
+    left: 90%;
+}
+.btn_top:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 11px 2px rgb(0 0 0 / 40%);
+    transition: .6s;
+}
+.btn_top svg{
+    width: 45%;
+    height: 45%;
+}
 .btn .btn_link{
     width: 100%;
     display: block;
@@ -101,6 +209,11 @@ footer{
     border-radius: 10px;
     color: #fff;
     text-decoration: none;
+}
+.btn button.btn_link{
+    cursor: pointer;
+    border: none;
+    font-size: 1.2em;
 }
 .btn .btn_link:hover{
     transition: .7s;
@@ -122,6 +235,22 @@ footer{
 .card:hover{
     transition: .6s;
     box-shadow: 11px 11px 14px rgb(0 0 0 / 14%);
+}
+.card .card_icon{
+    display: flex;
+    justify-content: center;
+}
+.card .card_icon svg{
+    width: 50%;
+    position: relative;
+    display: block;
+    top: 4em;
+}
+.card .card_icon svg:hover{
+    cursor: pointer;
+}
+.card .card_text{
+    text-align: center;
 }
 /* Header */
 .card .card_header{
@@ -256,3 +385,348 @@ form .form{
 }
 /* END */
 
+/* Menu */
+.menu{
+    width: 50%;
+}
+.menu .menu_list{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.menu .menu_list .menu_list-item{
+    width: auto;
+    display: block;
+    color: #222;
+    font-weight: 600;
+    font-size: 18px;
+}
+.menu .menu_list .menu_list-item:hover{
+    transition: .6s;
+    color: #6e6e6e;
+}
+/* END */
+
+/* Double */
+.bar{
+    width: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.bar .bar_icon{
+    border-radius: 1em;
+    width: 1.8em;
+    height: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bar .bar_icon:hover{
+    cursor: pointer;
+    transition: .7s;
+    /* 
+        Вопрос: расскоментируйте, посмотрите, если 
+        понравится оставьте или удалите к хе**м:
+
+        box-shadow: 0.4px 1px 10px 3px rgb(10 10 10 / 35%);
+    */
+}
+/* END */
+
+/* Submenu */
+#menu{
+    display: none;
+}
+.submenu{
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    padding: 1.6em;
+    background-color: #fff;
+    box-shadow: -9px 2px 12px rgb(0 0 0 / 8%);
+    z-index: 99999999999;
+}
+.sandarted{
+    top: 5.2em;
+    left: 66%;
+    animation: showBlock 1s linear forwards;
+}
+.scroll_top{
+    top: 0;
+    left: 66.3%;
+    height: 75%!important;
+    animation: showBlock 1s linear forwards;
+}
+.submenu .submenu_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.submenu .submenu_container .submenu_container-row{
+    width: 50%;
+}
+.submenu .submenu_container .submenu_container-row .submenu_container-row_head svg{
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: -4em;
+    left: 17em;
+}
+.submenu .submenu_container .submenu_container-row .submenu_container-row_head svg:hover{
+    cursor: pointer;
+}
+.submenu .submenu_container .submenu_container-row .submenu_container-row_navigate{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+.submenu .submenu_container .submenu_container-row .submenu_container-row_navigate a{
+    padding: 0.5em;
+    margin-top: 0.4em;
+    display: block;
+    text-align: center;
+    border-radius: 0.4em;
+    background-color: #dddddd;
+}
+.submenu .submenu_container .submenu_container-row .submenu_container-row_navigate a:hover{
+    transition: .6s;
+    background-color: #c7c7c7;
+}
+.submenu .submenu_container .submenu_container-row .submenu_container-row_navigate a li{
+    font-size: 19px;
+    /* 
+        Вопрос: расскоментируйте, посмотрите, если 
+        понравится оставьте или удалите к хе**м:
+
+        font-weight: 600; 
+    */
+    color: #222;
+}
+/* END */
+
+/* User */
+.user{}
+.user .user_container{}
+.user .user_container .user_container-avatar{
+    display: block;
+}
+.user .user_container .user_container-text{}
+.user .user_container .btn{
+    display: block;
+    margin: 0 auto;
+    width: 5.2em;
+}
+/* END */
+
+/* Journal */
+.journal{
+    width: 100%;
+}
+.journal .journal_month{
+    width: 30%;
+}
+.journal .journal_month .card{
+    height: 2.3em;
+    align-items: center;
+}
+.journal .journal_info{
+    width: 60%;
+    align-items: center;
+}
+.journal .journal_info .card{
+    width: 70%;
+    height: 2.3em;
+    justify-content: space-between;
+    position: relative;
+    top: -4.1em;
+}
+.journal .journal_info .card .btn{
+    width: 6.5em;
+    height: 1.2em;
+}
+.journal .journal_info .card .btn{
+    text-align: center;
+}
+.journal .journal_month, .journal .journal_groups, .journal .journal_info{
+    display: inline-flex;
+}
+.journal .journal_groups{
+    width: 9%;
+}
+.journal .journal_groups .card{
+    position: relative;
+    top: -3em;
+    min-width: 9em;
+    left: -30%;
+    height: 2.3em;
+    align-items: center;
+}
+.journal .journal_groups .card table{
+    width: 12em;
+    position: relative;
+    left: -17%;
+}
+.journal .journal_data{
+    width: 95%;
+    justify-content: center;
+}
+.journal .journal_data-admin{
+    width: 70%;
+}
+.journal .journal_data .card{
+    width: 95%;
+}
+.journal .journal_data .card .form .form_input select{
+    width: 100%;
+}
+.journal .journal_data .table,
+.journal .journal_data-admin .table{}
+.journal .journal_data .table .table_days tbody.active{
+    display: table-row-group;
+}
+.journal .journal_data .table .table_days tbody.disabled{
+    display: none;
+}
+.journal .journal_data .table .table_days,
+.journal .journal_data-admin .table .table_days{}
+.journal .journal_data .table .table_days tbody tr th.lessons_form,
+.journal .journal_data-admin .table .table_days tbody tr th.lessons_form{
+    width: 11em;
+    background-color: #fff;
+    position: relative;
+    right: 1%;
+}
+.journal .journal_data .table .table_days tbody,
+.journal .journal_data-admin .table .table_days tbody{
+    background-color: #8beb8a;
+    height: 4em;
+}
+.journal .journal_data .table .table_days tbody tr th,
+.journal .journal_data-admin .table .table_days tbody tr th{
+    width: 2em;
+}
+.journal .journal_data .table .table_days .admin tr td,
+.journal .journal_data-admin .table .table_days .admin tr td{
+    width: 15em!important;
+}
+.journal .journal_data .table .table_days tbody.data,
+.journal .journal_data-admin .table .table_days tbody.data{
+    position: relative;
+    height: 1em;
+    top: 1em;
+}
+.data_detail{
+    display: none; /* flex */
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    box-shadow: 11px 11px 14px rgb(0 0 0 / 20%);
+    width: 7.3em;
+    background-color: #f1f0f0;
+    height: 2.7em;
+    margin-top: -0.4%;
+    border-radius: 0.3em;
+    margin-left: -7.4em;
+}
+.data_detail svg{
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+.data_detail svg:hover{
+    cursor: pointer;
+}
+.journal .journal_data .table .table_days tbody tr td,
+.journal .journal_data-admin .table .table_days tbody tr td{
+    height: 2.5em;
+    text-align: center;
+}
+.journal .journal_data .table .table_days tbody tr td,
+.journal .journal_data-admin .table .table_days tbody tr td{
+    font-weight: 600;
+}
+.journal .journal_data .table .table_days tbody tr td.yes{
+    color: #222;
+}
+.journal .journal_data .table .table_days tbody tr td.no{
+    color: #FC3131;
+}
+.journal .journal_data .table .table_days .data tr td input.teacher-value,
+.journal .journal_data-admin .table .table_days .data tr td input.teacher-value{
+    display: block;
+    width: 92%;
+    height: 88%;
+    font-size: 1.2em;
+    background-color: #8beb8a;
+    border: none;
+    border-radius: 0em;
+    text-align: center;
+}
+.journal .journal_data .table .table_days thead,
+.journal .journal_data-admin .table .table_days thead{
+    height: 3em;
+}
+.journal .journal_data .table .table_days thead tr th,
+.journal .journal_data-admin .table .table_days thead tr th,
+.journal .journal_data .table .table_days .admin  tr td,
+.journal .journal_data-admin .table .table_days .admin  tr td,
+.journal .journal_data-admin .table .table_days .admin  tr td,
+.journal .journal_data .table .table_days .admin  tr td input.teacher-value,
+.journal .journal_data-admin .table .table_days .admin  tr td input.teacher-value
+{
+    background-color: #D9D9D9;
+    margin: 0 auto;
+}
+.card .week{}
+.card .week .week_list{}
+.card .week .week_list .week_item{
+    list-style: disc;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(31 79 169);
+    margin: 0.3em;
+}
+.card .week .week_list .week_item:hover{
+    cursor: pointer;
+}
+/* END */
+
+/* Error */
+.card .card_error{
+    color: #5a5959;
+    background: #d9d9d9;
+    height: 15em;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    border-radius: 1.2em;
+    box-shadow: 11px 11px 14px rgb(0 0 0 / 8%);
+}
+.card .card_error .card_error-content{}
+.card .card_error .card_error-content .card_error-content_text{
+    display: flex;
+    justify-content: center;
+}
+/* END */
+
+/* Admin Journal Start */
+.card .card_error{
+    color: #5a5959;
+    background: #d9d9d9;
+    height: 15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    border-radius: 1.2em;
+    box-shadow: 11px 11px 14px rgb(0 0 0 / 8%);
+}
+.card .card_ajs .card_ajs-content{}
+.card .card_ajs .card_ajs-content .card_ajs-content_text{
+    display: flex;
+    justify-content: center;
+}
+/* END */
