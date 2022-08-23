@@ -1,0 +1,9 @@
+<Connect>
+    <Resource
+        name="pad"
+        host="localhost"
+        port="3306"
+        username="raptor22"
+        password="lama1707"
+    />
+</Connect>
