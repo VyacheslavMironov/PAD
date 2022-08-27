@@ -61,20 +61,28 @@ export default {
   methods: {
     loginUser () {
       if (String(this.username).length > 0 && String(this.password).length > 0) {
-        axios.post(this.$route.name === 'activate' ? 'http://127.0.0.1:5000/api/user/auth/activate' : 'http://127.0.0.1:5000/api/user/auth',
+        axios.post('http://localhost:5000/api/user/auth',
           {
             headers: {
               'Content-Type': 'application/json'
             },
-            username: this.username,
+            email: this.username,
             password: this.password
           }
         )
           .then(function (response) {
-            // Сохрнить токен и перенаправить на страницу профиля
+            if (response.data[1] === 200) {
+              // Токен сохраняется в куки браузера
+              document.cookie = 'user=Bearer ' + response.data[0].message.access_token
+              window.location.href = '/'
+            } else {
+              self.alert = 'Логин или пароль введены не правильно.'
+              // Активация всплывающего сообщения
+              document.getElementById('toast').style.opacity = 1
+            }
           })
           .catch(function (error) {
-            if (error.response.status === 500) {
+            if (error) {
               self.alert = 'Такого пользователя не существует!'
               // Активация всплывающего сообщения
               document.getElementById('toast').style.opacity = 1

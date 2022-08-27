@@ -61,6 +61,24 @@ header, footer{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+#login_desktop{
+    position: relative;
+    left: 50%;
+}
+#new_game{
+    padding: 0.2em;
+    width: 40%;
+    top: 3.2em;
+    left: 15%;
+    position: absolute;
+}
+#btn_menu{
+    background-color: #6a6a6a00!important;
+}
+#btn_menu svg{
+    width: 1.5em;
+    height: 1.5em;
+}
 
 /* Спец классы */
 .wrapper{
@@ -71,6 +89,13 @@ header, footer{
     color: #fff;
 }
 
+.l-60{
+    position: relative;
+    left: 60%;
+}
+.l-30{
+    left: 30%!important;
+}
 .right{
     float: right;
 }
@@ -138,5 +163,11 @@ footer .card{
 }
 .cirkle-round strong{
     color: #fff;
+}
+/* END */
+
+/* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
+.badge{
+    font-size: 0.6em!important;
 }
 /* END */

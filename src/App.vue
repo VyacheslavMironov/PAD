@@ -1,6 +1,7 @@
 <template>
   <section>
     <HeaderComponent />
+    <MenuComponent />
     <ContentComponent>
       <router-view />
     </ContentComponent>
@@ -16,11 +17,13 @@
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import ContentComponent from '@/components/ContentComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import MenuComponent from '@/components/MenuComponent.vue'
 
 export default {
   name: 'HomeView',
   components: {
     HeaderComponent,
+    MenuComponent,
     ContentComponent,
     FooterComponent
   }

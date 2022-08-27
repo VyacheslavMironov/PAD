@@ -51,18 +51,21 @@ export default {
   methods: {
     loginUser () {
       if (this.email) {
-        axios.post('http://127.0.0.1:5000/api/user/reset-password',
+        axios.put('http://localhost:5000/api/email/reset-password',
           {
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
             },
             email: this.email
           }
         )
           .then(function (response) {
-            // Ответ
+            window.location.href = '/signin'
           })
           .catch(function (error) {
+            console.log(error)
             if (error.response.status === 500) {
               self.alert = 'Такого пользователя не существует!'
               // Активация всплывающего сообщения

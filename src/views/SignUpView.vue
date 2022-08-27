@@ -40,13 +40,13 @@
                 <label class="form-label">
                   <b>Ваше имя</b>
                 </label>
-                <input type="text" id="user_name" v-model="name" class="form-control">
+                <input type="text" id="user_name" v-model="first_name" class="form-control">
               </div>
               <div class="mb-3 col-6">
                 <label class="form-label">
                   <b>Ваша фамилия</b>
                 </label>
-                <input type="text" id="user_surname" v-model="surname" class="form-control">
+                <input type="text" id="user_surname" v-model="last_name" class="form-control">
               </div>
             </div>
             <div class="mb-3">
@@ -90,8 +90,8 @@ export default {
       message: '',
       organization_name: '',
       role: 'Директор',
-      name: '',
-      surname: '',
+      first_name: '',
+      last_name: '',
       email: '',
       password: ''
     }
@@ -132,21 +132,33 @@ export default {
               // Активация лоадера
               document.getElementById('loader-bg').style.display = 'block'
               // Отправка данных
-              axios.post('http://127.0.0.1:5000/api/user/signup',
+              console.log({
+                organization_name: this.organization_name,
+                role: this.role,
+                first_name: this.first_name,
+                last_name: this.last_name,
+                username: this.email,
+                email: this.email,
+                password: 'user' + generate
+              })
+              axios.post('http://localhost:5000/api/user/create-user',
                 {
                   headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
                   },
                   organization_name: this.organization_name,
                   role: this.role,
-                  first_name: this.name,
-                  last_name: this.surname,
+                  first_name: this.first_name,
+                  last_name: this.last_name,
                   username: this.email,
                   email: this.email,
                   password: 'user' + generate
                 }
               )
                 .then(function (response) {
+                  console.log(response)
                   if (response.data.response === false) {
                     self.alert = response.data.message
                     // Активация всплывающего сообщения
@@ -158,7 +170,7 @@ export default {
                   } else {
                     // Деактивация лоадера
                     document.getElementById('loader-bg').style.display = 'none'
-                    self.message = response.data.message
+                    self.message = 'Проверьте почту, туда выслано сообщение для активации аккаунта.'
                     document.getElementById('step_two').style.display = 'none'
                     document.getElementById('step_free').style.display = 'block'
                   }
