@@ -19,10 +19,11 @@ from core.exeption.emailExeption import (
 
 
 class Api(send_verification.AbstractSendVerification):
-    def __init__(self, email, first_name=""):
+    def __init__(self, email, password, first_name=""):
         self.email = email
         self.subject = "PAD активация аккаунта!"
         self.first_name = "" if len(first_name) == 0 else first_name
+        self.password = password
         self.html = f"""
         <html>
             <body>
@@ -31,6 +32,15 @@ class Api(send_verification.AbstractSendVerification):
                     Ссылка для активации аккаунта:
                 </p>
                 <a href='#'>http://localhost:5000/</a>
+                <br />
+                <hr />
+                <h4>Ваши данные для входа:</h4>
+                <p>
+                    <b>Логин:</b> {self.email}
+                </p>
+                <p>
+                    <b>Пароль:</b> {self.password}
+                </p>
             </body>
         </html>
         """

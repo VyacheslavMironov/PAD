@@ -1,7 +1,8 @@
 from xml.dom import minidom
-from datetime import datetime
+from datetime import datetime, timedelta
 
-from sqlalchemy.orm import Session
+from flask_jwt_extended import create_access_token
+from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import (
     create_engine,
@@ -12,6 +13,7 @@ from sqlalchemy import (
     DATETIME,
     Integer,
     CHAR,
+    String,
     CheckConstraint,
     Boolean,
     ForeignKey
@@ -31,33 +33,44 @@ PASSWORD = context.getElementsByTagName("Resource").item(0).attributes["password
 engine = create_engine(f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}/{NAME}", echo=True)
 engine.connect()
 metadata = MetaData()
-sessionDb = Session(bind=engine)
+
+session = scoped_session(sessionmaker(
+    autocommit=False, autoflush=False, bind=engine))
 
 Base = declarative_base()
+Base.query = session.query_property()
+
+class Organization(Base):
+    __tablename__ = 'organizations'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    name = Column(CHAR(120), unique=True)
 
 
-Organization = Table('organization', metadata,
-    Column('id', BigInteger(), primary_key=True, autoincrement=True),
-    Column('name', CHAR(120), unique=True)
-)
 '''
 Создавая нового пользователя Администратор указывает все данные кроме
 organization_id, он записывается автоматически.
 '''
-User = Table('user', metadata,
-    Column('user_id', BigInteger(), primary_key=True, autoincrement=True),
-    Column('firstName', CHAR(30)),
-    Column('lastName', CHAR(40)),
-    Column('email', CHAR(120), unique=True),
-    Column('password', CHAR(120)),
-    Column('role', CHAR(25)),
-    Column('is_active', Boolean(), default=False),
-    Column('is_admin', Boolean(), default=False),
-    Column('create_at', DATETIME(), default=datetime.now()),
-    Column('organization_id', ForeignKey('organization.id'), unique=True)
-)
+class User(Base):
+    __tablename__ = 'users'
+    user_id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    firstName = Column(CHAR(30))
+    lastName = Column(CHAR(40))
+    email = Column(CHAR(120), unique=True)
+    password = Column(CHAR(120))
+    role = Column(CHAR(25))
+    is_active = Column(Boolean(), default=False)
+    is_admin = Column(Boolean(), default=False)
+    created_at = Column(DATETIME(), default=datetime.now())
+    organization_id = Column(ForeignKey('organizations.id'), unique=True)
 
-
+"""
+"""
+class AccessToken(Base):
+    __tablename__ = 'access_tokens'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    user_id = Column(ForeignKey('users.user_id'), unique=True)
+    token = Column(String(1000))
+    created_at = Column(DATETIME(), default=datetime.now())
 """
 # class Journal(BaseModel):
 #     '''

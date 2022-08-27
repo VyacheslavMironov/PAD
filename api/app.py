@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 from configparser import ConfigParser
 from datetime import timedelta
-from json import loads, dumps
+from json import loads
 
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager
 
 from api.organization import createOrganization
-from api.user import createUser, activate
-from api.email import verificationUser
-from core.db.dbo import engine, metadata
+from api.user import createUser, activate, confirm_password, autentification
+from api.email import verificationUser, reset_password
+from core.db.dbo import engine, Base
 
 
 #======================================================================
@@ -29,7 +29,7 @@ app = Flask(__name__)
 #======================================================================
 #========================= Создание миграций ==========================
 #======================================================================
-metadata.create_all(engine)
+Base.metadata.create_all(bind=engine)
 #======================================================================
 #=========================== Настройка CORS ===========================
 #======================================================================
@@ -44,7 +44,6 @@ app.config["JWT_COOKIE_SECURE"] = False
 app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
 app.config["JWT_SECRET_KEY"] = "super-secret"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
-
 #======================================================================
 #======================= URL маршрутизация API ========================
 #======================================================================
@@ -53,12 +52,14 @@ def api_index():
     pass
 
 @app.route('/api/organization/create-organization', methods=["POST"])
+@cross_origin()
 def api_create_organization():
-    return createOrganization.Api(organization_name=request.form.get('name')).save()
+    return createOrganization.Api(organization_name=request.get_json().get('name')).save()
 
 @app.route('/api/user/create-user', methods=["POST"])
+@cross_origin()
 def api_create_user():
-    with createOrganization.Api(organization_name=request.form.get('organization_name')).save() as obj:
+    with createOrganization.Api(organization_name=request.get_json().get('organization_name')).save() as obj:
         data = loads(obj.data.decode('utf-8'))
         obj.close()
 
@@ -66,36 +67,64 @@ def api_create_user():
 
     return createUser.Api(
         organization_name=organization_id,
-        first_name=request.form.get('first_name'),
-        last_name=request.form.get('last_name'),
-        email=request.form.get('email'),
-        role=request.form.get('role'),
-        password=request.form.get('password')
+        first_name=request.get_json().get('first_name'),
+        last_name=request.get_json().get('last_name'),
+        email=request.get_json().get('email'),
+        role=request.get_json().get('role'),
+        password=request.get_json().get('password')
     ).save()
 
 @app.route('/api/user/activate', methods=["PUT"])
+@cross_origin()
 def api_activate():
     return activate.Api(user_id=request.args.get('id')).activate()
 
+@app.route('/api/user/auth', methods=["POST"])
+@cross_origin()
+def api_auth():
+    return autentification.Api(
+        email=request.get_json().get('email'),
+        password=request.get_json().get('password')
+    ).auth()
+
 @app.route('/api/user/update-user', methods=["PUT"])
+@cross_origin()
 def api_update_user():
     pass
 
 @app.route('/api/user/user-info', methods=["GET"])
+@cross_origin()
 def api_user_info():
     pass
 
 @app.route('/api/user/all-user', methods=["GET"])
+@cross_origin()
 def api_all_user():
     pass
 
 @app.route('/api/user/block-user', methods=["POST"])
+@cross_origin()
 def api_block_user():
     pass
 
 @app.route('/api/email/send-verification', methods=["POST"])
+@cross_origin()
 def api_email_verification():
     return verificationUser.Api(
-        email=request.form.get('email'),
-        first_name=request.form.get('first_name')
+        email=request.get_json().get('email'),
+        first_name=request.get_json().get('first_name')
+    ).send()
+
+@app.route('/api/email/reset-password', methods=["PUT"])
+@cross_origin()
+def api_reset_password():
+    with confirm_password.Api(email=request.get_json().get('email')).abstract_new_password() as obj:
+        data = loads(obj.data.decode('utf-8'))
+        obj.close()
+
+    new_password = data[0]["message"]
+
+    return reset_password.Api(
+        email=request.get_json().get('email'),
+        password=new_password
     ).send()

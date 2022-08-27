@@ -3,7 +3,7 @@ import pymysql
 from flask import jsonify, make_response
 
 from core.model.organization import create
-from core.db.dbo import engine, Organization
+from core.db.dbo import session, Organization
 from core.exeption.organizationExeption import (
     ExeptionOrganizationNone,
     ExeptionOrganizationDouble,
@@ -18,20 +18,20 @@ class Api(create.AbstractCreateOrganization):
         self.data = {}
 
     def abstratct_organization_name(self):
-        return self.api_organization_name if self.api_organization_name is not None else ExeptionOrganizationFindNotFound('organization_name').error()
+        return self.api_organization_name if self.api_organization_name is not None else ExeptionOrganizationFindNotFound(find="organization_name").error()
 
     def save(self):
         try:
             # Сохранение данных организации
-            saved = engine.execute(
-                Organization.insert().values(name=self.abstratct_organization_name())
+            session.add(
+                Organization(name=self.abstratct_organization_name())
             )
+            session.commit()
 
-            for i in engine.execute(Organization.select()).fetchall():
-                print(i)
-                if i[1] == self.abstratct_organization_name():
-                    self.data["id"] = i[0]
-                    self.data["name"] = i[1]
+            for i in session.query(Organization).all():
+                if i.name == self.abstratct_organization_name():
+                    self.data["id"] = i.id
+                    self.data["name"] = i.name
 
             if "id" in self.data and "name" in self.data:
                 pass
@@ -43,7 +43,7 @@ class Api(create.AbstractCreateOrganization):
                 jsonify({"response": "Такая организация уже зарегистрированна."}, 500)
             )
 
-        if saved:
+        if "id" in self.data:
             return make_response(
                 jsonify({"response": True, "message": self.data}, 200)
             )

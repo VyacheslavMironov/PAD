@@ -6,8 +6,8 @@ import sqlalchemy
 from flask import jsonify, make_response
 
 from api.email import verificationUser
-from core.model.user import registration, role
-from core.db.dbo import engine, User
+from core.model.user import registration
+from core.db.dbo import session, User
 from core.exeption.userExeption import (
     ExeptionUserRegistration,
     ExeptionUserDouble,
@@ -58,8 +58,8 @@ class Api(registration.AbstractRegistration):
         """
         try:
             # Сохранение данных организации
-            saved = engine.execute(
-                User.insert().values(
+            session.add(
+                User(
                     firstName=self.abstract_first_name(),
                     lastName=self.abstract_last_name(),
                     email=self.abstract_email(),
@@ -68,19 +68,20 @@ class Api(registration.AbstractRegistration):
                     organization_id=self.abstract_organization_name()
                 )
             )
+            session.commit()
 
-            for i in engine.execute(User.select()).fetchall():
-                if i[3] == self.abstract_email():
-                    self.data["id"] = i[0]
-                    self.data["first_name"] = i[1]
-                    self.data["last_name"] = i[2]
-                    self.data["email"] = i[3]
-                    self.data["password"] = i[4]
-                    self.data["role"] = i[5]
-                    self.data["is_active"] = i[6]
-                    self.data["is_admin"] = i[7]
-                    self.data["created_at"] = i[8]
-                    self.data["organization_id"] = i[9]
+            for i in session.query(User).filter(User.email == self.abstract_email()):
+                if i.email == self.abstract_email():
+                    self.data["id"] = i.user_id
+                    self.data["first_name"] = i.firstName
+                    self.data["last_name"] = i.lastName
+                    self.data["email"] = i.email
+                    self.data["password"] = i.password
+                    self.data["role"] = i.role
+                    self.data["is_active"] = i.is_active
+                    self.data["is_admin"] = i.is_admin
+                    self.data["created_at"] = i.created_at
+                    self.data["organization_id"] = i.organization_id
 
             if "id" in self.data and "email" in self.data and "role" in self.data and "organization_id" in self.data:
                 pass
@@ -93,11 +94,12 @@ class Api(registration.AbstractRegistration):
                 jsonify({"response": "Пользователь уже зарегистрирован в системе.."}, 500)
             )
 
-        if saved:
+        if "id" in self.data:
             try:
                 verificationUser.Api(
                     email=self.data["email"],
-                    first_name=self.data["first_name"]
+                    first_name=self.data["first_name"],
+                    password=self.data["password"]
                 ).send()
                 return make_response(
                     jsonify({"response": True, "message": self.data}, 200)

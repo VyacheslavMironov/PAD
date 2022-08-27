@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 
 class AbstractLogin(ABC):
     @abstractmethod
-    def email(self) -> str:
+    def abstract_email(self):
         pass
 
     @abstractmethod
-    def password(self) -> str:
+    def abstract_password(self):
         pass

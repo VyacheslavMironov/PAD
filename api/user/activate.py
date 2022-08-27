@@ -18,7 +18,7 @@ class Api(activate.AbstractUserActivate):
 
     def activate(self):
         user_activate = engine.execute(
-            "UPDATE user SET is_active=true WHERE user_id=" + self.api_user_id + ";"
+            "UPDATE users SET is_active=true WHERE user_id=" + self.api_user_id + ";"
         )
 
         if user_activate:
