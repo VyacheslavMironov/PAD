@@ -61,7 +61,7 @@ class User(Base):
     is_active = Column(Boolean(), default=False)
     is_admin = Column(Boolean(), default=False)
     created_at = Column(DATETIME(), default=datetime.now())
-    organization_id = Column(ForeignKey('organizations.id'), unique=True)
+    organization_id = Column(ForeignKey('organizations.id'))
 
 """
 """

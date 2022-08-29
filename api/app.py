@@ -8,8 +8,14 @@ from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager
 
-from api.organization import createOrganization
-from api.user import createUser, activate, confirm_password, autentification
+from api.organization import showOrganization, createOrganization
+from api.user import (
+    createUser,
+    activate,
+    confirm_password,
+    autentification,
+    user_info
+)
 from api.email import verificationUser, reset_password
 from core.db.dbo import engine, Base
 
@@ -56,14 +62,28 @@ def api_index():
 def api_create_organization():
     return createOrganization.Api(organization_name=request.get_json().get('name')).save()
 
+@app.route('/api/organization/show-organization', methods=["Get"])
+@cross_origin()
+def api_show_organization():
+    return showOrganization.Api(organization_id=request.args.get('id')).show()
+
 @app.route('/api/user/create-user', methods=["POST"])
 @cross_origin()
 def api_create_user():
-    with createOrganization.Api(organization_name=request.get_json().get('organization_name')).save() as obj:
-        data = loads(obj.data.decode('utf-8'))
-        obj.close()
+    if request.get_json().get('add_personal'):
+        """
+        В случае если директор добавляет персонал,
+        Id организации подставляется в organization_name
+        """
+        organization_id = request.get_json().get('organization_name')
+    else:
+        # В случае если регистрируется директор
+        with createOrganization.Api(organization_name=request.get_json().get('organization_name')).save() as obj:
+            data = loads(obj.data.decode('utf-8'))
+            obj.close()
 
-    organization_id = data[0]["message"]["id"]
+        organization_id = data[0]["message"]["id"]
+
 
     return createUser.Api(
         organization_name=organization_id,
@@ -95,7 +115,7 @@ def api_update_user():
 @app.route('/api/user/user-info', methods=["GET"])
 @cross_origin()
 def api_user_info():
-    pass
+    return user_info.Api(access_token=request.args.get('access_token')).show()
 
 @app.route('/api/user/all-user', methods=["GET"])
 @cross_origin()

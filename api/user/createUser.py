@@ -32,7 +32,6 @@ class Api(registration.AbstractRegistration):
         self.api_password = password
         self.data = {}
 
-
     def abstract_organization_name(self):
         return self.api_organization_name if self.api_organization_name else ExeptionUserFindNotFound('organization_name').error()
 
@@ -68,6 +67,7 @@ class Api(registration.AbstractRegistration):
                     organization_id=self.abstract_organization_name()
                 )
             )
+            print(session)
             session.commit()
 
             for i in session.query(User).filter(User.email == self.abstract_email()):
