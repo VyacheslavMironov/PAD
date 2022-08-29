@@ -5,19 +5,29 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="list-group mt-5">
-            <button
-                type="button"
-                v-on:click="this.logout()"
-                class="list-group-item btn"
-            >Выход</button>
-        </div>
+      <div v-if="this.user_info" class="list-group mt-2">
+        <a
+          v-if="this.user_info.role === 'Директор'"
+          href="/journal-settings"
+          class="list-group-item btn"
+        >Настройки журнала</a>
+      </div>
+      <div class="list-group mt-5">
+        <button
+          type="button"
+          v-on:click="this.logout()"
+          class="list-group-item btn"
+        >Выход</button>
+      </div>
     </div>
 </div>
 </template>
 
 <script>
 export default {
+  props: {
+    user_info: Object
+  },
   methods: {
     logout () {
       const cookies = document.cookie.split(/;/)

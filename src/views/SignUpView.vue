@@ -131,16 +131,8 @@ export default {
               // END
               // Активация лоадера
               document.getElementById('loader-bg').style.display = 'block'
+              // END
               // Отправка данных
-              console.log({
-                organization_name: this.organization_name,
-                role: this.role,
-                first_name: this.first_name,
-                last_name: this.last_name,
-                username: this.email,
-                email: this.email,
-                password: 'user' + generate
-              })
               axios.post('http://localhost:5000/api/user/create-user',
                 {
                   headers: {

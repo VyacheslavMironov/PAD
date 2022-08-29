@@ -109,9 +109,11 @@ export default {
   data () {
     return {
       link_signin: '/signin',
-      link_signout: '/signout',
-      is_auth: document.cookie.search('user')
+      link_signout: '/signout'
     }
+  },
+  props: {
+    is_auth: Number
   },
   components: {
     ButtonComponent

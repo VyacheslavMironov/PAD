@@ -20,6 +20,12 @@ const routes = [
     path: '/password-reset',
     name: 'password_reset',
     component: () => import('../views/PasswordResetView.vue')
+  },
+  {
+    path: '/journal-settings',
+    name: 'journal_settings',
+    component: () => import('../views/JournalSettingsView.vue'),
+    props: true
   }
 ]
 

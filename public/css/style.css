@@ -29,7 +29,7 @@ svg{
 ul{}
 
 ul li{
-    
+    list-style: none;
 }
  
 span, 
@@ -49,7 +49,8 @@ h5{
     color: #2c3e50;
     font-family: 'Inter', sans-serif;
 }
-input{
+input,
+select{
     background-color: #DFDEDE!important;
 }
 header, footer{
@@ -166,6 +167,42 @@ footer .card{
 }
 /* END */
 
+/* Меню на странице настроек журнала */
+section ._card{
+    padding: 1em!important;
+}
+section ._card a.list_items{
+    background: #dfdede;
+    line-height: 2;
+    margin: 0;
+    padding: 0.2em;
+    display: block;
+}
+section ._card a.list_items svg{
+    fill: rgb(77 80 100);
+    width: 11%;
+    height: 1.6em;
+    margin-right: 5%;
+}
+section ._card ul li{
+    background-color: #c5c5c51f;
+    position: relative;
+    left: 5%;
+    width: 95%;
+    border: none;
+}
+section ._card ul li a{
+    display: block;
+}
+section ._card ul li a, 
+section ._card a.list_items{
+    color: #2c3e50;
+}
+section ._card ul li:hover{
+    transition: .6s;
+    background: #00000017;
+}
+/* END */
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
 .badge{
     font-size: 0.6em!important;
