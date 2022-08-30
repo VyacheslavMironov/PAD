@@ -67,7 +67,6 @@ class Api(registration.AbstractRegistration):
                     organization_id=self.abstract_organization_name()
                 )
             )
-            print(session)
             session.commit()
 
             for i in session.query(User).filter(User.email == self.abstract_email()):

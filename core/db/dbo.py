@@ -63,6 +63,7 @@ class User(Base):
     created_at = Column(DATETIME(), default=datetime.now())
     organization_id = Column(ForeignKey('organizations.id'))
 
+
 """
 """
 class AccessToken(Base):
@@ -71,6 +72,18 @@ class AccessToken(Base):
     user_id = Column(ForeignKey('users.user_id'), unique=True)
     token = Column(String(1000))
     created_at = Column(DATETIME(), default=datetime.now())
+
+
+"""
+"""
+class Lesson(Base):
+    __tablename__ = 'lessons'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    lesson = Column(CHAR(60), unique=True)
+    organization_id = Column(ForeignKey('organizations.id'))
+
+
+"""
 """
 # class Journal(BaseModel):
 #     '''
@@ -79,10 +92,9 @@ class AccessToken(Base):
 #     '''
 #     id = BigIntegerField(primary_key=True, unique=True, constraints=[SQL('AUTO_INCREMENT')])
 #     name = CharField(max_length=150)
-#     # value = CharField(max_length=150, null=True)
-#     # value_per_semester = CharField(max_length=150, null=True)
-#     # value_per_year = CharField(max_length=150, null=True)
+#     value = CharField(max_length=150, null=True)
+#     value_per_semester = CharField(max_length=150, null=True)
+#     value_per_year = CharField(max_length=150, null=True)
 #     create_at = DateField(default=datetime.now())
 #     user_id = ForeignKeyField(User, backref="user_id")
 #     organization_id = ForeignKeyField(Organization, backref="id")
-"""

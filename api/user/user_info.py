@@ -8,14 +8,21 @@ from core.exeption.userExeption import ExeptionUserFindNotFound
 
 
 class Api(show.AbstractUserInfo):
-    def __init__(self, access_token):
+    def __init__(self, access_token='', role='', organization_id=0):
         self.api_access_token = access_token
+        self.api_role = role
+        self.api_organization_id = organization_id
         self.user_token = None
         self.data = {}
 
-
     def abstract_access_token(self):
-        return self.api_access_token if self.api_access_token is not None else ExeptionUserFindNotFound('api_access_token').error()
+        return self.api_access_token if self.api_access_token is not None else ExeptionUserFindNotFound('access_token').error()
+
+    def abstract_role(self):
+        return self.api_role if self.api_role is not None else ExeptionUserFindNotFound('role').error()
+
+    def abstract_organization_id(self):
+        return self.api_organization_id if self.api_organization_id is not None else ExeptionUserFindNotFound('organization_id').error()
 
     def show(self):
         for i in session.query(AccessToken):
@@ -35,3 +42,23 @@ class Api(show.AbstractUserInfo):
 
         if "user_id" in self.data:
             return jsonify({"response": True, "message": self.data}, 200)
+
+    def all(self):
+        users = session.query(User).where(
+                User.organization_id == self.abstract_organization_id(),
+                User.role == self.abstract_role()
+        )
+        # Формирование списка
+        self.data["users"] = []
+        for i in users:
+            self.data["users"].append(
+                {
+                    "user_id": i.user_id,
+                    "first_name": i.firstName,
+                    "last_name": i.lastName,
+                    "email": i.email,
+                    "role": i.role,
+                }
+            )
+
+        return jsonify({"response": True, "message": self.data}, 200)

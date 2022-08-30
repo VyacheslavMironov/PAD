@@ -9,12 +9,14 @@ from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager
 
 from api.organization import showOrganization, createOrganization
+from api.lesson import createLesson
 from api.user import (
     createUser,
     activate,
     confirm_password,
     autentification,
-    user_info
+    user_info,
+    user_update
 )
 from api.email import verificationUser, reset_password
 from core.db.dbo import engine, Base
@@ -110,7 +112,13 @@ def api_auth():
 @app.route('/api/user/update-user', methods=["PUT"])
 @cross_origin()
 def api_update_user():
-    pass
+    return user_update.Api(
+        user_id=request.get_json().get('user_id'),
+        first_name=request.get_json().get('first_name'),
+        last_name=request.get_json().get('last_name'),
+        role=request.get_json().get('role'),
+        email=request.get_json().get('email')
+    ).update()
 
 @app.route('/api/user/user-info', methods=["GET"])
 @cross_origin()
@@ -120,7 +128,7 @@ def api_user_info():
 @app.route('/api/user/all-user', methods=["GET"])
 @cross_origin()
 def api_all_user():
-    pass
+    return user_info.Api(access_token='', role=request.args.get('role'), organization_id=request.args.get('organization_id')).all()
 
 @app.route('/api/user/block-user', methods=["POST"])
 @cross_origin()
@@ -148,3 +156,21 @@ def api_reset_password():
         email=request.get_json().get('email'),
         password=new_password
     ).send()
+
+@app.route('/api/lesson/create-lesson', methods=["POST"])
+@cross_origin()
+def api_create_lesson():
+    return createLesson.Api(
+        organization_id=request.get_json().get('organization_id'),
+        lesson=request.get_json().get('lesson')
+    ).add()
+
+@app.route('/api/lesson/show-lesson', methods=["GET"])
+@cross_origin()
+def api_show_lesson():
+    pass
+
+@app.route('/api/lesson/update-lesson', methods=["PUT"])
+@cross_origin()
+def api_update_lesson():
+    pass
