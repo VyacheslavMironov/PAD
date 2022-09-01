@@ -3,13 +3,12 @@ import sqlalchemy
 from flask import jsonify
 
 from core.model.lesson import lesson_base
-from sqlalchemy import update
 from core.db.dbo import engine, session, Lesson
 from core.exeption.lessonExeption import ExeptionLessonFindNotFound, ExeptionLessonDouble
 
 
 class Api(lesson_base.AbstractLesson):
-    def __init__(self, id, organization_id, lesson):
+    def __init__(self, id, organization_id, lesson=''):
         self.api_id = id
         self.api_organization_id = organization_id
         self.api_lesson = lesson
@@ -27,9 +26,9 @@ class Api(lesson_base.AbstractLesson):
         return self.api_lesson if self.api_lesson is not None else ExeptionLessonFindNotFound('lesson').error()
 
 
-    def update(self):
-        update_lesson = engine.execute(
-            f"UPDATE lessons SET lesson='{self.abstract_lesson()}' WHERE organization_id={self.abstract_organization_id()} AND id={self.abstract_id()};"
+    def drop(self):
+        drop_lesson = engine.execute(
+            f"DELETE FROM lessons WHERE organization_id={self.abstract_organization_id()} AND id={self.abstract_id()};"
         )
-        if update_lesson:
-            return jsonify({"response": True, "message": self.api_lesson}, 200)
+        if drop_lesson:
+            return jsonify({"response": True}, 200)

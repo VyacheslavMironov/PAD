@@ -1,11 +1,15 @@
 from abc import ABC, abstractmethod
 
 
-class AbstractLesson(ABC):
+class AbstractGroup(ABC):
     @abstractmethod
     def abstract_organization_id(self):
         pass
 
     @abstractmethod
-    def abstract_lesson(self):
+    def abstract_user_id(self):
+        pass
+
+    @abstractmethod
+    def abstract_name(self):
         pass

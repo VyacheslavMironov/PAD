@@ -9,7 +9,12 @@ from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager
 
 from api.organization import showOrganization, createOrganization
-from api.lesson import createLesson
+from api.lesson import (
+    createLesson,
+    showLesson,
+    updateLesson,
+    dropLesson
+)
 from api.user import (
     createUser,
     activate,
@@ -17,6 +22,11 @@ from api.user import (
     autentification,
     user_info,
     user_update
+)
+from api.group import (
+    createGroup,
+    viewGroup,
+    updateGroup
 )
 from api.email import verificationUser, reset_password
 from core.db.dbo import engine, Base
@@ -165,12 +175,60 @@ def api_create_lesson():
         lesson=request.get_json().get('lesson')
     ).add()
 
-@app.route('/api/lesson/show-lesson', methods=["GET"])
+@app.route('/api/lesson/lesson-all', methods=["GET"])
 @cross_origin()
 def api_show_lesson():
-    pass
+    return showLesson.Api(
+        organization_id=request.args.get('organization_id')
+    ).show()
 
 @app.route('/api/lesson/update-lesson', methods=["PUT"])
 @cross_origin()
 def api_update_lesson():
-    pass
+    return updateLesson.Api(
+        id=request.get_json().get('id'),
+        organization_id=request.get_json().get('organization_id'),
+        lesson=request.get_json().get('lesson')
+    ).update()
+
+@app.route('/api/lesson/drop-lesson', methods=["DELETE"])
+@cross_origin()
+def api_drop_lesson():
+    return dropLesson.Api(
+        id=request.args.get('id'),
+        organization_id=request.args.get('organization_id')
+    ).drop()
+
+@app.route('/api/group/create-group', methods=["POST"])
+@cross_origin()
+def api_create_group():
+    return createGroup.Api(
+        organization_id=request.get_json().get('organization_id'),
+        user_id=request.get_json().get('user_id'),
+        name=request.get_json().get('name')
+    ).save()
+
+@app.route('/api/group/all-group', methods=["GET"])
+@cross_origin()
+def api_all_group():
+    return viewGroup.Api(
+        organization_id=request.args.get('organization_id')
+    ).all()
+
+@app.route('/api/group/show-group', methods=["GET"])
+@cross_origin()
+def api_show_group():
+    return viewGroup.Api(
+        id=request.args.get('id')
+        organization_id=request.args.get('organization_id')
+    ).show()
+
+@app.route('/api/group/update-group', methods=["GET"])
+@cross_origin()
+def api_update_group():
+    return updateGroup.Api(
+        id=request.get_json().get('id'),
+        organization_id=request.get_json().get('organization_id'),
+        user_id=request.get_json().get('user_id'),
+        name=request.get_json().get('name')
+    ).update()

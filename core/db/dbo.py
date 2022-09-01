@@ -8,7 +8,6 @@ from sqlalchemy import (
     create_engine,
     MetaData,
     BigInteger,
-    Table,
     Column,
     DATETIME,
     Integer,
@@ -82,6 +81,15 @@ class Lesson(Base):
     lesson = Column(CHAR(60), unique=True)
     organization_id = Column(ForeignKey('organizations.id'))
 
+
+"""
+"""
+class Group(Base):
+    __tablename__ = 'groups'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    organization_id = Column(ForeignKey('organizations.id'))
+    user_id = Column(ForeignKey('users.user_id'), unique=True)
+    name = Column(CHAR(180))
 
 """
 """
