@@ -31,14 +31,24 @@ ul{}
 ul li{
     list-style: none;
 }
- 
+table svg{
+    width: 1.6em;
+    height: 1.6em;
+}
 span, 
 strong, 
 b{
     color: #2c3e50;
     font-family: 'Inter', sans-serif;
 }
-
+table svg:hover{
+    transition: .6s;
+    fill: rgb(44, 44, 44)!important;
+}
+table span:focus svg{
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
 ul li, 
 p, 
 h1, 
@@ -88,17 +98,16 @@ footer{
     height: 1.5em;
 }
 #settings-journal-menu{
-    z-index: 99999;
     height: 30em;
     overflow: auto;
-    position: fixed;
-    left: 7%;
-    width: 25%;
 }
 
 /* Спец классы */
 .wrapper{
     min-height: 100%;
+}
+.bg-blue{
+    background: #265cf6!important;
 }
 #app .btn{
     background-color: #F62626;
@@ -223,5 +232,8 @@ section ._card ul li:hover{
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
 .badge{
     font-size: 0.6em!important;
+}
+.offcanvas-bottom {
+    height: 45vh!important;
 }
 /* END */

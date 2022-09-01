@@ -26,6 +26,12 @@ const routes = [
     name: 'journal_settings',
     component: () => import('../views/JournalSettingsView.vue'),
     props: true
+  },
+  {
+    path: '/group-all',
+    name: 'group_all',
+    component: () => import('../views/GroupAllView.vue'),
+    props: true
   }
 ]
 

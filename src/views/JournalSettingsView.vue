@@ -6,7 +6,7 @@
     <!-- Сообщение о процессе -->
     <AlertComponent css_class="toast align-items-cente right" v-bind:mess="this.alert" />
     <!-- END -->
-    <div class=" mx-auto">
+    <div class="mx-auto">
       <div class="row">
         <!-- Секция левого меню -->
         <section class="col-lg-5">
@@ -65,7 +65,7 @@
                     <a href="#add_lesson">Добавить</a>
                   </li>
                   <li class="list-group-item">
-                    <a href="#">Редактировать</a>
+                    <a href="#update_lesson">Редактировать</a>
                   </li>
                 </ul>
               </div>
@@ -207,7 +207,7 @@
             </div>
             <!-- Настройка предметов -->
             <div class="mt-10">
-              <div id="add_lesson"><!-- Якорь на обновление юзера --></div>
+              <div id="add_lesson"><!-- Якорь на добавление предмета --></div>
               <h5>Добавить предмет</h5>
               <br>
               <div class="mb-3">
@@ -220,7 +220,58 @@
               <ButtonComponent text="Добавить" v-on:click="this.create_lesson()" css_class="btn mt-2 right"/>
               <!-- END -->
             </div>
-            <div class="mb-5"></div>
+            <div class="mt-10">
+              <div id="update_lesson"><!-- Якорь на редактирование предмета --></div>
+              <h5>Редактировать предметы</h5>
+              <br>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Наименование</th>
+                    <th scope="col">Действие</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(i, idx) in this.lesson_list" v-bind:key="i">
+                    <td>
+                      <p ref="lessonText" class="d-block">{{i.lesson}}</p>
+                      <div ref="lessonUpdate"  class="d-none">
+                        <div class="input-group mb-1">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Recipient's username"
+                            aria-label="Recipient's username"
+                            ref="inputLessonText"
+                            v-bind:aria-describedby="idx"
+                            v-bind:value="i.lesson"
+                          >
+                          <button v-on:click="this.update_lessons(idx, i.id, this.user_info.organization_id)" class="btn" type="button" v-bind:id="idx">Ок</button>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span ref="editLesson" class="btn p-1 m-1 bg-blue" v-on:click="this.update_lesson_open(idx)">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
+                          <path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"></path><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"></path>
+                        </svg>
+                      </span>
+                      <span ref="closeEditLesson" style="display: none;" class="btn p-1 m-1" v-on:click="this.update_lesson_close(idx)">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
+                          <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path>
+                          <path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path>
+                        </svg>
+                      </span>
+                      <span class="btn p-1 m-1" v-on:click="this.drop_lesson(i.id, this.user_info.organization_id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
+                          <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
+                        </svg>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       </div>
@@ -252,7 +303,10 @@ export default {
       update_last_name: null,
       update_role: null,
       update_email: null,
-      lesson: null
+      lesson: null,
+      update_lesson: null,
+      lesson_list: null,
+      update_lesson_list: []
     }
   },
   props: {
@@ -277,6 +331,8 @@ export default {
         )
           .then((response) => {
             this.user_info = response.data[0].message
+            // Вызывать методы использующие пользовательские данные ниже
+            this.lesson_show(this.user_info.organization_id)
           })
           .catch(function (error) {
             console.log(error)
@@ -449,9 +505,130 @@ export default {
           }
         })
       // END
+      this.$router.go(0)
+    },
+    lesson_show (id) {
+      // Запрос на выборку данных юзера по ролям
+      axios.get('http://localhost:5000/api/lesson/lesson-all?organization_id=' + id,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
+      )
+        .then((response) => {
+          this.lesson_list = response.data[0].message.list
+        })
+        .catch(function (error) {
+          if (error.error) {
+            // Деактивация лоадера
+            document.getElementById('loader-bg').style.display = 'none'
+            self.alert = 'Ошибка получения данных!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          }
+        })
+      // END
+    },
+    update_lesson_open (id) {
+      const data = this.$refs.lessonUpdate
+      data[id].classList.remove('d-none')
+      data[id].classList.add('d-block')
+
+      const text = this.$refs.lessonText
+      text[id].classList.remove('d-block')
+      text[id].classList.add('d-none')
+
+      this.$refs.editLesson[id].style.display = 'none'
+      this.$refs.closeEditLesson[id].style.display = 'inline-block'
+    },
+    update_lesson_close (id) {
+      this.$refs.closeEditLesson[id].style.display = 'none'
+      this.$refs.editLesson[id].style.display = 'inline-block'
+
+      const data = this.$refs.lessonUpdate
+      data[id].classList.remove('d-block')
+      data[id].classList.add('d-none')
+
+      const text = this.$refs.lessonText
+      text[id].classList.remove('d-none')
+      text[id].classList.add('d-block')
+    },
+    update_lessons (item, id, organizationId) {
+      var data = this.$refs.inputLessonText[item].value
+      // Запрос на выборку данных юзера по ролям
+      axios.put('http://localhost:5000/api/lesson/update-lesson',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+          },
+          id: id,
+          organization_id: organizationId,
+          lesson: data
+        }
+      )
+        .then((response) => {
+          // Деактивация лоадера
+          document.getElementById('loader-bg').style.display = 'none'
+          this.alert = 'Данные обновлены'
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1
+        })
+        .catch(function (error) {
+          if (error.error) {
+            // Деактивация лоадера
+            document.getElementById('loader-bg').style.display = 'none'
+            self.alert = 'Ошибка получения данных!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          }
+        })
+      // END
+      this.$refs.closeEditLesson[item].style.display = 'none'
+      this.$refs.editLesson[item].style.display = 'inline-block'
+      const element = this.$refs.lessonUpdate
+      element[item].classList.remove('d-block')
+      element[item].classList.add('d-none')
+
+      const text = this.$refs.lessonText
+      text[item].classList.remove('d-none')
+      text[item].classList.add('d-block')
+      location.reload()
+    },
+    drop_lesson (id, organizationId) {
+      // Запрос на выборку данных юзера по ролям
+      axios.delete('http://localhost:5000/api/lesson/drop-lesson?id=' + (id) + '&&organization_id=' + organizationId,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+          }
+        }
+      )
+        .then((response) => {
+          // Деактивация лоадера
+          document.getElementById('loader-bg').style.display = 'none'
+          this.alert = 'Данные удалены'
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1
+        })
+        .catch(function (error) {
+          if (error.error) {
+            // Деактивация лоадера
+            document.getElementById('loader-bg').style.display = 'none'
+            self.alert = 'Ошибка удаления данных!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          }
+        })
+      location.reload()
     }
   },
-  beforeMount () {
+  mounted () {
     this.user()
   }
 }
