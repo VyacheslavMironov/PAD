@@ -7,7 +7,14 @@
     <div class="offcanvas-body">
       <div v-if="this.user_info" class="list-group mt-2">
         <a
-          v-if="this.user_info.role === 'Директор'"
+          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
+          href="/group-all"
+          class="list-group-item btn"
+        >Группы</a>
+      </div>
+      <div v-if="this.user_info" class="list-group mt-2">
+        <a
+          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
           href="/journal-settings"
           class="list-group-item btn"
         >Настройки журнала</a>
@@ -34,7 +41,7 @@ export default {
       for (var i = 0, len = cookies.length; i < len; i++) {
         var cookie = cookies[i].split(/=/)
 
-        if (cookie[0] === ' user') {
+        if (cookie[0] === 'user' || cookie[0] === ' user') {
           document.cookie = cookie[0] + '=;max-age=-1'
           window.location.href = '/'
         }

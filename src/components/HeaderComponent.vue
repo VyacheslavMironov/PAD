@@ -7,6 +7,7 @@
             <b>PAD</b>
           </h2>
         </a>
+        <!--
         <button
           class="navbar-toggler"
           type="button"
@@ -18,6 +19,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
             v-if="this.is_auth > 0"
@@ -83,7 +85,7 @@
           <!-- Компонент кнопки логаута -->
           <div class="w-100">
             <button
-              v-if="this.is_auth > 0"
+              v-if="this.is_auth >= 0"
               id="btn_menu"
               type="button"
               class="right btn"

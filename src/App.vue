@@ -3,7 +3,10 @@
     <HeaderComponent v-bind:is_auth=this.is_auth />
     <MenuComponent v-bind:user_info=this.user_info  />
     <ContentComponent>
-      <router-view v-bind:is_auth=this.is_auth />
+      <router-view
+        v-bind:is_auth=this.is_auth
+        v-bind:token=this.token
+      />
     </ContentComponent>
     <FooterComponent />
   </section>
@@ -24,6 +27,7 @@ export default {
   name: 'HomeView',
   data () {
     return {
+      token: null,
       is_auth: document.cookie.search('user'),
       user_info: null
     }
@@ -36,8 +40,14 @@ export default {
   },
   methods: {
     user: function () {
-      if (this.is_auth > 0) {
-        axios.get('http://localhost:5000/api/user/user-info?access_token=' + document.cookie.split(';')[1].split('=')[1].split(' ')[1],
+      if (this.is_auth >= 0) {
+        var cookies = document.cookie.split(';')
+        for (var i in cookies) {
+          if (cookies[i].indexOf('user') >= 0) {
+            this.token = cookies[i].split('=')[1].split(' ')[1]
+          }
+        }
+        axios.get('http://localhost:5000/api/user/user-info?access_token=' + this.token,
           {
             headers: {
               'Content-Type': 'application/json'

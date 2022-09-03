@@ -21,6 +21,10 @@ a{
 a:hover{
 
 }
+
+label smail{
+    font-size: 0.8em;
+}
 svg{
     fill: #dc3545;
     height: 2em;
@@ -122,6 +126,9 @@ footer{
 }
 .l-30{
     left: 30%!important;
+}
+.mt-8{
+    margin-top: 8em!important;
 }
 .right{
     float: right;
@@ -229,6 +236,43 @@ section ._card ul li:hover{
     background: #00000017;
 }
 /* END */
+.svg-var{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+.icon-var{
+    width: 27%;
+    height: 8%;
+    display: block;
+    margin-top: 1em!important;
+    border-radius: 5em;
+}
+.icon-var:hover{
+    transition: .6s;
+    fill: #dc3545!important;
+    cursor: pointer;
+}
+.bg-gray{
+    background: #d9d9d9;
+    padding: 0.6em;
+    border-radius: 1em;
+    overflow: auto;
+    height: 20em;
+}
+.list-group-item{
+    cursor: pointer;
+    color: #2c3e50;
+    font-weight: bold;
+}
+.list-group-item.active {
+    cursor: pointer;
+    color: #fff!important;
+    background-color: #F62626!important;
+}
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
 .badge{
     font-size: 0.6em!important;

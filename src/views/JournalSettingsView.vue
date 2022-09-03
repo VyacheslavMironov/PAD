@@ -91,13 +91,13 @@
               <div class="row">
                 <div class="mb-3 col-6">
                   <label class="form-label">
-                    <b>Ваше имя</b>
+                    <b>Введите имя</b>
                   </label>
                   <input type="text" id="user_name" v-model="first_name" class="form-control">
                 </div>
                 <div class="mb-3 col-6">
                   <label class="form-label">
-                    <b>Ваша фамилия</b>
+                    <b>Введите фамилию</b>
                   </label>
                   <input type="text" id="user_surname" v-model="last_name" class="form-control">
                 </div>
@@ -107,8 +107,10 @@
                   <b>Должность</b>
                 </label>
                 <select class="form-select" v-model="role" aria-label="Default select example">
-                  <option value="Администратор" selected>Администратор</option>
-                  <option value="Преподаватель">Преподаватель</option>
+                  <option v-if="this.user_type === 'Директор'" value="Администратор" selected>Администратор</option>
+                  <option v-if="this.user_type === 'Директор' || this.user_type === 'Администратор'" value="Преподаватель">Преподаватель</option>
+                  <option v-if="this.user_type === 'Администратор'" value="Студент">Студент</option>
+                  <option v-if="this.user_type === 'Администратор'" value="Родитель">Родитель</option>
                 </select>
               </div>
               <div class="mb-3">
@@ -116,6 +118,22 @@
                   <b>Электронная почта</b>
                 </label>
                 <input type="email" id="user_email" v-model="email" class="form-control">
+              </div>
+              <div v-if="this.user_type === 'Администратор'" class="col-6">
+                <div class="mb-3">
+                  <label class="form-label">
+                    <b>Группа</b> <smail>(Не обязательно)</smail>
+                  </label>
+                  <form>
+                    <select class="form-select" v-model="group" aria-label="Default select example">
+                      <option
+                        v-for="i in this.group_list"
+                        v-bind:key="i"
+                        v-bind:value="i.id"
+                      >{{ i.name }}</option>
+                    </select>
+                  </form>
+                </div>
               </div>
               <!-- Компонент кнопки -->
               <ButtonComponent text="Сохранить" v-on:click="this.create_user()" css_class="btn mt-2 right"/>
@@ -126,7 +144,7 @@
               <h5>Редактирование персонала</h5>
               <br>
               <p>Выберите должность</p>
-              <div class="form-check">
+              <div v-if="this.user_type === 'Директор'" class="form-check">
                 <input
                   class="form-check-input"
                   v-on:click="all_show_user('Администратор')"
@@ -138,7 +156,7 @@
                   Администратор
                 </label>
               </div>
-              <div class="form-check">
+              <div v-if="this.user_type === 'Директор' || this.user_type === 'Администратор'" class="form-check">
                 <input
                   class="form-check-input"
                   v-on:click="all_show_user('Преподаватель')"
@@ -148,6 +166,30 @@
                 >
                 <label class="form-check-label" for="teacher">
                   Преподаватель
+                </label>
+              </div>
+              <div v-if="this.user_type === 'Администратор'" class="form-check">
+                <input
+                  class="form-check-input"
+                  v-on:click="all_show_user('Студент')"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="teacher"
+                >
+                <label class="form-check-label" for="teacher">
+                  Студент
+                </label>
+              </div>
+              <div v-if="this.user_type === 'Администратор'" class="form-check">
+                <input
+                  class="form-check-input"
+                  v-on:click="all_show_user('Родитель')"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="teacher"
+                >
+                <label class="form-check-label" for="teacher">
+                  Родитель
                 </label>
               </div>
               <section id="personal-info" class="d-none">
@@ -173,7 +215,7 @@
                 <div class="row">
                   <div class="mb-3 col-6">
                     <label class="form-label">
-                      <b>Ваше имя</b>
+                      <b>Введите имя</b>
                     </label>
                     <input type="text" id="user_name" v-model="update_first_name" class="form-control">
                   </div>
@@ -190,8 +232,10 @@
                     <b>Должность</b>
                   </label>
                   <select class="form-select" v-model="update_role" aria-label="Default select example">
-                    <option value="Администратор" selected>Администратор</option>
-                    <option value="Преподаватель">Преподаватель</option>
+                    <option v-if="this.user_type === 'Директор'" value="Администратор" selected>Администратор</option>
+                    <option v-if="this.user_type === 'Директор' || this.user_type === 'Администратор'" value="Преподаватель">Преподаватель</option>
+                    <option v-if="this.user_type === 'Администратор'" value="Студент">Студент</option>
+                    <option v-if="this.user_type === 'Администратор'" value="Родитель">Родитель</option>
                   </select>
                 </div>
                 <div class="mb-3">
@@ -289,7 +333,10 @@ import ButtonComponent from '@/components/ButtonComponent.vue'
 export default {
   data () {
     return {
+      group: null,
+      group_list: null,
       user_info: null,
+      user_type: null,
       users: null,
       alert: '',
       organization_id: null,
@@ -310,7 +357,8 @@ export default {
     }
   },
   props: {
-    is_auth: Number
+    is_auth: Number,
+    token: String
   },
   components: {
     CardFormComponent,
@@ -320,9 +368,8 @@ export default {
   },
   methods: {
     user: function () {
-      console.log('error')
-      if (this.is_auth > 0) {
-        axios.get('http://localhost:5000/api/user/user-info?access_token=' + document.cookie.split(';')[1].split('=')[1].split(' ')[1],
+      if (this.is_auth >= 0) {
+        axios.get('http://localhost:5000/api/user/user-info?access_token=' + this.token,
           {
             headers: {
               'Content-Type': 'application/json'
@@ -333,11 +380,25 @@ export default {
             this.user_info = response.data[0].message
             // Вызывать методы использующие пользовательские данные ниже
             this.lesson_show(this.user_info.organization_id)
+            this.all_group(this.user_info.organization_id)
+            this.user_type = this.user_info.role
           })
           .catch(function (error) {
             console.log(error)
           })
       }
+    },
+    all_group (organizationId) {
+      axios.get('http://localhost:5000/api/group/all-group?organization_id=' + organizationId,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
+        })
+        .then((response) => {
+          this.group_list = response.data[0].message.list
+        })
     },
     create_user () {
       // Генерация пароля
@@ -363,36 +424,28 @@ export default {
           role: this.role,
           first_name: this.first_name,
           last_name: this.last_name,
-          username: this.email,
           email: this.email,
-          password: 'user' + generate
+          password: 'user' + generate,
+          group: this.group
         }
       )
         .then((response) => {
-          if (response.data.response === false) {
-            this.alert = response.data.message
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-          } else {
-            // Очистка полей
-            this.first_name = ''
-            this.last_name = ''
-            this.role = ''
-            this.email = ''
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-            this.message = 'Проверьте почту, туда выслано сообщение для активации аккаунта.'
-          }
+          this.alert = 'Данные успешно сохранены'
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1
+          // Деактивация лоадера
+          document.getElementById('loader-bg').style.display = 'none'
+          // Очистка полей
+          this.first_name = ''
+          this.last_name = ''
+          this.email = ''
+          this.role = ''
         })
         .catch(function (error) {
-          console.log(error.response)
           if (error.response) {
-            console.log(error)
             // Деактивация лоадера
             document.getElementById('loader-bg').style.display = 'none'
-            self.alert = 'Данная организация уже существует!'
+            self.alert = 'Ошибка сохранения данных!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           }

@@ -32,6 +32,12 @@ const routes = [
     name: 'group_all',
     component: () => import('../views/GroupAllView.vue'),
     props: true
+  },
+  {
+    path: '/group-show',
+    name: 'group_show',
+    component: () => import('../views/GroupShowView.vue'),
+    props: true
   }
 ]
 
