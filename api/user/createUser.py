@@ -7,7 +7,7 @@ from flask import jsonify, make_response
 
 from api.email import verificationUser
 from core.model.user import registration
-from core.db.dbo import session, User
+from core.db.dbo import session, User, UserGroups
 from core.exeption.userExeption import (
     ExeptionUserRegistration,
     ExeptionUserDouble,
@@ -23,12 +23,13 @@ HOST = context.getElementsByTagName("host").item(0).attributes["host"].value
 PORT = context.getElementsByTagName("host").item(0).attributes["port"].value
 
 class Api(registration.AbstractRegistration):
-    def __init__(self, organization_name, first_name, last_name, email, role, password):
+    def __init__(self, organization_name, first_name, last_name, email, role, password, group=None):
         self.api_organization_name = organization_name
         self.api_first_name = first_name
         self.api_last_name = last_name
         self.api_email = email
         self.api_role = role
+        self.api_group = group
         self.api_password = password
         self.data = {}
 
@@ -83,7 +84,20 @@ class Api(registration.AbstractRegistration):
                     self.data["organization_id"] = i.organization_id
 
             if "id" in self.data and "email" in self.data and "role" in self.data and "organization_id" in self.data:
-                pass
+                if self.api_group != None:
+                    try:
+                        # Сохранение данных организации
+                        session.add(
+                            UserGroups(
+                                groups_id=self.api_group,
+                                organization_id=self.data["organization_id"],
+                                user_id=self.data["id"]
+                            )
+                        )
+                        session.commit()
+                        self.data['group'] = self.api_group
+                    except (sqlalchemy.exc.IntegrityError, pymysql.err.IntegrityError):
+                        jsonify({"response": "Ошибка сохранения в группу, обратитесь в поддержку."}, 500)
             else:
                 return jsonify({"response": "Ошибка сервера!"}, 500)
 

@@ -88,11 +88,26 @@ class Group(Base):
     __tablename__ = 'groups'
     id = Column(BigInteger(), primary_key=True, autoincrement=True)
     organization_id = Column(ForeignKey('organizations.id'))
-    user_id = Column(ForeignKey('users.user_id'), unique=True)
+    user_id = Column(ForeignKey('users.user_id'))
     name = Column(CHAR(180))
+
 
 """
 """
+class UserGroups(Base):
+    __tablename__ = 'user_groups'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    groups_id = Column(ForeignKey('groups.id'))
+    organization_id = Column(ForeignKey('organizations.id'))
+    user_id = Column(ForeignKey('users.user_id'), unique=True)
+    created_at = Column(DATETIME(), default=datetime.now())
+
+
+
+
+
+
+
 # class Journal(BaseModel):
 #     '''
 #     При создании журнала, администратор должен выбрать студентов, которые

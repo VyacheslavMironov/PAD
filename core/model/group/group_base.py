@@ -11,5 +11,9 @@ class AbstractGroup(ABC):
         pass
 
     @abstractmethod
+    def abstract_group_id(self):
+        pass
+
+    @abstractmethod
     def abstract_name(self):
         pass

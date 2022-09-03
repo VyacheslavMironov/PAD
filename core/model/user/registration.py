@@ -24,5 +24,5 @@ class AbstractRegistration(ABC):
         pass
 
     @abstractmethod
-    def abstract_password(self) -> str:
+    def abstract_organization_name(self) -> int:
         pass

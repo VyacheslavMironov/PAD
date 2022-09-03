@@ -26,58 +26,64 @@ from api.user import (
 from api.group import (
     createGroup,
     viewGroup,
-    updateGroup
+    createUserGroup,
+    removeUserGroup
 )
 from api.email import verificationUser, reset_password
 from core.db.dbo import engine, Base
 
 
-#======================================================================
-#===================== Извлечение данных конфига ======================
-#======================================================================
+# ======================================================================
+# ===================== Извлечение данных конфига ======================
+# ======================================================================
 conf = ConfigParser()
 conf.read(filenames='settings.ini')
 DEBUG = conf['WEB']['debug']
 HOST = conf['WEB']['host']
 PORT = conf['WEB']['port']
-#======================================================================
-#======================= Создание точки входа =========================
-#======================================================================
+# ======================================================================
+# ======================= Создание точки входа =========================
+# ======================================================================
 app = Flask(__name__)
-#======================================================================
-#========================= Создание миграций ==========================
-#======================================================================
+# ======================================================================
+# ========================= Создание миграций ==========================
+# ======================================================================
 Base.metadata.create_all(bind=engine)
-#======================================================================
-#=========================== Настройка CORS ===========================
-#======================================================================
+# ======================================================================
+# =========================== Настройка CORS ===========================
+# ======================================================================
 cors = CORS(app, resources={r"/*": {"origins": "*"}}, headers='Content-Type')
 app.config['CORS_HEADERS'] = 'Content-Type'
-#======================================================================
-#====================== Настройка генератора JWT ======================
-#======================================================================
+# ======================================================================
+# ====================== Настройка генератора JWT ======================
+# ======================================================================
 app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
 jwt = JWTManager(app)
 app.config["JWT_COOKIE_SECURE"] = False
 app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
 app.config["JWT_SECRET_KEY"] = "super-secret"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
-#======================================================================
-#======================= URL маршрутизация API ========================
-#======================================================================
+
+
+# ======================================================================
+# ======================= URL маршрутизация API ========================
+# ======================================================================
 @app.route('/api', methods=["GET"])
 def api_index():
     pass
+
 
 @app.route('/api/organization/create-organization', methods=["POST"])
 @cross_origin()
 def api_create_organization():
     return createOrganization.Api(organization_name=request.get_json().get('name')).save()
 
+
 @app.route('/api/organization/show-organization', methods=["Get"])
 @cross_origin()
 def api_show_organization():
     return showOrganization.Api(organization_id=request.args.get('id')).show()
+
 
 @app.route('/api/user/create-user', methods=["POST"])
 @cross_origin()
@@ -96,20 +102,22 @@ def api_create_user():
 
         organization_id = data[0]["message"]["id"]
 
-
     return createUser.Api(
         organization_name=organization_id,
         first_name=request.get_json().get('first_name'),
         last_name=request.get_json().get('last_name'),
         email=request.get_json().get('email'),
         role=request.get_json().get('role'),
-        password=request.get_json().get('password')
+        password=request.get_json().get('password'),
+        group=request.get_json().get('group')
     ).save()
+
 
 @app.route('/api/user/activate', methods=["PUT"])
 @cross_origin()
 def api_activate():
     return activate.Api(user_id=request.args.get('id')).activate()
+
 
 @app.route('/api/user/auth', methods=["POST"])
 @cross_origin()
@@ -118,6 +126,7 @@ def api_auth():
         email=request.get_json().get('email'),
         password=request.get_json().get('password')
     ).auth()
+
 
 @app.route('/api/user/update-user', methods=["PUT"])
 @cross_origin()
@@ -130,20 +139,25 @@ def api_update_user():
         email=request.get_json().get('email')
     ).update()
 
+
 @app.route('/api/user/user-info', methods=["GET"])
 @cross_origin()
 def api_user_info():
     return user_info.Api(access_token=request.args.get('access_token')).show()
 
+
 @app.route('/api/user/all-user', methods=["GET"])
 @cross_origin()
 def api_all_user():
-    return user_info.Api(access_token='', role=request.args.get('role'), organization_id=request.args.get('organization_id')).all()
+    return user_info.Api(access_token='', role=request.args.get('role'),
+                         organization_id=request.args.get('organization_id')).all()
+
 
 @app.route('/api/user/block-user', methods=["POST"])
 @cross_origin()
 def api_block_user():
     pass
+
 
 @app.route('/api/email/send-verification', methods=["POST"])
 @cross_origin()
@@ -152,6 +166,7 @@ def api_email_verification():
         email=request.get_json().get('email'),
         first_name=request.get_json().get('first_name')
     ).send()
+
 
 @app.route('/api/email/reset-password', methods=["PUT"])
 @cross_origin()
@@ -167,6 +182,7 @@ def api_reset_password():
         password=new_password
     ).send()
 
+
 @app.route('/api/lesson/create-lesson', methods=["POST"])
 @cross_origin()
 def api_create_lesson():
@@ -175,12 +191,14 @@ def api_create_lesson():
         lesson=request.get_json().get('lesson')
     ).add()
 
+
 @app.route('/api/lesson/lesson-all', methods=["GET"])
 @cross_origin()
 def api_show_lesson():
     return showLesson.Api(
         organization_id=request.args.get('organization_id')
     ).show()
+
 
 @app.route('/api/lesson/update-lesson', methods=["PUT"])
 @cross_origin()
@@ -191,6 +209,7 @@ def api_update_lesson():
         lesson=request.get_json().get('lesson')
     ).update()
 
+
 @app.route('/api/lesson/drop-lesson', methods=["DELETE"])
 @cross_origin()
 def api_drop_lesson():
@@ -198,6 +217,7 @@ def api_drop_lesson():
         id=request.args.get('id'),
         organization_id=request.args.get('organization_id')
     ).drop()
+
 
 @app.route('/api/group/create-group', methods=["POST"])
 @cross_origin()
@@ -208,6 +228,7 @@ def api_create_group():
         name=request.get_json().get('name')
     ).save()
 
+
 @app.route('/api/group/all-group', methods=["GET"])
 @cross_origin()
 def api_all_group():
@@ -215,20 +236,30 @@ def api_all_group():
         organization_id=request.args.get('organization_id')
     ).all()
 
+
 @app.route('/api/group/show-group', methods=["GET"])
 @cross_origin()
 def api_show_group():
     return viewGroup.Api(
-        id=request.args.get('id')
-        organization_id=request.args.get('organization_id')
+        organization_id=request.args.get('organization_id'),
+        group_id=request.args.get('group_id')
     ).show()
 
-@app.route('/api/group/update-group', methods=["GET"])
+
+@app.route('/api/group/add-user', methods=["POST"])
 @cross_origin()
-def api_update_group():
-    return updateGroup.Api(
-        id=request.get_json().get('id'),
+def api_add_user():
+    return createUserGroup.Api(
+        group_id=request.get_json().get('group_id'),
         organization_id=request.get_json().get('organization_id'),
-        user_id=request.get_json().get('user_id'),
-        name=request.get_json().get('name')
-    ).update()
+        user_id=request.get_json().get('user_id')
+    ).save()
+
+
+@app.route('/api/group/remove-user', methods=["DELETE"])
+@cross_origin()
+def api_remove_user():
+    print(request.args.get('user_id'))
+    return removeUserGroup.Api(
+        user_id=request.args.get('user_id')
+    ).remove()
