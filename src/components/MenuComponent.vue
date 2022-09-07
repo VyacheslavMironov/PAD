@@ -14,6 +14,13 @@
       </div>
       <div v-if="this.user_info" class="list-group mt-2">
         <a
+          v-if="this.user_info.role === 'Администратор'"
+          href="/timetable-create"
+          class="list-group-item btn"
+        >Расписание</a>
+      </div>
+      <div v-if="this.user_info" class="list-group mt-2">
+        <a
           v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
           href="/journal-settings"
           class="list-group-item btn"

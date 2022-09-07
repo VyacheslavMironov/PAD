@@ -38,6 +38,12 @@ const routes = [
     name: 'group_show',
     component: () => import('../views/GroupShowView.vue'),
     props: true
+  },
+  {
+    path: '/timetable-create',
+    name: 'timetable_create',
+    component: () => import('../views/TimetableView.vue'),
+    props: true
   }
 ]
 

@@ -78,7 +78,6 @@ header, footer{
 footer{
     margin-top: 5em;
 }
-
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -272,6 +271,16 @@ section ._card ul li:hover{
     cursor: pointer;
     color: #fff!important;
     background-color: #F62626!important;
+}
+.pointer{
+    cursor: pointer;
+}
+.group-list li.active{
+    background-color: #dc3545!important;
+    color: #fff;
+}
+#day-list button.day-no{
+    background: #c1c1c1!important;
 }
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
 .badge{
