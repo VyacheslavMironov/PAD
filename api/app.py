@@ -29,6 +29,11 @@ from api.group import (
     createUserGroup,
     removeUserGroup
 )
+from api.timetable import (
+    createTimetable,
+    showTimetable,
+    deleteTimetable
+)
 from api.email import verificationUser, reset_password
 from core.db.dbo import engine, Base
 
@@ -263,3 +268,34 @@ def api_remove_user():
     return removeUserGroup.Api(
         user_id=request.args.get('user_id')
     ).remove()
+
+
+@app.route('/api/timetable/create-timetable', methods=["POST"])
+@cross_origin()
+def api_create_timetable():
+    return createTimetable.Api(
+        organization_id=request.get_json().get('organization_id'),
+        groups_id=request.get_json().get('groups_id'),
+        lesson_id=request.get_json().get('lesson_id'),
+        day=request.get_json().get('day'),
+        time_start=request.get_json().get('time_start'),
+        time_end=request.get_json().get('time_end'),
+    ).save()
+
+
+@app.route('/api/timetable/show-timetable', methods=["GET"])
+@cross_origin()
+def api_show_timetable():
+    return showTimetable.Api(
+        organization_id=request.args.get('organization_id'),
+        groups_id=request.args.get('groups_id')
+    ).show()
+
+
+@app.route('/api/timetable/delete-timetable', methods=["DELETE"])
+@cross_origin()
+def api_delete_timetable():
+    print(123)
+    return deleteTimetable.Api(
+        id=request.args.get('id')
+    ).drop()

@@ -13,7 +13,7 @@ from sqlalchemy import (
     Integer,
     CHAR,
     String,
-    CheckConstraint,
+    TIME,
     Boolean,
     ForeignKey
 )
@@ -103,7 +103,15 @@ class UserGroups(Base):
     created_at = Column(DATETIME(), default=datetime.now())
 
 
-
+class Timetable(Base):
+    __tablename__ = 'timetables'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    organization_id = Column(ForeignKey('organizations.id'))
+    groups_id = Column(ForeignKey('groups.id'))
+    lesson_id = Column(ForeignKey('lessons.id'))
+    day = Column(Integer())
+    time_start = Column(TIME())
+    time_end = Column(TIME())
 
 
 
