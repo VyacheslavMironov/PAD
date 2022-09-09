@@ -33,12 +33,14 @@ engine = create_engine(f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}/{NAME}", e
 engine.connect()
 metadata = MetaData()
 
-session = scoped_session(sessionmaker(
-    autocommit=False, autoflush=False, bind=engine))
+session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 
 Base = declarative_base()
 Base.query = session.query_property()
 
+
+"""
+"""
 class Organization(Base):
     __tablename__ = 'organizations'
     id = Column(BigInteger(), primary_key=True, autoincrement=True)
@@ -84,6 +86,16 @@ class Lesson(Base):
 
 """
 """
+class UserLesson(Base):
+    __tablename__ = 'user-lessons'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    lesson_id = Column(ForeignKey('lessons.id'))
+    user_id = Column(ForeignKey('users.user_id'))
+
+
+
+"""
+"""
 class Group(Base):
     __tablename__ = 'groups'
     id = Column(BigInteger(), primary_key=True, autoincrement=True)
@@ -103,6 +115,8 @@ class UserGroups(Base):
     created_at = Column(DATETIME(), default=datetime.now())
 
 
+"""
+"""
 class Timetable(Base):
     __tablename__ = 'timetables'
     id = Column(BigInteger(), primary_key=True, autoincrement=True)
@@ -114,18 +128,18 @@ class Timetable(Base):
     time_end = Column(TIME())
 
 
-
-
-# class Journal(BaseModel):
-#     '''
-#     При создании журнала, администратор должен выбрать студентов, которые
-#     не записаны ни в какой другой журнал.
-#     '''
-#     id = BigIntegerField(primary_key=True, unique=True, constraints=[SQL('AUTO_INCREMENT')])
-#     name = CharField(max_length=150)
-#     value = CharField(max_length=150, null=True)
-#     value_per_semester = CharField(max_length=150, null=True)
-#     value_per_year = CharField(max_length=150, null=True)
-#     create_at = DateField(default=datetime.now())
-#     user_id = ForeignKeyField(User, backref="user_id")
-#     organization_id = ForeignKeyField(Organization, backref="id")
+"""
+"""
+class Journal(Base):
+    __tablename__ = 'journal'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    organization_id = Column(ForeignKey('organizations.id'))
+    lesson_id = Column(ForeignKey('lessons.id'))
+    user_id = Column(ForeignKey('users.user_id'))
+    groups_id = Column(ForeignKey('groups.id'))
+    value = Column(CHAR(6), nullable=True)
+    day = Column(CHAR(2), nullable=True)
+    month = Column(CHAR(2), nullable=True)
+    year = Column(CHAR(5), nullable=True)
+    semester = Column(CHAR(6), nullable=True)
+    years = Column(CHAR(6), nullable=True)

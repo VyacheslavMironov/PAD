@@ -3,14 +3,15 @@ import sqlalchemy
 from flask import jsonify
 
 from core.model.user import show
-from core.db.dbo import session, engine, User, AccessToken
+from core.db.dbo import session, engine, User, AccessToken, UserGroups
 from core.exeption.userExeption import ExeptionUserFindNotFound
 
 
 class Api(show.AbstractUserInfo):
-    def __init__(self, access_token='', role='', organization_id=0):
+    def __init__(self, access_token='', role='', organization_id=0, group_id=None):
         self.api_access_token = access_token
         self.api_role = role
+        self.api_group_id = group_id
         self.api_organization_id = organization_id
         self.user_token = None
         self.data = {}
@@ -51,14 +52,28 @@ class Api(show.AbstractUserInfo):
         # Формирование списка
         self.data["users"] = []
         for i in users:
-            self.data["users"].append(
-                {
-                    "user_id": i.user_id,
-                    "first_name": i.firstName,
-                    "last_name": i.lastName,
-                    "email": i.email,
-                    "role": i.role,
-                }
-            )
+            if self.api_group_id:
+                group_user = engine.execute(f"SELECT user_id FROM user_groups WHERE groups_id={self.api_group_id}").fetchall()
+                for j in group_user:
+                    if j[0] == i.user_id:
+                        self.data["users"].append(
+                            {
+                                "user_id": i.user_id,
+                                "first_name": i.firstName,
+                                "last_name": i.lastName,
+                                "email": i.email,
+                                "role": i.role,
+                            }
+                        )
+            else:
+                self.data["users"].append(
+                    {
+                        "user_id": i.user_id,
+                        "first_name": i.firstName,
+                        "last_name": i.lastName,
+                        "email": i.email,
+                        "role": i.role,
+                    }
+                )
 
         return jsonify({"response": True, "message": self.data}, 200)

@@ -3,7 +3,7 @@ import sqlalchemy
 from flask import jsonify
 
 from core.model.timetable import showTimetable
-from core.db.dbo import session, Timetable, Lesson
+from core.db.dbo import session, Timetable, Lesson, UserLesson
 from core.exeption.timetableExeption import (
     ExeptionTimetableFindNotFound,
     ExeptionTimetableNone
@@ -11,9 +11,11 @@ from core.exeption.timetableExeption import (
 
 
 class Api(showTimetable.AbstractShowTimetable):
-    def __init__(self, organization_id, groups_id):
+    def __init__(self, organization_id=-1, groups_id=-1, user_id=None, lesson_id=None):
         self.api_organization_id = organization_id
-        self.api_groups_id = groups_id
+        self.api_groups_id = groups_id,
+        self.api_user_id = user_id
+        self.api_lesson_id = lesson_id
         self.data = {}
 
     def abstract_organization_id(self):
@@ -58,5 +60,18 @@ class Api(showTimetable.AbstractShowTimetable):
         except (sqlalchemy.exc.IntegrityError, pymysql.err.IntegrityError):
             return jsonify({"response": False, "message": "Такая группа уже существует"}, 500)
 
+    def teacher_lesson(self):
+        self.data['list'] = []
+        for i in session.query(UserLesson).where(UserLesson.user_id):
+            for j in session.query(Lesson).where(Lesson.id == i.lesson_id):
+                self.data['list'].append({'id': i.id, 'lesson': j.lesson})
+        return jsonify({"response": True, "message": self.data}, 200)
+
+
     def all(self):
-        pass
+        # ..................................................................................
+        # ..................................................................................
+        # ..................................................................................
+        # ..................................................................................
+        # ..................................................................................
+        return jsonify({"response": True, "message": self.data}, 200)

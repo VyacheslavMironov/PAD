@@ -7,7 +7,7 @@ from flask import jsonify, make_response
 
 from api.email import verificationUser
 from core.model.user import registration
-from core.db.dbo import session, User, UserGroups
+from core.db.dbo import session, User, UserGroups, UserLesson
 from core.exeption.userExeption import (
     ExeptionUserRegistration,
     ExeptionUserDouble,
@@ -23,13 +23,14 @@ HOST = context.getElementsByTagName("host").item(0).attributes["host"].value
 PORT = context.getElementsByTagName("host").item(0).attributes["port"].value
 
 class Api(registration.AbstractRegistration):
-    def __init__(self, organization_name, first_name, last_name, email, role, password, group=None):
+    def __init__(self, organization_name, first_name, last_name, email, role, password, group=None, lesson_up=None):
         self.api_organization_name = organization_name
         self.api_first_name = first_name
         self.api_last_name = last_name
         self.api_email = email
         self.api_role = role
         self.api_group = group
+        self.api_lesson_up = lesson_up
         self.api_password = password
         self.data = {}
 
@@ -98,6 +99,17 @@ class Api(registration.AbstractRegistration):
                         self.data['group'] = self.api_group
                     except (sqlalchemy.exc.IntegrityError, pymysql.err.IntegrityError):
                         jsonify({"response": "Ошибка сохранения в группу, обратитесь в поддержку."}, 500)
+
+                if self.api_lesson_up != None:
+                    for i in self.api_lesson_up.split(','):
+                        if i != '':
+                            session.add(
+                                UserLesson(
+                                    lesson_id=int(i),
+                                    user_id=int(self.data["id"])
+                                )
+                            )
+                            session.commit()
             else:
                 return jsonify({"response": "Ошибка сервера!"}, 500)
 

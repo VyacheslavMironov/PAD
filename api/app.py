@@ -34,6 +34,10 @@ from api.timetable import (
     showTimetable,
     deleteTimetable
 )
+from api.journal import (
+    addValueJournal,
+    allValueJournal
+)
 from api.email import verificationUser, reset_password
 from core.db.dbo import engine, Base
 
@@ -114,7 +118,8 @@ def api_create_user():
         email=request.get_json().get('email'),
         role=request.get_json().get('role'),
         password=request.get_json().get('password'),
-        group=request.get_json().get('group')
+        group=request.get_json().get('group'),
+        lesson_up=request.get_json().get('lesson_up')
     ).save()
 
 
@@ -154,8 +159,13 @@ def api_user_info():
 @app.route('/api/user/all-user', methods=["GET"])
 @cross_origin()
 def api_all_user():
-    return user_info.Api(access_token='', role=request.args.get('role'),
-                         organization_id=request.args.get('organization_id')).all()
+    print(request.args.get('group_id'))
+    return user_info.Api(
+        access_token='',
+        role=request.args.get('role'),
+        group_id=request.args.get('group_id'),
+        organization_id=request.args.get('organization_id')
+    ).all()
 
 
 @app.route('/api/user/block-user', methods=["POST"])
@@ -299,3 +309,36 @@ def api_delete_timetable():
     return deleteTimetable.Api(
         id=request.args.get('id')
     ).drop()
+
+
+@app.route('/api/timetable/show-timetable/teacher', methods=["GET"])
+@cross_origin()
+def api_show_timetable_teacher():
+    return showTimetable.Api(
+        user_id=request.args.get('user_id')
+    ).teacher_lesson()
+
+
+@app.route('/api/journal/add', methods=["POST"])
+@cross_origin()
+def api_add_value_journal():
+    print(request.get_json().get('day'))
+    return addValueJournal.Api(
+        organization_id=request.get_json().get('organization_id'),
+        user_id=request.get_json().get('user_id'),
+        groups_id=request.get_json().get('groups_id'),
+        lesson_id=request.get_json().get('lesson_id'),
+        value=request.get_json().get('value'),
+        day=request.get_json().get('day'),
+        month=request.get_json().get('month'),
+        year=request.get_json().get('year'),
+    ).add()
+
+
+@app.route('/api/journal/all', methods=["GET"])
+@cross_origin()
+def api_all_journal():
+    return showTimetable.Api(
+        organization_id=request.args.get('organization_id'),
+        lesson_id=request.args.get('lesson_id')
+    ).all()
