@@ -102,7 +102,7 @@
                   <input type="text" id="user_surname" v-model="last_name" class="form-control">
                 </div>
               </div>
-              <div class="mb-3">
+              <div class="mb-4">
                 <label class="form-label">
                   <b>Должность</b>
                 </label>
@@ -113,6 +113,25 @@
                   <option v-if="this.user_type === 'Администратор'" value="Родитель">Родитель</option>
                 </select>
               </div>
+              <div v-if="this.role === 'Преподаватель'" class="mb-4">
+                <label class="form-label">
+                  <b>Выберите предметы которые будет вести преподаватель</b>
+                </label>
+                <div class="row">
+                  <div
+                  v-for="i in this.lesson_list"
+                  v-bind:key="i"
+                  class="col-4"
+                  >
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" v-on:click="lesson_for(i.id)" v-bind:id="i.id">
+                    <label class="form-check-label" v-bind:for="i.id">
+                      {{ i.lesson }}
+                    </label>
+                  </div>
+                </div>
+                </div>
+              </div>
               <div class="mb-3">
                 <label class="form-label">
                   <b>Электронная почта</b>
@@ -120,7 +139,7 @@
                 <input type="email" id="user_email" v-model="email" class="form-control">
               </div>
               <div v-if="this.user_type === 'Администратор'" class="col-6">
-                <div class="mb-3">
+                <div v-if="this.role && this.role === 'Студент'" class="mb-3">
                   <label class="form-label">
                     <b>Группа</b> <smail>(Не обязательно)</smail>
                   </label>
@@ -244,6 +263,25 @@
                   </label>
                   <input type="email" id="user_email" v-model="update_email" class="form-control">
                 </div>
+                <div v-if="this.update_role === 'Преподаватель'" class="mb-4">
+                <label class="form-label">
+                  <b>Выберите предметы которые будет вести преподаватель</b>
+                </label>
+                <div class="row">
+                  <div
+                    v-for="i in this.lesson_list"
+                    v-bind:key="i"
+                    class="col-4"
+                  >
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" v-on:click="lesson_for(i.id)" v-bind:id="i.id">
+                    <label class="form-check-label" v-bind:for="i.id">
+                      {{ i.lesson }}
+                    </label>
+                  </div>
+                  </div>
+                </div>
+              </div>
                 <!-- Компонент кнопки -->
                 <ButtonComponent text="Обновить данные" v-on:click="this.update_user()" css_class="btn mt-2 right"/>
                 <!-- END -->
@@ -320,6 +358,7 @@
         </section>
       </div>
     </div>
+    {{this.lessonUp}}
   </main>
 </template>
 
@@ -353,7 +392,8 @@ export default {
       lesson: null,
       update_lesson: null,
       lesson_list: null,
-      update_lesson_list: []
+      update_lesson_list: [],
+      lessonUp: ''
     }
   },
   props: {
@@ -400,6 +440,31 @@ export default {
           this.group_list = response.data[0].message.list
         })
     },
+    lesson_for (lessonId) {
+      if (this.lessonUp.includes('' + lessonId)) {
+        var text = ''
+        var arr = this.lessonUp.split(',')
+        // Вырезка совпадений
+        for (var i = 0; i < arr.length; i++) {
+          if (String(arr[i]) !== String(lessonId)) {
+            text += arr[i] + ','
+          }
+        }
+        var s = []
+        var arrText = text.split(',')
+        for (var j = 0; j < arrText.length; j++) {
+          if (arrText[j] === '' || arrText[j] === ' ' || arrText[j] === ',') {
+            // Тут ничего не происходит
+          } else {
+            s.push(arrText[j])
+          }
+        }
+        this.lessonUp = s.join() + ','
+      } else {
+        this.lessonUp += '' + lessonId + ','
+      }
+      console.log(this.lessonUp)
+    },
     create_user () {
       // Генерация пароля
       let generate = ''
@@ -426,7 +491,8 @@ export default {
           last_name: this.last_name,
           email: this.email,
           password: 'user' + generate,
-          group: this.group
+          group: this.group,
+          lesson_up: this.lessonUp
         }
       )
         .then((response) => {

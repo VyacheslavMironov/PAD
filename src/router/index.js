@@ -44,6 +44,12 @@ const routes = [
     name: 'timetable_create',
     component: () => import('../views/TimetableView.vue'),
     props: true
+  },
+  {
+    path: '/journal-group',
+    name: 'journal_group',
+    component: () => import('../views/JournalGroupView.vue'),
+    props: true
   }
 ]
 

@@ -26,6 +26,13 @@
           class="list-group-item btn"
         >Настройки журнала</a>
       </div>
+      <div v-if="this.user_info" class="list-group mt-2">
+        <a
+          v-if="this.user_info.role === 'Преподаватель' || this.user_info.role === 'Администратор'"
+          href="/journal-group"
+          class="list-group-item btn"
+        >Ведомость</a>
+      </div>
       <div class="list-group mt-5">
         <button
           type="button"
