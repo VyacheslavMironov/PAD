@@ -64,7 +64,7 @@ class Api(showTimetable.AbstractShowTimetable):
         self.data['list'] = []
         for i in session.query(UserLesson).where(UserLesson.user_id):
             for j in session.query(Lesson).where(Lesson.id == i.lesson_id):
-                self.data['list'].append({'id': i.id, 'lesson': j.lesson})
+                self.data['list'].append({'id': i.lesson_id, 'lesson': j.lesson})
         return jsonify({"response": True, "message": self.data}, 200)
 
 

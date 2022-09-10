@@ -23,9 +23,10 @@ HOST = context.getElementsByTagName("host").item(0).attributes["host"].value
 PORT = context.getElementsByTagName("host").item(0).attributes["port"].value
 
 class Api(group_base.AbstractGroup):
-    def __init__(self, name, organization_id=-1, user_id=-1):
+    def __init__(self, name, organization_id=-1, user_id=-1, group_id=-1):
         self.api_name = name
         self.api_organization_id = organization_id
+        self.api_group_id = group_id
         self.api_user_id = user_id
         self.data = {}
 
@@ -34,6 +35,10 @@ class Api(group_base.AbstractGroup):
 
     def abstract_user_id(self):
         return self.api_user_id if self.api_user_id is not None else ExeptionGroupFindNotFound('user_id').error()
+
+    def abstract_group_id(self):
+        return self.api_group_id if self.api_group_id is not None else ExeptionGroupFindNotFound('group_id').error()
+
 
     def abstract_name(self):
         return self.api_name if self.api_name is not None else ExeptionGroupFindNotFound('name').error()
