@@ -213,6 +213,7 @@ export default {
           }
         })
         .then((response) => {
+          console.log(response)
           this.lesson_list = response.data[0].message.list
           this.lesson_name = this.lesson_list[0].lesson
           // Деактивация лоадера
@@ -299,6 +300,7 @@ export default {
       // END
     },
     add_value (organizationId, lessonName, userId, xPosition, yPosition, value = null) {
+      console.log(this.lesson_list)
       // Определение позиционирования ввода
       if (yPosition > 0) {
         this.item_active = yPosition === 1 ? this.max_day + xPosition : (this.max_day * yPosition) + xPosition
