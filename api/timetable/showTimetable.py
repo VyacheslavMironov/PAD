@@ -3,7 +3,7 @@ import sqlalchemy
 from flask import jsonify
 
 from core.model.timetable import showTimetable
-from core.db.dbo import session, Timetable, Lesson, UserLesson
+from core.db.dbo import engine, session, Timetable, Lesson, UserLesson
 from core.exeption.timetableExeption import (
     ExeptionTimetableFindNotFound,
     ExeptionTimetableNone
@@ -63,17 +63,20 @@ class Api(showTimetable.AbstractShowTimetable):
 
     def teacher_lesson(self):
         self.data['list'] = []
-        if self.api_role == "Директор" or self.api_role == "Администратор":
-            for x in session.query(Lesson).where(Lesson.organization_id == self.abstract_organization_id()):
-                self.data['list'].append({'id': x.id, 'lesson': x.lesson})
+        if self.api_role == "Администратор":
+            print(123)
+            # for x in session.query(Lesson).where(Lesson.organization_id == self.abstract_organization_id()):
+            for x in engine.execute(f"SELECT * FROM lessons WHERE organization_id={self.abstract_organization_id()}").fetchall():
+                print(x)
+                self.data['list'].append({'id': x[0], 'lesson': x[1]})
+            return jsonify({"response": True, "message": self.data}, 200)
         elif self.api_role == "Преподаватель":
             for i in session.query(UserLesson).where(UserLesson.user_id == self.api_user_id):
                 for j in session.query(Lesson).where(Lesson.id == i.lesson_id):
                     self.data['list'].append({'id': i.lesson_id, 'lesson': j.lesson})
+            return jsonify({"response": True, "message": self.data}, 200)
         else:
             return jsonify({"response": True, "message": "Отказ в доступе"}, 303)
-
-        return jsonify({"response": True, "message": self.data}, 200)
 
 
     def all(self):

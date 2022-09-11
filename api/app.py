@@ -319,6 +319,7 @@ def api_delete_timetable():
 @cross_origin()
 def api_show_timetable_teacher():
     return showTimetable.Api(
+        organization_id=request.args.get('organization_id'),
         user_id=request.args.get('user_id'),
         role=request.args.get('role')
     ).teacher_lesson()
