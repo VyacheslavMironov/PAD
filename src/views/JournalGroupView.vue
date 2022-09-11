@@ -102,7 +102,6 @@
             </div>
           </div>
         </div>
-        {{this.lesson_name}}
       </CardFormComponent>
       <table id="journal-table" class="table table-info table-bordered table-hover">
         <thead>
@@ -198,16 +197,16 @@ export default {
             this.user_info = response.data[0].message
             // Вызывать методы использующие пользовательские данные ниже
             this.all_show_user(1)
-            this.get_lesson(this.user_info.user_id)
+            this.get_lesson(this.user_info.organization_id, this.user_info.user_id, this.user_info.role)
           })
           .catch(function (error) {
             console.log(error)
           })
       }
     },
-    get_lesson (userId) {
+    get_lesson (organizationId, userId, role) {
       // Запрос на выборку данных юзера по ролям
-      axios.get('http://localhost:5000/api/timetable/show-timetable/teacher?user_id=' + userId + '&&role=' + this.user_info.role,
+      axios.get('http://localhost:5000/api/timetable/show-timetable/teacher?organization_id=' + organizationId + '&&user_id=' + userId + '&&role=' + role,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -360,7 +359,6 @@ export default {
           this.alert = 'Данные сохранены!'
           // Активация всплывающего сообщения
           document.getElementById('toast').style.opacity = 1
-          this.$refs.inputValue[this.item_active - 1].value = document.querySelectorAll('#data')[this.item_active - 1].value
         })
         .catch((error) => {
           if (error.error) {
