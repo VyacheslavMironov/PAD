@@ -102,6 +102,7 @@
             </div>
           </div>
         </div>
+        {{this.lesson_name}}
       </CardFormComponent>
       <table id="journal-table" class="table table-info table-bordered table-hover">
         <thead>
@@ -125,6 +126,7 @@
               v-bind:class="Number(this.number_day) === (index + 1) ? 'active-day' : ''"
             >
               <input
+                id="data"
                 ref="inputValue"
                 v-on:click="click_input(
                   user.user_id,
@@ -140,6 +142,7 @@
                 )"
                 type="text"
                 class="form-control w-find-journal"
+                v-bind:value="String(String(String(JSON.stringify(this.users[idx].value_list[index])).split(':')[2]).replace('}', '')) === 'null' ? '' : String(String(String(JSON.stringify(this.users[idx].value_list[index])).split(':')[2]).replace('}', '')).slice(1, -1)"
               >
             </td>
           </tr>
@@ -168,7 +171,6 @@ export default {
       max_day: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate(),
       lesson_list: null,
       lesson_name: null,
-      values: [],
       item_active: null,
       position: null
     }
@@ -195,7 +197,7 @@ export default {
           .then((response) => {
             this.user_info = response.data[0].message
             // Вызывать методы использующие пользовательские данные ниже
-            this.all_show_user()
+            this.all_show_user(1)
             this.get_lesson(this.user_info.user_id)
           })
           .catch(function (error) {
@@ -205,7 +207,7 @@ export default {
     },
     get_lesson (userId) {
       // Запрос на выборку данных юзера по ролям
-      axios.get('http://localhost:5000/api/timetable/show-timetable/teacher?user_id=' + userId,
+      axios.get('http://localhost:5000/api/timetable/show-timetable/teacher?user_id=' + userId + '&&role=' + this.user_info.role,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -213,7 +215,6 @@ export default {
           }
         })
         .then((response) => {
-          console.log(response)
           this.lesson_list = response.data[0].message.list
           this.lesson_name = this.lesson_list[0].lesson
           // Деактивация лоадера
@@ -231,11 +232,11 @@ export default {
         })
       // END
     },
-    all_show_user () {
+    all_show_user (lessonId) {
       // Активация лоадера
       document.getElementById('loader-bg').style.display = 'block'
       // Запрос на выборку данных юзера по ролям
-      axios.get('http://localhost:5000/api/user/all-user?organization_id=' + this.user_info.organization_id + '&&role=Студент&&group_id=' + this.url_get_group.group_id,
+      axios.get('http://localhost:5000/api/user/all-user?organization_id=' + this.user_info.organization_id + '&&role=Студент&&group_id=' + this.url_get_group.group_id + '&&lesson_id=' + lessonId + '&&year=' + new Date().getFullYear() + '&&month=' + new Date().getMonth() + '&&mode=journal',
         {
           headers: {
             'Content-Type': 'application/json',
@@ -258,6 +259,7 @@ export default {
           }
         })
       // END
+      return this.users
     },
     tr_active (element) {
       for (var i = 0; i < element.length; i++) {
@@ -276,73 +278,8 @@ export default {
         }
       }
       // Выгрузка данных
-      axios.get('http://localhost:5000/api/timetable/all-timetable?organization_id=' + organizationId + '&&lesson_id=' + lessonId,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          }
-        })
-        .then((response) => {
-          this.values = response.data[0].message.list
-          // Деактивация лоадера
-          document.getElementById('loader-bg').style.display = 'none'
-        })
-        .catch(function (error) {
-          if (error.error) {
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-            self.alert = 'Ошибка получения данных!'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          }
-        })
-      // END
-    },
-    add_value (organizationId, lessonName, userId, xPosition, yPosition, value = null) {
-      console.log(this.lesson_list)
-      // Определение позиционирования ввода
-      if (yPosition > 0) {
-        this.item_active = yPosition === 1 ? this.max_day + xPosition : (this.max_day * yPosition) + xPosition
-      } else {
-        this.item_active = xPosition
-      }
-      // Определение предмета
-      var lessonId = null
-      for (var i = 0; i < this.lesson_list.length; i++) {
-        if (this.lesson_list[i].lesson === lessonName) {
-          lessonId = this.lesson_list[i].id
-        }
-      }
-      // Добавление оценки ученику
-      axios.post('http://localhost:5000/api/journal/add',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
-          },
-          organization_id: organizationId,
-          user_id: userId,
-          groups_id: this.url_get_group.group_id,
-          lesson_id: lessonId,
-          value: value === null ? this.$refs.inputValue[this.item_active - 1].value : value,
-          day: xPosition,
-          month: new Date().getMonth(),
-          year: new Date().getFullYear()
-        })
-        .then((response) => {
-          this.alert = 'Данные сохранены!'
-          // Активация всплывающего сообщения
-          document.getElementById('toast').style.opacity = 1
-        })
-        .catch((error) => {
-          if (error.error) {
-            this.alert = 'Ошибка сохранения данных!'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          }
-        })
+      this.all_show_user(lessonId)
+      console.log(this.users)
       // END
     },
     click_input (userId, xPosition, yPosition) {
@@ -374,7 +311,6 @@ export default {
       } else if (value === 'Б' || value === 'б') {
         specificValue = this.$refs.inputValue[this.position[1] - 1].value === 'Б' ? '' : 'Б'
       }
-
       //  Отобразить спц. оценку в ячейке по позиции
       this.$refs.inputValue[this.position[1] - 1].value = specificValue
       this.add_value(this.user_info.organization_id, this.lesson_name, userId, this.position[3], this.position[2], value = specificValue)
@@ -387,6 +323,53 @@ export default {
           this.$refs.valueN.checked = false
         }
       }
+    },
+    add_value: function (organizationId, lessonName, userId, xPosition, yPosition, value = null) {
+      // Определение позиционирования ввода
+      if (yPosition > 0) {
+        this.item_active = yPosition === 1 ? this.max_day + xPosition : (this.max_day * yPosition) + xPosition
+      } else {
+        this.item_active = xPosition
+      }
+      // Определение предмета
+      var lessonId = null
+      for (var i = 0; i < this.lesson_list.length; i++) {
+        if (this.lesson_list[i].lesson === lessonName) {
+          lessonId = this.lesson_list[i].id
+        }
+      }
+      console.log(document.querySelectorAll('#data')[this.item_active - 1])
+      // Добавление оценки ученику
+      axios.post('http://localhost:5000/api/journal/add',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+          },
+          organization_id: organizationId,
+          user_id: userId,
+          groups_id: this.url_get_group.group_id,
+          lesson_id: lessonId,
+          value: value === null ? document.querySelectorAll('#data')[this.item_active - 1].value : value,
+          day: xPosition,
+          month: new Date().getMonth(),
+          year: new Date().getFullYear()
+        })
+        .then((response) => {
+          this.alert = 'Данные сохранены!'
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1
+          this.$refs.inputValue[this.item_active - 1].value = document.querySelectorAll('#data')[this.item_active - 1].value
+        })
+        .catch((error) => {
+          if (error.error) {
+            this.alert = 'Ошибка сохранения данных!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          }
+        })
+      // END
     }
   },
   mounted () {
