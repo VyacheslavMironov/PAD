@@ -164,7 +164,11 @@ def api_all_user():
         access_token='',
         role=request.args.get('role'),
         group_id=request.args.get('group_id'),
-        organization_id=request.args.get('organization_id')
+        lesson_id=request.args.get('lesson_id'),
+        organization_id=request.args.get('organization_id'),
+        year=request.args.get('year'),
+        month=request.args.get('month'),
+        mode=request.args.get('mode')
     ).all()
 
 
@@ -315,14 +319,15 @@ def api_delete_timetable():
 @cross_origin()
 def api_show_timetable_teacher():
     return showTimetable.Api(
-        user_id=request.args.get('user_id')
+        user_id=request.args.get('user_id'),
+        role=request.args.get('role')
     ).teacher_lesson()
 
 
 @app.route('/api/journal/add', methods=["POST"])
 @cross_origin()
 def api_add_value_journal():
-    print(request.get_json().get('day'))
+    print(request.get_json().get('value'))
     return addValueJournal.Api(
         organization_id=request.get_json().get('organization_id'),
         user_id=request.get_json().get('user_id'),

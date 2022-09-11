@@ -11,11 +11,12 @@ from core.exeption.timetableExeption import (
 
 
 class Api(showTimetable.AbstractShowTimetable):
-    def __init__(self, organization_id=-1, groups_id=-1, user_id=None, lesson_id=None):
+    def __init__(self, organization_id=-1, groups_id=-1, user_id=None, lesson_id=None, role=None):
         self.api_organization_id = organization_id
         self.api_groups_id = groups_id,
         self.api_user_id = user_id
         self.api_lesson_id = lesson_id
+        self.api_role = role
         self.data = {}
 
     def abstract_organization_id(self):
@@ -62,9 +63,16 @@ class Api(showTimetable.AbstractShowTimetable):
 
     def teacher_lesson(self):
         self.data['list'] = []
-        for i in session.query(UserLesson).where(UserLesson.user_id):
-            for j in session.query(Lesson).where(Lesson.id == i.lesson_id):
-                self.data['list'].append({'id': i.lesson_id, 'lesson': j.lesson})
+        if self.api_role == "Директор" or self.api_role == "Администратор":
+            for x in session.query(Lesson).where(Lesson.organization_id == self.abstract_organization_id()):
+                self.data['list'].append({'id': x.id, 'lesson': x.lesson})
+        elif self.api_role == "Преподаватель":
+            for i in session.query(UserLesson).where(UserLesson.user_id == self.api_user_id):
+                for j in session.query(Lesson).where(Lesson.id == i.lesson_id):
+                    self.data['list'].append({'id': i.lesson_id, 'lesson': j.lesson})
+        else:
+            return jsonify({"response": True, "message": "Отказ в доступе"}, 303)
+
         return jsonify({"response": True, "message": self.data}, 200)
 
 

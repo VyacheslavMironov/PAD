@@ -1,19 +1,36 @@
+from calendar import monthrange
+from datetime import datetime
+
 import pymysql
 import sqlalchemy
 from flask import jsonify
 
 from core.model.user import show
-from core.db.dbo import session, engine, User, AccessToken, UserGroups
+from core.db.dbo import session, engine, User, AccessToken, Journal
 from core.exeption.userExeption import ExeptionUserFindNotFound
 
 
 class Api(show.AbstractUserInfo):
-    def __init__(self, access_token='', role='', organization_id=0, group_id=None):
+    def __init__(
+            self,
+            access_token='',
+            role='',
+            organization_id=0,
+            group_id=None,
+            lesson_id=None,
+            year=None,
+            month=None,
+            mode=None
+    ):
         self.api_access_token = access_token
         self.api_role = role
         self.api_group_id = group_id
         self.api_organization_id = organization_id
         self.user_token = None
+        self.api_lesson_id = lesson_id
+        self.api_month = month
+        self.api_year = year
+        self.api_mode = mode
         self.data = {}
 
     def abstract_access_token(self):
@@ -46,25 +63,73 @@ class Api(show.AbstractUserInfo):
 
     def all(self):
         users = session.query(User).where(
-                User.organization_id == self.abstract_organization_id(),
-                User.role == self.abstract_role()
+            User.organization_id == self.abstract_organization_id(),
+            User.role == self.abstract_role()
         )
         # Формирование списка
         self.data["users"] = []
         for i in users:
             if self.api_group_id:
+                max_day = monthrange(datetime.now().year, datetime.now().month)[1]
                 group_user = engine.execute(f"SELECT user_id FROM user_groups WHERE groups_id={self.api_group_id}").fetchall()
                 for j in group_user:
                     if j[0] == i.user_id:
-                        self.data["users"].append(
-                            {
-                                "user_id": i.user_id,
-                                "first_name": i.firstName,
-                                "last_name": i.lastName,
-                                "email": i.email,
-                                "role": i.role,
-                            }
-                        )
+                        if self.api_mode == 'journal':
+                            if self.api_year:
+                                if self.api_month:
+                                    # Список для записи значений
+                                    value_list = []
+                                    # Формирование выборки по журналу за год и месяц
+                                    # query_date = session.query(Journal).where(
+                                    #     Journal.user_id == i.user_id and
+                                    #     Journal.year == self.api_year and
+                                    #     Journal.month == self.api_month and
+                                    #     Journal.lesson_id == self.api_lesson_id
+                                    # )
+                                    query_date = engine.execute(f'''
+                                        SELECT * FROM journal 
+                                            WHERE 
+                                                user_id = {i.user_id} AND 
+                                                organization_id = {self.abstract_organization_id()} AND 
+                                                groups_id = {self.api_group_id} AND 
+                                                `month` = '{self.api_month}' AND 
+                                                `year` = '{self.api_year}' AND
+                                                lesson_id = {self.api_lesson_id};
+                                    ''')
+                                    # Привязка оценки ко дню
+                                    days = [{"day": x, "value": None} for x in range(1, max_day + 1)]
+                                    for count, x in enumerate(query_date.fetchall()):
+                                        try:
+                                            days[int(x[6]) - 1]["value"] = x[5]
+                                        except IndexError:
+                                            pass
+                                    value_list = days
+                                    # Формирование ответа
+                                    self.data["users"].append(
+                                        {
+                                            "user_id": i.user_id,
+                                            "first_name": i.firstName,
+                                            "last_name": i.lastName,
+                                            "email": i.email,
+                                            "role": i.role,
+                                            "value_list": value_list
+                                        }
+                                    )
+                                    print(self.data)
+                                else:
+                                    ExeptionUserFindNotFound('month').error()
+                            else:
+                                ExeptionUserFindNotFound('year').error()
+                        else:
+                            self.data["users"].append(
+                                {
+                                    "user_id": i.user_id,
+                                    "first_name": i.firstName,
+                                    "last_name": i.lastName,
+                                    "email": i.email,
+                                    "role": i.role,
+                                }
+                            )
             else:
                 self.data["users"].append(
                     {
