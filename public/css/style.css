@@ -14,8 +14,8 @@ body section{
 }
 
 a{
-    text-decoration: none!important;
-    color: #1B45DB;
+    text-decoration: revert!important;
+    color: #2c3e50!important;
     font-family: 'PT Sans', sans-serif;
 }
 a:hover{
@@ -143,6 +143,19 @@ footer{
     width: 90%!important;
 }
 
+.view-menu{
+    position: absolute;
+    left: 18em;
+}
+.view-menu li{
+    margin-left: 20%;
+}
+.view-menu li a.absolut-item{
+    position: absolute;
+    width: 114%;
+}
+.view-menu li a{}
+
 footer .card{
     box-shadow: 0px 1px 12px 1px #0d6efd;
 }
@@ -246,6 +259,9 @@ section ._card ul li:hover{
     background: #00000017;
 }
 /* END */
+a.btn a .btn{
+    text-decoration: none!important;
+}
 .svg-var{
     display: flex;
     align-items: center;
@@ -327,6 +343,15 @@ p.w-find-journal{
     position: relative;
     right: 10%;
 }
+p.w-x2{
+    width: 1.7em!important;
+    position: relative;
+    left: 6%;
+}
+p.w-text-table{
+    width: 1.8em!important;
+    right: 0%!important;
+}
 /* Меню месяцов */
 #month-menu li{
     background-color: #c5c5c500;
@@ -361,6 +386,9 @@ table td.active-day{
 }
 /* END */
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
+.navbar-brand{
+    text-decoration: none!important;
+}
 .badge{
     font-size: 0.6em!important;
 }

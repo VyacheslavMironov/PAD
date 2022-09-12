@@ -50,6 +50,12 @@ const routes = [
     name: 'journal_group',
     component: () => import('../views/JournalGroupView.vue'),
     props: true
+  },
+  {
+    path: '/journal-show',
+    name: 'journal_show',
+    component: () => import('../views/JournaShowlView.vue'),
+    props: true
   }
 ]
 

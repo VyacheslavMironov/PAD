@@ -20,9 +20,20 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+          <ul class="navbar-nav view-menu mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="/journal-show">Журнал</a>
+            </li>
+            <li class="nav-item">
+              <a href="/journal-show">Расписание</a>
+            </li>
+            <li class="nav-item">
+              <a class="absolut-item" href="/journal-show">Домашнии задания</a>
+            </li>
+          </ul>
           <ul
-            v-if="this.is_auth > 0"
+            v-if="this.is_auth >= 0"
             class="navbar-nav me-auto mb-2 l-60 w-50 mb-lg-0"
           >
             <!-- Игры -->
