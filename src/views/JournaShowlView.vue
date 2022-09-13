@@ -61,6 +61,7 @@ export default {
     return {
       alert: '',
       user_info: null,
+      url_get: this.$route.query,
       lesson_data: null,
       url_get_group: this.$route.query,
       number_day: new Date().getDate(),
@@ -88,11 +89,29 @@ export default {
           })
           .then((response) => {
             this.user_info = response.data[0].message
+            console.log(this.user_info)
+            // Определение искомого ID
+            var userId = null
+            var groupId = null
+            switch (this.user_info.role) {
+              case 'Администратор' || 'Директор':
+                groupId = this.url_get.group_id
+                userId = this.url_get.user_id
+                break
+              case 'Студент':
+                groupId = this.user_info.group_id
+                userId = this.user_info.user_id
+                break
+              case 'Родитель':
+                groupId = this.user_info.group_id
+                userId = this.user_info.child_id
+                break
+            }
             // Вызывать методы использующие пользовательские данные ниже
             this.load_lesson(
               this.user_info.organization_id,
-              this.user_info.user_id,
-              this.user_info.group_id,
+              userId,
+              groupId,
               this.user_info.role
             )
           })

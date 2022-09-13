@@ -45,13 +45,35 @@
             <div class="row">
               <div class="mt-8"></div>
                 <div class="col-6" v-for="i in this.group_list" v-bind:key="i">
-                  <a v-bind:href="'group-show?group_id=' + i.id">
                     <CardFormComponent class="mt-2 col-11">
-                      <div class="container">
-                        <p><b>@</b>_{{ i.name }}</p>
+                    <div class="container">
+                      <p><b>@</b>_{{ i.name }}</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-4">
+                        <a
+                          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
+                          v-bind:href="'group-show?group_id=' + i.id"
+                          class="btn"
+                        >Редактировать</a>
                       </div>
-                    </CardFormComponent>
-                  </a>
+                      <div v-bind:class="this.user_info.role === 'Преподаватель' ? 'col-12' : 'col-4'">
+                        <a
+                        v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор' || this.user_info.role === 'Преподаватель'"
+                          v-bind:href="'/journal-group?group_id=' + i.id"
+                          v-bind:class="this.user_info.role === 'Преподаватель' ? ' btn w-100' : ' btn w-90'"
+                        >Ведомость</a>
+                      </div>
+                      <div class="col-4">
+                        <a
+                          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
+                          v-bind:href="'/drop-group?group_id=' + i.id"
+                          class="btn w-90"
+                        >Удалить</a>
+                      </div>
+                    </div>
+                  </CardFormComponent>
                 </div>
             </div>
         </div>

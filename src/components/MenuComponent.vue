@@ -7,10 +7,10 @@
     <div class="offcanvas-body">
       <div v-if="this.user_info" class="list-group mt-2">
         <a
-          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
+          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор' || this.user_info.role === 'Преподаватель'"
           href="/group-all"
           class="list-group-item btn"
-        >Группы</a>
+        >{{ this.user_info.role === 'Преподаватель' ? 'Ведомость' : 'Группы' }}</a>
       </div>
       <div v-if="this.user_info" class="list-group mt-2">
         <a
@@ -25,13 +25,6 @@
           href="/journal-settings"
           class="list-group-item btn"
         >Настройки журнала</a>
-      </div>
-      <div v-if="this.user_info" class="list-group mt-2">
-        <a
-          v-if="this.user_info.role === 'Преподаватель' || this.user_info.role === 'Администратор'"
-          href="/journal-group"
-          class="list-group-item btn"
-        >Ведомость</a>
       </div>
       <div class="list-group mt-5">
         <button

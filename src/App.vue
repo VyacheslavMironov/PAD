@@ -1,6 +1,9 @@
 <template>
   <section>
-    <HeaderComponent v-bind:is_auth=this.is_auth />
+    <HeaderComponent
+      v-bind:is_auth=this.is_auth
+      v-bind:user_info=this.user_info
+    />
     <MenuComponent v-bind:user_info=this.user_info  />
     <ContentComponent>
       <router-view

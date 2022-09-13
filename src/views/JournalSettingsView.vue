@@ -132,6 +132,24 @@
                 </div>
                 </div>
               </div>
+              <div v-if="this.role === 'Родитель'" class="mb-4">
+                <label class="form-label">
+                  <b>Выберите ребёнка</b>
+                </label>
+                <div class="row">
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    v-model="student_id"
+                  >
+                    <option
+                      v-for="i in this.students_list"
+                      v-bind:key="i"
+                      v-bind:value="i.user_id"
+                    >{{ i.first_name }} {{ i.last_name }}</option>
+                  </select>
+                </div>
+              </div>
               <div class="mb-3">
                 <label class="form-label">
                   <b>Электронная почта</b>
@@ -383,6 +401,8 @@ export default {
       last_name: null,
       role: null,
       email: null,
+      student_id: null,
+      students_list: null,
       first_and_last_name: null,
       update_user_id: null,
       update_first_name: null,
@@ -421,6 +441,7 @@ export default {
             // Вызывать методы использующие пользовательские данные ниже
             this.lesson_show(this.user_info.organization_id)
             this.all_group(this.user_info.organization_id)
+            this.students_for(this.user_info.organization_id)
             this.user_type = this.user_info.role
           })
           .catch(function (error) {
@@ -465,6 +486,18 @@ export default {
       }
       console.log(this.lessonUp)
     },
+    students_for (organizationId) {
+      axios.get('http://localhost:5000/api/group/show-group?group_id=-1' + '&&organization_id=' + organizationId,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
+        })
+        .then((response) => {
+          this.students_list = response.data[0].message.list_belongs
+        })
+    },
     create_user () {
       // Генерация пароля
       let generate = ''
@@ -492,9 +525,9 @@ export default {
           email: this.email,
           password: 'user' + generate,
           group: this.group,
+          student_id: this.student_id,
           lesson_up: this.lessonUp
-        }
-      )
+        })
         .then((response) => {
           this.alert = 'Данные успешно сохранены'
           // Активация всплывающего сообщения

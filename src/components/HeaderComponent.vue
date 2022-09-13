@@ -21,14 +21,23 @@
         </button>
         -->
         <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
-          <ul class="navbar-nav view-menu mb-2 mb-lg-0">
+          <ul v-if="this.is_auth >= 0" class="navbar-nav view-menu mb-2 mb-lg-0">
             <li class="nav-item">
               <a href="/journal-show">Журнал</a>
             </li>
             <li class="nav-item">
               <a href="/journal-show">Расписание</a>
             </li>
-            <li class="nav-item">
+            <li
+              v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
+              class="nav-item"
+            >
+              <a class="absolut-item" href="/students-all">Студенты</a>
+            </li>
+            <li
+              v-if="this.user_info.role === 'Студент'"
+              class="nav-item"
+            >
               <a class="absolut-item" href="/journal-show">Домашнии задания</a>
             </li>
           </ul>
@@ -126,7 +135,8 @@ export default {
     }
   },
   props: {
-    is_auth: Number
+    is_auth: Number,
+    user_info: Object
   },
   components: {
     ButtonComponent

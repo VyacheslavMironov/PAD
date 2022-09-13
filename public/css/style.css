@@ -119,9 +119,11 @@ footer{
 .bg-blue{
     background: #265cf6!important;
 }
-#app .btn{
+#app .btn,
+#app a.btn{
     background-color: #F62626;
-    color: #fff;
+    text-decoration: none!important;
+    color: #fff!important;
 }
 .mt-10{
     margin-top: 10em!important;

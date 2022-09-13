@@ -46,15 +46,26 @@ const routes = [
     props: true
   },
   {
+    // Админ или директор ?user_id=4
     path: '/journal-group',
     name: 'journal_group',
     component: () => import('../views/JournalGroupView.vue'),
     props: true
   },
   {
+    // Админ ?user_id=4&&group_id=1
+    // Студент просто переход без параметров
+    // Родитель просто переход по ссылке + подгрузка данных
     path: '/journal-show',
     name: 'journal_show',
     component: () => import('../views/JournaShowlView.vue'),
+    props: true
+  },
+  {
+    // Для админа и директора
+    path: '/students-all',
+    name: 'students_all',
+    component: () => import('../views/StudentsAlllView.vue'),
     props: true
   }
 ]
