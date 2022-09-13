@@ -49,10 +49,12 @@ class Api(group_base.AbstractGroup):
         # Выборка присутствующих в таблице
         for y in session.query(User).filter(User.user_id == UserGroups.user_id):
             if int(y.organization_id) == int(self.abstract_organization_id()):
+                group_id = session.query(UserGroups).filter(UserGroups.user_id == y.user_id).one()
                 belongs = {}
                 belongs['user_id'] = y.user_id
                 belongs['first_name'] = y.firstName
                 belongs['last_name'] = y.lastName
+                belongs['group_id'] = group_id.groups_id
 
                 self.data['list_belongs'].append(belongs)
 

@@ -119,7 +119,8 @@ def api_create_user():
         role=request.get_json().get('role'),
         password=request.get_json().get('password'),
         group=request.get_json().get('group'),
-        lesson_up=request.get_json().get('lesson_up')
+        lesson_up=request.get_json().get('lesson_up'),
+        student_id=request.get_json().get('student_id')
     ).save()
 
 
@@ -341,10 +342,12 @@ def api_add_value_journal():
     ).add()
 
 
-@app.route('/api/journal/all', methods=["GET"])
+@app.route('/api/journal/show', methods=["GET"])
 @cross_origin()
 def api_all_journal():
-    return showTimetable.Api(
+    return allValueJournal.Api(
         organization_id=request.args.get('organization_id'),
-        lesson_id=request.args.get('lesson_id')
+        user_id=request.args.get('user_id'),
+        group_id=request.args.get('group_id'),
+        role=request.args.get('role')
     ).all()

@@ -1,13 +1,9 @@
 from abc import ABC, abstractmethod
 
 
-class AbstractJournalAdd(ABC):
+class AbstractJournalShow(ABC):
     @abstractmethod
     def abstract_organization_id(self):
-        pass
-
-    @abstractmethod
-    def abstract_lesson_id(self):
         pass
 
     @abstractmethod
@@ -15,6 +11,5 @@ class AbstractJournalAdd(ABC):
         pass
 
     @abstractmethod
-    def abstract_groups_id(self):
+    def abstract_role(self):
         pass
-

@@ -6,7 +6,7 @@ import sqlalchemy
 from flask import jsonify
 
 from core.model.user import show
-from core.db.dbo import session, engine, User, AccessToken, Journal
+from core.db.dbo import session, engine, User, AccessToken, UserGroups, ParentUser
 from core.exeption.userExeption import ExeptionUserFindNotFound
 
 
@@ -59,6 +59,22 @@ class Api(show.AbstractUserInfo):
         self.data["is_admin"] = user[0].is_admin
 
         if "user_id" in self.data:
+            # Подтягивание ID группы
+            if self.data["role"] == "Студент":
+                group = session.query(UserGroups).filter(UserGroups.user_id == self.data["user_id"]).one()
+                if 'groups_id' in dir(group):
+                    self.data['group_id'] = group.groups_id
+
+            # Если это родитель добавить 2 свойства Id ребёнка и Id группы
+            if self.data["role"] == "Родитель":
+                try:
+                    user = session.query(ParentUser).filter(ParentUser.user_id == self.data["user_id"]).one()
+                    user_data = session.query(User).filter(User.user_id == user.student_id).one()
+                    self.data['child_id'] = user_data.user_id
+                    group = session.query(UserGroups).filter(UserGroups.user_id == self.data['child_id']).one()
+                    self.data["group_id"] = group.groups_id
+                except:
+                    pass
             return jsonify({"response": True, "message": self.data}, 200)
 
     def all(self):
@@ -79,13 +95,6 @@ class Api(show.AbstractUserInfo):
                                 if self.api_month:
                                     # Список для записи значений
                                     value_list = []
-                                    # Формирование выборки по журналу за год и месяц
-                                    # query_date = session.query(Journal).where(
-                                    #     Journal.user_id == i.user_id and
-                                    #     Journal.year == self.api_year and
-                                    #     Journal.month == self.api_month and
-                                    #     Journal.lesson_id == self.api_lesson_id
-                                    # )
                                     query_date = engine.execute(f'''
                                         SELECT * FROM journal 
                                             WHERE 

@@ -64,7 +64,6 @@ class Api(showTimetable.AbstractShowTimetable):
     def teacher_lesson(self):
         self.data['list'] = []
         if self.api_role == "Администратор":
-            print(123)
             # for x in session.query(Lesson).where(Lesson.organization_id == self.abstract_organization_id()):
             for x in engine.execute(f"SELECT * FROM lessons WHERE organization_id={self.abstract_organization_id()}").fetchall():
                 print(x)
@@ -77,12 +76,3 @@ class Api(showTimetable.AbstractShowTimetable):
             return jsonify({"response": True, "message": self.data}, 200)
         else:
             return jsonify({"response": True, "message": "Отказ в доступе"}, 303)
-
-
-    def all(self):
-        # ..................................................................................
-        # ..................................................................................
-        # ..................................................................................
-        # ..................................................................................
-        # ..................................................................................
-        return jsonify({"response": True, "message": self.data}, 200)

@@ -64,6 +64,11 @@ class User(Base):
     created_at = Column(DATETIME(), default=datetime.now())
     organization_id = Column(ForeignKey('organizations.id'))
 
+class ParentUser(Base):
+    __tablename__ = 'parent-user'
+    id = Column(BigInteger(), primary_key=True, autoincrement=True)
+    user_id = Column(ForeignKey('users.user_id'))
+    student_id = Column(ForeignKey('users.user_id'))
 
 """
 """

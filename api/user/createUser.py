@@ -6,6 +6,7 @@ import sqlalchemy
 from flask import jsonify, make_response
 
 from api.email import verificationUser
+from api.user import parentUser
 from core.model.user import registration
 from core.db.dbo import session, User, UserGroups, UserLesson
 from core.exeption.userExeption import (
@@ -23,7 +24,7 @@ HOST = context.getElementsByTagName("host").item(0).attributes["host"].value
 PORT = context.getElementsByTagName("host").item(0).attributes["port"].value
 
 class Api(registration.AbstractRegistration):
-    def __init__(self, organization_name, first_name, last_name, email, role, password, group=None, lesson_up=None):
+    def __init__(self, organization_name, first_name, last_name, email, role, password, group=None, lesson_up=None, student_id=None):
         self.api_organization_name = organization_name
         self.api_first_name = first_name
         self.api_last_name = last_name
@@ -31,6 +32,7 @@ class Api(registration.AbstractRegistration):
         self.api_role = role
         self.api_group = group
         self.api_lesson_up = lesson_up
+        self.api_student_id = student_id
         self.api_password = password
         self.data = {}
 
@@ -120,6 +122,10 @@ class Api(registration.AbstractRegistration):
             )
 
         if "id" in self.data:
+            # Добавление отношения происходит если роль родитель
+            if self.api_student_id and self.data["role"] == "Родитель":
+                parentUser.Api(student_id=self.api_student_id, user_id=self.data["id"]).add()
+
             try:
                 verificationUser.Api(
                     email=self.data["email"],
