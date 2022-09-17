@@ -443,7 +443,6 @@ export default {
       )
         .then((response) => {
           this.timedata_list = this.days(response.data[0].message.list)
-          console.log(this.$refs.dropTimetable)
         })
         .catch(function (error) {
           if (error.error) {

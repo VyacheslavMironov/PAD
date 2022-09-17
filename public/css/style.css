@@ -138,11 +138,26 @@ footer{
 .mt-8{
     margin-top: 8em!important;
 }
+.pt-1em{
+    padding-top: 1em;
+}
+.m-07{
+    margin: 0.7em;
+}
 .right{
     float: right;
 }
 .w-90{
     width: 90%!important;
+}
+.h-max{
+    overflow: auto;
+    border: solid 1px #dee2e6;
+    height: 9em;
+    padding: 0.5em;
+}
+.time_for_block_table li{
+    height: 9em;
 }
 
 .view-menu{
@@ -386,6 +401,35 @@ table td.active-day{
     border-left: solid 0.1em #dc3545;
     border-right: solid 0.1em #dc3545;
 }
+.time-timetable{
+    background-color: #d3d1d18c;
+}
+ul li strong.list:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.text-block{
+    color: #adadad;
+    cursor: not-allowed;
+}
+.block-table-header{
+    background-color: #dee2e6;
+}
+.block-table{
+    width: 20%;
+}
+.block-table:hover{
+    background-color: #dee2e669;
+}
+.block-table ul{
+    padding: 0;
+}
+.list-timetable{
+    padding: 0.5em;
+    background: #82f79b;
+    border-radius: 0.6em;
+}
+.block-table-body{}
 /* END */
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
 .navbar-brand{

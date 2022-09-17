@@ -26,7 +26,7 @@
               <a href="/journal-show">Журнал</a>
             </li>
             <li class="nav-item">
-              <a href="/journal-show">Расписание</a>
+              <a href="/timetable-show">Расписание</a>
             </li>
             <li
               v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"

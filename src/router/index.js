@@ -46,6 +46,24 @@ const routes = [
     props: true
   },
   {
+    path: '/timetable-show',
+    name: 'timetable_showe',
+    component: () => import('../views/TimetableShowView.vue'),
+    props: true
+  },
+  {
+    path: '/timetable-teacher',
+    name: 'timetable_teacher',
+    component: () => import('../views/TimetableTicherView.vue'),
+    props: true
+  },
+  {
+    path: '/timetable-teacher-show',
+    name: 'timetable_teacher_show',
+    component: () => import('../views/TimetableTeacherShowView.vue'),
+    props: true
+  },
+  {
     // Админ или директор ?user_id=4
     path: '/journal-group',
     name: 'journal_group',
