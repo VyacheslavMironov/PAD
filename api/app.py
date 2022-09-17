@@ -32,7 +32,8 @@ from api.group import (
 from api.timetable import (
     createTimetable,
     showTimetable,
-    deleteTimetable
+    deleteTimetable,
+    showTeacherTimetable
 )
 from api.journal import (
     addValueJournal,
@@ -160,7 +161,6 @@ def api_user_info():
 @app.route('/api/user/all-user', methods=["GET"])
 @cross_origin()
 def api_all_user():
-    print(request.args.get('group_id'))
     return user_info.Api(
         access_token='',
         role=request.args.get('role'),
@@ -324,6 +324,15 @@ def api_show_timetable_teacher():
         user_id=request.args.get('user_id'),
         role=request.args.get('role')
     ).teacher_lesson()
+
+
+@app.route('/api/timetable/show-teacher-timetable', methods=["GET"])
+@cross_origin()
+def api_show_teacher_timetable():
+    return showTeacherTimetable.Api(
+        organization_id=request.args.get('organization_id'),
+        user_id=request.args.get('user_id')
+    ).show()
 
 
 @app.route('/api/journal/add', methods=["POST"])
