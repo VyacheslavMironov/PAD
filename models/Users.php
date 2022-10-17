@@ -9,11 +9,11 @@ use Yii;
  *
  * @property int $id
  * @property int $organization_id
- * @property int $filial_id
- * @property int $relation_id
+ * @property int|null $filial_id
+ * @property int|null $relation_id
  * @property string $first_name
  * @property string $last_name
- * @property string $middle_name
+ * @property string|null $middle_name
  * @property string $email
  * @property string $role
  * @property bool|null $is_active
@@ -48,7 +48,7 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['organization_id', 'filial_id', 'relation_id', 'first_name', 'last_name', 'middle_name', 'email', 'role'], 'required'],
+            [['organization_id', 'first_name', 'last_name', 'email', 'role'], 'required'],
             [['organization_id', 'filial_id', 'relation_id'], 'default', 'value' => null],
             [['organization_id', 'filial_id', 'relation_id'], 'integer'],
             [['is_active'], 'boolean'],

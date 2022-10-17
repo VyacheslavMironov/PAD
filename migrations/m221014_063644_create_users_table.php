@@ -20,13 +20,13 @@ class m221014_063644_create_users_table extends Migration
             'organization_id' => Schema::TYPE_BIGINT.' NOT NULL',
 
             // Ссылается на идентификатор таблицы филиала организации.
-            'filial_id' => Schema::TYPE_BIGINT.' NOT NULL',
+            'filial_id' => Schema::TYPE_BIGINT.' NULL',
 
             /*
               Не явно ссылается на идентификатор таблицы отношений 
               (Родитель к Студенту)
             */
-            'relation_id' => Schema::TYPE_BIGINT.' NOT NULL',
+            'relation_id' => Schema::TYPE_BIGINT.' NULL',
 
             // Имя пользователя.
             'first_name' => Schema::TYPE_CHAR.'(255) NOT NULL',
@@ -35,7 +35,7 @@ class m221014_063644_create_users_table extends Migration
             'last_name' => Schema::TYPE_CHAR.'(255) NOT NULL',
 
             // Отчество.
-            'middle_name' => Schema::TYPE_CHAR.'(255) NOT NULL',
+            'middle_name' => Schema::TYPE_CHAR.'(255) NULL',
 
             // Адрес электронной почты.
             'email' => Schema::TYPE_CHAR.'(255) NOT NULL UNIQUE',
@@ -49,10 +49,10 @@ class m221014_063644_create_users_table extends Migration
             'is_active' => Schema::TYPE_BOOLEAN.' DEFAULT false',
 
             // Изображение пользователя.
-            'avatar' => Schema::TYPE_STRING.'(300)',
+            'avatar' => Schema::TYPE_STRING.'(300) NULL',
 
             // 12-тизначный код который высылается на почту.
-            'email_code' => Schema::TYPE_CHAR.'(12)',
+            'email_code' => Schema::TYPE_CHAR.'(12) NULL',
 
             // Пароль от аккаунта.
             'password' => Schema::TYPE_CHAR.'(25)',
