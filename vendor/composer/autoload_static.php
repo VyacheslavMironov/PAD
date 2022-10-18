@@ -16,8 +16,8 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'e3b2795a8a512b6083af088fb53afe6c' => __DIR__ . '/..' . '/codeception/codeception/functions.php',
@@ -35,6 +35,10 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
             'yii\\composer\\' => 13,
             'yii\\bootstrap5\\' => 15,
             'yii\\' => 4,
+        ),
+        'd' => 
+        array (
+            'damirka\\JWT\\' => 12,
         ),
         'c' => 
         array (
@@ -62,6 +66,10 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\BrowserKit\\' => 29,
         ),
+        'R' => 
+        array (
+            'ReallySimpleJWT\\' => 16,
+        ),
         'P' => 
         array (
             'Psy\\' => 4,
@@ -81,6 +89,7 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
         ),
         'F' => 
         array (
+            'Firebase\\JWT\\' => 13,
             'Faker\\' => 6,
         ),
         'E' => 
@@ -128,6 +137,10 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'damirka\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/damirka/yii2-jwt/src',
         ),
         'cebe\\markdown\\' => 
         array (
@@ -209,6 +222,10 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
         array (
             0 => __DIR__ . '/..' . '/symfony/browser-kit',
         ),
+        'ReallySimpleJWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src',
+        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
@@ -241,6 +258,10 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
         'Faker\\' => 
         array (

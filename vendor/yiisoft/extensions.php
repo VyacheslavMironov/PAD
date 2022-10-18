@@ -49,4 +49,22 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
     ),
   ),
+  'sizeg/yii2-jwt' => 
+  array (
+    'name' => 'sizeg/yii2-jwt',
+    'version' => '1.2.1.0',
+    'alias' => 
+    array (
+      '@sizeg/jwt' => $vendorDir . '/sizeg/yii2-jwt',
+    ),
+  ),
+  'damirka/yii2-jwt' => 
+  array (
+    'name' => 'damirka/yii2-jwt',
+    'version' => '0.2.1.0',
+    'alias' => 
+    array (
+      '@damirka/JWT' => $vendorDir . '/damirka/yii2-jwt/src',
+    ),
+  ),
 );

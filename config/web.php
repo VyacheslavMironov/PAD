@@ -12,6 +12,12 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        // 'jwt' => [
+        //     'class' => \jwtManager\jwt\Jwt::class,
+        //     'key' => 'secret',
+        //     // You have to configure ValidationData informing all claims you want to validate the token.
+        //     // 'jwtValidationData' => \app\components\JwtValidationData::class,
+        // ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'UU0rgx50Xc29MNHRsnFAgONWkZ40Zt7m',
@@ -57,6 +63,14 @@ $config = [
                     'controller' => ['api/organization'],
                     'extraPatterns' => [
                         'POST create' => 'create'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/authorization'],
+                    'extraPatterns' => [
+                        'POST auth' => 'auth'
                     ]
                 ],
             ],

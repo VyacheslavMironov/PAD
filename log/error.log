@@ -3,3 +3,25 @@
 2022/10/17 13:07:38 [error] 967#967: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  New expressions are not supported in this context in /var/www/pad/controllers/api/OrganizationController.php on line 12" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/organization/create HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
 2022/10/17 13:08:03 [error] 967#967: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  New expressions are not supported in this context in /var/www/pad/controllers/api/OrganizationController.php on line 12" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/organization/create HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
 2022/10/17 13:10:03 [error] 967#967: *20 FastCGI sent in stderr: "PHP message: PHP Fatal error:  New expressions are not supported in this context in /var/www/pad/controllers/api/OrganizationController.php on line 13" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/organization/create HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
+2022/10/18 11:27:16 [error] 967#967: *25 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidRouteException: Unable to resolve the request "site/error". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/ErrorHandler.php(109): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/ErrorHandler.php(152): yii\web\ErrorHandler->renderException()
+#2 [internal function]: yii\base\ErrorHandler->handleException()
+#3 {main}
+Previous exception:
+yii\base\InvalidRouteException: Unable to resolve the request "api/auth". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php" while reading upstream, client: 127.0.0.1, server: _, request: "POST /api/auth HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
+2022/10/18 11:28:34 [error] 967#967: *25 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /var/www/pad/Services/AuthUserService.php on line 22" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/authorization/auth HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
+2022/10/18 15:23:02 [error] 967#967: *145 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Constant expression contains invalid operations in /var/www/pad/Repository/AuthUserRepository.php on line 13" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/authorization/auth HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
+2022/10/18 15:23:52 [error] 967#967: *145 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Constant expression contains invalid operations in /var/www/pad/Repository/AuthUserRepository.php on line 13" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/authorization/auth HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
+2022/10/18 15:24:00 [error] 967#967: *145 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Constant expression contains invalid operations in /var/www/pad/Repository/AuthUserRepository.php on line 13" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/authorization/auth HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
+2022/10/18 15:24:08 [error] 967#967: *145 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Constant expression contains invalid operations in /var/www/pad/Repository/AuthUserRepository.php on line 13" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/authorization/auth HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"
+2022/10/18 15:24:28 [error] 967#967: *145 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Constant expression contains invalid operations in /var/www/pad/Repository/AuthUserRepository.php on line 13" while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /api/authorization/auth HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"

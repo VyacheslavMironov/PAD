@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use \damirka\JWT\UserTrait;
 
 /**
  * This is the model class for table "users".
@@ -32,7 +33,7 @@ use Yii;
  * @property TeacherFromLessons[] $teacherFromLessons
  * @property UserGroup[] $userGroups
  */
-class Users extends \yii\db\ActiveRecord
+class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -176,4 +177,85 @@ class Users extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UserGroup::class, ['user_id' => 'id']);
     }
+
+    /* Тут просто скопировал со стандартной модели */ 
+    private static $users = [
+        '100' => [
+            'id' => '100',
+            'username' => 'admin',
+            'password' => 'admin',
+            'authKey' => 'test100key',
+            'accessToken' => '100-token',
+        ],
+        '101' => [
+            'id' => '101',
+            'username' => 'demo',
+            'password' => 'demo',
+            'authKey' => 'test101key',
+            'accessToken' => '101-token',
+        ],
+    ];
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function findIdentity($id)
+    {
+        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+    }
+
+    /**
+     * {@inheritdoc}
+     * @param \Lcobucci\JWT\Token $token
+     */
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        foreach (self::$users as $user) {
+            if ($user['id'] === (string) $token->getClaim('uid')) {
+                return new static($user);
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAuthKey()
+    {
+        return $this->authKey;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function validateAuthKey($authKey)
+    {
+        return $this->authKey === $authKey;
+    }
+
+    // Добавление getSecretKey
+    
+    // Override this method
+    protected static function getSecretKey()
+    {
+        return 'someSecretKey';
+    }
+
+    // And this one if you wish
+    protected static function getHeaderToken()
+    {
+        return [];
+    }
+
 }
