@@ -149,17 +149,17 @@
         },
         {
             "name": "bower-asset/swagger-ui",
-            "version": "v4.14.3",
-            "version_normalized": "4.14.3.0",
+            "version": "v3.52.5",
+            "version_normalized": "3.52.5.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wordnik/swagger-ui.git",
-                "reference": "278dc05c886ce9d5d91860d56d9b57f3ab53ad5b"
+                "reference": "f1ad60dc92e7edb0898583e16c3e66fe3e9eada2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wordnik/swagger-ui/zipball/278dc05c886ce9d5d91860d56d9b57f3ab53ad5b",
-                "reference": "278dc05c886ce9d5d91860d56d9b57f3ab53ad5b"
+                "url": "https://api.github.com/repos/wordnik/swagger-ui/zipball/f1ad60dc92e7edb0898583e16c3e66fe3e9eada2",
+                "reference": "f1ad60dc92e7edb0898583e16c3e66fe3e9eada2"
             },
             "type": "bower-asset",
             "installation-source": "dist",
@@ -663,6 +663,74 @@
                 "source": "https://github.com/Codeception/module-filesystem/tree/3.0.0"
             },
             "install-path": "../codeception/module-filesystem"
+        },
+        {
+            "name": "codeception/module-phpbrowser",
+            "version": "3.0.0",
+            "version_normalized": "3.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/module-phpbrowser.git",
+                "reference": "8e1fdcc85e182e6b61399b35a35a562862c3be62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/module-phpbrowser/zipball/8e1fdcc85e182e6b61399b35a35a562862c3be62",
+                "reference": "8e1fdcc85e182e6b61399b35a35a562862c3be62",
+                "shasum": ""
+            },
+            "require": {
+                "codeception/codeception": "*@dev",
+                "codeception/lib-innerbrowser": "*@dev",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.4",
+                "php": "^8.0",
+                "symfony/browser-kit": "^5.4 || ^6.0"
+            },
+            "conflict": {
+                "codeception/codeception": "<5.0",
+                "codeception/lib-innerbrowser": "<3.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^3.199",
+                "codeception/module-rest": "^2.0 || *@dev",
+                "ext-curl": "*"
+            },
+            "suggest": {
+                "codeception/phpbuiltinserver": "Start and stop PHP built-in web server for your tests"
+            },
+            "time": "2022-02-19T18:22:27+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Bodnarchuk"
+                },
+                {
+                    "name": "Gintautas Miselis"
+                }
+            ],
+            "description": "Codeception module for testing web application over HTTP",
+            "homepage": "https://codeception.com/",
+            "keywords": [
+                "codeception",
+                "functional-testing",
+                "http"
+            ],
+            "support": {
+                "issues": "https://github.com/Codeception/module-phpbrowser/issues",
+                "source": "https://github.com/Codeception/module-phpbrowser/tree/3.0.0"
+            },
+            "install-path": "../codeception/module-phpbrowser"
         },
         {
             "name": "codeception/module-yii2",
@@ -1183,6 +1251,224 @@
             "install-path": "../fakerphp/faker"
         },
         {
+            "name": "guzzlehttp/guzzle",
+            "version": "7.5.0",
+            "version_normalized": "7.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "b50a2a1251152e43f6a37f0fa053e730a67d25ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b50a2a1251152e43f6a37f0fa053e730a67d25ba",
+                "reference": "b50a2a1251152e43f6a37f0fa053e730a67d25ba",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/promises": "^1.5",
+                "guzzlehttp/psr7": "^1.9 || ^2.4",
+                "php": "^7.2.5 || ^8.0",
+                "psr/http-client": "^1.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+            },
+            "provide": {
+                "psr/http-client-implementation": "1.0"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.8.1",
+                "ext-curl": "*",
+                "php-http/client-integration-tests": "^3.0",
+                "phpunit/phpunit": "^8.5.29 || ^9.5.23",
+                "psr/log": "^1.1 || ^2.0 || ^3.0"
+            },
+            "suggest": {
+                "ext-curl": "Required for CURL handler support",
+                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
+                "psr/log": "Required for using the Log middleware"
+            },
+            "time": "2022-08-28T15:39:27+00:00",
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": false
+                },
+                "branch-alias": {
+                    "dev-master": "7.5-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "psr-18",
+                "psr-7",
+                "rest",
+                "web service"
+            ],
+            "support": {
+                "issues": "https://github.com/guzzle/guzzle/issues",
+                "source": "https://github.com/guzzle/guzzle/tree/7.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../guzzlehttp/guzzle"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "1.5.2",
+            "version_normalized": "1.5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "b94b2807d85443f9719887892882d0329d1e2598"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/b94b2807d85443f9719887892882d0329d1e2598",
+                "reference": "b94b2807d85443f9719887892882d0329d1e2598",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^4.4 || ^5.1"
+            },
+            "time": "2022-08-28T14:55:35+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "support": {
+                "issues": "https://github.com/guzzle/promises/issues",
+                "source": "https://github.com/guzzle/promises/tree/1.5.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../guzzlehttp/promises"
+        },
+        {
             "name": "guzzlehttp/psr7",
             "version": "2.4.1",
             "version_normalized": "2.4.1.0",
@@ -1303,60 +1589,6 @@
                 }
             ],
             "install-path": "../guzzlehttp/psr7"
-        },
-        {
-            "name": "ignatenkovnikita/yii2-swagger",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ignatenkovnikita/yii2-swagger.git",
-                "reference": "c4b8f3d69d7c37f30937a1dbc4783e141e85a161"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ignatenkovnikita/yii2-swagger/zipball/c4b8f3d69d7c37f30937a1dbc4783e141e85a161",
-                "reference": "c4b8f3d69d7c37f30937a1dbc4783e141e85a161",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/swagger-ui": ">3.1",
-                "yiisoft/yii2": "^2.0.0",
-                "zircote/swagger-php": ">2.0"
-            },
-            "time": "2022-08-01T13:41:55+00:00",
-            "default-branch": true,
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "ignatenkovnikita\\swagger\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ignatenkov Nikita",
-                    "email": "ignatenkov.n@gmail.com"
-                }
-            ],
-            "description": "Swagger UI v3 intergation with yii2",
-            "keywords": [
-                "api",
-                "document",
-                "extension",
-                "restful",
-                "swagger",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/ignatenkovnikita/yii2-swagger/issues",
-                "source": "https://github.com/ignatenkovnikita/yii2-swagger/tree/v1.5"
-            },
-            "install-path": "../ignatenkovnikita/yii2-swagger"
         },
         {
             "name": "masterminds/html5",
@@ -2365,6 +2597,61 @@
             "install-path": "../psr/event-dispatcher"
         },
         {
+            "name": "psr/http-client",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-client.git",
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0",
+                "psr/http-message": "^1.0"
+            },
+            "time": "2020-06-29T06:28:15+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP clients",
+            "homepage": "https://github.com/php-fig/http-client",
+            "keywords": [
+                "http",
+                "http-client",
+                "psr",
+                "psr-18"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-client/tree/master"
+            },
+            "install-path": "../psr/http-client"
+        },
+        {
             "name": "psr/http-factory",
             "version": "1.0.1",
             "version_normalized": "1.0.1.0",
@@ -2477,59 +2764,6 @@
                 "source": "https://github.com/php-fig/http-message/tree/master"
             },
             "install-path": "../psr/http-message"
-        },
-        {
-            "name": "psr/log",
-            "version": "3.0.0",
-            "version_normalized": "3.0.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.0.0"
-            },
-            "time": "2021-07-14T16:46:02+00:00",
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Log\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "homepage": "https://github.com/php-fig/log",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
-            },
-            "install-path": "../psr/log"
         },
         {
             "name": "psy/psysh",
@@ -5028,6 +5262,61 @@
             "install-path": "../theseer/tokenizer"
         },
         {
+            "name": "yii2mod/yii2-swagger",
+            "version": "1.1.1",
+            "version_normalized": "1.1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yii2mod/yii2-swagger.git",
+                "reference": "f5bbea5b17c4aa0f5039b0b2d0c9422827a437e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yii2mod/yii2-swagger/zipball/f5bbea5b17c4aa0f5039b0b2d0c9422827a437e9",
+                "reference": "f5bbea5b17c4aa0f5039b0b2d0c9422827a437e9",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/swagger-ui": "^3.1",
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12",
+                "zircote/swagger-php": "^2.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.0",
+                "phpunit/phpunit": "~6.0"
+            },
+            "time": "2017-10-19T14:33:59+00:00",
+            "type": "yii2-extension",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "yii2mod\\swagger\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Chepurnoi",
+                    "email": "chepurnoi.igor@gmail.com"
+                }
+            ],
+            "description": "Swagger Documentation Generator for Yii2 Framework",
+            "keywords": [
+                "yii2",
+                "yii2 api documentation generator",
+                "yii2 swagger"
+            ],
+            "support": {
+                "issues": "https://github.com/yii2mod/yii2-swagger/issues",
+                "source": "https://github.com/yii2mod/yii2-swagger/tree/master"
+            },
+            "install-path": "../yii2mod/yii2-swagger"
+        },
+        {
             "name": "yiisoft/yii2",
             "version": "2.0.46",
             "version_normalized": "2.0.46.0",
@@ -5581,48 +5870,40 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "4.4.9",
-            "version_normalized": "4.4.9.0",
+            "version": "2.1.2",
+            "version_normalized": "2.1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "0c1cdd31e8cfeb7116c54696aafdab9c778070fd"
+                "reference": "f144351118e6bcc04a275f490d7e359a3dd62586"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/0c1cdd31e8cfeb7116c54696aafdab9c778070fd",
-                "reference": "0c1cdd31e8cfeb7116c54696aafdab9c778070fd",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/f144351118e6bcc04a275f490d7e359a3dd62586",
+                "reference": "f144351118e6bcc04a275f490d7e359a3dd62586",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.7",
-                "ext-json": "*",
                 "php": ">=7.2",
-                "psr/log": "^1.1 || ^2.0 || ^3.0",
-                "symfony/finder": ">=2.2",
-                "symfony/yaml": ">=3.3"
+                "symfony/finder": ">=3.4"
             },
             "require-dev": {
-                "composer/package-versions-deprecated": "^1.11",
-                "friendsofphp/php-cs-fixer": "^2.17 || ^3.0",
-                "phpstan/phpstan": "^1.6",
-                "phpunit/phpunit": ">=8",
-                "vimeo/psalm": "^4.23"
+                "phpunit/phpunit": "^8 || ^9",
+                "squizlabs/php_codesniffer": ">=2.7"
             },
-            "time": "2022-09-11T20:51:43+00:00",
+            "time": "2022-06-18T00:00:23+00:00",
             "bin": [
-                "bin/openapi"
+                "bin/swagger"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.x-dev"
-                }
-            },
             "installation-source": "dist",
             "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
                 "psr-4": {
-                    "OpenApi\\": "src"
+                    "Swagger\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5632,20 +5913,16 @@
             "authors": [
                 {
                     "name": "Robert Allen",
-                    "email": "zircote@gmail.com"
+                    "email": "zircote@gmail.com",
+                    "homepage": "http://www.zircote.com"
                 },
                 {
                     "name": "Bob Fanger",
                     "email": "bfanger@gmail.com",
-                    "homepage": "https://bfanger.nl"
-                },
-                {
-                    "name": "Martin Rademacher",
-                    "email": "mano@radebatz.net",
-                    "homepage": "https://radebatz.net"
+                    "homepage": "http://bfanger.nl"
                 }
             ],
-            "description": "swagger-php - Generate interactive documentation for your RESTful API using phpdoc annotations",
+            "description": "Swagger-PHP - Generate interactive documentation for your RESTful API using phpdoc annotations",
             "homepage": "https://github.com/zircote/swagger-php/",
             "keywords": [
                 "api",
@@ -5655,7 +5932,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/4.4.9"
+                "source": "https://github.com/zircote/swagger-php/tree/2.1.2"
             },
             "install-path": "../zircote/swagger-php"
         }
@@ -5669,11 +5946,14 @@
         "codeception/lib-web",
         "codeception/module-asserts",
         "codeception/module-filesystem",
+        "codeception/module-phpbrowser",
         "codeception/module-yii2",
         "codeception/stub",
         "codeception/verify",
         "doctrine/instantiator",
         "fakerphp/faker",
+        "guzzlehttp/guzzle",
+        "guzzlehttp/promises",
         "guzzlehttp/psr7",
         "masterminds/html5",
         "myclabs/deep-copy",
@@ -5689,6 +5969,7 @@
         "phpunit/phpunit",
         "psr/container",
         "psr/event-dispatcher",
+        "psr/http-client",
         "psr/http-factory",
         "psr/http-message",
         "psy/psysh",
@@ -5716,12 +5997,14 @@
         "symfony/dom-crawler",
         "symfony/event-dispatcher",
         "symfony/event-dispatcher-contracts",
+        "symfony/polyfill-ctype",
         "symfony/polyfill-intl-grapheme",
         "symfony/polyfill-intl-normalizer",
         "symfony/polyfill-mbstring",
         "symfony/service-contracts",
         "symfony/string",
         "symfony/var-dumper",
+        "symfony/yaml",
         "theseer/tokenizer",
         "yiisoft/yii2-debug",
         "yiisoft/yii2-faker",

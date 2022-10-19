@@ -48,8 +48,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            // 'enableStrictParsing' => true,
+            'enableStrictParsing' => false,
             'rules' => [
+                'GET,POST authorization' => 'authorization/index',
                 [
                     'class' => 'yii\rest\UrlRule', 
                     'pluralize'=>false,

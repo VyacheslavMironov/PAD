@@ -11,8 +11,6 @@ use app\DTO\CreateUserDTO;
 
 class WorkingSpaceOrganizationsService
 {
-    // public WorkingSpaceOrganizationsRepository $workingSpaceOrganizationsRepository;
-
     public function createWorkingSpaceOrganizations($request)
     {
         $workingSpace = new WorkingSpaceOrganizationsRepository();
@@ -42,12 +40,13 @@ class WorkingSpaceOrganizationsService
                                     (bool)$request->post('is_quiz_platform'),
                                     (bool)$request->post('is_evaluation_type')
                                 ),
-            // 
+            // Параметры организации
             'organization' =>   new CreateOrganizationDTO(
                                     $request->post('name'),
                                     $request->post('destination'),
                                     null, // settings_id
                                 ),
+            // Владелец
             'user' =>           new CreateUserDTO(
                                     null, // organization_id
                                     null, // filial_id

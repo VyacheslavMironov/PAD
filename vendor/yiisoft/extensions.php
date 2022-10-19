@@ -49,4 +49,13 @@ return array (
     ),
     'bootstrap' => 'yii\\bootstrap5\\i18n\\TranslationBootstrap',
   ),
+  'yii2mod/yii2-swagger' => 
+  array (
+    'name' => 'yii2mod/yii2-swagger',
+    'version' => '1.1.1.0',
+    'alias' => 
+    array (
+      '@yii2mod/swagger' => $vendorDir . '/yii2mod/yii2-swagger',
+    ),
+  ),
 );

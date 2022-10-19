@@ -25934,3 +25934,3010 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1666149678.9633
     'REQUEST_TIME' => 1666149678
 ]
+2022-10-19 04:04:40 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "v1/swagger". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:04:40 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/v1/swagger'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152280.506
+    'REQUEST_TIME' => 1666152280
+]
+2022-10-19 04:06:57 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "users/". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:06:57 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users/?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152417.6635
+    'REQUEST_TIME' => 1666152417
+]
+2022-10-19 04:07:01 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "users/". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:07:01 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152421.7342
+    'REQUEST_TIME' => 1666152421
+]
+2022-10-19 04:07:05 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "users/". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:07:05 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users/?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152425.7457
+    'REQUEST_TIME' => 1666152425
+]
+2022-10-19 04:07:12 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "user/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:07:12 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152432.8261
+    'REQUEST_TIME' => 1666152432
+]
+2022-10-19 04:08:17 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "user/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:08:17 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152497.5748
+    'REQUEST_TIME' => 1666152497
+]
+2022-10-19 04:08:17 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "@web/favicon.ico". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:08:17 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/users?r=site/docs'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/@web/favicon.ico'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152497.8996
+    'REQUEST_TIME' => 1666152497
+]
+2022-10-19 04:08:35 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "site/@web/favicon.ico". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:08:35 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/site/index'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/site/@web/favicon.ico'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152515.555
+    'REQUEST_TIME' => 1666152515
+]
+2022-10-19 04:09:25 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "user/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:09:25 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152565.4576
+    'REQUEST_TIME' => 1666152565
+]
+2022-10-19 04:09:35 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "user/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:09:35 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users?r=site/doc'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/doc'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152575.0805
+    'REQUEST_TIME' => 1666152575
+]
+2022-10-19 04:09:42 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "user/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:09:42 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/users?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152582.1319
+    'REQUEST_TIME' => 1666152582
+]
+2022-10-19 04:10:43 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "swagger". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:10:43 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48556'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/swagger'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152643.8298
+    'REQUEST_TIME' => 1666152643
+]
+2022-10-19 04:14:31 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "site/index/@web/favicon.ico". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:14:31 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/site/index/'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48668'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/site/index/@web/favicon.ico'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152871.2564
+    'REQUEST_TIME' => 1666152871
+]
+2022-10-19 04:15:49 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "swagger-docs". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:15:49 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48668'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/swagger-docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666152949.9228
+    'REQUEST_TIME' => 1666152949
+]
+2022-10-19 04:17:23 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "swagger-docs". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:17:23 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50268'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/swagger-docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153043.4914
+    'REQUEST_TIME' => 1666153043
+]
+2022-10-19 04:23:13 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization/r=site/docs". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:23:13 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '60156'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization/r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153393.6378
+    'REQUEST_TIME' => 1666153393
+]
+2022-10-19 04:23:19 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:23:19 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '60156'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153399.4426
+    'REQUEST_TIME' => 1666153399
+]
+2022-10-19 04:23:34 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:23:34 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '60156'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization/index?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153414.5308
+    'REQUEST_TIME' => 1666153414
+]
+2022-10-19 04:29:03 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:29:03 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization/index?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153743.7967
+    'REQUEST_TIME' => 1666153743
+]
+2022-10-19 04:29:04 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization/@web/favicon.ico". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:29:04 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/authorization/index?r=site/docs'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization/@web/favicon.ico'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153744.0506
+    'REQUEST_TIME' => 1666153744
+]
+2022-10-19 04:29:44 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:29:44 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153784.0214
+    'REQUEST_TIME' => 1666153784
+]
+2022-10-19 04:29:52 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "index/authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:29:52 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/index/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153792.8592
+    'REQUEST_TIME' => 1666153792
+]
+2022-10-19 04:29:53 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "index/@web/favicon.ico". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:29:53 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/index/authorization?r=site/docs'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/index/@web/favicon.ico'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153793.082
+    'REQUEST_TIME' => 1666153793
+]
+2022-10-19 04:29:59 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:29:59 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => '/authorization'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php/authorization'
+    'REQUEST_URI' => '/index.php/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php/authorization'
+    'REQUEST_TIME_FLOAT' => 1666153799.0747
+    'REQUEST_TIME' => 1666153799
+]
+2022-10-19 04:29:59 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "@web/favicon.ico". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:29:59 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/index.php/authorization?r=site/docs'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => '/@web/favicon.ico'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php/@web/favicon.ico'
+    'REQUEST_URI' => '/index.php/@web/favicon.ico'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php/@web/favicon.ico'
+    'REQUEST_TIME_FLOAT' => 1666153799.2513
+    'REQUEST_TIME' => 1666153799
+]
+2022-10-19 04:30:06 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:30:06 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153806.8913
+    'REQUEST_TIME' => 1666153806
+]
+2022-10-19 04:31:17 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:31:17 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153877.2931
+    'REQUEST_TIME' => 1666153877
+]
+2022-10-19 04:31:22 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:31:22 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '50224'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization/index'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153882.8387
+    'REQUEST_TIME' => 1666153882
+]
+2022-10-19 04:32:52 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization/index". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:32:52 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '41772'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization/index'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153972.8143
+    'REQUEST_TIME' => 1666153972
+]
+2022-10-19 04:33:07 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:33:07 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_PURPOSE' => 'prefetch'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '41772'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153987.9027
+    'REQUEST_TIME' => 1666153987
+]
+2022-10-19 04:33:08 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:33:08 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '41772'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666153988.9404
+    'REQUEST_TIME' => 1666153988
+]
+2022-10-19 04:33:38 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "user". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:33:38 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '41772'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/user?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666154018.5943
+    'REQUEST_TIME' => 1666154018
+]
+2022-10-19 04:35:40 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "user". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:35:40 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '47204'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/user?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666154140.2028
+    'REQUEST_TIME' => 1666154140
+]
+2022-10-19 04:35:49 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:35:49 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '47204'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666154149.4002
+    'REQUEST_TIME' => 1666154149
+]
+2022-10-19 04:35:53 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:35:53 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '47204'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666154153.291
+    'REQUEST_TIME' => 1666154153
+]
+2022-10-19 04:35:56 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:35:56 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '47204'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666154156.2836
+    'REQUEST_TIME' => 1666154156
+]
+2022-10-19 04:43:16 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Request.php:299
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+2022-10-19 04:43:16 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '52430'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666154596.5069
+    'REQUEST_TIME' => 1666154596
+]
+2022-10-19 04:45:15 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "swagger/authorization". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:45:15 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = [
+    'r' => 'site/docs'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '44596'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/swagger/authorization?r=site/docs'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/docs'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666154715.7592
+    'REQUEST_TIME' => 1666154715
+]
+2022-10-19 04:58:51 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: site/ in /var/www/pad/vendor/yiisoft/yii2/base/Controller.php:149
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#2 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#3 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 04:58:51 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '36594'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666155531.3084
+    'REQUEST_TIME' => 1666155531
+]
+2022-10-19 05:06:41 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "signin". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 05:06:41 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '48748'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/signin'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666156001.8419
+    'REQUEST_TIME' => 1666156001
+]
+2022-10-19 05:45:26 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "signin". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-19 05:45:26 [127.0.0.1][-][chupggvaolkt45anbdoqdcviup][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E\";}'
+    'PHPSESSID' => 'chupggvaolkt45anbdoqdcviup'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=7fdf820722693de6a6e795e6c806b620f15437fe2e7f7760b5a0752045ec9aafa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Rqst5EosXcZ09wTpc2gslxFMPg1Kmk8E%22%3B%7D; PHPSESSID=chupggvaolkt45anbdoqdcviup'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '34646'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/signin'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666158326.3164
+    'REQUEST_TIME' => 1666158326
+]
