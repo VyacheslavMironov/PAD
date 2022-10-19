@@ -7,7 +7,6 @@ use app\models\Settings;
 use app\models\Organization;
 use yii\base\ErrorException;
 use app\models\Users;
-use Exception;
 use TypeError;
 
 class WorkingSpaceOrganizationsRepository

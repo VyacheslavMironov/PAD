@@ -4,7 +4,7 @@ namespace app\controllers\api;
 
 use Yii;
 use yii\filters\Cors;
-// use jwtManager\jwt\JwtHttpBearerAuth;
+use yii\data\ActiveDataProvider;
 use app\Services\AuthUserService;
 
 class AuthorizationController extends \yii\rest\Controller{

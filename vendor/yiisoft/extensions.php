@@ -3,16 +3,6 @@
 $vendorDir = dirname(__DIR__);
 
 return array (
-  'yiisoft/yii2-bootstrap5' => 
-  array (
-    'name' => 'yiisoft/yii2-bootstrap5',
-    'version' => '2.0.3.0',
-    'alias' => 
-    array (
-      '@yii/bootstrap5' => $vendorDir . '/yiisoft/yii2-bootstrap5/src',
-    ),
-    'bootstrap' => 'yii\\bootstrap5\\i18n\\TranslationBootstrap',
-  ),
   'yiisoft/yii2-debug' => 
   array (
     'name' => 'yiisoft/yii2-debug',
@@ -29,15 +19,6 @@ return array (
     'alias' => 
     array (
       '@yii/faker' => $vendorDir . '/yiisoft/yii2-faker/src',
-    ),
-  ),
-  'yiisoft/yii2-symfonymailer' => 
-  array (
-    'name' => 'yiisoft/yii2-symfonymailer',
-    'version' => '2.0.4.0',
-    'alias' => 
-    array (
-      '@yii/symfonymailer' => $vendorDir . '/yiisoft/yii2-symfonymailer/src',
     ),
   ),
   'yiisoft/yii2-gii' => 
@@ -58,13 +39,14 @@ return array (
       '@sizeg/jwt' => $vendorDir . '/sizeg/yii2-jwt',
     ),
   ),
-  'damirka/yii2-jwt' => 
+  'yiisoft/yii2-bootstrap5' => 
   array (
-    'name' => 'damirka/yii2-jwt',
-    'version' => '0.2.1.0',
+    'name' => 'yiisoft/yii2-bootstrap5',
+    'version' => '2.0.3.0',
     'alias' => 
     array (
-      '@damirka/JWT' => $vendorDir . '/damirka/yii2-jwt/src',
+      '@yii/bootstrap5' => $vendorDir . '/yiisoft/yii2-bootstrap5/src',
     ),
+    'bootstrap' => 'yii\\bootstrap5\\i18n\\TranslationBootstrap',
   ),
 );

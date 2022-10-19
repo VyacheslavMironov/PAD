@@ -31,7 +31,6 @@ class OrganizationController extends \yii\rest\Controller {
         return $behaviors;
     }
 
-
     public function actionCreate() {
         // Вызов сервиса
         $organizationService = new WorkingSpaceOrganizationsService();

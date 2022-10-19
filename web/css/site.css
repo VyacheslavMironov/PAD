@@ -1,84 +1,444 @@
-main > .container {
-    padding: 70px 15px 20px;
+/* Тут только общие CSS стили для всего проекта. */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
 }
 
-.footer {
-    background-color: #f5f5f5;
-    font-size: .9em;
-    height: 60px;
+html,
+body,
+body section{
+    height: 100%;
 }
 
-.footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+a{
+    text-decoration: revert!important;
+    color: #2c3e50!important;
+    font-family: 'PT Sans', sans-serif;
+}
+a:hover{
+
 }
 
-.not-set {
-    color: #c55;
-    font-style: italic;
+label smail{
+    font-size: 0.8em;
+}
+svg{
+    fill: #dc3545;
+    height: 2em;
+    width: 3em;
+}
+ul{}
+
+ul li{
+    list-style: none;
+}
+table svg,
+#month-menu svg{
+    width: 1.6em;
+    height: 1.6em;
+}
+span, 
+strong, 
+b{
+    color: #2c3e50;
+    font-family: 'Inter', sans-serif;
+}
+table svg:hover{
+    transition: .6s;
+    fill: rgb(44, 44, 44)!important;
+}
+table span:focus svg{
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+nav#journal{
+    height: 2em;
+    position: relative;
+    top: 0.4em;
+}
+ul li, 
+p, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5{
+    color: #2c3e50;
+    font-family: 'Inter', sans-serif;
+}
+input,
+select{
+    background-color: #DFDEDE!important;
+}
+input[type=radio],
+input[type=checkbox]{
+    background-color: #dc3545!important;
+    border-color: #dc3545!important;
+}
+header, footer{
+    box-shadow: 0px 1px 12px 1px rgb(0 0 0 / 30%);
+    margin-bottom: 3em;
+}
+footer{
+    margin-top: 5em;
+}
+#app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#login_desktop{
+    position: relative;
+    left: 50%;
+}
+#new_game{
+    padding: 0.2em;
+    width: 40%;
+    top: 3.2em;
+    left: 15%;
+    position: absolute;
+}
+#btn_menu{
+    background-color: #6a6a6a00!important;
+}
+#btn_menu svg{
+    width: 1.5em;
+    height: 1.5em;
+}
+#settings-journal-menu{
+    height: 30em;
+    overflow: auto;
 }
 
-/* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
-    content: '';
-    left: 3px;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border: solid 5px transparent;
-    margin: 4px 4px 2px 4px;
-    background: transparent;
+/* Спец классы */
+.wrapper{
+    min-height: 100%;
+}
+.bg-blue{
+    background: #265cf6!important;
+}
+#app .btn,
+#app a.btn{
+    background-color: #F62626;
+    text-decoration: none!important;
+    color: #fff!important;
+}
+.mt-10{
+    margin-top: 10em!important;
+}
+.l-60{
+    position: relative;
+    left: 60%;
+}
+.l-30{
+    left: 30%!important;
+}
+.mt-8{
+    margin-top: 8em!important;
+}
+.pt-1em{
+    padding-top: 1em;
+}
+.m-07{
+    margin: 0.7em;
+}
+.right{
+    float: right;
+}
+.w-90{
+    width: 90%!important;
+}
+.h-max{
+    overflow: auto;
+    border: solid 1px #dee2e6;
+    height: 9em;
+    padding: 0.5em;
+}
+.time_for_block_table li{
+    height: 9em;
 }
 
-a.asc:after {
-    border-bottom: solid 7px #212529;
-    border-top-width: 0;
+.view-menu{
+    position: absolute;
+    left: 18em;
 }
-
-a.desc:after {
-    border-top: solid 7px #212529;
-    border-bottom-width: 0;
+.view-menu li{
+    margin-left: 20%;
 }
-
-.grid-view th {
-    white-space: nowrap;
+.view-menu li a.absolut-item{
+    position: absolute;
+    width: 114%;
 }
+.view-menu li a{}
 
-.hint-block {
+footer .card{
+    box-shadow: 0px 1px 12px 1px #0d6efd;
+}
+/* END */
+
+/* ALERT */
+#toast{
+    position: fixed;
+    top: 4em;
+    right: 2em;
+    z-index: 99999999;
+}
+/* END */
+
+/* CARD */
+._card{
+    background-color: #F0EEEE!important;
+    /* border-radius: 1em!important; */
+}
+/* END */
+/* Loader */
+#loader-bg{
+    display: none;
+    background-color: #21252985;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 5em;
+    z-index: 999;
+}
+.loader{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    display: flex;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 190%;
+    color: #36485a;
+}
+.loader p{
+    margin-top: 2em;
+    font-size: 0.6em;
+}
+/* END */
+
+/* Registration Form */
+#step_two, 
+#step_free{
+    display: none;
+}
+.cirkle-round{
+    background-color: #f62626;
+    height: 2.3em;
+    width: 2.3em;
+    padding-top: 0.3em;
+    border-radius: 3em;
+}
+.cirkle-round strong{
+    color: #fff;
+}
+/* END */
+
+/* Меню на странице настроек журнала */
+section ._card{
+    padding: 1em!important;
+}
+section ._card a.list_items{
+    background: #dfdede;
+    line-height: 2;
+    margin: 0;
+    padding: 0.2em;
     display: block;
-    margin-top: 5px;
-    color: #999;
 }
-
-.error-summary {
-    color: #a94442;
-    background: #fdf7f7;
-    border-left: 3px solid #eed3d7;
-    padding: 10px 20px;
-    margin: 0 0 15px 0;
+section ._card a.list_items svg{
+    fill: rgb(77 80 100);
+    width: 11%;
+    height: 1.6em;
+    margin-right: 5%;
 }
-
-/* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
-    padding-top: 7px;
-    color: rgba(255, 255, 255, 0.5);
+section ._card ul li{
+    background-color: #c5c5c51f;
+    position: relative;
+    left: 5%;
+    width: 95%;
+    border: none;
 }
-
-@media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
-        text-align: left;
-        width: 100%;
-        padding: 10px 0;
-    }
+section ._card ul li a{
+    display: block;
 }
-
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
+section ._card ul li a, 
+section ._card a.list_items{
+    color: #2c3e50;
 }
-
-.nav > li > form > button.logout:focus {
-    outline: none;
+section ._card ul li:hover{
+    transition: .6s;
+    background: #00000017;
 }
+/* END */
+a.btn a .btn{
+    text-decoration: none!important;
+}
+.svg-var{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+.icon-var{
+    width: 27%;
+    height: 8%;
+    display: block;
+    margin-top: 1em!important;
+    border-radius: 5em;
+}
+.icon-var:hover{
+    transition: .6s;
+    fill: #dc3545!important;
+    cursor: pointer;
+}
+.bg-gray{
+    background: #d9d9d9;
+    padding: 0.6em;
+    border-radius: 1em;
+    overflow: auto;
+    height: 20em;
+}
+.list-group-item{
+    cursor: pointer;
+    color: #2c3e50;
+    font-weight: bold;
+}
+.list-group-item.active {
+    cursor: pointer;
+    color: #fff!important;
+    background-color: #F62626!important;
+}
+.pointer{
+    cursor: pointer;
+}
+.group-list li.active{
+    background-color: #dc3545!important;
+    color: #fff;
+}
+#day-list button.day-no{
+    background: #c1c1c1!important;
+}
+.w-find-journal{
+    width: 1.2em!important;
+    margin: 0 auto;
+}
+input.w-find-journal{
+    padding: 0;
+    width: 1.5em!important;
+    height: 2.6em;
+    text-align: center;
+}
+.table>:not(caption)>*>* {
+    padding: 0.2em!important;
+}
+.delimetr{
+    width: 10em;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#journal-table{
+    width: auto;
+    margin: 0 auto;
+}
+#journal-table input.form-control{
+    border-radius: 0%!important;
+}
+p.w-find-journal{
+    width: 1.2em!important;
+    margin: 0 auto;
+    font-size: 0.9em;
+    position: relative;
+    right: 10%;
+}
+p.w-x2{
+    width: 1.7em!important;
+    position: relative;
+    left: 6%;
+}
+p.w-text-table{
+    width: 1.8em!important;
+    right: 0%!important;
+}
+/* Меню месяцов */
+#month-menu li{
+    background-color: #c5c5c500;
+    position: inherit;
+    left: 0%;
+    width: auto;
+    border: none;
+}
+#month-menu li span{
+    width: 7em;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+}
+#month-menu svg:hover{
+    cursor: pointer;
+    transition: .6s;
+    fill: rgb(50 50 50)!important;
+}
+.check-journal-header{
+    position: relative;
+    top: 0.5em;
+}
+td#user{
+    padding-left: 1em!important;
+    font-size: 0.8em;
+}
+table th.active-day,
+table td.active-day{
+    border-left: solid 0.1em #dc3545;
+    border-right: solid 0.1em #dc3545;
+}
+.time-timetable{
+    background-color: #d3d1d18c;
+}
+ul li strong.list:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.text-block{
+    color: #adadad;
+    cursor: not-allowed;
+}
+.block-table-header{
+    background-color: #dee2e6;
+}
+.block-table{
+    width: 20%;
+}
+.block-table:hover{
+    background-color: #dee2e669;
+}
+.block-table ul{
+    padding: 0;
+}
+.list-timetable{
+    padding: 0.5em;
+    background: #82f79b;
+    border-radius: 0.6em;
+}
+.block-table-body{}
+/* END */
+/* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
+.navbar-brand{
+    text-decoration: none!important;
+}
+.badge{
+    font-size: 0.6em!important;
+}
+.offcanvas-bottom {
+    height: 45vh!important;
+}
+/* END */
