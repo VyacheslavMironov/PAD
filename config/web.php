@@ -50,7 +50,6 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
-                'GET,POST authorization' => 'authorization/index',
                 [
                     'class' => 'yii\rest\UrlRule', 
                     'pluralize'=>false,

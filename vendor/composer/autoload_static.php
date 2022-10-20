@@ -60,6 +60,10 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
             'Symfony\\Component\\BrowserKit\\' => 29,
             'Swagger\\' => 8,
         ),
+        'R' => 
+        array (
+            'ReallySimpleJWT\\' => 16,
+        ),
         'P' => 
         array (
             'Psy\\' => 4,
@@ -194,6 +198,10 @@ class ComposerStaticInita9dc973d4627df91a0563a9d9fa56689
         'Swagger\\' => 
         array (
             0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
+        'ReallySimpleJWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src',
         ),
         'Psy\\' => 
         array (

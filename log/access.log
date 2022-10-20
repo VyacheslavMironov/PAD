@@ -420,3 +420,4 @@
 127.0.0.1 - - [19/Oct/2022:12:06:42 +0700] "GET /app/app_src_views_SignInView_vue.js HTTP/1.1" 304 0 "http://127.0.0.1/signin" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 127.0.0.1 - - [19/Oct/2022:12:45:26 +0700] "GET /signin HTTP/1.1" 404 7552 "http://127.0.0.1/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 127.0.0.1 - - [19/Oct/2022:12:45:26 +0700] "GET /debug/default/toolbar?tag=634f8ef64fb7e HTTP/1.1" 200 3445 "http://127.0.0.1/signin" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+127.0.0.1 - - [20/Oct/2022:09:38:36 +0700] "POST /api/authorization/auth HTTP/1.1" 200 269 "-" "PostmanRuntime/7.29.2"

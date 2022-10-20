@@ -10,10 +10,7 @@ class AuthUserService
 {
     public function authByPassword($request){
         $repository = new AuthUserRepository();
-        return $repository->auth(
-            $request->post('email'),
-            $request->post('password')
-    );
+        return $repository->auth(new AuthUserDTO($request->post('email'), $request->post('password')));
 
     }
 

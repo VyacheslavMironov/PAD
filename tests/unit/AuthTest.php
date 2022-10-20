@@ -5,12 +5,14 @@ namespace Unit;
 
 use \UnitTester;
 use app\Repository\WorkingSpaceOrganizationsRepository;
+use app\Repository\AuthUserRepository;
 use app\DTO\CreatePrivilegeAdminDTO;
 use app\DTO\CreateSettingsDTO;
 use app\DTO\CreateOrganizationDTO;
 use app\DTO\CreateUserDTO;
+use app\DTO\AuthUserDTO;
 
-class CreateOrganizationTest extends \Codeception\Test\Unit
+class AuthTest extends \Codeception\Test\Unit
 {
 
     protected UnitTester $tester;
@@ -38,6 +40,19 @@ class CreateOrganizationTest extends \Codeception\Test\Unit
         $this->assertEquals(2, count($response));
         $this->assertEquals(true, $response['response']);
         $this->assertEquals(4, count($response['message']));
+        $this->assertEquals(true, $response['response']);
+
+        // Аутентификация
+        $authTest = new AuthUserRepository();
+        $response = $authTest->auth(new AuthUserDTO('test.mail@mail.ru', 'blablabla22'));
+
+        // Проверка параметров возвращаемого массива
+        $this->assertNotNull($response);
+        $this->assertArrayHasKey('message', $response);
+        $this->assertEquals(2, count($response));
+        $this->assertArrayHasKey('id', $response['message']);
+        $this->assertArrayHasKey('user_id', $response['message']);
+        $this->assertArrayHasKey('token', $response['message']);
     }
 
     // tests

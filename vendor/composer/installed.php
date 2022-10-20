@@ -3,7 +3,7 @@
         'name' => 'yiisoft/yii2-app-basic',
         'pretty_version' => 'dev-dev',
         'version' => 'dev-dev',
-        'reference' => 'cae411996012d0aeaa9861c1d18292d5ad47caaf',
+        'reference' => '5d75358855acc744cc929568e3bba175543c801e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -469,6 +469,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'rbdwllr/reallysimplejwt' => array(
+            'pretty_version' => '5.0.0',
+            'version' => '5.0.0.0',
+            'reference' => 'd7e1014ccbfba43420866fd3dc3f18a521883868',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../rbdwllr/reallysimplejwt',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'sebastian/cli-parser' => array(
             'pretty_version' => '1.0.1',
             'version' => '1.0.1.0',
@@ -793,7 +802,7 @@
         'yiisoft/yii2-app-basic' => array(
             'pretty_version' => 'dev-dev',
             'version' => 'dev-dev',
-            'reference' => 'cae411996012d0aeaa9861c1d18292d5ad47caaf',
+            'reference' => '5d75358855acc744cc929568e3bba175543c801e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

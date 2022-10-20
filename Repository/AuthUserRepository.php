@@ -27,11 +27,11 @@ class AuthUserRepository
         return $token->getToken();
     }
 
-    public function auth($email, $password)
+    public function auth($context)
     {
-        $is_user = Users::find()->where(['email' => $email])->one();
+        $is_user = Users::find()->where(['email' => $context->email])->one();
 
-        if (trim($is_user->password) == $password)
+        if (trim($is_user->password) == $context->password)
         {
             $token = (string)$this->createBearerToken($is_user->id);
             $get_access_token = AccessKey::find()->where(['user_id' => $is_user->id])->one();
