@@ -65,31 +65,34 @@ __webpack_require__.r(__webpack_exports__);
     ButtonComponent: _components_ButtonComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     AlertComponent: _components_AlertComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  props: {
+    server: String
+  },
   methods: {
     loginUser: function loginUser() {
       if (String(this.username).length > 0 && String(this.password).length > 0) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://localhost:5000/api/user/auth', {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/authorization/auth', {
           headers: {
             'Content-Type': 'application/json'
           },
           email: this.username,
           password: this.password
         }).then(function (response) {
-          if (response.data[1] === 200) {
+          if (response.status === 200) {
+            console.log(response);
             // Токен сохраняется в куки браузера
-            document.cookie = 'user=Bearer ' + response.data[0].message.access_token;
-            window.location.href = '/';
+            document.cookie = 'user=Bearer ' + response.data[0].message.token;
+            // window.location.href = '/'
           } else {
             self.alert = 'Логин или пароль введены не правильно.';
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1;
           }
         })["catch"](function (error) {
-          if (error) {
-            self.alert = 'Такого пользователя не существует!';
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1;
-          }
+          console.log('Это плёха!');
+          self.alert = 'Такого пользователя не существует!';
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1;
         });
       } else {
         this.alert = 'Заполните все поля!';
@@ -206,6 +209,17 @@ var _hoisted_11 = ["href"];
 var _hoisted_12 = {
   "class": "col-6"
 };
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1 /* HOISTED */);
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-12"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  style: {
+    "cursor": "pointer"
+  }
+}, "Войти по E-mail коду")])], -1 /* HOISTED */);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_AlertComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("AlertComponent");
@@ -240,7 +254,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return _this.loginUser();
         }),
         css_class: "btn mt-2 right"
-      })])])])];
+      })])])]), _hoisted_13, _hoisted_14];
     }),
     _: 1 /* STABLE */
   })])]);

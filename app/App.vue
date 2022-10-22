@@ -7,6 +7,7 @@
       <MenuComponent v-bind:user_info=this.user_info  />
       <ContentComponent>
         <router-view
+          v-bind:server=this.server
           v-bind:is_auth=this.is_auth
           v-bind:token=this.token
         />
@@ -32,7 +33,8 @@ export default {
       return {
         token: null,
         is_auth: document.cookie.search('user'),
-        user_info: null
+        user_info: null,
+        server: 'http://127.0.0.1'
       }
     },
     components: {

@@ -19843,7 +19843,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       token: null,
       is_auth: document.cookie.search('user'),
-      user_info: null
+      user_info: null,
+      server: 'http://127.0.0.1'
     };
   },
   components: {
@@ -20005,9 +20006,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8 /* PROPS */, ["user_info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ContentComponent, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view, {
+        server: _this.server,
         is_auth: _this.is_auth,
         token: _this.token
-      }, null, 8 /* PROPS */, ["is_auth", "token"])];
+      }, null, 8 /* PROPS */, ["server", "is_auth", "token"])];
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FooterComponent)]);

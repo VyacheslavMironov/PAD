@@ -10,7 +10,7 @@
 html,
 body,
 body section{
-    height: 100%;
+    height: 100vh;
 }
 
 a{
@@ -225,7 +225,8 @@ footer .card{
 
 /* Registration Form */
 #step_two, 
-#step_free{
+#step_free,
+#step_foo{
     display: none;
 }
 .cirkle-round{
@@ -430,8 +431,32 @@ ul li strong.list:hover{
     border-radius: 0.6em;
 }
 .block-table-body{}
+.tariff p{
+    background-color: #d3d4d5;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+.tariff span{
+    position: relative;
+    float: right;
+    display: flex;
+    align-items: center;
+    background-color: #f62626;
+    height: 2.5em;
+    border-radius: 1em;
+    padding: 1em;
+    color: #fff;
+    top: -0.5em;
+    left: 0.5em;
+}
 /* END */
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
+#toast{
+    opacity: 0;
+}
+.toast:not(.show) {
+    display: block!important;
+}
 .navbar-brand{
     text-decoration: none!important;
 }

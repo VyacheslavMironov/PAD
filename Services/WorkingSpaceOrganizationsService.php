@@ -4,6 +4,8 @@ namespace app\Services;
 
 use app\Repository\WorkingSpaceOrganizationsRepository;
 
+use DateTime;
+use DateInterval;
 use app\DTO\CreatePrivilegeAdminDTO;
 use app\DTO\CreateSettingsDTO;
 use app\DTO\CreateOrganizationDTO;
@@ -11,6 +13,14 @@ use app\DTO\CreateUserDTO;
 
 class WorkingSpaceOrganizationsService
 {
+    public function addition_dates()
+    {
+        $date = new DateTime();
+        $date->add(new DateInterval('P1M'));
+        $date->add(new DateInterval('P14D'));
+        return $date->format('Y-m-d');
+    }
+
     public function createWorkingSpaceOrganizations($request)
     {
         $workingSpace = new WorkingSpaceOrganizationsRepository();
@@ -27,17 +37,17 @@ class WorkingSpaceOrganizationsService
             // Настройки рабочей области
             'settings' =>       new CreateSettingsDTO(
                                     (string)$request->post('logo'),
-                                    $request->post('payment_at'),
-                                    $request->post('payment_to'),
-                                    (string)$request->post('tariff_from'),
-                                    (bool)$request->post('test_period'),
-                                    null,
+                                    date('Y/m/d h:i:s', time()), // payment_at
+                                    $this->addition_dates(), // payment_to
+                                    $request->post('tariff_from'),
+                                    true, // test_period
+                                    null, // priveleges_admin_id
                                     (bool)$request->post('is_video_platform'),
                                     (bool)$request->post('is_chat_platform'),
                                     (bool)$request->post('is_test_platform'),
                                     (bool)$request->post('is_game_platform'),
-                                    (bool)$request->post('is_backup'),
-                                    (bool)$request->post('is_quiz_platform'),
+                                    true, // is_backup
+                                    true, // is_quiz_platform
                                     (bool)$request->post('is_evaluation_type')
                                 ),
             // Параметры организации
@@ -53,11 +63,11 @@ class WorkingSpaceOrganizationsService
                                     null, // middle_name
                                     $request->post('first_name'),
                                     $request->post('last_name'),
-                                    $request->post('middle_name'),
+                                    null, // middle_name
                                     $request->post('email'),
                                     $request->post('role'),
                                     null, // is_active
-                                    $request->post('avatar'),
+                                    null, // avatar
                                     null, // email_code
                                     $request->post('password')
                                 ),

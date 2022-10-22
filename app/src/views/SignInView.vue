@@ -32,6 +32,12 @@
               </div>
             </div>
           </form>
+          <hr>
+          <div class="col-12">
+            <p class="text-center">
+              <a style="cursor:pointer;">Войти по E-mail коду</a>
+            </p>
+          </div>
         </CardComponent>
       </div>
     </main>
@@ -58,36 +64,40 @@
       ButtonComponent,
       AlertComponent
     },
+    props: {
+      server: String
+    },
     methods: {
       loginUser () {
         if (String(this.username).length > 0 && String(this.password).length > 0) {
-          axios.post('http://localhost:5000/api/user/auth',
-            {
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              email: this.username,
-              password: this.password
-            }
-          )
-            .then(function (response) {
-              if (response.data[1] === 200) {
-                // Токен сохраняется в куки браузера
-                document.cookie = 'user=Bearer ' + response.data[0].message.access_token
-                window.location.href = '/'
-              } else {
-                self.alert = 'Логин или пароль введены не правильно.'
-                // Активация всплывающего сообщения
-                document.getElementById('toast').style.opacity = 1
+            axios.post(this.server + '/api/authorization/auth',
+              {
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                email: this.username,
+                password: this.password
               }
-            })
-            .catch(function (error) {
-              if (error) {
+            )
+              .then(function (response) {
+                if (response.status === 200) {
+                  console.log(response)
+                  // Токен сохраняется в куки браузера
+                  document.cookie = 'user=Bearer ' + response.data[0].message.token
+                  // window.location.href = '/'
+                } else {
+                  self.alert = 'Логин или пароль введены не правильно.'
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1
+                }
+              })
+              .catch(function (error) {
+                console.log('Это плёха!')
                 self.alert = 'Такого пользователя не существует!'
                 // Активация всплывающего сообщения
                 document.getElementById('toast').style.opacity = 1
-              }
-            })
+              })
+           
         } else {
           this.alert = 'Заполните все поля!'
           // Активация всплывающего сообщения

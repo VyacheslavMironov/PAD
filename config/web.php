@@ -66,6 +66,14 @@ $config = [
                         'POST auth' => 'auth'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/upload'],
+                    'extraPatterns' => [
+                        'POST save' => 'save'
+                    ]
+                ],
             ],
         ],
     ],

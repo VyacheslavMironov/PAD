@@ -23,9 +23,7 @@ $this->beginPage() ?>
 <body>
 <?php
 $this->beginBody() ?>
-<div id="app">
-
-</div>
+<div id="app"></div>
 <?php
 $this->endBody() ?>
 </body>
