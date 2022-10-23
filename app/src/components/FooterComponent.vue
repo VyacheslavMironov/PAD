@@ -2,14 +2,14 @@
     <footer class="container_fluid pt-3 pb-2">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-2">
+          <div class="col-lg-2 col-12 text-center mb-4">
             <h2 class="align-items-center">
               <b>PAD</b>
             </h2>
             <a href="#" class="align-items-center">example@mail.ru</a>
           </div>
-          <div class="col-4">
-            <div class="card h-100 bg-dark">
+          <div class="col-lg-4 d-lg-block d-none">
+            <!-- <div class="card h-100 bg-dark">
               <a href="#">
                 <div class="row">
                   <div class="col-2">
@@ -23,10 +23,10 @@
                   </div>
                 </div>
               </a>
-            </div>
+            </div> -->
           </div>
-          <div class="col-1"></div>
-          <div class="col-2">
+          <div class="col-lg-1 d-lg-block d-none"></div>
+          <div class="col-lg-2 col-12 text-center mb-4">
             <div class="d-block">
               <a href="#">О журнале</a>
             </div>
@@ -34,7 +34,7 @@
               <a href="#">Правила пользователя</a>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-lg-2 col-12 text-center mb-2">
             <div class="d-block">
               <a href="#">Служба поддержки</a>
             </div>

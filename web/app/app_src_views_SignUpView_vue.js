@@ -316,7 +316,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "_card card col-7 p-5 mx-auto"
+  "class": "_card card col-lg-7 col-12 p-5 mx-auto"
 };
 function render(_ctx, _cache) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")]);
@@ -340,7 +340,7 @@ var _hoisted_1 = {
   id: "loader-bg"
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card col-5 mx-auto loader"
+  "class": "card col-lg-5 col-10 mx-auto loader"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "text-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -561,10 +561,10 @@ var _hoisted_56 = {
   "class": "row"
 };
 var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-9 tariff"
+  "class": "col-lg-9 col-7 tariff"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Ежемесячный "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "4160 т.р/мес")])], -1 /* HOISTED */);
 var _hoisted_58 = {
-  "class": "col-3"
+  "class": "col-lg-3 col-5"
 };
 var _hoisted_59 = {
   "class": "btn w-100",
@@ -580,10 +580,10 @@ var _hoisted_62 = {
   "class": "row"
 };
 var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-9 tariff"
+  "class": "col-lg-9 col-7 tariff"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Полугодовой "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "8000 т.р/мес")])], -1 /* HOISTED */);
 var _hoisted_64 = {
-  "class": "col-3"
+  "class": "col-lg-3 col-5"
 };
 var _hoisted_65 = {
   "class": "btn w-100",
@@ -599,10 +599,10 @@ var _hoisted_68 = {
   "class": "row"
 };
 var _hoisted_69 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-9 tariff"
+  "class": "col-lg-9 col-7 tariff"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Годовой "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "3750 т.р/мес")])], -1 /* HOISTED */);
 var _hoisted_70 = {
-  "class": "col-3"
+  "class": "col-lg-3 col-5"
 };
 var _hoisted_71 = {
   "class": "btn w-100",

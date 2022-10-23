@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "pad_db",
+            "database": "pad_db",
+            "username": "raptor22",
+            "password": "lama22"
+        }
+    ]
+}

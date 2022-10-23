@@ -1,6 +1,6 @@
 <template>
     <div id="loader-bg">
-        <div class="card col-5 mx-auto loader">
+        <div class="card col-lg-5 col-10 mx-auto loader">
             <div class="text-center">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>

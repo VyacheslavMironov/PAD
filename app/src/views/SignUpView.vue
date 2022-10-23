@@ -160,10 +160,10 @@
                 </label>
                 <div class="form-check">
                   <div class="row">
-                    <div class="col-9 tariff">
+                    <div class="col-lg-9 col-7 tariff">
                       <p>Ежемесячный <span>4160 т.р/мес</span></p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-5">
                       <input type="radio" class="btn-check" name="options" v-on:click="tariffFrom('Ежемесячный')" id="option1" autocomplete="off">
                       <label class="btn w-100" for="option1"><span ref="monthTariff"></span> Выбрать</label>
                     </div>
@@ -171,10 +171,10 @@
                 </div>
                 <div class="form-check">
                   <div class="row">
-                    <div class="col-9 tariff">
+                    <div class="col-lg-9 col-7 tariff">
                       <p>Полугодовой <span>8000 т.р/мес</span></p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-5">
                       <input type="radio" class="btn-check" name="options" v-on:click="tariffFrom('Полугодовой')" id="option2" autocomplete="off">
                       <label class="btn w-100" for="option2"><span ref="semiYearTariff"></span> Выбрать</label>
                     </div>
@@ -182,10 +182,10 @@
                 </div>
                 <div class="form-check">
                   <div class="row">
-                    <div class="col-9 tariff">
+                    <div class="col-lg-9 col-7 tariff">
                       <p>Годовой <span>3750 т.р/мес</span></p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-5">
                       <input type="radio" class="btn-check" name="options" v-on:click="tariffFrom('Годовой')" id="option3" autocomplete="off">
                       <label class="btn w-100" for="option3"><span ref="yearTariff"></span> Выбрать</label>
                     </div>

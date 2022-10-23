@@ -1,0 +1,57 @@
+/* Large desktops and laptops */
+@media(min-width: 1200px) {
+
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media(min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media(max-width: 767px) {
+
+}
+
+/* По надобности дописую промежуточные разрешения, если вдруг по дизайну что то падает на 650px, тогда дописую: */
+
+@media (max-width: 650) {
+
+}
+
+/* Landscape phones and smaller */
+@media(max-width: 480px) {
+    #toast {
+        background: #f3f3f3;
+    }
+    .cirkle-round p{
+        position: relative;
+        top: 8%;
+    }
+    .tariff{ 
+        margin-bottom: 1em;
+    }
+    .tariff p {
+        padding: 0.35em;
+        border-radius: 1em 0em;
+    }
+    .tariff span {
+        position: relative;
+        align-items: center;
+        background-color: #f62626;
+        height: 2em;
+        color: #fff;
+        top: 0em;
+        justify-content: center;
+        width: 108%;
+        border-radius: 0em 1em;
+    }
+    label.btn{
+        margin-top: 0.8em;
+    }
+}
