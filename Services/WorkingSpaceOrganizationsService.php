@@ -10,6 +10,7 @@ use app\DTO\CreatePrivilegeAdminDTO;
 use app\DTO\CreateSettingsDTO;
 use app\DTO\CreateOrganizationDTO;
 use app\DTO\CreateUserDTO;
+use app\Services\SendEmailService;
 
 class WorkingSpaceOrganizationsService
 {
@@ -19,6 +20,12 @@ class WorkingSpaceOrganizationsService
         $date->add(new DateInterval('P1M'));
         $date->add(new DateInterval('P14D'));
         return $date->format('Y-m-d');
+    }
+
+    public function send($password, $email)
+    {
+        $mail = new SendEmailService(['password' => $password,'email' => $email]);
+        return $mail->send();
     }
 
     public function createWorkingSpaceOrganizations($request)
@@ -73,6 +80,7 @@ class WorkingSpaceOrganizationsService
                                 ),
         ]);
 
+        $this->send($request->post('password'), $request->post('email'));
         return $create;
     }
 }

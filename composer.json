@@ -70,6 +70,7 @@
     "require": {
         "yiisoft/yii2-bootstrap5": "^2.0",
         "yii2mod/yii2-swagger": "*",
-        "rbdwllr/reallysimplejwt": "^5.0"
+        "rbdwllr/reallysimplejwt": "^5.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
     }
 }
