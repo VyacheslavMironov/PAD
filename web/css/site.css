@@ -100,10 +100,12 @@ footer{
     left: 15%;
     position: absolute;
 }
-#btn_menu{
+#btn_menu,
+#mobile_menu{
     background-color: #6a6a6a00!important;
 }
-#btn_menu svg{
+#btn_menu svg,
+#mobile_menu svg{
     width: 1.5em;
     height: 1.5em;
 }
@@ -448,6 +450,11 @@ ul li strong.list:hover{
     color: #fff;
     top: -0.5em;
     left: 0.5em;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 /* END */
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */

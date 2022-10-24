@@ -2,25 +2,29 @@
     <header class="container_fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid container">
-          <a class="navbar-brand" href="#">
-            <h2 class="text-center">
-              <b>PAD</b>
-            </h2>
-          </a>
-          <!--
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          -->
-          <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+          <div class="flex">
+            <div class="d-lg-none d-block">
+              <button
+                id="mobile_menu"
+                type="button"
+                class=" btn"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasLeft"
+                aria-controls="offcanvasLeft"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
+                  <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+                </svg>
+              </button>
+            </div>
+          
+            <a class="navbar-brand" href="/">
+              <h2 class="text-center">
+                <b>PAD</b>
+              </h2>
+            </a>
+          </div>
+          <div class="collapse navbar-collapse d-flex d-lg-block d-none" id="navbarSupportedContent">
             <ul v-if="this.is_auth >= 0" class="navbar-nav view-menu mb-2 mb-lg-0">
               <li class="nav-item">
                 <a href="/journal-show">Журнал</a>
@@ -45,7 +49,7 @@
               v-if="this.is_auth >= 0"
               class="navbar-nav me-auto mb-2 l-60 w-50 mb-lg-0"
             >
-              <!-- Игры -->
+              
               <li class="nav-item">
                 <a class="nav-link position-relative" aria-current="page" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
@@ -57,7 +61,7 @@
                   <span id="new_game" class="badge bg-danger">new</span>
                 </a>
               </li>
-              <!-- Тесты -->
+             
               <li class="nav-item">
                 <a class="nav-link position-relative" aria-current="page" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
@@ -69,7 +73,7 @@
                   </span>
                 </a>
               </li>
-              <!-- Сообщения -->
+             
               <li class="nav-item">
                 <a class="nav-link position-relative" aria-current="page" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
@@ -81,7 +85,7 @@
                   </span>
                 </a>
               </li>
-              <!-- Видео уроки -->
+              
               <li class="nav-item">
                 <a class="nav-link position-relative" aria-current="page" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(0, 0, 0, 1);">
@@ -93,7 +97,7 @@
                 </a>
               </li>
             </ul>
-            <!-- Компонент кнопки для перехода на представление авторизации -->
+            
             <ButtonComponent
               v-if="this.is_auth == -1"
               id="login_desktop"
@@ -102,7 +106,7 @@
               css_class="btn right"
               wrapper_css_class="w-100"
             />
-            <!-- Компонент кнопки логаута -->
+            
             <div class="w-100">
               <button
                 v-if="this.is_auth >= 0"
@@ -121,6 +125,7 @@
           </div>
         </div>
       </nav>
+
     </header>
   </template>
   
