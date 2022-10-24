@@ -52,7 +52,7 @@ export default {
               this.token = cookies[i].split('=')[1].split(' ')[1]
             }
           }
-          axios.get('http://localhost:5000/api/user/user-info?access_token=' + this.token,
+          axios.get('/api/user/info?token=' + this.token,
             {
               headers: {
                 'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ export default {
             }
           )
             .then((response) => {
-              this.user_info = response.data[0].message
+              this.user_info = response.data.message
             })
             .catch(function (error) {
               console.log(error)

@@ -84,7 +84,7 @@
                   console.log(response)
                   // Токен сохраняется в куки браузера
                   document.cookie = 'user=Bearer ' + response.data[0].message.token
-                  // window.location.href = '/'
+                  window.location.href = '/profile'
                 } else {
                   self.alert = 'Логин или пароль введены не правильно.'
                   // Активация всплывающего сообщения

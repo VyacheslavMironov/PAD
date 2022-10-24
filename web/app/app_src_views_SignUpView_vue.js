@@ -233,9 +233,12 @@ __webpack_require__.r(__webpack_exports__);
             } else {
               // Деактивация лоадера
               document.getElementById('loader-bg').style.display = 'none';
-              self.message = 'Проверьте почту, туда выслано сообщение для активации аккаунта.';
+              self.alert = 'Проверьте почту, туда выслано сообщение для активации аккаунта.';
+              // Активация всплывающего сообщения
+              document.getElementById('toast').style.opacity = 1;
               document.getElementById('step_two').style.display = 'none';
-              document.getElementById('step_free').style.display = 'block';
+              document.getElementById('step_free').style.display = 'none';
+              // window.location.href = '/'
             }
           })["catch"](function (error) {
             if (error.response.status === 500) {

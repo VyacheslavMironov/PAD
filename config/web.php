@@ -84,6 +84,14 @@ $config = [
                         'POST save' => 'save'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/user'],
+                    'extraPatterns' => [
+                        'GET info' => 'info'
+                    ]
+                ],
             ],
         ],
     ],

@@ -19863,12 +19863,12 @@ __webpack_require__.r(__webpack_exports__);
             this.token = cookies[i].split('=')[1].split(' ')[1];
           }
         }
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://localhost:5000/api/user/user-info?access_token=' + this.token, {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/user/info?token=' + this.token, {
           headers: {
             'Content-Type': 'application/json'
           }
         }).then(function (response) {
-          _this.user_info = response.data[0].message;
+          _this.user_info = response.data.message;
         })["catch"](function (error) {
           console.log(error);
         });
