@@ -92,6 +92,14 @@ $config = [
                         'GET info' => 'info'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/reset'],
+                    'extraPatterns' => [
+                        'POST password' => 'password'
+                    ]
+                ],
             ],
         ],
     ],

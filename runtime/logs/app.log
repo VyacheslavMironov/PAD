@@ -52204,3 +52204,422 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1666594815.8449
     'REQUEST_TIME' => 1666594815
 ]
+2022-10-24 07:01:40 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "signin". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-24 07:01:40 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'e9771f7c52811a08c251310ee5fc853d5559b1d15497631cce48d924582ca8b2a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YEINUs8y_52TiAGQwzY_WND62jxIc7Is\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=e9771f7c52811a08c251310ee5fc853d5559b1d15497631cce48d924582ca8b2a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YEINUs8y_52TiAGQwzY_WND62jxIc7Is%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '47354'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/signin'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666594900.434
+    'REQUEST_TIME' => 1666594900
+]
+2022-10-24 07:01:44 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "password-reset". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-24 07:01:44 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'e9771f7c52811a08c251310ee5fc853d5559b1d15497631cce48d924582ca8b2a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YEINUs8y_52TiAGQwzY_WND62jxIc7Is\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=e9771f7c52811a08c251310ee5fc853d5559b1d15497631cce48d924582ca8b2a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YEINUs8y_52TiAGQwzY_WND62jxIc7Is%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/signin'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '47354'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/password-reset'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666594904.4708
+    'REQUEST_TIME' => 1666594904
+]
+2022-10-24 07:13:58 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "signup". in /var/www/pad/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/pad/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-10-24 07:13:58 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'e9771f7c52811a08c251310ee5fc853d5559b1d15497631cce48d924582ca8b2a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YEINUs8y_52TiAGQwzY_WND62jxIc7Is\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=e9771f7c52811a08c251310ee5fc853d5559b1d15497631cce48d924582ca8b2a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YEINUs8y_52TiAGQwzY_WND62jxIc7Is%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/signin'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '58210'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/signup'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666595638.3476
+    'REQUEST_TIME' => 1666595638
+]
+2022-10-24 08:34:16 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Undefined property: app\DTO\ResetPasswordDTO::$new_password in /var/www/pad/Repository/ResetPasswordRepository.php:12
+Stack trace:
+#0 /var/www/pad/Repository/ResetPasswordRepository.php(12): yii\base\ErrorHandler->handleError()
+#1 /var/www/pad/Services/ResetPasswordService.php(19): app\Repository\ResetPasswordRepository->to_password()
+#2 /var/www/pad/Services/ResetPasswordService.php(31): app\Services\ResetPasswordService->reset_password_to()
+#3 /var/www/pad/controllers/api/ResetController.php(41): app\Services\ResetPasswordService->reset()
+#4 [internal function]: app\controllers\api\ResetController->actionPassword()
+#5 /var/www/pad/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array()
+#6 /var/www/pad/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams()
+#7 /var/www/pad/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#8 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#9 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#10 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#11 {main}
+2022-10-24 08:34:16 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = [
+    'email' => 'vuacheslav.mir@gmail.com'
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '73688f78264a1795725697f454d495e37f2c840ea873e8cb347f18d8ae1d4506a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nxTqyu_PM8QFlqZ8ivc7u4aJVYVIV6Jp\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=73688f78264a1795725697f454d495e37f2c840ea873e8cb347f18d8ae1d4506a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nxTqyu_PM8QFlqZ8ivc7u4aJVYVIV6Jp%22%3B%7D'
+    'HTTP_CONTENT_LENGTH' => '32'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_POSTMAN_TOKEN' => 'bc82f44c-c303-48ec-8725-be8bc88f433c'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.29.2'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '33182'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/api/reset/password'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => '32'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666600456.1157
+    'REQUEST_TIME' => 1666600456
+]
+2022-10-24 08:43:16 [127.0.0.1][-][-][error][Swift_RfcComplianceException] Swift_RfcComplianceException: Address in mailbox given [vuacheslav.mir@gmail.com                                                                                                                                                                                                                                       ] does not comply with RFC 2822, 3.6.2. in /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php:355
+Stack trace:
+#0 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(272): Swift_Mime_Headers_MailboxHeader->assertValidAddress()
+#1 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(117): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes()
+#2 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(74): Swift_Mime_Headers_MailboxHeader->setNameAddresses()
+#3 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderFactory.php(61): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel()
+#4 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderSet.php(71): Swift_Mime_SimpleHeaderFactory->createMailboxHeader()
+#5 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMessage.php(323): Swift_Mime_SimpleHeaderSet->addMailboxHeader()
+#6 /var/www/pad/vendor/yiisoft/yii2-swiftmailer/src/Message.php(142): Swift_Mime_SimpleMessage->setTo()
+#7 /var/www/pad/Services/SendEmailService.php(47): yii\swiftmailer\Message->setTo()
+#8 /var/www/pad/Services/ResetPasswordService.php(15): app\Services\SendEmailService->reset_password_to_by()
+#9 /var/www/pad/Services/ResetPasswordService.php(39): app\Services\ResetPasswordService->send()
+#10 /var/www/pad/controllers/api/ResetController.php(41): app\Services\ResetPasswordService->reset()
+#11 [internal function]: app\controllers\api\ResetController->actionPassword()
+#12 /var/www/pad/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array()
+#13 /var/www/pad/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams()
+#14 /var/www/pad/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#15 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#16 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#17 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#18 {main}
+2022-10-24 08:43:16 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = [
+    'email' => 'vuacheslav.mir@gmail.com'
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '73688f78264a1795725697f454d495e37f2c840ea873e8cb347f18d8ae1d4506a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nxTqyu_PM8QFlqZ8ivc7u4aJVYVIV6Jp\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=73688f78264a1795725697f454d495e37f2c840ea873e8cb347f18d8ae1d4506a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nxTqyu_PM8QFlqZ8ivc7u4aJVYVIV6Jp%22%3B%7D'
+    'HTTP_CONTENT_LENGTH' => '32'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_POSTMAN_TOKEN' => '2159b4e0-6768-4bd1-969a-60200cf3a8ed'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.29.2'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '41628'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/api/reset/password'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => '32'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666600996.1094
+    'REQUEST_TIME' => 1666600996
+]
+2022-10-24 08:44:01 [127.0.0.1][-][-][error][Swift_RfcComplianceException] Swift_RfcComplianceException: Address in mailbox given [vuacheslav.mir@gmail.com                                                                                                                                                                                                                                       ] does not comply with RFC 2822, 3.6.2. in /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php:355
+Stack trace:
+#0 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(272): Swift_Mime_Headers_MailboxHeader->assertValidAddress()
+#1 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(117): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes()
+#2 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(74): Swift_Mime_Headers_MailboxHeader->setNameAddresses()
+#3 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderFactory.php(61): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel()
+#4 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderSet.php(71): Swift_Mime_SimpleHeaderFactory->createMailboxHeader()
+#5 /var/www/pad/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMessage.php(323): Swift_Mime_SimpleHeaderSet->addMailboxHeader()
+#6 /var/www/pad/vendor/yiisoft/yii2-swiftmailer/src/Message.php(142): Swift_Mime_SimpleMessage->setTo()
+#7 /var/www/pad/Services/SendEmailService.php(47): yii\swiftmailer\Message->setTo()
+#8 /var/www/pad/Services/ResetPasswordService.php(15): app\Services\SendEmailService->reset_password_to_by()
+#9 /var/www/pad/Services/ResetPasswordService.php(39): app\Services\ResetPasswordService->send()
+#10 /var/www/pad/controllers/api/ResetController.php(41): app\Services\ResetPasswordService->reset()
+#11 [internal function]: app\controllers\api\ResetController->actionPassword()
+#12 /var/www/pad/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array()
+#13 /var/www/pad/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams()
+#14 /var/www/pad/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#15 /var/www/pad/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#16 /var/www/pad/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#17 /var/www/pad/web/index.php(12): yii\base\Application->run()
+#18 {main}
+2022-10-24 08:44:01 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = [
+    'email' => 'vuacheslav.mir@gmail.com'
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => '73688f78264a1795725697f454d495e37f2c840ea873e8cb347f18d8ae1d4506a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nxTqyu_PM8QFlqZ8ivc7u4aJVYVIV6Jp\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=73688f78264a1795725697f454d495e37f2c840ea873e8cb347f18d8ae1d4506a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nxTqyu_PM8QFlqZ8ivc7u4aJVYVIV6Jp%22%3B%7D'
+    'HTTP_CONTENT_LENGTH' => '32'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_POSTMAN_TOKEN' => '42bb45c8-ef08-4c18-abf0-33dd1c76a45d'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.29.2'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/pad/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '41628'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/pad/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/api/reset/password'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => '32'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1666601041.7615
+    'REQUEST_TIME' => 1666601041
+]

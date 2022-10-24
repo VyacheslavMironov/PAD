@@ -10,9 +10,10 @@ use app\DTO\CreatePrivilegeAdminDTO;
 use app\DTO\CreateSettingsDTO;
 use app\DTO\CreateOrganizationDTO;
 use app\DTO\CreateUserDTO;
+use app\Services\Base;
 use app\Services\SendEmailService;
 
-class WorkingSpaceOrganizationsService
+class WorkingSpaceOrganizationsService extends Base
 {
     public function addition_dates()
     {
@@ -25,7 +26,7 @@ class WorkingSpaceOrganizationsService
     public function send($password, $email)
     {
         $mail = new SendEmailService(['password' => $password,'email' => $email]);
-        return $mail->send();
+        return $mail->registration_by();
     }
 
     public function createWorkingSpaceOrganizations($request)
@@ -76,10 +77,11 @@ class WorkingSpaceOrganizationsService
                                     null, // is_active
                                     null, // avatar
                                     null, // email_code
-                                    $request->post('password')
+                                    // $request->post('password')
+                                    $this->generate_to_password()
                                 ),
         ]);
-
+        // Отправка письма
         $this->send($request->post('password'), $request->post('email'));
         return $create;
     }

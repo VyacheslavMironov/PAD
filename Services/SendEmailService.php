@@ -14,7 +14,7 @@ class SendEmailService
     }
 
 
-    public function send()
+    public function registration_by()
     {
         Yii::$app->mailer->compose()
         ->setFrom('vuacheslavmironov@yandex.ru')
@@ -40,4 +40,25 @@ class SendEmailService
         ->send();
     }
 
+    public function reset_password_to_by()
+    {
+        Yii::$app->mailer->compose()
+        ->setFrom('vuacheslavmironov@yandex.ru')
+        ->setTo($this->context['email'])
+        ->setSubject('Смена пароля в PAD')
+        ->setHtmlBody(
+            "
+            <h3>
+            Здравствуйте, недавно вы подавали заявку на смене пароля, ваш пароль успешно изменён.
+            </h3>
+            <p>Ваши данные для входа:</p>
+            <p>Логин:" . $this->context['email'] . "</p>
+            <p>Пароль: " . $this->context['password'] . "</p>
+            <br/>
+            <br/>
+            <p>Со всем уважением!<br/>Вячеслав</p>
+            "
+        )
+        ->send();
+    }
 }
