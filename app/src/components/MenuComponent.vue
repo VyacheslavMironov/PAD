@@ -7,21 +7,21 @@
     <div class="offcanvas-body">
       <div v-if="this.user_info" class="list-group mt-2">
         <a
-          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор' || this.user_info.role === 'Преподаватель'"
+          v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор' || this.user_info.role == 'Преподаватель'"
           href="/group-all"
           class="list-group-item btn"
-        >{{ this.user_info.role === 'Преподаватель' ? 'Ведомость' : 'Группы' }}</a>
+        >{{ this.user_info.role == 'Преподаватель' ? 'Ведомость' : 'Группы' }}</a>
       </div>
       <div v-if="this.user_info" class="list-group mt-2">
         <a
-          v-if="this.user_info.role === 'Администратор'"
+          v-if="this.user_info.role == 'Администратор'"
           href="/timetable-create"
           class="list-group-item btn"
         >Расписание</a>
       </div>
       <div v-if="this.user_info" class="list-group mt-2">
         <a
-          v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
+          v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор'"
           href="/journal-settings"
           class="list-group-item btn"
         >Настройки журнала</a>

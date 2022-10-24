@@ -60,7 +60,7 @@ export default {
             }
           )
             .then((response) => {
-              this.user_info = response.data.message
+              this.user_info = response.data.message[0]
             })
             .catch(function (error) {
               console.log(error)

@@ -29,13 +29,13 @@
                 <a href="/timetable-show">Расписание</a>
               </li>
               <li
-                v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'"
+                v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор'"
                 class="nav-item"
               >
                 <a class="absolut-item" href="/students-all">Студенты</a>
               </li>
               <li
-                v-if="this.user_info.role === 'Студент'"
+                v-if="this.user_info.role == 'Студент'"
                 class="nav-item"
               >
                 <a class="absolut-item" href="/journal-show">Домашнии задания</a>
