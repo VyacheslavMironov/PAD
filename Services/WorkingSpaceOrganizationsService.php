@@ -26,7 +26,7 @@ class WorkingSpaceOrganizationsService extends Base
     public function send($password, $email)
     {
         $mail = new SendEmailService(['password' => $password,'email' => $email]);
-        return $mail->registration_by();
+        return $mail->create_organization_by();
     }
 
     public function createWorkingSpaceOrganizations($request)

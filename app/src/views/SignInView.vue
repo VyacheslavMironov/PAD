@@ -52,6 +52,8 @@
   export default {
     data () {
       return {
+        is_activate: this.$route.query,
+        first_name: null,
         alert: 'Такого пользователя не существует!',
         link_signup: '/signup',
         link_reset_password: '/password-reset',
@@ -79,21 +81,54 @@
                 password: this.password
               }
             )
-              .then(function (response) {
+              .then((response) => {
                 if (response.status === 200) {
-                  console.log(response)
                   // Токен сохраняется в куки браузера
                   document.cookie = 'user=Bearer ' + response.data[0].message.token
-                  window.location.href = '/profile'
+                  /*
+                  Если в url строке обнаружим ?activate=true, то выполнить этот кусок кода
+                  */
+                  if (this.is_activate.activate == 'true') {
+                    // firstName = this.userInfo(response.data[0].message.token)
+                    axios.get(this.server + '/api/user/info?token=' + response.data[0].message.token,
+                      {
+                        headers: {
+                          'Content-Type': 'application/json'
+                        }
+                      })
+                      .then((response) => {
+                        axios.put(this.server + '/api/user/activate',
+                          {
+                            headers: {
+                              'Content-Type': 'application/json'
+                            },
+                            email: response.data.message[0].email,
+                          })
+                          .then((response) => {
+                            this.alert = 'Аккаунт успешно активирован!'
+                            // Активация всплывающего сообщения
+                            document.getElementById('toast').style.opacity = 1
+                          })
+                          .catch((error) => {
+                            this.alert = 'Ошибка активации акаунта!'
+                            // Активация всплывающего сообщения
+                            document.getElementById('toast').style.opacity = 1
+                          })
+                      })
+                      .catch(function (error) {
+                        console.log(error)
+                      })
+                  }
+                  // END
+                  // window.location.href = '/profile?success=activate'
                 } else {
-                  self.alert = 'Логин или пароль введены не правильно.'
+                  this.alert = 'Логин или пароль введены не правильно.'
                   // Активация всплывающего сообщения
                   document.getElementById('toast').style.opacity = 1
                 }
               })
-              .catch(function (error) {
-                console.log('Это плёха!')
-                self.alert = 'Такого пользователя не существует!'
+              .catch((error) => {
+                this.alert = 'Такого пользователя не существует!'
                 // Активация всплывающего сообщения
                 document.getElementById('toast').style.opacity = 1
               })

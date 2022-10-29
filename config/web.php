@@ -97,7 +97,15 @@ $config = [
                     'pluralize'=>false,
                     'controller' => ['api/reset'],
                     'extraPatterns' => [
-                        'POST password' => 'password'
+                        'PUT password' => 'password'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/user'],
+                    'extraPatterns' => [
+                        'PUT activate' => 'activate'
                     ]
                 ],
             ],

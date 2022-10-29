@@ -57,8 +57,7 @@ export default {
               headers: {
                 'Content-Type': 'application/json'
               }
-            }
-          )
+            })
             .then((response) => {
               this.user_info = response.data.message[0]
             })

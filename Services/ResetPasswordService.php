@@ -11,8 +11,8 @@ class ResetPasswordService extends Base
 {
     public function send($password, $email)
     {
-        $mail = new SendEmailService(['password' => $password,'email' => $email]);
-        return $mail->reset_password_to_by();
+        $mail = new SendEmailService(['password' => $password, 'email' => $email]);
+        return $mail->reset_to_password_by();
     }
 
     public function reset_password_to($request){

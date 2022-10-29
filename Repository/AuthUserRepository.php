@@ -35,6 +35,7 @@ class AuthUserRepository
         {
             $token = (string)$this->createBearerToken($is_user->id);
             $get_access_token = AccessKey::find()->where(['user_id' => $is_user->id])->one();
+            
             if ($get_access_token)
             {
                 $update_access_token = AccessKey::findOne(['user_id' => $is_user->id]);
