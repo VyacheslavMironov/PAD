@@ -19817,6 +19817,12 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
     component: function component() {
       return __webpack_require__.e(/*! import() */ "app_src_views_PasswordResetView_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./src/views/PasswordResetView.vue */ "./app/src/views/PasswordResetView.vue"));
     }
+  }, {
+    path: '/profile',
+    name: 'profile',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "app_src_views_ProfileView_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./src/views/ProfileView.vue */ "./app/src/views/ProfileView.vue"));
+    }
   }]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -19875,19 +19881,28 @@ __webpack_require__.r(__webpack_exports__);
             this.token = cookies[i].split('=')[1].split(' ')[1];
           }
         }
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/user/info?token=' + this.token, {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/user/info?token=' + this.token, {
           headers: {
             'Content-Type': 'application/json'
           }
         }).then(function (response) {
-          _this.user_info = response.data.message[0];
+          var user = response.data.message[0]; // тут есть проблема лишних отступов, позже пофиксю
+          var new_ = {};
+          for (var val in user) {
+            if (typeof user[val] == 'string') {
+              new_[val] = user[val].trim();
+            } else {
+              new_[val] = user[val];
+            }
+          }
+          _this.user_info = new_;
         })["catch"](function (error) {
           console.log(error);
         });
       }
     }
   },
-  beforeMount: function beforeMount() {
+  mounted: function mounted() {
     this.user();
   }
 });
@@ -20012,16 +20027,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_FooterComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FooterComponent");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HeaderComponent, {
     is_auth: this.is_auth,
-    user_info: this.user_info
+    user_info: Object(this.user_info)
   }, null, 8 /* PROPS */, ["is_auth", "user_info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuComponent, {
     user_info: this.user_info
   }, null, 8 /* PROPS */, ["user_info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ContentComponent, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view, {
+        user_info: Object(_this.user_info),
         server: _this.server,
         is_auth: _this.is_auth,
         token: _this.token
-      }, null, 8 /* PROPS */, ["server", "is_auth", "token"])];
+      }, null, 8 /* PROPS */, ["user_info", "server", "is_auth", "token"])];
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FooterComponent)]);
@@ -24904,7 +24920,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"app_src_views_SignUpView_vue":1,"app_src_views_SignInView_vue":1,"app_src_views_PasswordResetView_vue":1}[chunkId]) return "app/" + chunkId + ".js";
+/******/ 			if ({"app_src_views_SignUpView_vue":1,"app_src_views_SignInView_vue":1,"app_src_views_PasswordResetView_vue":1,"app_src_views_ProfileView_vue":1}[chunkId]) return "app/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

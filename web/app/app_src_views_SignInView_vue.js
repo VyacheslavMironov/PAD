@@ -85,10 +85,9 @@ __webpack_require__.r(__webpack_exports__);
             // Токен сохраняется в куки браузера
             document.cookie = 'user=Bearer ' + response.data[0].message.token;
             /*
-            Если в url строке обнаружим ?activate=true, то выполнить этот кусок кода
+              Если в url строке обнаружим ?activate=true, то выполнить этот кусок кода
             */
             if (_this.is_activate.activate == 'true') {
-              // firstName = this.userInfo(response.data[0].message.token)
               axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this.server + '/api/user/info?token=' + response.data[0].message.token, {
                 headers: {
                   'Content-Type': 'application/json'
@@ -113,7 +112,28 @@ __webpack_require__.r(__webpack_exports__);
               });
             }
             // END
-            // window.location.href = '/profile?success=activate'
+            /*
+              Получение информации о пользователе, для редиректа на 
+              страницу по условию см. ниже...
+            */
+            axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this.server + '/api/user/info?token=' + response.data[0].message.token, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(function (response) {
+              if (response.data.message[0].role.trim() == 'Директор') {
+                window.location.href = '/settings_working-space';
+              } else if (response.data.message[0].role.trim() == 'Администратор') {
+                window.location.href = '/filial';
+              } else if (response.data.message[0].role.trim() == 'Родитель' || response.data.message[0].role.trim() == 'Студент' || response.data.message[0].role.trim() == 'Преподаватель') {
+                window.location.href = '/journal';
+              } else {
+                window.location.href = '/';
+              }
+            })["catch"](function (error) {
+              console.log(error);
+            });
+            // END
           } else {
             _this.alert = 'Логин или пароль введены не правильно.';
             // Активация всплывающего сообщения

@@ -1,8 +1,6 @@
 <?php
 
 namespace app\Services;
-use Yii;
-use app\DTO\SendEmailDTO;
 
 class SendEmailService
 {
@@ -68,26 +66,4 @@ class SendEmailService
         curl_exec($ch);
         curl_close($ch);
     }
-
-    // public function reset_password_to_by()
-    // {
-    //     Yii::$app->mailer->compose()
-    //     ->setFrom('vuacheslavmironov@yandex.ru')
-    //     ->setTo($this->context['email'])
-    //     ->setSubject('Смена пароля в PAD')
-    //     ->setHtmlBody(
-    //         "
-    //         <h3>
-    //         Здравствуйте, недавно вы подавали заявку на смене пароля, ваш пароль успешно изменён.
-    //         </h3>
-    //         <p>Ваши данные для входа:</p>
-    //         <p>Логин:" . $this->context['email'] . "</p>
-    //         <p>Пароль: " . $this->context['password'] . "</p>
-    //         <br/>
-    //         <br/>
-    //         <p>Со всем уважением!<br/>Вячеслав</p>
-    //         "
-    //     )
-    //     ->send();
-    // }
 }

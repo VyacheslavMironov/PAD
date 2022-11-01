@@ -4,8 +4,8 @@ namespace app\DTO;
 
 class ResetPasswordDTO
 {
-    public string $email;
-    public string $new_password;
+    public string|null $email;
+    public string|null $new_password;
 
     public function __construct($email, $new_password)
     {

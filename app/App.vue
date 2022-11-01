@@ -2,11 +2,12 @@
     <section>
       <HeaderComponent
         v-bind:is_auth=this.is_auth
-        v-bind:user_info=this.user_info
+        v-bind:user_info=Object(this.user_info)
       />
       <MenuComponent v-bind:user_info=this.user_info  />
       <ContentComponent>
         <router-view
+          v-bind:user_info=Object(this.user_info)
           v-bind:server=this.server
           v-bind:is_auth=this.is_auth
           v-bind:token=this.token
@@ -52,14 +53,23 @@ export default {
               this.token = cookies[i].split('=')[1].split(' ')[1]
             }
           }
-          axios.get('/api/user/info?token=' + this.token,
+          axios.get(this.server + '/api/user/info?token=' + this.token,
             {
               headers: {
                 'Content-Type': 'application/json'
               }
             })
             .then((response) => {
-              this.user_info = response.data.message[0]
+              var user = response.data.message[0] // тут есть проблема лишних отступов, позже пофиксю
+              var new_ = {}
+              for (var val in user) {
+                if (typeof(user[val]) == 'string'){
+                  new_[val] = user[val].trim()
+                } else {
+                  new_[val] = user[val]
+                }
+              }
+              this.user_info = new_
             })
             .catch(function (error) {
               console.log(error)
@@ -67,7 +77,7 @@ export default {
         }
       }
     },
-    beforeMount () {
+    mounted () {
       this.user()
     }
 }
