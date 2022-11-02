@@ -80715,3 +80715,354 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1667373018.7942
     'REQUEST_TIME' => 1667373018
 ]
+2022-11-02 11:39:03 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "signin". in /var/www/PAD/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/PAD/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/PAD/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/PAD/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/PAD/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/PAD/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/PAD/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-11-02 11:39:03 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/PAD/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '52588'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/PAD/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/signin'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1667389143.7487
+    'REQUEST_TIME' => 1667389143
+]
+2022-11-02 11:39:07 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "password-reset". in /var/www/PAD/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/PAD/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/PAD/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/PAD/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/PAD/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/PAD/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/PAD/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2022-11-02 11:39:07 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/signin'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/PAD/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '52588'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/PAD/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/password-reset'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1667389147.4786
+    'REQUEST_TIME' => 1667389147
+]
+2022-11-02 11:39:25 [127.0.0.1][-][-][error][Error] Error: Undefined constant "app\Services\EMAIL_SERVICE_V1" in /var/www/PAD/Services/SendEmailService.php:61
+Stack trace:
+#0 /var/www/PAD/Services/ResetPasswordService.php(17): app\Services\SendEmailService->reset_to_password_by()
+#1 /var/www/PAD/Services/ResetPasswordService.php(46): app\Services\ResetPasswordService->send()
+#2 /var/www/PAD/controllers/api/ResetController.php(41): app\Services\ResetPasswordService->reset()
+#3 [internal function]: app\controllers\api\ResetController->actionPassword()
+#4 /var/www/PAD/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array()
+#5 /var/www/PAD/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams()
+#6 /var/www/PAD/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#7 /var/www/PAD/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#8 /var/www/PAD/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#9 /var/www/PAD/web/index.php(12): yii\base\Application->run()
+#10 {main}
+2022-11-02 11:39:25 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/password-reset'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_CONTENT_TYPE' => 'application/json'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONTENT_LENGTH' => '239'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/PAD/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '52588'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/PAD/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/api/reset/password'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => '239'
+    'CONTENT_TYPE' => 'application/json'
+    'REQUEST_METHOD' => 'PUT'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1667389165.4326
+    'REQUEST_TIME' => 1667389165
+]
+2022-11-02 11:40:49 [127.0.0.1][-][-][error][Error] Error: Undefined constant "app\Services\EMAIL_SERVICE_V1" in /var/www/PAD/Services/SendEmailService.php:61
+Stack trace:
+#0 /var/www/PAD/Services/ResetPasswordService.php(17): app\Services\SendEmailService->reset_to_password_by()
+#1 /var/www/PAD/Services/ResetPasswordService.php(46): app\Services\ResetPasswordService->send()
+#2 /var/www/PAD/controllers/api/ResetController.php(41): app\Services\ResetPasswordService->reset()
+#3 [internal function]: app\controllers\api\ResetController->actionPassword()
+#4 /var/www/PAD/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array()
+#5 /var/www/PAD/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams()
+#6 /var/www/PAD/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#7 /var/www/PAD/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#8 /var/www/PAD/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#9 /var/www/PAD/web/index.php(12): yii\base\Application->run()
+#10 {main}
+2022-11-02 11:40:49 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/password-reset'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_CONTENT_TYPE' => 'application/json'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONTENT_LENGTH' => '239'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/PAD/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '55206'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/PAD/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/api/reset/password'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => '239'
+    'CONTENT_TYPE' => 'application/json'
+    'REQUEST_METHOD' => 'PUT'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1667389249.7537
+    'REQUEST_TIME' => 1667389249
+]
+2022-11-02 11:41:26 [127.0.0.1][-][-][error][Error] Error: Undefined constant "app\Services\EMAIL_SERVICE_V1" in /var/www/PAD/Services/SendEmailService.php:61
+Stack trace:
+#0 /var/www/PAD/Services/ResetPasswordService.php(17): app\Services\SendEmailService->reset_to_password_by()
+#1 /var/www/PAD/Services/ResetPasswordService.php(46): app\Services\ResetPasswordService->send()
+#2 /var/www/PAD/controllers/api/ResetController.php(41): app\Services\ResetPasswordService->reset()
+#3 [internal function]: app\controllers\api\ResetController->actionPassword()
+#4 /var/www/PAD/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array()
+#5 /var/www/PAD/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams()
+#6 /var/www/PAD/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#7 /var/www/PAD/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#8 /var/www/PAD/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#9 /var/www/PAD/web/index.php(12): yii\base\Application->run()
+#10 {main}
+2022-11-02 11:41:26 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz\";}'
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => '_csrf=bb6135be407cf4fb5f554c27e14eecf66e5b09f3c7a10ee5cf019f7b3bdcae1ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rKlGwEiPqbGH3YjdEMw7IDqArVFFuBJz%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1/password-reset'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Linux\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_CONTENT_TYPE' => 'application/json'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"'
+    'HTTP_CONTENT_LENGTH' => '239'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1'
+    'APPLICATION_ENV' => 'development'
+    'HTTPS' => 'on'
+    'SCRIPT_FILENAME' => '/var/www/PAD/web/index.php'
+    'PATH_INFO' => ''
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '_'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_USER' => ''
+    'REMOTE_PORT' => '55206'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/PAD/web'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/api/reset/password'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => '239'
+    'CONTENT_TYPE' => 'application/json'
+    'REQUEST_METHOD' => 'PUT'
+    'QUERY_STRING' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1667389286.245
+    'REQUEST_TIME' => 1667389286
+]
