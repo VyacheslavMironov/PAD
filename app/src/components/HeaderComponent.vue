@@ -125,7 +125,6 @@
           </div>
         </div>
       </nav>
-
     </header>
   </template>
   

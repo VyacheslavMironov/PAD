@@ -457,6 +457,9 @@ ul li strong.list:hover{
     align-items: center;
 }
 /* END */
+.round{
+    border-radius: 10em;
+}
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
 #toast{
     opacity: 0;

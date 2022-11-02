@@ -27,31 +27,44 @@ class AuthUserRepository
         return $token->getToken();
     }
 
-    public function auth($context)
+    public function if_password($email, $password)
     {
-        $is_user = Users::find()->where(['email' => $context->email])->one();
-
-        if (trim($is_user->password) == $context->password)
-        {
-            $token = (string)$this->createBearerToken($is_user->id);
-            $get_access_token = AccessKey::find()->where(['user_id' => $is_user->id])->one();
-            if ($get_access_token)
-            {
-                $update_access_token = AccessKey::findOne(['user_id' => $is_user->id]);
-                $update_access_token->token = $token;
-                $update_access_token->created_at = date('Y/m/d h:i:s', time());
-                $update_access_token->save();
-                return ['response' => true, 'message' => $update_access_token];
-            } else {
-                $set_access_token = new AccessKey();
-                $set_access_token->user_id = $is_user->id;
-                $set_access_token->token = $token;
-                $set_access_token->save();
-                return ['response' => true, 'message' => $set_access_token];
-            }
+        $user = Users::findOne(['email' => $email]);
+        if (trim($user->password) == $password){
+            return true;
         } else {
-            return ['response' => false, 'message' => 'Логин или пароль указаны не верно!'];
+            return false;
         }
     }
 
+    public function auth($context)
+    {
+        $user = Users::findOne(['email' => $context->email]);
+        // Ренерация Access Token
+        $token = (string)$this->createBearerToken($user->id);
+        $get_access_token = AccessKey::findOne(['user_id' => $user->id]);
+            
+        if ($get_access_token)
+        {
+            $db = AccessKey::findOne(['user_id' => $user->id]);
+            $db->token = $token;
+            $db->created_at = date('Y/m/d h:i:s', time());
+            // Валидация параметров
+            if ($db->validate())
+            {
+                $db->save();
+            }
+            return $db;
+        } else {
+            $db = new AccessKey();
+            $db->user_id = $user->id;
+            $db->token = $token;
+            // Валидация параметров
+            if ($db->validate())
+            {
+                $db->save();
+            }
+            return $db;
+        }
+    }
 }

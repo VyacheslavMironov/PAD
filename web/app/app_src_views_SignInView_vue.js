@@ -53,6 +53,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      is_activate: this.$route.query,
+      first_name: null,
       alert: 'Такого пользователя не существует!',
       link_signup: '/signup',
       link_reset_password: '/password-reset',
@@ -70,6 +72,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     loginUser: function loginUser() {
+      var _this = this;
       if (String(this.username).length > 0 && String(this.password).length > 0) {
         axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/authorization/auth', {
           headers: {
@@ -79,18 +82,63 @@ __webpack_require__.r(__webpack_exports__);
           password: this.password
         }).then(function (response) {
           if (response.status === 200) {
-            console.log(response);
             // Токен сохраняется в куки браузера
-            document.cookie = 'user=Bearer ' + response.data[0].message.token;
-            window.location.href = '/profile';
-          } else {
-            self.alert = 'Логин или пароль введены не правильно.';
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1;
+            document.cookie = 'user=Bearer ' + response.data[0].token;
+            /*
+              Если в url строке обнаружим ?activate=true, то выполнить этот кусок кода
+            */
+            if (_this.is_activate.activate == 'true') {
+              axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this.server + '/api/user/info?token=' + response.data[0].token, {
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              }).then(function (response) {
+                axios__WEBPACK_IMPORTED_MODULE_0___default().put(_this.server + '/api/user/activate', {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  email: _this.username
+                }).then(function (response) {
+                  _this.alert = 'Аккаунт успешно активирован!';
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1;
+                })["catch"](function (error) {
+                  _this.alert = 'Ошибка активации акаунта!';
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1;
+                });
+              });
+            }
+            // END
+            /*
+              Получение информации о пользователе, для редиректа на 
+              страницу по условию см. ниже...
+            */
+            axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this.server + '/api/user/info?token=' + response.data[0].token, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(function (response) {
+              if (response.data[0][0].role.trim() == 'Директор') {
+                window.location.href = '/settings_working-space';
+              } else if (response.data[0][0].role.trim() == 'Администратор') {
+                window.location.href = '/filial';
+              } else if (response.data[0][0].role.trim() == 'Родитель' || response.data[0][0].role.trim() == 'Студент' || response.data[0][0].role.trim() == 'Преподаватель') {
+                window.location.href = '/journal';
+              } else {
+                window.location.href = '/';
+              }
+            })["catch"](function (error) {
+              try {
+                this.alert = 'Логин или пароль введены не правильно.';
+                // Активация всплывающего сообщения
+                document.getElementById('toast').style.opacity = 1;
+              } catch (TypeError) {/* Придумать что то */}
+            });
+            // END
           }
         })["catch"](function (error) {
-          console.log('Это плёха!');
-          self.alert = 'Такого пользователя не существует!';
+          _this.alert = 'Такого пользователя не существует!';
           // Активация всплывающего сообщения
           document.getElementById('toast').style.opacity = 1;
         });
@@ -209,17 +257,6 @@ var _hoisted_11 = ["href"];
 var _hoisted_12 = {
   "class": "col-6"
 };
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1 /* HOISTED */);
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  style: {
-    "cursor": "pointer"
-  }
-}, "Войти по E-mail коду")])], -1 /* HOISTED */);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_AlertComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("AlertComponent");
@@ -254,7 +291,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return _this.loginUser();
         }),
         css_class: "btn mt-2 right"
-      })])])]), _hoisted_13, _hoisted_14];
+      })])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <hr>\n        <div class=\"col-12\">\n          <p class=\"text-center\">\n            <a style=\"cursor:pointer;\">Войти по E-mail коду</a>\n          </p>\n        </div> ")];
     }),
     _: 1 /* STABLE */
   })])]);
@@ -274,13 +311,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _AlertComponent_vue_vue_type_template_id_a952417a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AlertComponent.vue?vue&type=template&id=a952417a */ "./app/src/components/AlertComponent.vue?vue&type=template&id=a952417a");
 /* harmony import */ var _AlertComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AlertComponent.vue?vue&type=script&lang=js */ "./app/src/components/AlertComponent.vue?vue&type=script&lang=js");
-/* harmony import */ var _var_www_pad_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _var_www_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_var_www_pad_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AlertComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AlertComponent_vue_vue_type_template_id_a952417a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/AlertComponent.vue"]])
+const __exports__ = /*#__PURE__*/(0,_var_www_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AlertComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AlertComponent_vue_vue_type_template_id_a952417a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/AlertComponent.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -300,12 +337,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _CardComponent_vue_vue_type_template_id_9e1f9f0a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardComponent.vue?vue&type=template&id=9e1f9f0a */ "./app/src/components/CardComponent.vue?vue&type=template&id=9e1f9f0a");
-/* harmony import */ var _var_www_pad_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _var_www_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
-const __exports__ = /*#__PURE__*/(0,_var_www_pad_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_CardComponent_vue_vue_type_template_id_9e1f9f0a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/CardComponent.vue"]])
+const __exports__ = /*#__PURE__*/(0,_var_www_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_CardComponent_vue_vue_type_template_id_9e1f9f0a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/CardComponent.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -326,13 +363,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _SignInView_vue_vue_type_template_id_404d34ef__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SignInView.vue?vue&type=template&id=404d34ef */ "./app/src/views/SignInView.vue?vue&type=template&id=404d34ef");
 /* harmony import */ var _SignInView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SignInView.vue?vue&type=script&lang=js */ "./app/src/views/SignInView.vue?vue&type=script&lang=js");
-/* harmony import */ var _var_www_pad_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _var_www_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_var_www_pad_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_SignInView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SignInView_vue_vue_type_template_id_404d34ef__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/views/SignInView.vue"]])
+const __exports__ = /*#__PURE__*/(0,_var_www_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_SignInView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SignInView_vue_vue_type_template_id_404d34ef__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/views/SignInView.vue"]])
 /* hot reload */
 if (false) {}
 
