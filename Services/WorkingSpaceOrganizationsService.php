@@ -143,7 +143,7 @@ class WorkingSpaceOrganizationsService extends Base
             'user' =>           $this->validateUsernParam($request),
         ]);
         // Отправка письма
-        $this->send($request->post('password'), $request->post('email'));
+        $this->send($create[3]->password, $request->post('email'));
         return $create;
     }
 }

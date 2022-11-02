@@ -77,10 +77,12 @@ __webpack_require__.r(__webpack_exports__);
           },
           email: this.email
         }).then(function (response) {
+          console.log(response);
           _this.alert = 'Проверьте почту, туда выслано сообщение с новым паролем.';
           // Активация всплывающего сообщения
           document.getElementById('toast').style.opacity = 1;
         })["catch"](function (error) {
+          console.log(error);
           _this.alert = 'Такого пользователя не существует!';
           // Активация всплывающего сообщения
           document.getElementById('toast').style.opacity = 1;

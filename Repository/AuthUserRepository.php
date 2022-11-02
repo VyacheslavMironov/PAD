@@ -54,7 +54,7 @@ class AuthUserRepository
             {
                 $db->save();
             }
-            return ['response' => true, 'message' => $db];
+            return $db;
         } else {
             $db = new AccessKey();
             $db->user_id = $user->id;
@@ -64,7 +64,7 @@ class AuthUserRepository
             {
                 $db->save();
             }
-            return ['response' => true, 'message' => $db];
+            return $db;
         }
     }
 }

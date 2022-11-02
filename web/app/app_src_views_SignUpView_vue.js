@@ -62,7 +62,6 @@ __webpack_require__.r(__webpack_exports__);
       first_name: '',
       last_name: '',
       email: '',
-      password: '',
       logotype: null,
       valueType: '',
       destination: null,
@@ -121,16 +120,12 @@ __webpack_require__.r(__webpack_exports__);
           'Content-Type': 'multipart/form-data'
         }
       }).then(function (response) {
-        // this.logotype = response.data.message
-        console.log(response.data.message);
+        this.logotype = response.data[0];
       })["catch"](function (error) {
-        console.log(error);
-        // this.alert = 'Не удалось сохранить файл!'
-        // // Активация всплывающего сообщения
-        // document.getElementById('toast').style.opacity = 1
+        this.alert = 'Не удалось сохранить файл!';
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1;
       });
-
-      console.log(this.logotype);
       return this.logotype;
     },
     stepsRegistration: function stepsRegistration(ids) {
@@ -145,13 +140,6 @@ __webpack_require__.r(__webpack_exports__);
           document.getElementById('step_two').style.display = 'block';
           // Увеличение шага
           document.getElementById('step').innerText = String(ids + 1);
-          // Генерация пароля
-          var generate = '';
-          var possible = 'abcdefghijk12346lmnopqrsWERTYUIH09875FJKLZMNBVCtuvwxyz';
-          for (var i = 0; i < 10; i++) {
-            generate += possible.charAt(Math.floor(Math.random() * possible.length));
-          }
-          this.password = generate;
         }
       } else if (ids === 2) {
         if (document.getElementById('user_name').value !== '' && document.getElementById('user_surname').value !== '') {
@@ -219,18 +207,9 @@ __webpack_require__.r(__webpack_exports__);
             first_name: this.first_name,
             last_name: this.last_name,
             username: this.email,
-            email: this.email,
-            password: 'user_' + this.password
+            email: this.email
           }).then(function (response) {
-            if (response.data.response === false) {
-              self.alert = response.data.message;
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1;
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none';
-              // Уменьшение шага
-              document.getElementById('step').innerText = '2';
-            } else {
+            if (response.data[0].length == 4) {
               // Деактивация лоадера
               document.getElementById('loader-bg').style.display = 'none';
               self.alert = 'Проверьте почту, туда выслано сообщение для активации аккаунта.';

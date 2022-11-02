@@ -19886,7 +19886,8 @@ __webpack_require__.r(__webpack_exports__);
             'Content-Type': 'application/json'
           }
         }).then(function (response) {
-          var user = response.data.message[0]; // тут есть проблема лишних отступов, позже пофиксю
+          console.log(response.data);
+          var user = response.data;
           var new_ = {};
           for (var val in user) {
             if (typeof user[val] == 'string') {
@@ -19896,8 +19897,6 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
           _this.user_info = new_;
-        })["catch"](function (error) {
-          console.log(error);
         });
       }
     }

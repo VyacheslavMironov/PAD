@@ -12,6 +12,8 @@ class ActivateUserService
     public function activate($request) {
         if (is_null($request->post('email')))
         {
+            throw new ErrorException('Не введён адрес электронной почты или введён не корректно!');
+        } else {
             $repository = new ActivationUserRepository();
             // Тут в принцепе ошибки быть не может
             $user = $repository->activate(
@@ -26,8 +28,6 @@ class ActivateUserService
                 $email->activation_by();
                 return $user;
             }
-        } else {
-            throw new ErrorException('Не введён адрес электронной почты или введён не корректно!');
         }
     }
 }

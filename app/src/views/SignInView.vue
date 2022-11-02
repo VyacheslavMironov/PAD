@@ -32,12 +32,12 @@
             </div>
           </div>
         </form>
-        <hr>
+        <!-- <hr>
         <div class="col-12">
           <p class="text-center">
             <a style="cursor:pointer;">Войти по E-mail коду</a>
           </p>
-        </div>
+        </div> -->
       </CardComponent>
     </div>
   </main>
@@ -72,83 +72,79 @@ export default {
   methods: {
     loginUser () {
       if (String(this.username).length > 0 && String(this.password).length > 0) {
-          axios.post(this.server + '/api/authorization/auth',
-            {
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              email: this.username,
-              password: this.password
-            }
-          )
-            .then((response) => {
-              if (response.status === 200) {
-                // Токен сохраняется в куки браузера
-                document.cookie = 'user=Bearer ' + response.data[0].message.token
-                /*
-                  Если в url строке обнаружим ?activate=true, то выполнить этот кусок кода
-                */
-                if (this.is_activate.activate == 'true') {
-                  axios.get(this.server + '/api/user/info?token=' + response.data[0].message.token,
-                    {
-                      headers: {
-                        'Content-Type': 'application/json'
-                      }
-                    })
-                    .then((response) => {
-                      axios.put(this.server + '/api/user/activate',
-                        {
-                          headers: {
-                            'Content-Type': 'application/json'
-                          },
-                          email: response.data.message[0].email,
-                        })
-                        .then((response) => {
-                          this.alert = 'Аккаунт успешно активирован!'
-                          // Активация всплывающего сообщения
-                          document.getElementById('toast').style.opacity = 1
-                        })
-                        .catch((error) => {
-                          this.alert = 'Ошибка активации акаунта!'
-                          // Активация всплывающего сообщения
-                          document.getElementById('toast').style.opacity = 1
-                        })
-                    })
-                    .catch(function (error) {
-                      console.log(error)
-                    })
-                }
-                // END
-                /*
-                  Получение информации о пользователе, для редиректа на 
-                  страницу по условию см. ниже...
-                */
-                axios.get(this.server + '/api/user/info?token=' + response.data[0].message.token,
+        axios.post(this.server + '/api/authorization/auth',
+          {
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            email: this.username,
+            password: this.password
+          })
+          .then((response) => {
+            if (response.status === 200) {
+              // Токен сохраняется в куки браузера
+              document.cookie = 'user=Bearer ' + response.data[0].token
+              /*
+                Если в url строке обнаружим ?activate=true, то выполнить этот кусок кода
+              */
+              if (this.is_activate.activate == 'true') {
+                axios.get(this.server + '/api/user/info?token=' + response.data[0].token,
                   {
                     headers: {
                       'Content-Type': 'application/json'
                     }
                   })
                   .then((response) => {
-
-                    if (response.data.message[0].role.trim() == 'Директор') {
-                      window.location.href = '/settings_working-space'
-                    } else if (response.data.message[0].role.trim() == 'Администратор') {
-                      window.location.href = '/filial'
-                    } else if (response.data.message[0].role.trim() == 'Родитель' || response.data.message[0].role.trim() == 'Студент' || response.data.message[0].role.trim() == 'Преподаватель') {
-                      window.location.href = '/journal'
-                    } else {
-                      window.location.href = '/'
-                    }
+                    
+                    axios.put(this.server + '/api/user/activate',
+                      {
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                        email: this.username,
+                      })
+                      .then((response) => {
+                        this.alert = 'Аккаунт успешно активирован!'
+                        // Активация всплывающего сообщения
+                        document.getElementById('toast').style.opacity = 1
+                      })
+                      .catch((error) => {
+                        this.alert = 'Ошибка активации акаунта!'
+                        // Активация всплывающего сообщения
+                        document.getElementById('toast').style.opacity = 1
+                      })
                   })
-                  .catch(function (error) {
-                    console.log(error)
-                  })
-                  // END
-              } else {
-                this.alert = 'Логин или пароль введены не правильно.'
-                // Активация всплывающего сообщения
-                document.getElementById('toast').style.opacity = 1
+              }
+              // END
+              /*
+                Получение информации о пользователе, для редиректа на 
+                страницу по условию см. ниже...
+              */
+              axios.get(this.server + '/api/user/info?token=' + response.data[0].token,
+                {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                })
+                .then((response) => {
+                  if (response.data[0][0].role.trim() == 'Директор') {
+                    window.location.href = '/settings_working-space'
+                  } else if (response.data[0][0].role.trim() == 'Администратор') {
+                    window.location.href = '/filial'
+                  } else if (response.data[0][0].role.trim() == 'Родитель' || response.data[0][0].role.trim() == 'Студент' || response.data[0][0].role.trim() == 'Преподаватель') {
+                    window.location.href = '/journal'
+                  } else {
+                    window.location.href = '/'
+                  }
+                })
+                .catch(function (error) {
+                  try{
+                     this.alert = 'Логин или пароль введены не правильно.'
+                    // Активация всплывающего сообщения
+                    document.getElementById('toast').style.opacity = 1
+                  } catch(TypeError){/* Придумать что то */ }
+                })
+                // END
               }
             })
             .catch((error) => {

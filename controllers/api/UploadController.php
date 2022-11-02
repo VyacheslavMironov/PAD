@@ -36,7 +36,7 @@ class UploadController extends \yii\rest\Controller {
         // Вызов сервиса принимающего файл
         $uploadService = new UploadService();
         return $this->asJson(array(
-            'message' => $uploadService->saved($_FILES)
+            $uploadService->saved($_FILES)
         ));
     }
 }

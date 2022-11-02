@@ -37,7 +37,7 @@ class UserController extends \yii\rest\Controller {
         // Вызов сервиса
         $user_info = new UserInfoService();
         return $this->asJson(array(
-            'message' => $user_info->info(Yii::$app->request)
+            $user_info->info(Yii::$app->request)
         ));
     }
 
@@ -46,7 +46,7 @@ class UserController extends \yii\rest\Controller {
         // Вызов сервиса
         $service = new ActivateUserService();
         return $this->asJson(array(
-            'message' => $service->activate(Yii::$app->request)
+            $service->activate(Yii::$app->request)
         ));
     }
 }

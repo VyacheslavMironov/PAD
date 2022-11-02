@@ -60,7 +60,8 @@ export default {
               }
             })
             .then((response) => {
-              var user = response.data.message[0] // тут есть проблема лишних отступов, позже пофиксю
+              console.log(response.data)
+              var user = response.data
               var new_ = {}
               for (var val in user) {
                 if (typeof(user[val]) == 'string'){
@@ -70,9 +71,6 @@ export default {
                 }
               }
               this.user_info = new_
-            })
-            .catch(function (error) {
-              console.log(error)
             })
         }
       }
