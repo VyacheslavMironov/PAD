@@ -451,3 +451,8 @@
 127.0.0.1 - - [02/Nov/2022:18:41:21 +0700] "GET /assets/4e457b57/css/bootstrap.css.map HTTP/1.1" 200 608416 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 127.0.0.1 - - [02/Nov/2022:18:41:26 +0700] "PUT /api/reset/password HTTP/1.1" 500 1169 "http://127.0.0.1/password-reset" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 127.0.0.1 - - [02/Nov/2022:18:45:44 +0700] "PUT /api/reset/password HTTP/1.1" 200 30 "http://127.0.0.1/password-reset" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+127.0.0.1 - - [03/Nov/2022:16:20:10 +0700] "POST /api/authorization/auth HTTP/1.1" 500 1177 "-" "PostmanRuntime/7.29.2"
+127.0.0.1 - - [03/Nov/2022:16:21:16 +0700] "POST /api/authorization/auth HTTP/1.1" 500 1177 "-" "PostmanRuntime/7.29.2"
+127.0.0.1 - - [03/Nov/2022:16:21:31 +0700] "POST /api/authorization/auth HTTP/1.1" 200 243 "-" "PostmanRuntime/7.29.2"
+127.0.0.1 - - [03/Nov/2022:16:32:19 +0700] "POST /api/organization/create HTTP/1.1" 200 720 "-" "PostmanRuntime/7.29.2"
+127.0.0.1 - - [03/Nov/2022:17:00:39 +0700] "PUT /api/reset/password HTTP/1.1" 200 30 "-" "PostmanRuntime/7.29.2"

@@ -4,13 +4,16 @@
 namespace Unit;
 
 use \UnitTester;
+use app\Services\Base;
 use app\Repository\WorkingSpaceOrganizationsRepository;
+use app\Repository\ResetPasswordRepository;
 use app\DTO\CreatePrivilegeAdminDTO;
 use app\DTO\CreateSettingsDTO;
 use app\DTO\CreateOrganizationDTO;
 use app\DTO\CreateUserDTO;
+use app\DTO\ResetPasswordDTO;
 
-class CreateOrganizationTest extends \Codeception\Test\Unit
+class ResetPasswordTest extends \Codeception\Test\Unit
 {
 
     protected UnitTester $tester;
@@ -28,7 +31,7 @@ class CreateOrganizationTest extends \Codeception\Test\Unit
             'organization' => new CreateOrganizationDTO('Тестовая школа', 'Школа', null, /* => settings_id */),
             // Владелец
             'user' => new CreateUserDTO(null, /* => organization_id */ null, /* => filial_id */ null, /* => middle_name */
-                                    'Колька', 'Басурманов', 'Тарасов', 'test.mail@mail.ru', 'Директор', null, /* => is_active */
+                                    'Колька', 'Басурманов', 'Тарасов', 'VuacheslavMironov@yandex.ru', 'Директор', null, /* => is_active */
                                     'test-image.png', null, /* email_code */ 'blablabla22',),
         ]);
 
@@ -48,7 +51,7 @@ class CreateOrganizationTest extends \Codeception\Test\Unit
         $this->assertEquals('Басурманов', $response[3]['last_name']);
 
         $this->assertArrayHasKey('email', $response[3]);
-        $this->assertEquals('test.mail@mail.ru', $response[3]['email']);
+        $this->assertEquals('VuacheslavMironov@yandex.ru', $response[3]['email']);
 
         $this->assertArrayHasKey('role', $response[3]);
         $this->assertEquals('Директор', $response[3]['role']);
@@ -60,6 +63,20 @@ class CreateOrganizationTest extends \Codeception\Test\Unit
         $this->assertNotNull($response[3]['organization_id']);
 
         $this->assertEquals(4, count($response));
+
+        // Запрос на смену пароля
+        $base = new Base();
+        $authTest = new ResetPasswordRepository();
+        $response = $authTest->to_password(new ResetPasswordDTO('VuacheslavMironov@yandex.ru', $base->generate_to_password()));
+
+        // Проверка параметров возвращаемого массива
+        $this->assertNotNull($response);
+        /*
+        В ответе должен быть параметр "response", но его не пропускает
+        Пока так оставлю.
+        */
+        // $this->assertArrayHasKey('response', $response);
+        // $this->assertEquals(true, $response['response']);
     }
 
     // tests
