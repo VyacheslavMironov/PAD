@@ -49,4 +49,14 @@ class UserController extends \yii\rest\Controller {
             $service->activate(Yii::$app->request)
         ));
     }
+
+    public function actionCreate()
+    {
+
+    }
+
+    public function actionUpdate()
+    {
+        
+    }
 }

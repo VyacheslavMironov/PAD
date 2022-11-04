@@ -221,7 +221,6 @@ __webpack_require__.r(__webpack_exports__);
             }
           })["catch"](function (error) {
             if (error.response.status === 500) {
-              console.log(error);
               // Деактивация лоадера
               document.getElementById('loader-bg').style.display = 'none';
               self.alert = 'Данная организация уже существует!';
@@ -478,7 +477,7 @@ var _hoisted_36 = {
 var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "form-check-label",
   "for": "testConstruct"
-}, " Конструктор чатов ", -1 /* HOISTED */);
+}, " Сервис тестирования ", -1 /* HOISTED */);
 var _hoisted_38 = {
   "class": "form-check"
 };

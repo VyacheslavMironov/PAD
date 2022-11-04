@@ -60,17 +60,17 @@ export default {
               }
             })
             .then((response) => {
-              console.log(response.data)
-              var user = response.data
+              var user = response.data[0][0]
               var new_ = {}
-              for (var val in user) {
-                if (typeof(user[val]) == 'string'){
-                  new_[val] = user[val].trim()
-                } else {
-                  new_[val] = user[val]
-                }
+             for (var item in user) {
+              if (typeof(user[item]) == "string"){
+                new_[item] = user[item].trim()
+              } else {
+                new_[item] = user[item]
               }
+             }
               this.user_info = new_
+              // console.log(new_[0][0])
             })
         }
       }

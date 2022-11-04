@@ -19818,6 +19818,12 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
       return __webpack_require__.e(/*! import() */ "app_src_views_PasswordResetView_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./src/views/PasswordResetView.vue */ "./app/src/views/PasswordResetView.vue"));
     }
   }, {
+    path: '/settings_working-space',
+    name: 'settings_working-space',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "app_src_views_SettingsWorkingSpaceView_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./src/views/SettingsWorkingSpaceView.vue */ "./app/src/views/SettingsWorkingSpaceView.vue"));
+    }
+  }, {
     path: '/profile',
     name: 'profile',
     component: function component() {
@@ -19886,17 +19892,17 @@ __webpack_require__.r(__webpack_exports__);
             'Content-Type': 'application/json'
           }
         }).then(function (response) {
-          console.log(response.data);
-          var user = response.data;
+          var user = response.data[0][0];
           var new_ = {};
-          for (var val in user) {
-            if (typeof user[val] == 'string') {
-              new_[val] = user[val].trim();
+          for (var item in user) {
+            if (typeof user[item] == "string") {
+              new_[item] = user[item].trim();
             } else {
-              new_[val] = user[val];
+              new_[item] = user[item];
             }
           }
           _this.user_info = new_;
+          // console.log(new_[0][0])
         });
       }
     }
@@ -24919,7 +24925,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"app_src_views_SignUpView_vue":1,"app_src_views_SignInView_vue":1,"app_src_views_PasswordResetView_vue":1,"app_src_views_ProfileView_vue":1}[chunkId]) return "app/" + chunkId + ".js";
+/******/ 			if ({"app_src_views_SignUpView_vue":1,"app_src_views_SignInView_vue":1,"app_src_views_PasswordResetView_vue":1,"app_src_views_SettingsWorkingSpaceView_vue":1,"app_src_views_ProfileView_vue":1}[chunkId]) return "app/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

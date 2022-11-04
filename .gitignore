@@ -35,8 +35,7 @@ tests/_support/_generated
 #vagrant folder
 /.vagrant
 
-# local logs
-log/*
+
 
 # Конфиг создать на серваке
 config.php

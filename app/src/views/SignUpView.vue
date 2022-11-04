@@ -104,7 +104,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" v-model="testConstruct" id="testConstruct">
                 <label class="form-check-label" for="testConstruct">
-                    Конструктор чатов
+                    Сервис тестирования
                 </label>
               </div>
               <div class="form-check">
@@ -391,7 +391,6 @@ export default {
             })
             .catch(function (error) {
               if (error.response.status === 500) {
-                console.log(error)
                 // Деактивация лоадера
                 document.getElementById('loader-bg').style.display = 'none'
                 self.alert = 'Данная организация уже существует!'

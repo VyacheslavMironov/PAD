@@ -24,6 +24,11 @@ const router = createRouter({
             component: () => import('./src/views/PasswordResetView.vue')
         },
         {
+            path: '/settings_working-space',
+            name: 'settings_working-space',
+            component: () => import('./src/views/SettingsWorkingSpaceView.vue')
+        },
+        {
             path: '/profile',
             name: 'profile',
             component: () => import('./src/views/ProfileView.vue')

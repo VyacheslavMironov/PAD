@@ -1,4 +1,5 @@
 <template>
+    
     <main class="container-fluid">
       <!-- Компонент загрузки -->
       <LoaderComponent />
@@ -107,10 +108,10 @@
                     <b>Должность</b>
                   </label>
                   <select class="form-select" v-model="role" aria-label="Default select example">
-                    <option v-if="this.user_type === 'Директор'" value="Администратор" selected>Администратор</option>
-                    <option v-if="this.user_type === 'Директор' || this.user_type === 'Администратор'" value="Преподаватель">Преподаватель</option>
-                    <option v-if="this.user_type === 'Администратор'" value="Студент">Студент</option>
-                    <option v-if="this.user_type === 'Администратор'" value="Родитель">Родитель</option>
+                    <option v-if="this.user_info.role === 'Директор'" value="Администратор" selected>Администратор</option>
+                    <option v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'" value="Преподаватель">Преподаватель</option>
+                    <option v-if="this.user_info.role === 'Администратор'" value="Студент">Студент</option>
+                    <option v-if="this.user_info.role === 'Администратор'" value="Родитель">Родитель</option>
                   </select>
                 </div>
                 <div v-if="this.role === 'Преподаватель'" class="mb-4">
@@ -382,25 +383,26 @@
   
 <script>
   import axios from 'axios'
-  import AlertComponent from '@/components/AlertComponent.vue'
-  import CardFormComponent from '@/components/cards/CardFormComponent.vue'
-  import LoaderComponent from '@/components/LoaderComponent.vue'
-  import ButtonComponent from '@/components/ButtonComponent.vue'
+  import AlertComponent from '../components/AlertComponent.vue'
+  import CardFormComponent from '../components/CardComponent.vue'
+  import LoaderComponent from '../components/LoaderComponent.vue'
+  import ButtonComponent from '../components/ButtonComponent.vue'
   
   export default {
     data () {
       return {
-        group: null,
-        group_list: null,
-        user_info: null,
-        user_type: null,
-        users: null,
-        alert: '',
+        // Параметры для добавления юзера
         organization_id: null,
         first_name: null,
         last_name: null,
         role: null,
         email: null,
+        
+        group: null,
+        group_list: null,
+        user_type: null,
+        users: null,
+        alert: '',
         student_id: null,
         students_list: null,
         first_and_last_name: null,
@@ -418,7 +420,8 @@
     },
     props: {
       is_auth: Number,
-      token: String
+      token: String,
+      user_info: Object
     },
     components: {
       CardFormComponent,
@@ -427,361 +430,42 @@
       AlertComponent
     },
     methods: {
-      user: function () {
-        if (this.is_auth >= 0) {
-          axios.get('http://localhost:5000/api/user/user-info?access_token=' + this.token,
-            {
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }
-          )
-            .then((response) => {
-              this.user_info = response.data[0].message
-              // Вызывать методы использующие пользовательские данные ниже
-              this.lesson_show(this.user_info.organization_id)
-              this.all_group(this.user_info.organization_id)
-              this.students_for(this.user_info.organization_id)
-              this.user_type = this.user_info.role
-            })
-            .catch(function (error) {
-              console.log(error)
-            })
-        }
-      },
       all_group (organizationId) {
-        axios.get('http://localhost:5000/api/group/all-group?organization_id=' + organizationId,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-            }
-          })
-          .then((response) => {
-            this.group_list = response.data[0].message.list
-          })
+        
       },
       lesson_for (lessonId) {
-        if (this.lessonUp.includes('' + lessonId)) {
-          var text = ''
-          var arr = this.lessonUp.split(',')
-          // Вырезка совпадений
-          for (var i = 0; i < arr.length; i++) {
-            if (String(arr[i]) !== String(lessonId)) {
-              text += arr[i] + ','
-            }
-          }
-          var s = []
-          var arrText = text.split(',')
-          for (var j = 0; j < arrText.length; j++) {
-            if (arrText[j] === '' || arrText[j] === ' ' || arrText[j] === ',') {
-              // Тут ничего не происходит
-            } else {
-              s.push(arrText[j])
-            }
-          }
-          this.lessonUp = s.join() + ','
-        } else {
-          this.lessonUp += '' + lessonId + ','
-        }
-        console.log(this.lessonUp)
+       
       },
       students_for (organizationId) {
-        axios.get('http://localhost:5000/api/group/show-group?group_id=-1' + '&&organization_id=' + organizationId,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-            }
-          })
-          .then((response) => {
-            this.students_list = response.data[0].message.list_belongs
-          })
+       
       },
       create_user () {
-        // Генерация пароля
-        let generate = ''
-        const possible = 'abcdefghijklmnopqrstuvwxyz'
-        for (let i = 0; i < 5; i++) {
-          generate += possible.charAt(Math.floor(Math.random() * possible.length))
-        }
-        // END
-        // Активация лоадера
-        document.getElementById('loader-bg').style.display = 'block'
-        // END
-        // Отправка данных
-        axios.post('http://localhost:5000/api/user/create-user',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
-            },
-            organization_name: this.user_info.organization_id,
-            add_personal: true,
-            role: this.role,
-            first_name: this.first_name,
-            last_name: this.last_name,
-            email: this.email,
-            password: 'user' + generate,
-            group: this.group,
-            student_id: this.student_id,
-            lesson_up: this.lessonUp
-          })
-          .then((response) => {
-            this.alert = 'Данные успешно сохранены'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-            // Очистка полей
-            this.first_name = ''
-            this.last_name = ''
-            this.email = ''
-            this.role = ''
-          })
-          .catch(function (error) {
-            if (error.response) {
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none'
-              self.alert = 'Ошибка сохранения данных!'
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1
-            }
-          })
-        // END
+        
       },
       all_show_user (role) {
-        // Активация лоадера
-        document.getElementById('loader-bg').style.display = 'block'
-        // Запрос на выборку данных юзера по ролям
-        axios.get('http://localhost:5000/api/user/all-user?organization_id=' + this.user_info.organization_id + '&&role=' + role,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-            }
-          }
-        )
-          .then((response) => {
-            this.users = response.data[0].message.users
-            document.getElementById('personal-info').classList.remove('d-none')
-            document.getElementById('personal-info').classList.add('d-block')
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-          })
-          .catch(function (error) {
-            if (error.error) {
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none'
-              self.alert = 'Ошибка получения данных!'
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1
-            }
-          })
-        // END
+        
       },
       user_change () {
-        this.update_user_id = this.users[this.first_and_last_name].user_id
-        this.update_first_name = this.users[this.first_and_last_name].first_name
-        this.update_last_name = this.users[this.first_and_last_name].last_name
-        this.update_role = this.users[this.first_and_last_name].role
-        this.update_email = this.users[this.first_and_last_name].email
+       
       },
       update_user () {
-        // Активация лоадера
-        document.getElementById('loader-bg').style.display = 'block'
-        // Запрос на выборку данных юзера по ролям
-        axios.put('http://localhost:5000/api/user/update-user',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
-            },
-            user_id: this.update_user_id,
-            first_name: this.update_first_name,
-            last_name: this.update_last_name,
-            role: this.update_role,
-            email: this.update_email
-          }
-        )
-          .then((response) => {
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-            this.alert = 'Данные обновлены'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          })
-          .catch(function (error) {
-            if (error.error) {
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none'
-              self.alert = 'Ошибка получения данных!'
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1
-            }
-          })
-        // END
+        
       },
       create_lesson () {
-        // Активация лоадера
-        document.getElementById('loader-bg').style.display = 'block'
-        // END
-        // Отправка данных
-        axios.post('http://localhost:5000/api/lesson/create-lesson',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
-            },
-            lesson: this.lesson,
-            organization_id: this.user_info.organization_id
-          }
-        )
-          .then((response) => {
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-            this.alert = 'Данные успешно сохранены!'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          })
-          .catch((error) => {
-            if (error.response) {
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none'
-              this.alert = 'Такой предмет уже добавлен!'
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1
-            }
-          })
-        // END
-        this.$router.go(0)
+        
       },
       lesson_show (id) {
-        // Запрос на выборку данных юзера по ролям
-        axios.get('http://localhost:5000/api/lesson/lesson-all?organization_id=' + id,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-            }
-          }
-        )
-          .then((response) => {
-            this.lesson_list = response.data[0].message.list
-          })
-          .catch(function (error) {
-            if (error.error) {
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none'
-              self.alert = 'Ошибка получения данных!'
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1
-            }
-          })
-        // END
+       
       },
       update_lesson_open (id) {
-        const data = this.$refs.lessonUpdate
-        data[id].classList.remove('d-none')
-        data[id].classList.add('d-block')
-  
-        const text = this.$refs.lessonText
-        text[id].classList.remove('d-block')
-        text[id].classList.add('d-none')
-  
-        this.$refs.editLesson[id].style.display = 'none'
-        this.$refs.closeEditLesson[id].style.display = 'inline-block'
-      },
-      update_lesson_close (id) {
-        this.$refs.closeEditLesson[id].style.display = 'none'
-        this.$refs.editLesson[id].style.display = 'inline-block'
-  
-        const data = this.$refs.lessonUpdate
-        data[id].classList.remove('d-block')
-        data[id].classList.add('d-none')
-  
-        const text = this.$refs.lessonText
-        text[id].classList.remove('d-none')
-        text[id].classList.add('d-block')
+       
       },
       update_lessons (item, id, organizationId) {
-        var data = this.$refs.inputLessonText[item].value
-        // Запрос на выборку данных юзера по ролям
-        axios.put('http://localhost:5000/api/lesson/update-lesson',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
-            },
-            id: id,
-            organization_id: organizationId,
-            lesson: data
-          }
-        )
-          .then((response) => {
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-            this.alert = 'Данные обновлены'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          })
-          .catch(function (error) {
-            if (error.error) {
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none'
-              self.alert = 'Ошибка получения данных!'
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1
-            }
-          })
-        // END
-        this.$refs.closeEditLesson[item].style.display = 'none'
-        this.$refs.editLesson[item].style.display = 'inline-block'
-        const element = this.$refs.lessonUpdate
-        element[item].classList.remove('d-block')
-        element[item].classList.add('d-none')
-  
-        const text = this.$refs.lessonText
-        text[item].classList.remove('d-none')
-        text[item].classList.add('d-block')
-        location.reload()
+       
       },
       drop_lesson (id, organizationId) {
-        // Запрос на выборку данных юзера по ролям
-        axios.delete('http://localhost:5000/api/lesson/drop-lesson?id=' + (id) + '&&organization_id=' + organizationId,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
-            }
-          }
-        )
-          .then((response) => {
-            // Деактивация лоадера
-            document.getElementById('loader-bg').style.display = 'none'
-            this.alert = 'Данные удалены'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          })
-          .catch(function (error) {
-            if (error.error) {
-              // Деактивация лоадера
-              document.getElementById('loader-bg').style.display = 'none'
-              self.alert = 'Ошибка удаления данных!'
-              // Активация всплывающего сообщения
-              document.getElementById('toast').style.opacity = 1
-            }
-          })
-        location.reload()
+
       }
-    },
-    mounted () {
-      this.user()
     }
   }
 </script>
