@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "625a4024-8670-41f9-8a36-9c625170cf23",
+		"name": "PAD/Identification",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create organization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_access\": true,\n    \"user_email\": false,\n    \"is_envaluation\": true,\n    \"add_user\": false,\n    \"upload_file\": false,\n    \"logo\": \"image.jpg\",\n    \"tariff_from\": \"Годовой\",\n    \"is_video_platform\": false,\n    \"is_chat_platform\": false,\n    \"is_backup\": true,\n    \"is_evaluation_type\": true,\n    \"name\": \"Какая то школа тест\",\n    \"destination\": \"Школа\",\n    \"first_name\": \"Вячеслав\",\n    \"last_name\": \"Миронов\",\n    \"email\": \"VuacheslavMironov@yandex.ru\",\n    \"role\": \"Директор\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/organization/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"organization",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authorization to password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/ecmascript",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"vuacheslav.mir@gmail.com\",\n    \"password\": \"csoka7m93v\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/authorization/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"authorization",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset_password_auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsImV4cCI6MTY2NzMwNTQzOCwiaXNzIjoiMTI3LjAuMC4xIiwiaWF0IjoxNjY3MzA1Mzg4fQ.ULqcF7PnN3HmjZeAZZ12IR-GOKPjULfkDYDDpFAW2Lg\",\n    \"old_password\": \"r40z9nx8wh\",\n    \"new_password\": \"amritta3113\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/reset/password",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"reset",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload_logo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/vuacheslavmironov/Изображения/Снимок экрана от 2022-10-29 19-12-17.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/upload/save",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"upload",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/api/user/info?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsImV4cCI6MTY2NzM3MjEyMCwiaXNzIjoiMTI3LjAuMC4xIiwiaWF0IjoxNjY3MzcyMDcwfQ.-_r7hl5dJNaoWN7ASibkVIDG240R4Hnu0zTBg8JzTHQ",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"user",
+						"info"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsImV4cCI6MTY2NzM3MjEyMCwiaXNzIjoiMTI3LjAuMC4xIiwiaWF0IjoxNjY3MzcyMDcwfQ.-_r7hl5dJNaoWN7ASibkVIDG240R4Hnu0zTBg8JzTHQ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset_password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"VuacheslavMironov@yandex.ru\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/reset/password",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"reset",
+						"password"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
