@@ -108,6 +108,46 @@ $config = [
                         'PUT activate' => 'activate'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/user'],
+                    'extraPatterns' => [
+                        'POST create' => 'create'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/lesson'],
+                    'extraPatterns' => [
+                        'POST create' => 'create'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/lesson'],
+                    'extraPatterns' => [
+                        'GET list' => 'list'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/lesson'],
+                    'extraPatterns' => [
+                        'PUT update' => 'update'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/lesson'],
+                    'extraPatterns' => [
+                        'DELETE delete' => 'delete'
+                    ]
+                ],
             ],
         ],
     ],

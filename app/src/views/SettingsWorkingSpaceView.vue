@@ -71,6 +71,30 @@
                   </ul>
                 </div>
               </div>
+              <div class="mt-1">
+                <a
+                  class="list_items"
+                  data-bs-toggle="collapse"
+                  href="#filials"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 10V7c0-1.103-.897-2-2-2h-3c0-1.654-1.346-3-3-3S8 3.346 8 5H5c-1.103 0-2 .897-2 2v4h1a2 2 0 0 1 0 4H3v4c0 1.103.897 2 2 2h4v-1a2 2 0 0 1 4 0v1h4c1.103 0 2-.897 2-2v-3c1.654 0 3-1.346 3-3s-1.346-3-3-3z"></path>
+                </svg>Филиалы
+                </a>
+                <div class="collapse" id="filials">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <a href="#add_filials">Добавить филиал</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#add_filials">Редактировать филиалы</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </CardFormComponent>
           </section>
           <!-- Секция контента -->
@@ -127,7 +151,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" v-on:click="lesson_for(i.id)" v-bind:id="i.id">
                       <label class="form-check-label" v-bind:for="i.id">
-                        {{ i.lesson }}
+                        {{ i.name }}
                       </label>
                     </div>
                   </div>
@@ -315,7 +339,7 @@
                   <label class="form-label">
                     <b>Наименование предмета</b>
                   </label>
-                  <input type="text" v-model="lesson" class="form-control">
+                  <input type="text" v-model="lesson_name" class="form-control">
                 </div>
                 <!-- Компонент кнопки -->
                 <ButtonComponent text="Добавить" v-on:click="this.create_lesson()" css_class="btn mt-2 right"/>
@@ -335,7 +359,7 @@
                   <tbody>
                     <tr v-for="(i, idx) in this.lesson_list" v-bind:key="i">
                       <td>
-                        <p ref="lessonText" class="d-block">{{i.lesson}}</p>
+                        <p ref="lessonText" class="d-block">{{i.name}}</p>
                         <div ref="lessonUpdate"  class="d-none">
                           <div class="input-group mb-1">
                             <input
@@ -345,9 +369,14 @@
                               aria-label="Recipient's username"
                               ref="inputLessonText"
                               v-bind:aria-describedby="idx"
-                              v-bind:value="i.lesson"
+                              v-bind:value="i.name"
                             >
-                            <button v-on:click="this.update_lessons(idx, i.id, this.user_info.organization_id)" class="btn" type="button" v-bind:id="idx">Ок</button>
+                            <button
+                              v-on:click="this.update_lessons(i.id, this.user_info.organization_id, idx)"
+                              class="btn"
+                              type="button"
+                              v-bind:id="idx"
+                            >Ок</button>
                           </div>
                         </div>
                       </td>
@@ -363,7 +392,7 @@
                             <path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path>
                           </svg>
                         </span>
-                        <span class="btn p-1 m-1" v-on:click="this.drop_lesson(i.id, this.user_info.organization_id)">
+                        <span class="btn p-1 m-1" v-on:click="this.drop_lesson(i.id)">
                           <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
                             <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
                           </svg>
@@ -411,7 +440,7 @@
         update_last_name: null,
         update_role: null,
         update_email: null,
-        lesson: null,
+        lesson_name: null,
         update_lesson: null,
         lesson_list: null,
         update_lesson_list: [],
@@ -419,6 +448,7 @@
       }
     },
     props: {
+      server: String,
       is_auth: Number,
       token: String,
       user_info: Object
@@ -440,7 +470,29 @@
        
       },
       create_user () {
-        
+        axios.post(this.server + '/api/user/create',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            organization_id: this.user_info.organization_id,
+            first_name: this.first_name,
+            last_name: this.last_name,
+            email: this.email,
+            role: this.role
+          })
+          .then((response) => {
+            this.alert = 'Пользователь успешно добавлен!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка, проверьте что заполнили все поля!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
       },
       all_show_user (role) {
         
@@ -452,20 +504,117 @@
         
       },
       create_lesson () {
-        
+        axios.post(this.server + '/api/lesson/create',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            organization_id: this.user_info.organization_id,
+            name: this.lesson_name
+          })
+          .then((response) => {
+            this.alert = 'Предмет успешно добавлен!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+            // Очистка поля 
+            this.lesson_name = ''
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка, проверьте что указали название предмета!\n* Название предмета должно быть не меньше 3-х символов.'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
       },
-      lesson_show (id) {
-       
+      lessons () {
+        axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => {
+            console.log(response.data)
+            this.lesson_list = response.data
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
       },
       update_lesson_open (id) {
-       
+        const data = this.$refs.lessonUpdate
+        data[id].classList.remove('d-none')
+        data[id].classList.add('d-block')
+        const text = this.$refs.lessonText
+        text[id].classList.remove('d-block')
+        text[id].classList.add('d-none')
+        this.$refs.editLesson[id].style.display = 'none'
+        this.$refs.closeEditLesson[id].style.display = 'inline-block'
       },
-      update_lessons (item, id, organizationId) {
-       
+      update_lesson_close (id) {
+        this.$refs.closeEditLesson[id].style.display = 'none'
+        this.$refs.editLesson[id].style.display = 'inline-block'
+        const data = this.$refs.lessonUpdate
+        data[id].classList.remove('d-block')
+        data[id].classList.add('d-none')
+        const text = this.$refs.lessonText
+        text[id].classList.remove('d-none')
+        text[id].classList.add('d-block')
       },
-      drop_lesson (id, organizationId) {
-
+      update_lessons (id, organizationId, idx) {
+        axios.put(this.server + '/api/lesson/update',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            id: id,
+            organization_id: organizationId,
+            name: this.$refs.inputLessonText[idx].value
+          })
+          .then((response) => {
+            console.log(response.data)
+            this.alert = 'Данные предмета обновлены!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+            // Закрывает активное поле ввода обновления
+            this.update_lesson_close(idx)
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка! Не возможно обновить предмет.'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+      },
+      drop_lesson (id) {
+        axios.delete(this.server + '/api/lesson/delete?id=' + id,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            }
+          })
+          .then((response) => {
+            console.log(response.data)
+            this.alert = 'Данные предмета удалены!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+            location.reload()
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка! Не возможно удалить предмет.'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
       }
+    },
+    mounted () {
+      this.lessons()
     }
   }
 </script>

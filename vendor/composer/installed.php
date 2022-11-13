@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'yiisoft/yii2-app-basic',
-        'pretty_version' => 'dev-dev',
-        'version' => 'dev-dev',
-        'reference' => '2fe34704d7b0f4786936a9311140ae1207a2714f',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '0bcb76b1c5294f8e2e970e19d972dfc5a8d7ca61',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -845,9 +845,9 @@
             'dev_requirement' => false,
         ),
         'yiisoft/yii2-app-basic' => array(
-            'pretty_version' => 'dev-dev',
-            'version' => 'dev-dev',
-            'reference' => '2fe34704d7b0f4786936a9311140ae1207a2714f',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '0bcb76b1c5294f8e2e970e19d972dfc5a8d7ca61',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

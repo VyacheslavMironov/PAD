@@ -9,16 +9,13 @@ use Yii;
  *
  * @property int $id
  * @property int $organization_id
- * @property int $filial_id
- * @property int $teacher_id
+ * @property int|null $filial_id
+ * @property int|null $teacher_id
  * @property string $name
  *
  * @property Filial $filial
  * @property Organization $organization
- * @property Schedule[] $schedules
- * @property Statements[] $statements
  * @property Users $teacher
- * @property TeacherFromLessons[] $teacherFromLessons
  */
 class Lessons extends \yii\db\ActiveRecord
 {
@@ -36,7 +33,7 @@ class Lessons extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['organization_id', 'filial_id', 'teacher_id', 'name'], 'required'],
+            [['organization_id', 'name'], 'required'],
             [['organization_id', 'filial_id', 'teacher_id'], 'default', 'value' => null],
             [['organization_id', 'filial_id', 'teacher_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
@@ -81,26 +78,6 @@ class Lessons extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Schedules]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSchedules()
-    {
-        return $this->hasMany(Schedule::class, ['lesson_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Statements]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStatements()
-    {
-        return $this->hasMany(Statements::class, ['lesson_id' => 'id']);
-    }
-
-    /**
      * Gets query for [[Teacher]].
      *
      * @return \yii\db\ActiveQuery
@@ -108,15 +85,5 @@ class Lessons extends \yii\db\ActiveRecord
     public function getTeacher()
     {
         return $this->hasOne(Users::class, ['id' => 'teacher_id']);
-    }
-
-    /**
-     * Gets query for [[TeacherFromLessons]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getTeacherFromLessons()
-    {
-        return $this->hasMany(TeacherFromLessons::class, ['lesson_id' => 'id']);
     }
 }

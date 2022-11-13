@@ -104,7 +104,7 @@ class WorkingSpaceOrganizationsService extends Base
     {
         if (empty($param->post('first_name')) || empty($param->post('last_name')) || is_null($param->post('email')) || empty($param->post('role')))
         {
-            throw new ErrorException('Не все параметры пользователя (владельца) указаны.\nОбязательные параметры => [*first_name, *last_name, *email, *role]');
+            throw new ErrorException('Не все параметры пользователя указаны.\nОбязательные параметры => [*first_name, *last_name, *email, *role]');
         } else {
             $workingSpace = new WorkingSpaceOrganizationsRepository();
             if ($workingSpace->double_user($param->post('email')))

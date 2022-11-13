@@ -4,6 +4,10 @@ namespace app\controllers\api;
 
 use Yii;
 use yii\filters\Cors;
+use app\Services\LessonCreateService;
+use app\Services\LessonListService;
+use app\Services\LessonUpdateService;
+use app\Services\LessonDeleteService;
 
 class LessonController extends \yii\rest\Controller {
     public $enableCsrfValidation = false;
@@ -32,21 +36,27 @@ class LessonController extends \yii\rest\Controller {
 
     public function actionCreate()
     {
-
+        $service = new LessonCreateService();
+        return $this->asJson(array(
+            $service->create(Yii::$app->request)
+        ));
     }
 
     public function actionDelete()
     {
-
+        $service = new LessonDeleteService();
+        return $service->delete(Yii::$app->request);
     }
 
-    public function actionShow()
+    public function actionList()
     {
-
+        $service = new LessonListService();
+        return $service->list(Yii::$app->request);
     }
 
     public function actionUpdate()
     {
-        
+        $service = new LessonUpdateService();
+        return $service->update(Yii::$app->request);
     }
 }

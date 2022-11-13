@@ -20,10 +20,10 @@ class m221014_071027_create_lessons_table extends Migration
             'organization_id' => Schema::TYPE_BIGINT.' NOT NULL',
 
             // Ссылается на идентификатор таблицы филиала организации.
-            'filial_id' => Schema::TYPE_BIGINT.' NOT NULL',
+            'filial_id' => Schema::TYPE_BIGINT.' NULL',
 
             // Идентификатор преподавателя.
-            'teacher_id' => Schema::TYPE_BIGINT.' NOT NULL',
+            'teacher_id' => Schema::TYPE_BIGINT.' NULL',
 
             // Наименование предмета.
             'name' => Schema::TYPE_STRING.'(255) NOT NULL',
