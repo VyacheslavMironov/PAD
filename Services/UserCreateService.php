@@ -4,8 +4,10 @@ namespace app\Services;
 
 use app\Services\Base;
 use app\DTO\CreateUserDTO;
+use app\DTO\LessonAddUserIdDTO;
 use app\Services\SendEmailService;
 use app\Repository\UserCreateRepository;
+use app\Repository\LessonUpdateRepository;
 
 class UserCreateService extends Base
 {
@@ -14,7 +16,9 @@ class UserCreateService extends Base
         $mail = new SendEmailService(['password' => $password,'email' => $email]);
         return $mail->create_organization_by();
     }
+
     public function create($request) {
+        // Сохранение юзера
         $repository = new UserCreateRepository();
         $create = $repository->create(new CreateUserDTO(
             $request->post('organization_id'),
@@ -30,8 +34,37 @@ class UserCreateService extends Base
             null,
             $this->generate_to_password(),
         ));
+
+        // Добавление предметов преподавателю
+        if ($request->post('role') == 'Преподаватель' && $request->post('lessons'))
+        {
+            $lesson_array = array();
+            $repository_lessons_for_teacher_update = new LessonUpdateRepository();
+            // Обрезание запятой
+            if ($request->post('lessons')[-1] == ',')
+            {
+                $str = $request->post('lessons');
+                $lessons = substr($str, 0, -1);
+            } else {
+                $lessons = $request->post('lessons');
+            }
+
+            foreach (explode(',', $lessons) as $lesson_id)
+            {
+                $update = $repository_lessons_for_teacher_update->add_lesson_by_user(
+                    // ТУТ ВСЁ ПЕРЕПУТАЛ
+                    new LessonAddUserIdDTO(
+                        (int)$lesson_id,
+                        $create->id.','
+                    )
+                );
+                array_push($lesson_array, $update);
+            }
+        }
+
         // Отправка письма
         $this->send($create->password, $request->post('email'));
-        return $create;
+
+        return [$create, $lesson_array];
     }
 }

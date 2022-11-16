@@ -23,7 +23,8 @@ class m221014_071027_create_lessons_table extends Migration
             'filial_id' => Schema::TYPE_BIGINT.' NULL',
 
             // Идентификатор преподавателя.
-            'teacher_id' => Schema::TYPE_BIGINT.' NULL',
+            // 'teacher_id' => Schema::TYPE_BIGINT.' NULL', // Небольшие изменения грядут
+            'teacher_id' => Schema::TYPE_CHAR.'(255) NULL',
 
             // Наименование предмета.
             'name' => Schema::TYPE_STRING.'(255) NOT NULL',
@@ -57,6 +58,9 @@ class m221014_071027_create_lessons_table extends Migration
             'id'
         );
 
+        /*
+        Попробую другое решение, в связи с тем, что преподавателей в 
+        организации может быть неско
         $this->createIndex(
             'idx-lessons-teacher_id',
             'lessons',
@@ -70,6 +74,7 @@ class m221014_071027_create_lessons_table extends Migration
             'users',
             'id'
         );
+        */
     }
 
     /**

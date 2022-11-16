@@ -206,7 +206,7 @@
                 <h5>Редактирование персонала</h5>
                 <br>
                 <p>Выберите должность</p>
-                <div v-if="this.user_type === 'Директор'" class="form-check">
+                <div v-if="this.user_info.role === 'Директор'" class="form-check">
                   <input
                     class="form-check-input"
                     v-on:click="all_show_user('Администратор')"
@@ -218,7 +218,7 @@
                     Администратор
                   </label>
                 </div>
-                <div v-if="this.user_type === 'Директор' || this.user_type === 'Администратор'" class="form-check">
+                <div v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'" class="form-check">
                   <input
                     class="form-check-input"
                     v-on:click="all_show_user('Преподаватель')"
@@ -406,7 +406,6 @@
           </section>
         </div>
       </div>
-      {{this.lessonUp}}
     </main>
 </template>
   
@@ -464,12 +463,35 @@
         
       },
       lesson_for (lessonId) {
-       
+        if (this.lessonUp.includes('' + lessonId)) {
+          var text = ''
+          var arr = this.lessonUp.split(',')
+          // Вырезка совпадений
+          for (var i = 0; i < arr.length; i++) {
+            if (String(arr[i]) !== String(lessonId)) {
+              text += arr[i] + ','
+            }
+          }
+          var s = []
+          var arrText = text.split(',')
+          for (var j = 0; j < arrText.length; j++) {
+            if (arrText[j] === '' || arrText[j] === ' ' || arrText[j] === ',') {
+              // Тут ничего не происходит
+            } else {
+              s.push(arrText[j])
+            }
+          }
+          this.lessonUp = s.join() + ','
+        } else {
+          this.lessonUp += '' + lessonId + ','
+        }
+
       },
       students_for (organizationId) {
        
       },
       create_user () {
+        console.log(this.lesson_list)
         axios.post(this.server + '/api/user/create',
           {
             headers: {
@@ -481,14 +503,24 @@
             first_name: this.first_name,
             last_name: this.last_name,
             email: this.email,
-            role: this.role
+            role: this.role,
+            // Доп параметры преподавателя
+            lessons: this.lessonUp,
           })
           .then((response) => {
+            console.log(response)
             this.alert = 'Пользователь успешно добавлен!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
+            // Очистка полей
+            this.first_name = ''
+            this.last_name = ''
+            this.email = ''
+            this.role = ''
+            this.lessonUp = ''
           })
           .catch((error) => {
+            console.log(error)
             this.alert = 'Ошибка, проверьте что заполнили все поля!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1

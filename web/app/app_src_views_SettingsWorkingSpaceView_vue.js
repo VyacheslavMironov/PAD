@@ -95,10 +95,34 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     all_group: function all_group(organizationId) {},
-    lesson_for: function lesson_for(lessonId) {},
+    lesson_for: function lesson_for(lessonId) {
+      if (this.lessonUp.includes('' + lessonId)) {
+        var text = '';
+        var arr = this.lessonUp.split(',');
+        // Вырезка совпадений
+        for (var i = 0; i < arr.length; i++) {
+          if (String(arr[i]) !== String(lessonId)) {
+            text += arr[i] + ',';
+          }
+        }
+        var s = [];
+        var arrText = text.split(',');
+        for (var j = 0; j < arrText.length; j++) {
+          if (arrText[j] === '' || arrText[j] === ' ' || arrText[j] === ',') {
+            // Тут ничего не происходит
+          } else {
+            s.push(arrText[j]);
+          }
+        }
+        this.lessonUp = s.join() + ',';
+      } else {
+        this.lessonUp += '' + lessonId + ',';
+      }
+    },
     students_for: function students_for(organizationId) {},
     create_user: function create_user() {
       var _this = this;
+      console.log(this.lesson_list);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/user/create', {
         headers: {
           'Content-Type': 'application/json',
@@ -109,12 +133,22 @@ __webpack_require__.r(__webpack_exports__);
         first_name: this.first_name,
         last_name: this.last_name,
         email: this.email,
-        role: this.role
+        role: this.role,
+        // Доп параметры преподавателя
+        lessons: this.lessonUp
       }).then(function (response) {
+        console.log(response);
         _this.alert = 'Пользователь успешно добавлен!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
+        // Очистка полей
+        _this.first_name = '';
+        _this.last_name = '';
+        _this.email = '';
+        _this.role = '';
+        _this.lessonUp = '';
       })["catch"](function (error) {
+        console.log(error);
         _this.alert = 'Ошибка, проверьте что заполнили все поля!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
@@ -827,7 +861,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _this.create_user();
     }),
     css_class: "btn mt-2 right"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [_hoisted_48, _hoisted_49, _hoisted_50, _hoisted_51, this.user_type === 'Директор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [_hoisted_48, _hoisted_49, _hoisted_50, _hoisted_51, this.user_info.role === 'Директор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-check-input",
     onClick: _cache[7] || (_cache[7] = function ($event) {
       return $options.all_show_user('Администратор');
@@ -835,7 +869,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "radio",
     name: "flexRadioDefault",
     id: "admin"
-  }), _hoisted_53])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_type === 'Директор' || this.user_type === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }), _hoisted_53])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_info.role === 'Директор' || this.user_info.role === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-check-input",
     onClick: _cache[8] || (_cache[8] = function ($event) {
       return $options.all_show_user('Преподаватель');
@@ -988,7 +1022,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return _this.drop_lesson(i.id);
       }
     }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_109, _hoisted_111))], 8 /* PROPS */, _hoisted_108)])]);
-  }), 128 /* KEYED_FRAGMENT */))])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.lessonUp), 1 /* TEXT */)]);
+  }), 128 /* KEYED_FRAGMENT */))])])])])])])])]);
 }
 
 /***/ }),

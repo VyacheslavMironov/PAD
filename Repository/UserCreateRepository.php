@@ -26,6 +26,8 @@ class UserCreateRepository
         {
             $db->save();
             return $db;
+        } else {
+            return ['response' => 'Данные не сохранены!', 'message' => $db->errors];
         }
     }
 
