@@ -154,11 +154,56 @@ __webpack_require__.r(__webpack_exports__);
         document.getElementById('toast').style.opacity = 1;
       });
     },
-    all_show_user: function all_show_user(role) {},
-    user_change: function user_change() {},
-    update_user: function update_user() {},
-    create_lesson: function create_lesson() {
+    all_show_user: function all_show_user(organization_id, role) {
       var _this2 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=' + role, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        _this2.users = response.data[0];
+        document.getElementById('personal-info').classList.remove('d-none');
+        document.getElementById('personal-info').classList.add('d-block');
+      });
+    },
+    user_change: function user_change() {
+      this.update_user_id = this.users[this.first_and_last_name].id;
+      this.update_first_name = this.users[this.first_and_last_name].first_name.trim();
+      this.update_last_name = this.users[this.first_and_last_name].last_name.trim();
+      this.update_role = this.users[this.first_and_last_name].role.trim();
+      this.update_email = this.users[this.first_and_last_name].email.trim();
+    },
+    update_user: function update_user() {
+      var _this3 = this;
+      alert(this.update_user_id);
+      // Запрос на выборку данных юзера по ролям
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/user/update', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+        },
+        id: this.update_user_id,
+        first_name: this.update_first_name,
+        last_name: this.update_last_name,
+        role: this.update_role,
+        email: this.update_email
+      }).then(function (response) {
+        console.log(response);
+        _this3.alert = 'Данные обновлены';
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1;
+      })["catch"](function (error) {
+        if (error.error) {
+          self.alert = 'Ошибка получения данных!';
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1;
+        }
+      });
+      // END
+    },
+    create_lesson: function create_lesson() {
+      var _this4 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/lesson/create', {
         headers: {
           'Content-Type': 'application/json',
@@ -168,28 +213,28 @@ __webpack_require__.r(__webpack_exports__);
         organization_id: this.user_info.organization_id,
         name: this.lesson_name
       }).then(function (response) {
-        _this2.alert = 'Предмет успешно добавлен!';
+        _this4.alert = 'Предмет успешно добавлен!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         // Очистка поля 
-        _this2.lesson_name = '';
+        _this4.lesson_name = '';
       })["catch"](function (error) {
-        _this2.alert = 'Ошибка, проверьте что указали название предмета!\n* Название предмета должно быть не меньше 3-х символов.';
+        _this4.alert = 'Ошибка, проверьте что указали название предмета!\n* Название предмета должно быть не меньше 3-х символов.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     lessons: function lessons() {
-      var _this3 = this;
+      var _this5 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id, {
         headers: {
           'Content-Type': 'application/json'
         }
       }).then(function (response) {
         console.log(response.data);
-        _this3.lesson_list = response.data;
+        _this5.lesson_list = response.data;
       })["catch"](function (error) {
-        _this3.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.';
+        _this5.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
@@ -215,7 +260,7 @@ __webpack_require__.r(__webpack_exports__);
       text[id].classList.add('d-block');
     },
     update_lessons: function update_lessons(id, organizationId, idx) {
-      var _this4 = this;
+      var _this6 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/lesson/update', {
         headers: {
           'Content-Type': 'application/json',
@@ -227,19 +272,19 @@ __webpack_require__.r(__webpack_exports__);
         name: this.$refs.inputLessonText[idx].value
       }).then(function (response) {
         console.log(response.data);
-        _this4.alert = 'Данные предмета обновлены!';
+        _this6.alert = 'Данные предмета обновлены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         // Закрывает активное поле ввода обновления
-        _this4.update_lesson_close(idx);
+        _this6.update_lesson_close(idx);
       })["catch"](function (error) {
-        _this4.alert = 'Ошибка! Не возможно обновить предмет.';
+        _this6.alert = 'Ошибка! Не возможно обновить предмет.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     drop_lesson: function drop_lesson(id) {
-      var _this5 = this;
+      var _this7 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](this.server + '/api/lesson/delete?id=' + id, {
         headers: {
           'Content-Type': 'application/json',
@@ -248,12 +293,12 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         console.log(response.data);
-        _this5.alert = 'Данные предмета удалены!';
+        _this7.alert = 'Данные предмета удалены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         location.reload();
       })["catch"](function (error) {
-        _this5.alert = 'Ошибка! Не возможно удалить предмет.';
+        _this7.alert = 'Ошибка! Не возможно удалить предмет.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
@@ -864,7 +909,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [_hoisted_48, _hoisted_49, _hoisted_50, _hoisted_51, this.user_info.role === 'Директор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-check-input",
     onClick: _cache[7] || (_cache[7] = function ($event) {
-      return $options.all_show_user('Администратор');
+      return $options.all_show_user(_this.user_info.organization_id, 'Администратор');
     }),
     type: "radio",
     name: "flexRadioDefault",
@@ -872,7 +917,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), _hoisted_53])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_info.role === 'Директор' || this.user_info.role === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-check-input",
     onClick: _cache[8] || (_cache[8] = function ($event) {
-      return $options.all_show_user('Преподаватель');
+      return $options.all_show_user(_this.user_info.organization_id, 'Преподаватель');
     }),
     type: "radio",
     name: "flexRadioDefault",
@@ -880,7 +925,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), _hoisted_55])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_type === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-check-input",
     onClick: _cache[9] || (_cache[9] = function ($event) {
-      return $options.all_show_user('Студент');
+      return $options.all_show_user(_this.user_info.organization_id, 'Студент');
     }),
     type: "radio",
     name: "flexRadioDefault",
@@ -888,7 +933,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), _hoisted_57])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_type === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_58, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-check-input",
     onClick: _cache[10] || (_cache[10] = function ($event) {
-      return $options.all_show_user('Родитель');
+      return $options.all_show_user(_this.user_info.organization_id, 'Родитель');
     }),
     type: "radio",
     name: "flexRadioDefault",
@@ -932,7 +977,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.update_role = $event;
     }),
     "aria-label": "Default select example"
-  }, [this.user_type === 'Директор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_71, "Администратор")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_type === 'Директор' || this.user_type === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_72, "Преподаватель")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_type === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_73, "Студент")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_type === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_74, "Родитель")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.update_role]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_75, [_hoisted_76, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, [this.user_info.role === 'Директор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_71, "Администратор")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_info.role === 'Директор' || this.user_info.role === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_72, "Преподаватель")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_info.role === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_73, "Студент")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), this.user_info.role === 'Администратор' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_74, "Родитель")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.update_role]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_75, [_hoisted_76, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "email",
     id: "user_email",
     "onUpdate:modelValue": _cache[17] || (_cache[17] = function ($event) {

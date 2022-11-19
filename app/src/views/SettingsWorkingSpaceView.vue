@@ -209,7 +209,7 @@
                 <div v-if="this.user_info.role === 'Директор'" class="form-check">
                   <input
                     class="form-check-input"
-                    v-on:click="all_show_user('Администратор')"
+                    v-on:click="all_show_user(this.user_info.organization_id, 'Администратор')"
                     type="radio"
                     name="flexRadioDefault"
                     id="admin"
@@ -221,7 +221,7 @@
                 <div v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'" class="form-check">
                   <input
                     class="form-check-input"
-                    v-on:click="all_show_user('Преподаватель')"
+                    v-on:click="all_show_user(this.user_info.organization_id, 'Преподаватель')"
                     type="radio"
                     name="flexRadioDefault"
                     id="teacher"
@@ -233,7 +233,7 @@
                 <div v-if="this.user_type === 'Администратор'" class="form-check">
                   <input
                     class="form-check-input"
-                    v-on:click="all_show_user('Студент')"
+                    v-on:click="all_show_user(this.user_info.organization_id, 'Студент')"
                     type="radio"
                     name="flexRadioDefault"
                     id="teacher"
@@ -245,7 +245,7 @@
                 <div v-if="this.user_type === 'Администратор'" class="form-check">
                   <input
                     class="form-check-input"
-                    v-on:click="all_show_user('Родитель')"
+                    v-on:click="all_show_user(this.user_info.organization_id, 'Родитель')"
                     type="radio"
                     name="flexRadioDefault"
                     id="teacher"
@@ -294,10 +294,10 @@
                       <b>Должность</b>
                     </label>
                     <select class="form-select" v-model="update_role" aria-label="Default select example">
-                      <option v-if="this.user_type === 'Директор'" value="Администратор" selected>Администратор</option>
-                      <option v-if="this.user_type === 'Директор' || this.user_type === 'Администратор'" value="Преподаватель">Преподаватель</option>
-                      <option v-if="this.user_type === 'Администратор'" value="Студент">Студент</option>
-                      <option v-if="this.user_type === 'Администратор'" value="Родитель">Родитель</option>
+                      <option v-if="this.user_info.role === 'Директор'" value="Администратор" selected>Администратор</option>
+                      <option v-if="this.user_info.role === 'Директор' || this.user_info.role === 'Администратор'" value="Преподаватель">Преподаватель</option>
+                      <option v-if="this.user_info.role === 'Администратор'" value="Студент">Студент</option>
+                      <option v-if="this.user_info.role === 'Администратор'" value="Родитель">Родитель</option>
                     </select>
                   </div>
                   <div class="mb-3">
@@ -526,14 +526,56 @@
             document.getElementById('toast').style.opacity = 1
           })
       },
-      all_show_user (role) {
-        
+      all_show_user (organization_id, role) {
+        axios.get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=' + role,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => {
+            this.users = response.data[0]
+            document.getElementById('personal-info').classList.remove('d-none')
+            document.getElementById('personal-info').classList.add('d-block')
+          })
       },
       user_change () {
-       
+        this.update_user_id = this.users[this.first_and_last_name].id
+        this.update_first_name = this.users[this.first_and_last_name].first_name.trim()
+        this.update_last_name = this.users[this.first_and_last_name].last_name.trim()
+        this.update_role = this.users[this.first_and_last_name].role.trim()
+        this.update_email = this.users[this.first_and_last_name].email.trim()
       },
       update_user () {
-        
+        alert(this.update_user_id)
+      // Запрос на выборку данных юзера по ролям
+      axios.put(this.server + '/api/user/update',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+          },
+          id: this.update_user_id,
+          first_name: this.update_first_name,
+          last_name: this.update_last_name,
+          role: this.update_role,
+          email: this.update_email
+        })
+        .then((response) => {
+          console.log(response)
+          this.alert = 'Данные обновлены'
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1
+        })
+        .catch(function (error) {
+          if (error.error) {
+            self.alert = 'Ошибка получения данных!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          }
+        })
+      // END
       },
       create_lesson () {
         axios.post(this.server + '/api/lesson/create',

@@ -7,6 +7,8 @@ use yii\filters\Cors;
 use app\Services\UserInfoService;
 use app\Services\ActivateUserService;
 use app\Services\UserCreateService;
+use app\Services\UserShowService;
+use app\Services\UserUpdateService;
 
 class UserController extends \yii\rest\Controller {
     public $enableCsrfValidation = false;
@@ -59,8 +61,19 @@ class UserController extends \yii\rest\Controller {
         ));
     }
 
+    public function actionShow()
+    {
+        $service = new UserShowService();
+        return $this->asJson(array(
+            $service->show(Yii::$app->request)
+        ));
+    }
+
     public function actionUpdate()
     {
-        
+        $service = new UserUpdateService();
+        return $this->asJson(array(
+            $service->update(Yii::$app->request)
+        ));
     }
 }

@@ -148,6 +148,22 @@ $config = [
                         'DELETE delete' => 'delete'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/user'],
+                    'extraPatterns' => [
+                        'GET show' => 'show'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/user'],
+                    'extraPatterns' => [
+                        'PUT update' => 'update'
+                    ]
+                ],
             ],
         ],
     ],
