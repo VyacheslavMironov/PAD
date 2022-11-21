@@ -75,7 +75,6 @@ export default {
              }
               this.user_info = new_
               this.settings(this.user_info)
-              // console.log(new_[0][0])
             })
         }
       },

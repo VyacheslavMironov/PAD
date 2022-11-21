@@ -8,6 +8,10 @@ use yii\web\UploadedFile;
 use app\Services\SettingsInfoService;
 use app\Services\SettingsLogoUpdateService;
 use app\Services\SettingsLogoDeleteService;
+use app\Services\SettingsUpdateValueTypeService;
+use app\Services\PrivelegesAdminShowService;
+use app\Services\PrivelegesAdminUpdateService;
+use app\Services\ServiceConnectUpdateService;
 
 class SettingsController extends \yii\rest\Controller {
     public $enableCsrfValidation = false;
@@ -57,6 +61,38 @@ class SettingsController extends \yii\rest\Controller {
         $service = new SettingsLogoDeleteService();
         return $this->asJson(array(
             $service->delete(Yii::$app->request)
+        ));
+    }
+
+    public function actionUpdate_value_type()
+    {
+        $service = new SettingsUpdateValueTypeService();
+        return $this->asJson(array(
+            $service->update(Yii::$app->request)
+        ));
+    }
+
+    public function actionPriveleges_admin_show()
+    {
+        $service = new PrivelegesAdminShowService();
+        return $this->asJson(array(
+            $service->show(Yii::$app->request)
+        ));
+    }
+
+    public function actionPriveleges_admin_update()
+    {
+        $service = new PrivelegesAdminUpdateService();
+        return $this->asJson(array(
+            $service->update(Yii::$app->request)
+        ));
+    }
+
+    public function actionService_connect_update()
+    {
+        $service = new ServiceConnectUpdateService();
+        return $this->asJson(array(
+            $service->update(Yii::$app->request)
         ));
     }
 }

@@ -34,7 +34,7 @@
         >Выход</button>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>

@@ -180,6 +180,9 @@
                       </label>
                     </div>
                   </div>
+                  <!-- Компонент кнопки -->
+                  <ButtonComponent text="Обновить список сервисов" v-on:click="this.connect_services_update()" css_class="btn mt-3"/>
+                  <!-- END -->
                 </div>
                 <div class="row mt-5">
                   <div class="mb-3">
@@ -187,36 +190,64 @@
                       <h5>Права администратора</h5>
                     </label>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" v-model="userAccess" id="userAccess">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        v-model="userAccess"
+                        id="userAccess"
+                      >
                       <label class="form-check-label" for="userAccess">
                         Администратор может заходить под студентом
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" v-model="userEmail" id="userEmail">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        v-model="userEmail"
+                        id="userEmail"
+                      >
                       <label class="form-check-label" for="userEmail">
                         Администратор может рассылать E-mail уведомления
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" v-model="isEnvaluation" id="isEnvaluation">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        v-model="isEnvaluation"
+                        id="isEnvaluation"
+                      >
                       <label class="form-check-label" for="isEnvaluation">
                         Администратор может изменять или выставлять оценки
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" v-model="addUser" id="addUser">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        v-model="addUser"
+                        id="addUser"
+                      >
                       <label class="form-check-label" for="addUser">
                         Администратор может добавлять пользователей в систему
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" v-model="uploadFile" id="uploadFile">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        v-model="uploadFile"
+                        id="uploadFile"
+                      >
                       <label class="form-check-label" for="uploadFile">
                         Администратор может загружать файлы в хранилище организации
                       </label>
                     </div>
                   </div>
+                  <!-- Компонент кнопки -->
+                  <ButtonComponent text="Обновить права" v-on:click="this.priveleges_admin_update()" css_class="btn mt-3"/>
+                  <!-- END -->
                 </div>
               </div>
               <!-- Настройка персонала -->
@@ -531,6 +562,7 @@
     data () {
       return {
         // Параметры для добавления юзера
+        priveleges_admin_list: null,
         organization_id: null,
         first_name: null,
         last_name: null,
@@ -606,14 +638,14 @@
                 file_name: file
               })
               .then((response) => {
-                console.log(response)
+                
                 this.alert = 'Логотип успешно изменён!'
                 // Активация всплывающего сообщения
                 document.getElementById('toast').style.opacity = 1
                 // this.logotype = response.data[0]
               })
               .catch((error) => {
-                console.log(error)
+                
                 this.alert = 'Не удалось сохранить файл!'
                 // Активация всплывающего сообщения
                 document.getElementById('toast').style.opacity = 1
@@ -633,21 +665,42 @@
             }
           })
           .then((response) => {
-            console.log(response)
+            
             this.alert = 'Логотип удалён!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
             // this.logotype = response.data[0]
           })
           .catch((error) => {
-            console.log(error)
+            
             this.alert = 'Не удалось удалить файл!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
       },
       update_value_type () {
-
+        axios.put(this.server + '/api/settings/update/value-type',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            organization_id: this.user_info.organization_id,
+            value_type: this.valueType
+          })
+          .then((response) => {
+            this.alert = 'Тип оценочной единицы изменён!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+            // this.logotype = response.data[0]
+          })
+          .catch((error) => {
+            
+            this.alert = 'Не удалось изменить оценочной единицы!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
       },
       all_group (organizationId) {
         
@@ -681,7 +734,6 @@
        
       },
       create_user () {
-        console.log(this.lesson_list)
         axios.post(this.server + '/api/user/create',
           {
             headers: {
@@ -698,7 +750,7 @@
             lessons: this.lessonUp,
           })
           .then((response) => {
-            console.log(response)
+            
             this.alert = 'Пользователь успешно добавлен!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
@@ -710,7 +762,7 @@
             this.lessonUp = ''
           })
           .catch((error) => {
-            console.log(error)
+            
             this.alert = 'Ошибка, проверьте что заполнили все поля!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
@@ -753,7 +805,7 @@
           email: this.update_email
         })
         .then((response) => {
-          console.log(response)
+          
           this.alert = 'Данные обновлены'
           // Активация всплывающего сообщения
           document.getElementById('toast').style.opacity = 1
@@ -799,7 +851,6 @@
             }
           })
           .then((response) => {
-            console.log(response.data)
             this.lesson_list = response.data
           })
           .catch((error) => {
@@ -841,7 +892,6 @@
             name: this.$refs.inputLessonText[idx].value
           })
           .then((response) => {
-            console.log(response.data)
             this.alert = 'Данные предмета обновлены!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
@@ -864,7 +914,6 @@
             }
           })
           .then((response) => {
-            console.log(response.data)
             this.alert = 'Данные предмета удалены!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
@@ -875,10 +924,88 @@
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
+      },
+      show_param () {
+        axios.get(this.server + '/api/settings/show/priveleges-admin?organization_id=' + this.user_info.organization_id,
+          {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then((response) => {
+            // this.priveleges_admin_list = response.data[0]
+            this.userAccess = response.data[0].user_access
+            this.userEmail = response.data[0].user_email
+            this.isEnvaluation = response.data[0].is_envaluation
+            this.addUser = response.data[0].add_user
+            this.uploadFile = response.data[0].upload_file
+
+            this.onlineLesson = this.settings_info.is_video_platform
+            this.sistemChat = this.settings_info.is_chat_platform
+            this.testConstruct = this.settings_info.is_test_platform
+            this.isGameTematic = this.settings_info.is_game_platform
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка! Не возможно загрузить привелегии администратора!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+      },
+      priveleges_admin_update () {
+        axios.put(this.server + '/api/settings/update/priveleges-admin',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            organization_id: this.user_info.organization_id,
+            user_access: this.userAccess,
+            user_email: this.userEmail,
+            is_envaluation: this.isEnvaluation,
+            add_user: this.addUser,
+            upload_file: this.uploadFile
+          })
+          .then((response) => {
+            this.alert = 'Данные изменены!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка. Невозможно изменить права!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+      },
+      connect_services_update () {
+        axios.put(this.server + '/api/settings/update/service-connect',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            organization_id: this.user_info.organization_id,
+            is_video_platform: this.onlineLesson,
+            is_chat_platform: this.sistemChat,
+            is_test_platform: this.testConstruct,
+            is_game_platform: this.isGameTematic
+          })
+          .then((response) => {
+            this.alert = 'Данные изменены!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка. Невозможно изменить список сервисов!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
       }
     },
     mounted () {
       this.lessons()
+      this.show_param()
     }
   }
 </script>

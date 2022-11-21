@@ -188,6 +188,38 @@ $config = [
                         'DELETE logo/delete' => 'logo_delete'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/settings'],
+                    'extraPatterns' => [
+                        'PUT update/value-type' => 'update_value_type'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/settings'],
+                    'extraPatterns' => [
+                        'GET show/priveleges-admin' => 'priveleges_admin_show'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/settings'],
+                    'extraPatterns' => [
+                        'PUT update/priveleges-admin' => 'priveleges_admin_update'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/settings'],
+                    'extraPatterns' => [
+                        'PUT update/service-connect' => 'service_connect_update'
+                    ]
+                ],
             ],
         ],
     ],

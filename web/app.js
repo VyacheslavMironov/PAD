@@ -19904,11 +19904,9 @@ __webpack_require__.r(__webpack_exports__);
           }
           _this.user_info = new_;
           _this.settings(_this.user_info);
-          // console.log(new_[0][0])
         });
       }
     },
-
     settings: function settings(user_info) {
       var _this2 = this;
       if (this.is_auth >= 0) {
