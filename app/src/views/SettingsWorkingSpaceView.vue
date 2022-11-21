@@ -103,13 +103,124 @@
               <b>Настройки</b>
             </h4>
             <div class="mt-5">
-              <div class="mb-5">
-                <h5>Общие настройки</h5>
-                <br>
-                <div class="row"><!-- Пока ток заглушка --></div>
+              <div class="">
+                <!-- <h5>Общие настройки</h5>
+                <br> -->
+                <div class="row mt-5">
+                  <div class="mb-3">
+                    <label class="form-label">
+                      <h5>Логотип организации</h5>
+                    </label>
+                    <input type="file" ref="fileInput" name="file" class="form-control">
+                    <br>
+                    <p
+                      v-if="this.settings_info.logo != 'default'"
+                    >Сейчас используется:</p>
+                    <div
+                      v-if="this.settings_info.logo != 'default'"  
+                      class="card col-2"
+                    >
+                      <img v-bind:src="this.server + '/img/' + this.settings_info.logo" class="img-fluid" alt="Логотип организации" />
+                      <span
+                        v-on:click="delete_logo()"
+                        class="delete-img"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
+                          <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path>
+                          <path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <!-- Компонент кнопки -->
+                    <ButtonComponent text="Изменить" v-on:click="update_logo()" css_class="btn mt-2 right"/>
+                    <!-- END -->
+                  </div>
+                </div>
+                <div class="row mt-5">
+                  <div class="mb-3">
+                    <label class="form-label">
+                      <h5>Тип оценочной единицы</h5>
+                    </label>
+                    <select class="form-select" v-model="valueType" aria-label="Default select example">
+                      <option value="true">Числовая</option>
+                      <option value="false">Строковая</option>
+                    </select>
+                    <!-- Компонент кнопки -->
+                    <ButtonComponent text="Изменить" v-on:click="update_value_type()" css_class="btn mt-2 right"/>
+                    <!-- END -->
+                  </div>
+                </div>
+                <div class="row mt-5">
+                  <div class="mb-3">
+                    <label class="form-label">
+                      <h5>Расширения</h5>
+                    </label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="onlineLesson" id="onlineLesson">
+                      <label class="form-check-label" for="onlineLesson">
+                          Сервис онлайн занятий
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="sistemChat" id="sistemChat">
+                      <label class="form-check-label" for="sistemChat">
+                          Система чатов
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="testConstruct" id="testConstruct">
+                      <label class="form-check-label" for="testConstruct">
+                          Сервис тестирования
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="isGameTematic" id="isGameTematic">
+                      <label class="form-check-label" for="isGameTematic">
+                          Тематически игровая платформа
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-5">
+                  <div class="mb-3">
+                    <label class="form-label">
+                      <h5>Права администратора</h5>
+                    </label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="userAccess" id="userAccess">
+                      <label class="form-check-label" for="userAccess">
+                        Администратор может заходить под студентом
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="userEmail" id="userEmail">
+                      <label class="form-check-label" for="userEmail">
+                        Администратор может рассылать E-mail уведомления
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="isEnvaluation" id="isEnvaluation">
+                      <label class="form-check-label" for="isEnvaluation">
+                        Администратор может изменять или выставлять оценки
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="addUser" id="addUser">
+                      <label class="form-check-label" for="addUser">
+                        Администратор может добавлять пользователей в систему
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" v-model="uploadFile" id="uploadFile">
+                      <label class="form-check-label" for="uploadFile">
+                        Администратор может загружать файлы в хранилище организации
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- Настройка персонала -->
-              <div class="mt-10">
+              <div class="mt-5">
                 <div id="user_add"><!-- Якорь на создание юзера --></div>
                 <h5>Регистрация персонала</h5>
                 <br>
@@ -443,14 +554,25 @@
         update_lesson: null,
         lesson_list: null,
         update_lesson_list: [],
-        lessonUp: ''
+        lessonUp: '',
+        valueType: null,
+        onlineLesson: false,
+        sistemChat: false,
+        testConstruct: false,
+        isGameTematic: false,
+        userAccess: false,
+        userEmail: false,
+        isEnvaluation: false,
+        addUser: false,
+        uploadFile: false,
       }
     },
     props: {
       server: String,
       is_auth: Number,
       token: String,
-      user_info: Object
+      user_info: Object,
+      settings_info: Object
     },
     components: {
       CardFormComponent,
@@ -459,6 +581,74 @@
       AlertComponent
     },
     methods: {
+      update_logo () {
+        var formData = new FormData()
+        var imagefile = this.$refs.fileInput
+        formData.append("image", imagefile.files[0])
+        // Отправка данных
+        // Отправка данных
+        axios.post(this.server + '/api/upload/save', formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+          .then((response) => {
+            var file = response.data[0]
+            axios.post(this.server + '/api/settings/logo/update',
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': '*',
+                  'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+                },
+                organization_id: this.user_info.organization_id,
+                file_name: file
+              })
+              .then((response) => {
+                console.log(response)
+                this.alert = 'Логотип успешно изменён!'
+                // Активация всплывающего сообщения
+                document.getElementById('toast').style.opacity = 1
+                // this.logotype = response.data[0]
+              })
+              .catch((error) => {
+                console.log(error)
+                this.alert = 'Не удалось сохранить файл!'
+                // Активация всплывающего сообщения
+                document.getElementById('toast').style.opacity = 1
+              })
+          })
+          .catch((error) => {
+            this.alert = 'Не удалось сохранить файл!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+      },
+      delete_logo() {
+        axios.delete(this.server + '/api/settings/logo/delete?organization_id=' + this.user_info.organization_id,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => {
+            console.log(response)
+            this.alert = 'Логотип удалён!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+            // this.logotype = response.data[0]
+          })
+          .catch((error) => {
+            console.log(error)
+            this.alert = 'Не удалось удалить файл!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+      },
+      update_value_type () {
+
+      },
       all_group (organizationId) {
         
       },

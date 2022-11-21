@@ -477,3 +477,19 @@ ul li strong.list:hover{
     height: 45vh!important;
 }
 /* END */
+
+span.delete-img {
+    position: absolute;
+    top: -5%;
+    left: 85%;
+    cursor: pointer;
+    background: white;
+    width: 23%;
+    height: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-organization{
+    max-width: 10%;
+}

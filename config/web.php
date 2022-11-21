@@ -164,6 +164,30 @@ $config = [
                         'PUT update' => 'update'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/settings'],
+                    'extraPatterns' => [
+                        'GET info' => 'info'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/settings'],
+                    'extraPatterns' => [
+                        'POST logo/update' => 'logo_update'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/settings'],
+                    'extraPatterns' => [
+                        'DELETE logo/delete' => 'logo_delete'
+                    ]
+                ],
             ],
         ],
     ],

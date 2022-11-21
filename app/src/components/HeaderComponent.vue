@@ -17,11 +17,20 @@
                 </svg>
               </button>
             </div>
-          
             <a class="navbar-brand" href="/">
-              <h2 class="text-center">
+              <img
+                v-if="this.settings_info.logo != 'default' && this.is_auth >= 0"
+                v-bind:src="this.server + '/img/' + this.settings_info.logo" 
+                class="img-fluid logo-organization"
+                alt="Логотип организации"
+              >
+              <h2
+                v-else
+                class="text-center"
+              >
                 <b>PAD</b>
               </h2>
+              
             </a>
           </div>
           <div class="collapse navbar-collapse d-flex d-lg-block d-none" id="navbarSupportedContent">
@@ -47,7 +56,7 @@
             </ul>
             <ul
               v-if="this.is_auth >= 0"
-              class="navbar-nav me-auto mb-2 l-60 w-50 mb-lg-0"
+              v-bind:class="this.settings_info.logo == 'default' ? 'navbar-nav me-auto mb-2 l-60 w-50 mb-lg-0' : 'navbar-nav me-auto mb-2 w-50 mb-lg-0'"
             >
               
               <li class="nav-item">
@@ -139,7 +148,9 @@
     },
     props: {
       is_auth: Number,
-      user_info: Object
+      user_info: Object,
+      settings_info: Object,
+      server: String
     },
     components: {
       ButtonComponent
