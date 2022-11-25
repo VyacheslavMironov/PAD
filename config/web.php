@@ -220,6 +220,14 @@ $config = [
                         'PUT update/service-connect' => 'service_connect_update'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/filial'],
+                    'extraPatterns' => [
+                        'POST create' => 'create'
+                    ]
+                ],
             ],
         ],
     ],
