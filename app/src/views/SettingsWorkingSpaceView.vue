@@ -487,7 +487,7 @@
                 <ButtonComponent text="Добавить" v-on:click="this.create_lesson()" css_class="btn mt-2 right"/>
                 <!-- END -->
               </div>
-              <div class="mt-10">
+              <div class="mt-5">
                 <div id="update_lesson"><!-- Якорь на редактирование предмета --></div>
                 <h5>Редактировать предметы</h5>
                 <br>
@@ -535,6 +535,120 @@
                           </svg>
                         </span>
                         <span class="btn p-1 m-1" v-on:click="this.drop_lesson(i.id)">
+                          <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
+                            <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
+                          </svg>
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-5">
+                <div id="update_lesson"><!-- Якорь на редактирование предмета --></div>
+                <h5>Добавить филиал</h5>
+                <br>
+                <div class="mb-3">
+                  <label class="form-label">
+                    <b>Наименование филиала</b>
+                  </label>
+                  <input type="text" v-model="filial_name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                      <b>Назначить администратора</b>
+                    </label>
+                    <select class="form-select" v-model="admin_id" aria-label="Default select example">
+                      <option
+                        v-for="x in user_admin_list"
+                        v-bind:value="x.id"
+                      >{{ x.last_name }} {{ x.first_name }}</option>
+                    </select>
+                  </div>
+                <div class="accordion accordion-flush mb-3" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Настройки (Не обязательно)
+                      </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">
+                        <form>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              v-model="fio_format"
+                              id="fioFormat"
+                            >
+                            <label class="form-check-label" for="fioFormat">
+                              Использовать формат ФИО
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              v-model="avatar"
+                              id="avatar"
+                            >
+                            <label class="form-check-label" for="avatar">
+                              Использовать фото профиля
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              v-model="issaunce_pass"
+                              id="issauncePass"
+                            >
+                            <label class="form-check-label" for="issauncePass">
+                              Разрешить вход по E-mail коду
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              v-model="theme"
+                              id="theme"
+                            >
+                            <label class="form-check-label" for="theme">
+                              Разрешить использовать темы оформления
+                            </label>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Компонент кнопки -->
+                <ButtonComponent text="Добавить" v-on:click="this.create_filial()" css_class="btn mt-2 right"/>
+                <!-- END -->
+              </div>
+              <div class="mt-5">
+                <div id="update_lesson"><!-- Якорь на редактирование предмета --></div>
+                <h5>Удаление филиала</h5>
+                <br>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Наименование</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="i in this.filial_list" v-bind:key="i">
+                      <td>
+                        <p ref="lessonText" class="d-block">
+                          <b>{{ i.name }}</b> <br>
+                          <small>Администратор - {{ i.last_name }} {{ i.first_name }}</small>
+                        </p>
+                      </td>
+                      <td>
+                        <span class="btn p-1 m-1" v-on:click="this.drop_filial(i.id)">
                           <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgba(0, 0, 0, 1);">
                             <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
                           </svg>
@@ -597,6 +711,15 @@
         isEnvaluation: false,
         addUser: false,
         uploadFile: false,
+        filial_name: null,
+
+        fio_format: false,
+        admin_id: null,
+        user_admin_list: null,
+        avatar: false,
+        issaunce_pass: false,
+
+        filial_list: null,
       }
     },
     props: {
@@ -779,6 +902,17 @@
             this.users = response.data[0]
             document.getElementById('personal-info').classList.remove('d-none')
             document.getElementById('personal-info').classList.add('d-block')
+          })
+      },
+      all_user_admin (organization_id) {
+        axios.get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=Администратор',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => {
+            this.user_admin_list = response.data[0]
           })
       },
       user_change () {
@@ -1001,11 +1135,76 @@
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
+      },
+      create_filial () {
+        axios.post(this.server + '/api/filial/create',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            fio_format: this.fio_format,
+            avatar: this.avatar,
+            issaunce_pass: this.issaunce_pass,
+            fio_format: this.fio_format,
+            theme: '-',
+            academic_month: 'Сентябрь,Октябрь,Ноябрь,Декабрь,Январь,Февраль,Март,Апрель,Май',
+            admin_id: this.admin_id,
+            organization_id: this.user_info.organization_id,
+            name: this.filial_name
+          })
+          .then((response) => {
+            this.alert = 'Создан новый филиал!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка. Невозможно создать филиал!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+      },
+      show_filial () {
+        axios.get(this.server + '/api/filial/show?organization_id=' + this.user_info.organization_id,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => {
+            this.filial_list = response.data[0]
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка загрузки списка филиалов!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+      },
+      drop_filial (id) {
+        axios.delete(this.server + '/api/filial/delete?id=' + id,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => {
+            this.alert = 'Филиал успешно удалён!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка удаления филиала!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
       }
     },
     mounted () {
       this.lessons()
       this.show_param()
+      this.all_user_admin(this.user_info.organization_id),
+      this.show_filial()
     }
   }
 </script>

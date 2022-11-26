@@ -228,6 +228,22 @@ $config = [
                         'POST create' => 'create'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/filial'],
+                    'extraPatterns' => [
+                        'GET show' => 'show'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/filial'],
+                    'extraPatterns' => [
+                        'DELETE delete' => 'delete'
+                    ]
+                ],
             ],
         ],
     ],

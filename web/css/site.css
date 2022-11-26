@@ -490,6 +490,21 @@ span.delete-img {
     justify-content: center;
     align-items: center;
 }
-.logo-organization{
+.logo-organization {
     max-width: 10%;
+}
+.accordion {
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgb(223 222 222 / 45%);
+}
+.accordion-button:focus {
+    border-color: rgba(255, 255, 255, 0);
+}
+.accordion-button, 
+.accordion-button:not(.collapsed) {
+    font-size: 0.45em;
+}
+.accordion-button:not(.collapsed) {
+    color: #2c3e50;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
 }

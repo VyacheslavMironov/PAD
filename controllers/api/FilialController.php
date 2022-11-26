@@ -5,6 +5,8 @@ namespace app\controllers\api;
 use Yii;
 use yii\filters\Cors;
 use app\Services\WorkingSpaceFilialService;
+use app\Services\FilialShowService;
+use app\Services\FilialDropService;
 
 class FilialController extends \yii\rest\Controller{
     public $enableCsrfValidation = false;
@@ -39,6 +41,22 @@ class FilialController extends \yii\rest\Controller{
         $service = new WorkingSpaceFilialService();
         return $this->asJson(array(
             $service->createWorkingSpaceFilial(Yii::$app->request)
+        ));
+    }
+
+    public function actionShow()
+    {
+        $service = new FilialShowService();
+        return $this->asJson(array(
+            $service->show(Yii::$app->request)
+        ));
+    }
+
+    public function actionDelete()
+    {
+        $service = new FilialDropService();
+        return $this->asJson(array(
+            $service->drop(Yii::$app->request)
         ));
     }
 }

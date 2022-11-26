@@ -47,6 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/CardComponent.vue */ "./app/src/components/CardComponent.vue");
 /* harmony import */ var _components_LoaderComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/LoaderComponent.vue */ "./app/src/components/LoaderComponent.vue");
 /* harmony import */ var _components_ButtonComponent_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ButtonComponent.vue */ "./app/src/components/ButtonComponent.vue");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -89,7 +90,14 @@ __webpack_require__.r(__webpack_exports__);
       userEmail: false,
       isEnvaluation: false,
       addUser: false,
-      uploadFile: false
+      uploadFile: false,
+      filial_name: null,
+      fio_format: false,
+      admin_id: null,
+      user_admin_list: null,
+      avatar: false,
+      issaunce_pass: false,
+      filial_list: null
     };
   },
   props: {
@@ -250,6 +258,16 @@ __webpack_require__.r(__webpack_exports__);
         document.getElementById('personal-info').classList.add('d-block');
       });
     },
+    all_user_admin: function all_user_admin(organization_id) {
+      var _this6 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=Администратор', {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        _this6.user_admin_list = response.data[0];
+      });
+    },
     user_change: function user_change() {
       this.update_user_id = this.users[this.first_and_last_name].id;
       this.update_first_name = this.users[this.first_and_last_name].first_name.trim();
@@ -258,7 +276,7 @@ __webpack_require__.r(__webpack_exports__);
       this.update_email = this.users[this.first_and_last_name].email.trim();
     },
     update_user: function update_user() {
-      var _this6 = this;
+      var _this7 = this;
       alert(this.update_user_id);
       // Запрос на выборку данных юзера по ролям
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/user/update', {
@@ -273,7 +291,7 @@ __webpack_require__.r(__webpack_exports__);
         role: this.update_role,
         email: this.update_email
       }).then(function (response) {
-        _this6.alert = 'Данные обновлены';
+        _this7.alert = 'Данные обновлены';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       })["catch"](function (error) {
@@ -286,7 +304,7 @@ __webpack_require__.r(__webpack_exports__);
       // END
     },
     create_lesson: function create_lesson() {
-      var _this7 = this;
+      var _this8 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/lesson/create', {
         headers: {
           'Content-Type': 'application/json',
@@ -296,27 +314,27 @@ __webpack_require__.r(__webpack_exports__);
         organization_id: this.user_info.organization_id,
         name: this.lesson_name
       }).then(function (response) {
-        _this7.alert = 'Предмет успешно добавлен!';
+        _this8.alert = 'Предмет успешно добавлен!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         // Очистка поля 
-        _this7.lesson_name = '';
+        _this8.lesson_name = '';
       })["catch"](function (error) {
-        _this7.alert = 'Ошибка, проверьте что указали название предмета!\n* Название предмета должно быть не меньше 3-х символов.';
+        _this8.alert = 'Ошибка, проверьте что указали название предмета!\n* Название предмета должно быть не меньше 3-х символов.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     lessons: function lessons() {
-      var _this8 = this;
+      var _this9 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id, {
         headers: {
           'Content-Type': 'application/json'
         }
       }).then(function (response) {
-        _this8.lesson_list = response.data;
+        _this9.lesson_list = response.data;
       })["catch"](function (error) {
-        _this8.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.';
+        _this9.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
@@ -342,7 +360,7 @@ __webpack_require__.r(__webpack_exports__);
       text[id].classList.add('d-block');
     },
     update_lessons: function update_lessons(id, organizationId, idx) {
-      var _this9 = this;
+      var _this10 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/lesson/update', {
         headers: {
           'Content-Type': 'application/json',
@@ -353,19 +371,19 @@ __webpack_require__.r(__webpack_exports__);
         organization_id: organizationId,
         name: this.$refs.inputLessonText[idx].value
       }).then(function (response) {
-        _this9.alert = 'Данные предмета обновлены!';
+        _this10.alert = 'Данные предмета обновлены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         // Закрывает активное поле ввода обновления
-        _this9.update_lesson_close(idx);
+        _this10.update_lesson_close(idx);
       })["catch"](function (error) {
-        _this9.alert = 'Ошибка! Не возможно обновить предмет.';
+        _this10.alert = 'Ошибка! Не возможно обновить предмет.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     drop_lesson: function drop_lesson(id) {
-      var _this10 = this;
+      var _this11 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](this.server + '/api/lesson/delete?id=' + id, {
         headers: {
           'Content-Type': 'application/json',
@@ -373,41 +391,41 @@ __webpack_require__.r(__webpack_exports__);
           'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
         }
       }).then(function (response) {
-        _this10.alert = 'Данные предмета удалены!';
+        _this11.alert = 'Данные предмета удалены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         location.reload();
       })["catch"](function (error) {
-        _this10.alert = 'Ошибка! Не возможно удалить предмет.';
+        _this11.alert = 'Ошибка! Не возможно удалить предмет.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     show_param: function show_param() {
-      var _this11 = this;
+      var _this12 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/settings/show/priveleges-admin?organization_id=' + this.user_info.organization_id, {
         headers: {
           'Content-Type': 'application/json'
         }
       }).then(function (response) {
         // this.priveleges_admin_list = response.data[0]
-        _this11.userAccess = response.data[0].user_access;
-        _this11.userEmail = response.data[0].user_email;
-        _this11.isEnvaluation = response.data[0].is_envaluation;
-        _this11.addUser = response.data[0].add_user;
-        _this11.uploadFile = response.data[0].upload_file;
-        _this11.onlineLesson = _this11.settings_info.is_video_platform;
-        _this11.sistemChat = _this11.settings_info.is_chat_platform;
-        _this11.testConstruct = _this11.settings_info.is_test_platform;
-        _this11.isGameTematic = _this11.settings_info.is_game_platform;
+        _this12.userAccess = response.data[0].user_access;
+        _this12.userEmail = response.data[0].user_email;
+        _this12.isEnvaluation = response.data[0].is_envaluation;
+        _this12.addUser = response.data[0].add_user;
+        _this12.uploadFile = response.data[0].upload_file;
+        _this12.onlineLesson = _this12.settings_info.is_video_platform;
+        _this12.sistemChat = _this12.settings_info.is_chat_platform;
+        _this12.testConstruct = _this12.settings_info.is_test_platform;
+        _this12.isGameTematic = _this12.settings_info.is_game_platform;
       })["catch"](function (error) {
-        _this11.alert = 'Ошибка! Не возможно загрузить привелегии администратора!';
+        _this12.alert = 'Ошибка! Не возможно загрузить привелегии администратора!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     priveleges_admin_update: function priveleges_admin_update() {
-      var _this12 = this;
+      var _this13 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/settings/update/priveleges-admin', {
         headers: {
           'Content-Type': 'application/json',
@@ -421,17 +439,17 @@ __webpack_require__.r(__webpack_exports__);
         add_user: this.addUser,
         upload_file: this.uploadFile
       }).then(function (response) {
-        _this12.alert = 'Данные изменены!';
+        _this13.alert = 'Данные изменены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       })["catch"](function (error) {
-        _this12.alert = 'Ошибка. Невозможно изменить права!';
+        _this13.alert = 'Ошибка. Невозможно изменить права!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     connect_services_update: function connect_services_update() {
-      var _this13 = this;
+      var _this14 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/settings/update/service-connect', {
         headers: {
           'Content-Type': 'application/json',
@@ -444,11 +462,63 @@ __webpack_require__.r(__webpack_exports__);
         is_test_platform: this.testConstruct,
         is_game_platform: this.isGameTematic
       }).then(function (response) {
-        _this13.alert = 'Данные изменены!';
+        _this14.alert = 'Данные изменены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       })["catch"](function (error) {
-        _this13.alert = 'Ошибка. Невозможно изменить список сервисов!';
+        _this14.alert = 'Ошибка. Невозможно изменить список сервисов!';
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1;
+      });
+    },
+    create_filial: function create_filial() {
+      var _axios$post,
+        _this15 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/filial/create', (_axios$post = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+        },
+        fio_format: this.fio_format,
+        avatar: this.avatar,
+        issaunce_pass: this.issaunce_pass
+      }, _defineProperty(_axios$post, "fio_format", this.fio_format), _defineProperty(_axios$post, "theme", '-'), _defineProperty(_axios$post, "academic_month", 'Сентябрь,Октябрь,Ноябрь,Декабрь,Январь,Февраль,Март,Апрель,Май'), _defineProperty(_axios$post, "admin_id", this.admin_id), _defineProperty(_axios$post, "organization_id", this.user_info.organization_id), _defineProperty(_axios$post, "name", this.filial_name), _axios$post)).then(function (response) {
+        _this15.alert = 'Создан новый филиал!';
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1;
+      })["catch"](function (error) {
+        _this15.alert = 'Ошибка. Невозможно создать филиал!';
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1;
+      });
+    },
+    show_filial: function show_filial() {
+      var _this16 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/filial/show?organization_id=' + this.user_info.organization_id, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        _this16.filial_list = response.data[0];
+      })["catch"](function (error) {
+        _this16.alert = 'Ошибка загрузки списка филиалов!';
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1;
+      });
+    },
+    drop_filial: function drop_filial(id) {
+      var _this17 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](this.server + '/api/filial/delete?id=' + id, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        _this17.alert = 'Филиал успешно удалён!';
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1;
+      })["catch"](function (error) {
+        _this17.alert = 'Ошибка удаления филиала!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
@@ -457,6 +527,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.lessons();
     this.show_param();
+    this.all_user_admin(this.user_info.organization_id), this.show_filial();
   }
 });
 
@@ -1038,7 +1109,7 @@ var _hoisted_130 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElemen
   "class": "form-label"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Наименование предмета")], -1 /* HOISTED */);
 var _hoisted_131 = {
-  "class": "mt-10"
+  "class": "mt-5"
 };
 var _hoisted_132 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "update_lesson"
@@ -1097,6 +1168,110 @@ var _hoisted_152 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElemen
   d: "M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"
 }, null, -1 /* HOISTED */);
 var _hoisted_153 = [_hoisted_152];
+var _hoisted_154 = {
+  "class": "mt-5"
+};
+var _hoisted_155 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "update_lesson"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Якорь на редактирование предмета ")], -1 /* HOISTED */);
+var _hoisted_156 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "Добавить филиал", -1 /* HOISTED */);
+var _hoisted_157 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_158 = {
+  "class": "mb-3"
+};
+var _hoisted_159 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Наименование филиала")], -1 /* HOISTED */);
+var _hoisted_160 = {
+  "class": "mb-3"
+};
+var _hoisted_161 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Назначить администратора")], -1 /* HOISTED */);
+var _hoisted_162 = ["value"];
+var _hoisted_163 = {
+  "class": "accordion accordion-flush mb-3",
+  id: "accordionFlushExample"
+};
+var _hoisted_164 = {
+  "class": "accordion-item"
+};
+var _hoisted_165 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "accordion-header",
+  id: "flush-headingOne"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "accordion-button collapsed",
+  type: "button",
+  "data-bs-toggle": "collapse",
+  "data-bs-target": "#flush-collapseOne",
+  "aria-expanded": "false",
+  "aria-controls": "flush-collapseOne"
+}, " Настройки (Не обязательно) ")], -1 /* HOISTED */);
+var _hoisted_166 = {
+  id: "flush-collapseOne",
+  "class": "accordion-collapse collapse",
+  "aria-labelledby": "flush-headingOne",
+  "data-bs-parent": "#accordionFlushExample"
+};
+var _hoisted_167 = {
+  "class": "accordion-body"
+};
+var _hoisted_168 = {
+  "class": "form-check"
+};
+var _hoisted_169 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "fioFormat"
+}, " Использовать формат ФИО ", -1 /* HOISTED */);
+var _hoisted_170 = {
+  "class": "form-check"
+};
+var _hoisted_171 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "avatar"
+}, " Использовать фото профиля ", -1 /* HOISTED */);
+var _hoisted_172 = {
+  "class": "form-check"
+};
+var _hoisted_173 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "issauncePass"
+}, " Разрешить вход по E-mail коду ", -1 /* HOISTED */);
+var _hoisted_174 = {
+  "class": "form-check"
+};
+var _hoisted_175 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "theme"
+}, " Разрешить использовать темы оформления ", -1 /* HOISTED */);
+var _hoisted_176 = {
+  "class": "mt-5"
+};
+var _hoisted_177 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "update_lesson"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Якорь на редактирование предмета ")], -1 /* HOISTED */);
+var _hoisted_178 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "Удаление филиала", -1 /* HOISTED */);
+var _hoisted_179 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_180 = {
+  "class": "table"
+};
+var _hoisted_181 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
+}, "Наименование"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
+})])], -1 /* HOISTED */);
+var _hoisted_182 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_183 = ["onClick"];
+var _hoisted_184 = {
+  xmlns: "http://www.w3.org/2000/svg",
+  style: {
+    "fill": "rgba(0, 0, 0, 1)"
+  }
+};
+var _hoisted_185 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"
+}, null, -1 /* HOISTED */);
+var _hoisted_186 = [_hoisted_185];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_LoaderComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LoaderComponent");
@@ -1452,6 +1627,69 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return _this.drop_lesson(i.id);
       }
     }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_151, _hoisted_153))], 8 /* PROPS */, _hoisted_150)])]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_154, [_hoisted_155, _hoisted_156, _hoisted_157, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_158, [_hoisted_159, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "onUpdate:modelValue": _cache[36] || (_cache[36] = function ($event) {
+      return $data.filial_name = $event;
+    }),
+    "class": "form-control"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.filial_name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_160, [_hoisted_161, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "form-select",
+    "onUpdate:modelValue": _cache[37] || (_cache[37] = function ($event) {
+      return $data.admin_id = $event;
+    }),
+    "aria-label": "Default select example"
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.user_admin_list, function (x) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      value: x.id
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(x.last_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(x.first_name), 9 /* TEXT, PROPS */, _hoisted_162);
+  }), 256 /* UNKEYED_FRAGMENT */))], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.admin_id]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_163, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_164, [_hoisted_165, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_166, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_167, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_168, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "form-check-input",
+    type: "checkbox",
+    "onUpdate:modelValue": _cache[38] || (_cache[38] = function ($event) {
+      return $data.fio_format = $event;
+    }),
+    id: "fioFormat"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.fio_format]]), _hoisted_169]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_170, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "form-check-input",
+    type: "checkbox",
+    "onUpdate:modelValue": _cache[39] || (_cache[39] = function ($event) {
+      return $data.avatar = $event;
+    }),
+    id: "avatar"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.avatar]]), _hoisted_171]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_172, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "form-check-input",
+    type: "checkbox",
+    "onUpdate:modelValue": _cache[40] || (_cache[40] = function ($event) {
+      return $data.issaunce_pass = $event;
+    }),
+    id: "issauncePass"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.issaunce_pass]]), _hoisted_173]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_174, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "form-check-input",
+    type: "checkbox",
+    "onUpdate:modelValue": _cache[41] || (_cache[41] = function ($event) {
+      return _ctx.theme = $event;
+    }),
+    id: "theme"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, _ctx.theme]]), _hoisted_175])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Компонент кнопки "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ButtonComponent, {
+    text: "Добавить",
+    onClick: _cache[42] || (_cache[42] = function ($event) {
+      return _this.create_filial();
+    }),
+    css_class: "btn mt-2 right"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_176, [_hoisted_177, _hoisted_178, _hoisted_179, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_180, [_hoisted_181, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.filial_list, function (i) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: i
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+      ref_for: true,
+      ref: "lessonText",
+      "class": "d-block"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), _hoisted_182, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", null, "Администратор - " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i.last_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i.first_name), 1 /* TEXT */)], 512 /* NEED_PATCH */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+      "class": "btn p-1 m-1",
+      onClick: function onClick($event) {
+        return _this.drop_filial(i.id);
+      }
+    }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_184, _hoisted_186))], 8 /* PROPS */, _hoisted_183)])]);
   }), 128 /* KEYED_FRAGMENT */))])])])])])])])]);
 }
 
