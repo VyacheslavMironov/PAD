@@ -47,7 +47,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/CardComponent.vue */ "./app/src/components/CardComponent.vue");
 /* harmony import */ var _components_LoaderComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/LoaderComponent.vue */ "./app/src/components/LoaderComponent.vue");
 /* harmony import */ var _components_ButtonComponent_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ButtonComponent.vue */ "./app/src/components/ButtonComponent.vue");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
@@ -114,6 +118,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     AlertComponent: _components_AlertComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
+    load_page: function load_page() {
+      document.addEventListener("DOMContentLoaded", function () {
+        function myTimer() {
+          alert(123);
+        }
+        setTimeout(myTimer, 1000);
+      });
+      // this.lessons()
+      // this.show_param()
+      // this.all_user_admin(this.user_info.organization_id)
+      // this.show_filial()
+    },
     update_logo: function update_logo() {
       var _this = this;
       var formData = new FormData();
@@ -139,7 +155,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this.alert = 'Логотип успешно изменён!';
           // Активация всплывающего сообщения
           document.getElementById('toast').style.opacity = 1;
-          // this.logotype = response.data[0]
+          window.location.reload();
         })["catch"](function (error) {
           _this.alert = 'Не удалось сохранить файл!';
           // Активация всплывающего сообщения
@@ -161,7 +177,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.alert = 'Логотип удалён!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
-        // this.logotype = response.data[0]
+        window.location.reload();
       })["catch"](function (error) {
         _this2.alert = 'Не удалось удалить файл!';
         // Активация всплывающего сообщения
@@ -182,14 +198,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this3.alert = 'Тип оценочной единицы изменён!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
-        // this.logotype = response.data[0]
+        window.location.reload();
       })["catch"](function (error) {
         _this3.alert = 'Не удалось изменить оценочной единицы!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
-    all_group: function all_group(organizationId) {},
     lesson_for: function lesson_for(lessonId) {
       if (this.lessonUp.includes('' + lessonId)) {
         var text = '';
@@ -214,7 +229,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.lessonUp += '' + lessonId + ',';
       }
     },
-    students_for: function students_for(organizationId) {},
     create_user: function create_user() {
       var _this4 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/user/create', {
@@ -240,6 +254,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this4.email = '';
         _this4.role = '';
         _this4.lessonUp = '';
+        window.location.reload();
       })["catch"](function (error) {
         _this4.alert = 'Ошибка, проверьте что заполнили все поля!';
         // Активация всплывающего сообщения
@@ -260,13 +275,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     all_user_admin: function all_user_admin(organization_id) {
       var _this6 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=Администратор', {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(function (response) {
-        _this6.user_admin_list = response.data[0];
-      });
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this6.server + '/api/user/show?organization_id=' + organization_id + '&role=Администратор', {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }).then(function (response) {
+                  _this6.user_admin_list = response.data[0];
+                });
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
     user_change: function user_change() {
       this.update_user_id = this.users[this.first_and_last_name].id;
@@ -294,6 +322,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this7.alert = 'Данные обновлены';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
+        window.location.reload();
       })["catch"](function (error) {
         if (error.error) {
           self.alert = 'Ошибка получения данных!';
@@ -319,6 +348,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         document.getElementById('toast').style.opacity = 1;
         // Очистка поля 
         _this8.lesson_name = '';
+        window.location.reload();
       })["catch"](function (error) {
         _this8.alert = 'Ошибка, проверьте что указали название предмета!\n* Название предмета должно быть не меньше 3-х символов.';
         // Активация всплывающего сообщения
@@ -327,17 +357,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     lessons: function lessons() {
       var _this9 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(function (response) {
-        _this9.lesson_list = response.data;
-      })["catch"](function (error) {
-        _this9.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.';
-        // Активация всплывающего сообщения
-        document.getElementById('toast').style.opacity = 1;
-      });
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this9.server + '/api/lesson/list?organization_id=' + _this9.user_info.organization_id, {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }).then(function (response) {
+                  _this9.lesson_list = response.data;
+                })["catch"](function (error) {
+                  _this9.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.';
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1;
+                });
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     },
     update_lesson_open: function update_lesson_open(id) {
       var data = this.$refs.lessonUpdate;
@@ -376,6 +419,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         document.getElementById('toast').style.opacity = 1;
         // Закрывает активное поле ввода обновления
         _this10.update_lesson_close(idx);
+        window.location.reload();
       })["catch"](function (error) {
         _this10.alert = 'Ошибка! Не возможно обновить предмет.';
         // Активация всплывающего сообщения
@@ -403,26 +447,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     show_param: function show_param() {
       var _this12 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/settings/show/priveleges-admin?organization_id=' + this.user_info.organization_id, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(function (response) {
-        // this.priveleges_admin_list = response.data[0]
-        _this12.userAccess = response.data[0].user_access;
-        _this12.userEmail = response.data[0].user_email;
-        _this12.isEnvaluation = response.data[0].is_envaluation;
-        _this12.addUser = response.data[0].add_user;
-        _this12.uploadFile = response.data[0].upload_file;
-        _this12.onlineLesson = _this12.settings_info.is_video_platform;
-        _this12.sistemChat = _this12.settings_info.is_chat_platform;
-        _this12.testConstruct = _this12.settings_info.is_test_platform;
-        _this12.isGameTematic = _this12.settings_info.is_game_platform;
-      })["catch"](function (error) {
-        _this12.alert = 'Ошибка! Не возможно загрузить привелегии администратора!';
-        // Активация всплывающего сообщения
-        document.getElementById('toast').style.opacity = 1;
-      });
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this12.server + '/api/settings/show/priveleges-admin?organization_id=' + _this12.user_info.organization_id, {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }).then(function (response) {
+                  // this.priveleges_admin_list = response.data[0]
+                  _this12.userAccess = response.data[0].user_access;
+                  _this12.userEmail = response.data[0].user_email;
+                  _this12.isEnvaluation = response.data[0].is_envaluation;
+                  _this12.addUser = response.data[0].add_user;
+                  _this12.uploadFile = response.data[0].upload_file;
+                  _this12.onlineLesson = _this12.settings_info.is_video_platform;
+                  _this12.sistemChat = _this12.settings_info.is_chat_platform;
+                  _this12.testConstruct = _this12.settings_info.is_test_platform;
+                  _this12.isGameTematic = _this12.settings_info.is_game_platform;
+                })["catch"](function (error) {
+                  _this12.alert = 'Ошибка! Не возможно загрузить привелегии администратора!';
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1;
+                });
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
     },
     priveleges_admin_update: function priveleges_admin_update() {
       var _this13 = this;
@@ -442,6 +499,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this13.alert = 'Данные изменены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
+        window.location.reload();
       })["catch"](function (error) {
         _this13.alert = 'Ошибка. Невозможно изменить права!';
         // Активация всплывающего сообщения
@@ -465,6 +523,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this14.alert = 'Данные изменены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
+        window.location.reload();
       })["catch"](function (error) {
         _this14.alert = 'Ошибка. Невозможно изменить список сервисов!';
         // Активация всплывающего сообщения
@@ -495,17 +554,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     show_filial: function show_filial() {
       var _this16 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/filial/show?organization_id=' + this.user_info.organization_id, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(function (response) {
-        _this16.filial_list = response.data[0];
-      })["catch"](function (error) {
-        _this16.alert = 'Ошибка загрузки списка филиалов!';
-        // Активация всплывающего сообщения
-        document.getElementById('toast').style.opacity = 1;
-      });
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this16.server + '/api/filial/show?organization_id=' + _this16.user_info.organization_id, {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }).then(function (response) {
+                  _this16.filial_list = response.data[0];
+                })["catch"](function (error) {
+                  _this16.alert = 'Ошибка загрузки списка филиалов!';
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1;
+                });
+              case 2:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
     },
     drop_filial: function drop_filial(id) {
       var _this17 = this;
@@ -525,9 +597,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
-    this.lessons();
-    this.show_param();
-    this.all_user_admin(this.user_info.organization_id), this.show_filial();
+    setInterval(this.lessons(), 200);
+    setInterval(this.show_param(), 300);
+    setInterval(this.all_user_admin(this.user_info.organization_id), 400);
+    setInterval(this.show_filial(), 500);
+    // this.lessons()
+    // this.show_param()
+    // this.all_user_admin(this.user_info.organization_id)
+    // this.show_filial()
   }
 });
 
@@ -740,12 +817,12 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "list-group-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#add_filials"
+  href: "#add_filial"
 }, "Добавить филиал")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "list-group-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#add_filials"
-}, "Редактировать филиалы")])])])], -1 /* HOISTED */);
+  href: "#update_filial"
+}, "Удалить филиалы")])])])], -1 /* HOISTED */);
 var _hoisted_11 = {
   "class": "col-lg-7 w-50"
 };
@@ -1172,7 +1249,7 @@ var _hoisted_154 = {
   "class": "mt-5"
 };
 var _hoisted_155 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  id: "update_lesson"
+  id: "add_filial"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Якорь на редактирование предмета ")], -1 /* HOISTED */);
 var _hoisted_156 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "Добавить филиал", -1 /* HOISTED */);
 var _hoisted_157 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
@@ -1248,7 +1325,7 @@ var _hoisted_176 = {
   "class": "mt-5"
 };
 var _hoisted_177 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  id: "update_lesson"
+  id: "update_filial"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Якорь на редактирование предмета ")], -1 /* HOISTED */);
 var _hoisted_178 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "Удаление филиала", -1 /* HOISTED */);
 var _hoisted_179 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);

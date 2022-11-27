@@ -3,6 +3,7 @@
 namespace app\Services;
 
 use Yii;
+use ErrorException;
 use Psy\Readline\Hoa\FileException;
 use app\DTO\SettingsLogoDeleteDTO;
 use app\DTO\SettingsInfoDTO;
@@ -30,13 +31,17 @@ class SettingsLogoDeleteService
 
     public function delete($request)
     {
-        // $this->delete_file((int)$request->get('organization_id'));
-        $repository = new SettingsLogoDeleteRepository();
-        return $repository->delete(
-            new SettingsLogoDeleteDTO(
-                (int)$request->get('organization_id'),
-                'default'
-            )
-        );
+        if (is_null($request->get('id')))
+        {
+            throw new ErrorException('Укажите ID организации!');
+        } else {
+            $repository = new SettingsLogoDeleteRepository();
+            return $repository->delete(
+                new SettingsLogoDeleteDTO(
+                    (int)$request->get('organization_id'),
+                    'default'
+                )
+            );
+        }
     }
 }

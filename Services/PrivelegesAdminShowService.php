@@ -11,11 +11,16 @@ class PrivelegesAdminShowService
 
     public function show($request)
     {
-        $repository = new PrivelegesAdminShowRepository();
-        return $repository->show(
-            new PrivelegesAdminShowDTO(
-                (int)$request->get('organization_id')
-            )
-        );
+        if (is_null($request->get('organization_id')))
+        {
+            throw new ErrorException('Укажите ID организации!');
+        } else {
+            $repository = new PrivelegesAdminShowRepository();
+            return $repository->show(
+                new PrivelegesAdminShowDTO(
+                    (int)$request->get('organization_id')
+                )
+            );
+        }
     }
 }

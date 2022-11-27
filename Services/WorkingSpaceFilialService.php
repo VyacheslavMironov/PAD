@@ -25,6 +25,7 @@ class WorkingSpaceFilialService
 
     public function createWorkingSpaceFilial($request)
     {
+
         $repository = new WorkingSpaceFilialRepository();
         $settings_filial_id = $this->createWorkingSpaceSettingsFilial([
             'fio_format' => $request->post('fio_format'),
@@ -33,13 +34,28 @@ class WorkingSpaceFilialService
             'theme' => $request->post('theme'),
             'academic_month' => $request->post('academic_month')
         ]);
-        return $repository->crateFilial(
-            new FilialCreateDTO(
-                (int)$request->post('admin_id'),
-                (int)$request->post('organization_id'),
-                $request->post('name'),
-                $settings_filial_id->id
-            )
-        );
+        if (is_null($request->post('admin_id')))
+        {
+            throw new ErrorException('Укажите ID администратора!');
+        } else {
+            if (is_null($request->post('organization_id')))
+            {
+                throw new ErrorException('Укажите ID организации!');
+            } else {
+                if ($request->post('name'))
+                {
+                    throw new ErrorException('Укажите название филиала!');
+                } else {
+                    return $repository->crateFilial(
+                        new FilialCreateDTO(
+                            (int)$request->post('admin_id'),
+                            (int)$request->post('organization_id'),
+                            $request->post('name'),
+                            $settings_filial_id->id
+                        )
+                    );
+                }
+            }
+        }
     }
 }

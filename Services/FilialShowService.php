@@ -15,19 +15,24 @@ class FilialShowService
 
     public function show($request)
     {
-        if ($request->get('admin_id'))
+        if (is_null($request->get('organization_id')))
         {
-            $repository = new FilialShowRepository();
-            return $repository->show_is_admin(new FilialShowDTO(
-                $request->get('organization_id'),
-                $request->get('admin_id')
-            ));
+            throw new ErrorException('Укажите ID организации!');
         } else {
-            $repository = new FilialShowRepository();
-            return $repository->show(new FilialShowDTO(
-                $request->get('organization_id'),
-                null
-            ));
+            if ($request->get('admin_id'))
+            {
+                $repository = new FilialShowRepository();
+                return $repository->show_is_admin(new FilialShowDTO(
+                    $request->get('organization_id'),
+                    $request->get('admin_id')
+                ));
+            } else {
+                $repository = new FilialShowRepository();
+                return $repository->show(new FilialShowDTO(
+                    $request->get('organization_id'),
+                    null
+                ));
+            }
         }
     }
 }

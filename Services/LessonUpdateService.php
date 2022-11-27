@@ -25,7 +25,7 @@ class LessonUpdateService
                     $request->post('name')
                 ));
             } else {
-                throw new ErrorException('Укажите правильный идентификатор!');
+                throw new ErrorException('Укажите правильный идентификатор организации!');
             }
         } else {
             throw new ErrorException('Укажите все поля!\nОбязательные поля:\n*id\n*organization_id\n*name');

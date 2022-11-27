@@ -87,10 +87,10 @@
                 <div class="collapse" id="filials">
                   <ul class="list-group">
                     <li class="list-group-item">
-                      <a href="#add_filials">Добавить филиал</a>
+                      <a href="#add_filial">Добавить филиал</a>
                     </li>
                     <li class="list-group-item">
-                      <a href="#add_filials">Редактировать филиалы</a>
+                      <a href="#update_filial">Удалить филиалы</a>
                     </li>
                   </ul>
                 </div>
@@ -545,7 +545,7 @@
                 </table>
               </div>
               <div class="mt-5">
-                <div id="update_lesson"><!-- Якорь на редактирование предмета --></div>
+                <div id="add_filial"><!-- Якорь на редактирование предмета --></div>
                 <h5>Добавить филиал</h5>
                 <br>
                 <div class="mb-3">
@@ -629,7 +629,7 @@
                 <!-- END -->
               </div>
               <div class="mt-5">
-                <div id="update_lesson"><!-- Якорь на редактирование предмета --></div>
+                <div id="update_filial"><!-- Якорь на редактирование предмета --></div>
                 <h5>Удаление филиала</h5>
                 <br>
                 <table class="table">
@@ -736,6 +736,19 @@
       AlertComponent
     },
     methods: {
+      load_page () {
+        document.addEventListener("DOMContentLoaded", function(){
+          function myTimer ()
+          {
+            alert(123)
+          }
+          setTimeout(myTimer, 1000);
+        });
+          // this.lessons()
+          // this.show_param()
+          // this.all_user_admin(this.user_info.organization_id)
+          // this.show_filial()
+      },
       update_logo () {
         var formData = new FormData()
         var imagefile = this.$refs.fileInput
@@ -765,7 +778,7 @@
                 this.alert = 'Логотип успешно изменён!'
                 // Активация всплывающего сообщения
                 document.getElementById('toast').style.opacity = 1
-                // this.logotype = response.data[0]
+                window.location.reload()
               })
               .catch((error) => {
                 
@@ -792,7 +805,7 @@
             this.alert = 'Логотип удалён!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
-            // this.logotype = response.data[0]
+            window.location.reload()
           })
           .catch((error) => {
             
@@ -816,7 +829,7 @@
             this.alert = 'Тип оценочной единицы изменён!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
-            // this.logotype = response.data[0]
+            window.location.reload()
           })
           .catch((error) => {
             
@@ -824,9 +837,6 @@
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
-      },
-      all_group (organizationId) {
-        
       },
       lesson_for (lessonId) {
         if (this.lessonUp.includes('' + lessonId)) {
@@ -852,9 +862,6 @@
           this.lessonUp += '' + lessonId + ','
         }
 
-      },
-      students_for (organizationId) {
-       
       },
       create_user () {
         axios.post(this.server + '/api/user/create',
@@ -883,6 +890,7 @@
             this.email = ''
             this.role = ''
             this.lessonUp = ''
+            window.location.reload()
           })
           .catch((error) => {
             
@@ -904,8 +912,8 @@
             document.getElementById('personal-info').classList.add('d-block')
           })
       },
-      all_user_admin (organization_id) {
-        axios.get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=Администратор',
+      async all_user_admin (organization_id) {
+        await axios.get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=Администратор',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -938,11 +946,11 @@
           role: this.update_role,
           email: this.update_email
         })
-        .then((response) => {
-          
+        .then((response) => {  
           this.alert = 'Данные обновлены'
           // Активация всплывающего сообщения
           document.getElementById('toast').style.opacity = 1
+          window.location.reload()
         })
         .catch(function (error) {
           if (error.error) {
@@ -970,6 +978,7 @@
             document.getElementById('toast').style.opacity = 1
             // Очистка поля 
             this.lesson_name = ''
+            window.location.reload()
           })
           .catch((error) => {
             this.alert = 'Ошибка, проверьте что указали название предмета!\n* Название предмета должно быть не меньше 3-х символов.'
@@ -977,8 +986,8 @@
             document.getElementById('toast').style.opacity = 1
           })
       },
-      lessons () {
-        axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
+      async lessons () {
+        await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -1031,6 +1040,7 @@
             document.getElementById('toast').style.opacity = 1
             // Закрывает активное поле ввода обновления
             this.update_lesson_close(idx)
+            window.location.reload()
           })
           .catch((error) => {
             this.alert = 'Ошибка! Не возможно обновить предмет.'
@@ -1059,8 +1069,8 @@
             document.getElementById('toast').style.opacity = 1
           })
       },
-      show_param () {
-        axios.get(this.server + '/api/settings/show/priveleges-admin?organization_id=' + this.user_info.organization_id,
+      async show_param () {
+        await axios.get(this.server + '/api/settings/show/priveleges-admin?organization_id=' + this.user_info.organization_id,
           {
             headers: {
               'Content-Type': 'application/json'
@@ -1104,6 +1114,7 @@
             this.alert = 'Данные изменены!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
+            window.location.reload()
           })
           .catch((error) => {
             this.alert = 'Ошибка. Невозможно изменить права!'
@@ -1129,6 +1140,7 @@
             this.alert = 'Данные изменены!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
+            window.location.reload()
           })
           .catch((error) => {
             this.alert = 'Ошибка. Невозможно изменить список сервисов!'
@@ -1165,8 +1177,8 @@
             document.getElementById('toast').style.opacity = 1
           })
       },
-      show_filial () {
-        axios.get(this.server + '/api/filial/show?organization_id=' + this.user_info.organization_id,
+      async show_filial () {
+        await axios.get(this.server + '/api/filial/show?organization_id=' + this.user_info.organization_id,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -1201,10 +1213,14 @@
       }
     },
     mounted () {
-      this.lessons()
-      this.show_param()
-      this.all_user_admin(this.user_info.organization_id),
-      this.show_filial()
+      setInterval(this.lessons(), 200)
+      setInterval(this.show_param(), 300)
+      setInterval(this.all_user_admin(this.user_info.organization_id), 400)
+      setInterval(this.show_filial(), 500)
+      // this.lessons()
+      // this.show_param()
+      // this.all_user_admin(this.user_info.organization_id)
+      // this.show_filial()
     }
   }
 </script>

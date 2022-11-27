@@ -10,16 +10,21 @@ class PrivelegesAdminUpdateService
 {
     public function update($request)
     {
-        $repository = new PrivelegesAdminUpdateRepository();
-        return $repository->update(
-            new PrivelegesAdminUpdateDTO(
-                (int)$request->post('organization_id'),
-                (bool)$request->post('user_access') == 'true' ? true : false,
-                (bool)$request->post('user_email') == 'true' ? true : false,
-                (bool)$request->post('is_envaluation') == 'true' ? true : false,
-                (bool)$request->post('add_user') == 'true' ? true : false,
-                (bool)$request->post('upload_file') == 'true' ? true : false,
-            )
-        );
+        if (is_null($request->post('organization_id')))
+        {
+            throw new ErrorException('Укажите ID организации!');
+        } else {
+            $repository = new PrivelegesAdminUpdateRepository();
+            return $repository->update(
+                new PrivelegesAdminUpdateDTO(
+                    (int)$request->post('organization_id'),
+                    (bool)$request->post('user_access') == 'true' ? true : false,
+                    (bool)$request->post('user_email') == 'true' ? true : false,
+                    (bool)$request->post('is_envaluation') == 'true' ? true : false,
+                    (bool)$request->post('add_user') == 'true' ? true : false,
+                    (bool)$request->post('upload_file') == 'true' ? true : false,
+                )
+            );
+        }
     }
 }

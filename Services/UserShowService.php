@@ -11,13 +11,22 @@ class UserShowService
 
     public function show($request)
     {
-
-        $repository = new UserShowRepository();
-        return $repository->show(
-            new UserShowDTO(
-                $request->get('organization_id'),
-                $request->get('role')
-            )
-            );
+        if (is_null($request->get('organization_id')))
+        {
+            throw new ErrorException('Укажите ID организации!');
+        } else {
+            if (is_null($request->get('role')))
+            {
+                throw new ErrorException('Укажите роль пользователя в системе!');
+            } else {
+                $repository = new UserShowRepository();
+                return $repository->show(
+                    new UserShowDTO(
+                        $request->get('organization_id'),
+                        $request->get('role')
+                    )
+                );
+            }
+        }
     }
 }

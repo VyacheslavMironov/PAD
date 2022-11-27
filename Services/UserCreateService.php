@@ -3,6 +3,7 @@
 namespace app\Services;
 
 use app\Services\Base;
+use ErrorException;
 use app\DTO\CreateUserDTO;
 use app\DTO\LessonAddUserIdDTO;
 use app\Services\SendEmailService;
@@ -19,21 +20,41 @@ class UserCreateService extends Base
 
     public function create($request) {
         // Сохранение юзера
-        $repository = new UserCreateRepository();
-        $create = $repository->create(new CreateUserDTO(
-            $request->post('organization_id'),
-            null,
-            null,
-            $request->post('first_name'),
-            $request->post('last_name'),
-            null,
-            $request->post('email'),
-            $request->post('role'),
-            false,
-            null,
-            null,
-            $this->generate_to_password(),
-        ));
+        if (is_null($request->post('organization_id')))
+        {
+            throw new ErrorException('Укажите ID организации!');
+        } else {
+            if (is_null($request->post('first_name')) && is_null($request->post('last_name')))
+            {
+                throw new ErrorException('Укажите имя и фамилию!');
+            } else {
+                if (is_null($request->post('email')))
+                {
+                    throw new ErrorException('Укажите E-mail!');
+                } else {
+                    if (is_null($request->post('role')))
+                    {
+                        throw new ErrorException('Укажите роль пользователя в системе!');
+                    } else {
+                        $repository = new UserCreateRepository();
+                        $create = $repository->create(new CreateUserDTO(
+                            $request->post('organization_id'),
+                            null,
+                            null,
+                            $request->post('first_name'),
+                            $request->post('last_name'),
+                            null,
+                            $request->post('email'),
+                            $request->post('role'),
+                            false,
+                            null,
+                            null,
+                            $this->generate_to_password(),
+                        ));
+                    }
+                }
+            }
+        }
 
         // Добавление предметов преподавателю
         if ($request->post('role') == 'Преподаватель' && $request->post('lessons'))
