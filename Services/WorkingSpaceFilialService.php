@@ -42,7 +42,7 @@ class WorkingSpaceFilialService
             {
                 throw new ErrorException('Укажите ID организации!');
             } else {
-                if ($request->post('name'))
+                if (is_null($request->post('name')))
                 {
                     throw new ErrorException('Укажите название филиала!');
                 } else {

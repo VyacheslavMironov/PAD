@@ -118,18 +118,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     AlertComponent: _components_AlertComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    load_page: function load_page() {
-      document.addEventListener("DOMContentLoaded", function () {
-        function myTimer() {
-          alert(123);
-        }
-        setTimeout(myTimer, 1000);
-      });
-      // this.lessons()
-      // this.show_param()
-      // this.all_user_admin(this.user_info.organization_id)
-      // this.show_filial()
-    },
     update_logo: function update_logo() {
       var _this = this;
       var formData = new FormData();
@@ -601,10 +589,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     setInterval(this.show_param(), 300);
     setInterval(this.all_user_admin(this.user_info.organization_id), 400);
     setInterval(this.show_filial(), 500);
-    // this.lessons()
-    // this.show_param()
-    // this.all_user_admin(this.user_info.organization_id)
-    // this.show_filial()
   }
 });
 

@@ -33,6 +33,11 @@ const router = createRouter({
             name: 'profile',
             component: () => import('./src/views/ProfileView.vue')
         },
+        {
+            path: '/filial',
+            name: 'filial',
+            component: () => import('./src/views/FilialView.vue')
+        },
     ],
 });
 

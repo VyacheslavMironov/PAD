@@ -736,19 +736,6 @@
       AlertComponent
     },
     methods: {
-      load_page () {
-        document.addEventListener("DOMContentLoaded", function(){
-          function myTimer ()
-          {
-            alert(123)
-          }
-          setTimeout(myTimer, 1000);
-        });
-          // this.lessons()
-          // this.show_param()
-          // this.all_user_admin(this.user_info.organization_id)
-          // this.show_filial()
-      },
       update_logo () {
         var formData = new FormData()
         var imagefile = this.$refs.fileInput
@@ -1217,10 +1204,6 @@
       setInterval(this.show_param(), 300)
       setInterval(this.all_user_admin(this.user_info.organization_id), 400)
       setInterval(this.show_filial(), 500)
-      // this.lessons()
-      // this.show_param()
-      // this.all_user_admin(this.user_info.organization_id)
-      // this.show_filial()
     }
   }
 </script>

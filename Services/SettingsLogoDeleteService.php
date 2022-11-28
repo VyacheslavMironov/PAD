@@ -31,7 +31,7 @@ class SettingsLogoDeleteService
 
     public function delete($request)
     {
-        if (is_null($request->get('id')))
+        if (is_null($request->get('organization_id')))
         {
             throw new ErrorException('Укажите ID организации!');
         } else {
