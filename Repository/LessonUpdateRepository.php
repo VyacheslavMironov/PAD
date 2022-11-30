@@ -23,7 +23,7 @@ class LessonUpdateRepository
     public function add_lesson_by_user(\app\DTO\LessonAddUserIdDTO $context)
     {
         $db = Lessons::findOne(['id' => $context->id]);
-        $db->teacher_id = $context->teacher_id;
+        $db->teacher_id = trim($db->teacher_id) . $context->teacher_id;
         // Валидация параметров
         if ($db->validate())
         {

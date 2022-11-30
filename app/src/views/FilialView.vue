@@ -32,7 +32,7 @@
                                     <!-- Компонент кнопки -->
                                     <ButtonComponent 
                                         v-bind:link="server + '/filial/specific?organization_id=' + i.organization_id + '&&filial_id=' + i.id"
-                                        text="Авторизоваться"
+                                        text="Подключиться"
                                         css_class="btn right"
                                     />
                                     <!-- END -->

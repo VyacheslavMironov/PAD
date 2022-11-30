@@ -6,11 +6,12 @@
     margin: 0;
     padding: 0;
 }
-
 html,
-body,
-body section{
+body{
     height: 100%;
+}
+body section#content_block{
+    height: 100vh;
 }
 
 a{
@@ -507,4 +508,7 @@ span.delete-img {
     color: #2c3e50;
     background-color: rgba(255, 255, 255, 0);
     box-shadow: none;
+}
+.filial_name strong{
+    font-size: 1.2em;
 }

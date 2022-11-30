@@ -919,34 +919,34 @@
       },
       update_user () {
         alert(this.update_user_id)
-      // Запрос на выборку данных юзера по ролям
-      axios.put(this.server + '/api/user/update',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
-          },
-          id: this.update_user_id,
-          first_name: this.update_first_name,
-          last_name: this.update_last_name,
-          role: this.update_role,
-          email: this.update_email
-        })
-        .then((response) => {  
-          this.alert = 'Данные обновлены'
-          // Активация всплывающего сообщения
-          document.getElementById('toast').style.opacity = 1
-          window.location.reload()
-        })
-        .catch(function (error) {
-          if (error.error) {
-            self.alert = 'Ошибка получения данных!'
+        // Запрос на выборку данных юзера по ролям
+        axios.put(this.server + '/api/user/update',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+            },
+            id: this.update_user_id,
+            first_name: this.update_first_name,
+            last_name: this.update_last_name,
+            role: this.update_role,
+            email: this.update_email
+          })
+          .then((response) => {  
+            this.alert = 'Данные обновлены'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
-          }
-        })
-      // END
+            window.location.reload()
+          })
+          .catch(function (error) {
+            if (error.error) {
+              self.alert = 'Ошибка получения данных!'
+              // Активация всплывающего сообщения
+              document.getElementById('toast').style.opacity = 1
+            }
+          })
+        // END
       },
       create_lesson () {
         axios.post(this.server + '/api/lesson/create',

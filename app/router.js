@@ -38,6 +38,11 @@ const router = createRouter({
             name: 'filial',
             component: () => import('./src/views/FilialView.vue')
         },
+        {
+            path: '/filial/specific',
+            name: 'filial/specific',
+            component: () => import('./src/views/FilialSpecificView.vue')
+        },
     ],
 });
 

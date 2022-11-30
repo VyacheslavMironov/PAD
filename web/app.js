@@ -19835,6 +19835,12 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
     component: function component() {
       return __webpack_require__.e(/*! import() */ "app_src_views_FilialView_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./src/views/FilialView.vue */ "./app/src/views/FilialView.vue"));
     }
+  }, {
+    path: '/filial/specific',
+    name: 'filial/specific',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "app_src_views_FilialSpecificView_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./src/views/FilialSpecificView.vue */ "./app/src/views/FilialSpecificView.vue"));
+    }
   }]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -20059,6 +20065,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  id: "content_block"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_HeaderComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("HeaderComponent");
@@ -20066,7 +20075,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view");
   var _component_ContentComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ContentComponent");
   var _component_FooterComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FooterComponent");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HeaderComponent, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HeaderComponent, {
     is_auth: this.is_auth,
     server: this.server,
     user_info: Object(this.user_info),
@@ -24973,7 +24982,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"app_src_views_SignUpView_vue":1,"app_src_views_SignInView_vue":1,"app_src_views_PasswordResetView_vue":1,"app_src_views_SettingsWorkingSpaceView_vue":1,"app_src_views_ProfileView_vue":1,"app_src_views_FilialView_vue":1}[chunkId]) return "app/" + chunkId + ".js";
+/******/ 			if ({"app_src_views_SignUpView_vue":1,"app_src_views_SignInView_vue":1,"app_src_views_PasswordResetView_vue":1,"app_src_views_SettingsWorkingSpaceView_vue":1,"app_src_views_ProfileView_vue":1,"app_src_views_FilialView_vue":1,"app_src_views_FilialSpecificView_vue":1}[chunkId]) return "app/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

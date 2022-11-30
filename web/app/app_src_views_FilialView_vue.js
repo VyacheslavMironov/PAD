@@ -232,7 +232,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, " # " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i.name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Компонент кнопки "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ButtonComponent, {
           link: $props.server + '/filial/specific?organization_id=' + i.organization_id + '&&filial_id=' + i.id,
-          text: "Авторизоваться",
+          text: "Подключиться",
           css_class: "btn right"
         }, null, 8 /* PROPS */, ["link"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END ")])])];
       }),

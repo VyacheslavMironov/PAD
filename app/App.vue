@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section id="content_block">
       <HeaderComponent
         v-bind:is_auth=this.is_auth
         v-bind:server=this.server
