@@ -3,6 +3,39 @@
          <!-- Компонент сообщения -->
          <AlertComponent css_class="toast align-items-cente right" v-bind:mess="this.alert" />
          <!-- END -->
+         <!-- Вынести в компонет -->
+         <div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Добавить группу</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3 col-12">
+                                <label class="form-label">
+                                <b>Введите наименование группы</b>
+                                </label>
+                                <input type="text" id="group_name" v-model="group_name" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- Компонент кнопки -->
+                        <ButtonComponent
+                            type="button"
+                            text="Создать группу"
+                            data-bs-dismiss="modal"
+                            css_class="btn col-12 mx-auto d-block"
+                            v-on:click="this.create_group()"
+                        />
+                        <!-- END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- END -->
          <div class="container">
              <div class="row">
                 <CardComponent class="_card card col-lg-10 col-12 p-5 mx-auto">
@@ -24,10 +57,68 @@
                                     </svg> Группы
                                 </b>
                             </p>
+                            <div class="container">
+                                <nav class="col-1" aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a
+                                            class="page-link text-center pointer"
+                                            v-on:click="this.pagination_back()"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgb(255 255 255);">
+                                                    <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
+                                                    <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a
+                                                class="page-link text-center pointer"
+                                                v-on:click="this.pagination_next()"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgb(255 255 255);">
+                                                    <path d="m13.061 4.939-2.122 2.122L15.879 12l-4.94 4.939 2.122 2.122L20.121 12z"></path>
+                                                    <path d="M6.061 19.061 13.121 12l-7.06-7.061-2.122 2.122L8.879 12l-4.94 4.939z"></path>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Список групп -->
+                            <div class="col">
+                                <ul class="list-group mb-3">
+                                    <li
+                                        class="list-group-item justify-content-between align-items-center mt-1"
+                                        v-for="(i, idx) in this.groups"
+                                        v-bind:key="i"
+                                        ref="GroupPagination"
+                                    >
+                                    {{ i.name }}
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="m-1" v-on:click="this.update_group()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" style="fill: #3580dc;" class="pointer">
+                                                        <path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="m-1" v-on:click="this.drop_group()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" style="fill: #dc3545;" class="pointer">
+                                                        <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END -->
                              <!-- Компонент кнопки -->
-                             <ButtonComponent 
-                                v-bind:link="server + '/filial/specific/group-create?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id"
-                                text="Создать группу"
+                             <ButtonComponent
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#addGroupModal"
+                                text="Добавить группу"
                                 css_class="btn col-6 mx-auto d-block"
                             />
                             <!-- END -->
@@ -156,6 +247,9 @@
     name: 'FilialView',
     data () {
         return {
+            group_view: 5,
+            p_back: 0,
+            p_next: 5,
             alert: null,
             lesson_list: null,
             first_name: null,
@@ -164,13 +258,16 @@
             role: null,
             email: null,
             lessonUp: '',
-            users: null
+            users: null,
+            group_name: null,
+            groups: null
         }
     },
     props: {
         user_info: Object,
         settings_info: Object,
         server: String,
+        server_journal: String,
         is_auth: Number,
         token: String
     },
@@ -263,25 +360,88 @@
                 this.lessons()
             }
         },
-        async lessons () {
-            await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
-            {
-                headers: {
-                'Content-Type': 'application/json',
+        async show_list () {
+            await axios.get(this.server_journal + '/api/group/list?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id,
+                {
+                    headers: {
+                    'Content-Type': 'application/json',
+                    }
+                })
+                .then((response) => {
+                    this.groups = response.data[0]
+                })
+                .catch((error) => {
+                    this.alert = 'Ошибка загрузки списка групп на стороне сервера, обратитесь в тех-поддержку.'
+                    // Активация всплывающего сообщения
+                    document.getElementById('toast').style.opacity = 1
+                })
+        },
+        create_group () {
+            axios.post(this.server_journal + '/api/group/create',
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
+                    },
+                    organization_id: this.user_info.organization_id,
+                    filial_id: this.$route.query.filial_id,
+                    name: this.group_name
+                })
+                .then((response) => {
+                    
+                    this.alert = 'Группа успешно создана!'
+                    // Активация всплывающего сообщения
+                    document.getElementById('toast').style.opacity = 1
+                    // Очистка полей
+                    this.group_name = ''
+                    window.location.reload()
+                })
+                .catch((error) => {
+                    this.alert = 'Ошибка, невозможно добавить новую группу!'
+                    // Активация всплывающего сообщения
+                    document.getElementById('toast').style.opacity = 1
+                })
+        },
+        update_group () {
+            // ...
+        },
+        drop_group () {
+            // ...
+        },
+        pagination_next () {
+            this.p_next = (this.p_next + this.group_view) < this.$refs.GroupPagination.length ? this.$refs.GroupPagination.length : this.p_next + this.group_view;
+            this.p_back += this.p_back >= this.groupp_next_view ? this.p_back - this.group_view : this.p_back + this.group_view;
+
+            for (var i = 0; i < this.$refs.GroupPagination.length; i++) {
+                if (i < this.p_back) {
+                    this.$refs.GroupPagination[i].style.display = 'none'
+                } else if (i > this.p_next) {
+                    this.$refs.GroupPagination[i].style.display = 'none'
+                } else {
+                    this.$refs.GroupPagination[i].style.display = 'block'
                 }
-            })
-            .then((response) => {
-                this.lesson_list = response.data
-            })
-            .catch((error) => {
-                this.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.'
-                // Активация всплывающего сообщения
-                document.getElementById('toast').style.opacity = 1
-            })
-      },
+            }
+            alert([this.p_next,  this.p_back])
+        },
+        pagination_back () {
+            this.p_next = (this.p_next - this.group_view) < 10 ? 10 : this.p_next - this.group_view;
+            this.p_back = (this.p_back - this.group_view) < 0 ? 0 : this.p_back - this.group_view;
+
+            for (var i = 0; i < this.$refs.GroupPagination.length; i++) {
+                if (i > this.p_back) {
+                    this.$refs.GroupPagination[i].style.display = 'none'
+                } else if (i < this.p_next) {
+                    this.$refs.GroupPagination[i].style.display = 'none'
+                } else {
+                    this.$refs.GroupPagination[i].style.display = 'block'
+                }
+            }
+            alert([this.p_next,  this.p_back])
+        }
     },
     mounted () {
-        // ...
+        this.show_list()
     }
  }
  </script>

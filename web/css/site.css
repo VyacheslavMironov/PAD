@@ -462,6 +462,9 @@ ul li strong.list:hover{
     border-radius: 10em;
 }
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
+.list-group-item {
+    cursor: auto!important;
+}
 #toast{
     opacity: 0;
 }
@@ -511,4 +514,21 @@ span.delete-img {
 }
 .filial_name strong{
     font-size: 1.2em;
+}
+.pointer{
+    cursor: pointer;
+}
+.pagination li, .pagination li:hover{
+    background-color: #c5c5c500!important;
+}
+.pagination li a.page-link{
+    height: 80%;
+    background: #dc3545;
+}
+.pagination li a.page-link svg{
+    position: relative;
+    left: 15%;
+}
+li.list-group-item{
+    display: flex;
 }

@@ -12,6 +12,7 @@
           v-bind:user_info=Object(this.user_info)
           v-bind:settings_info=Object(this.settings_info)
           v-bind:server=this.server
+          v-bind:server_journal=this.server_journal
           v-bind:is_auth=this.is_auth
           v-bind:token=this.token
         />
@@ -39,7 +40,8 @@ export default {
         is_auth: document.cookie.search('user'),
         user_info: null,
         settings_info: null,
-        server: 'http://127.0.0.1'
+        server: 'http://127.0.0.1',
+        server_journal: 'http://127.0.0.1:8082'
       }
     },
     components: {
