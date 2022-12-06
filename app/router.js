@@ -43,6 +43,11 @@ const router = createRouter({
             name: 'filial/specific',
             component: () => import('./src/views/FilialSpecificView.vue')
         },
+        {
+            path: '/filial/specific/group-create',
+            name: 'filial/specific/group-create',
+            component: () => import('./src/views/FilialSpecificGroupCreateView.vue')
+        },
     ],
 });
 

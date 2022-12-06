@@ -316,9 +316,10 @@ a.btn a .btn{
     font-weight: bold;
 }
 .list-group-item.active {
-    cursor: pointer;
+    cursor: pointer!important;
     color: #fff!important;
-    background-color: #F62626!important;
+    background-color: #dc3545!important;
+    border: none;
 }
 .pointer{
     cursor: pointer;
@@ -531,4 +532,7 @@ span.delete-img {
 }
 li.list-group-item{
     display: flex;
+}
+.list-group-item + .list-group-item {
+    cursor: pointer!important;
 }
