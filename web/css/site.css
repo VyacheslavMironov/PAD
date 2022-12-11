@@ -86,6 +86,10 @@ header, footer{
 footer{
     margin-top: 5em;
 }
+.disable {
+    background-color: #dfdede!important;
+    color: #2c3e72!important;
+}
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -126,6 +130,9 @@ footer{
 #app a.btn{
     background-color: #F62626;
     text-decoration: none!important;
+    color: #fff;
+}
+a.btn{
     color: #fff!important;
 }
 .mt-10{
@@ -535,4 +542,26 @@ li.list-group-item{
 }
 .list-group-item + .list-group-item {
     cursor: pointer!important;
+}
+#week-day label{
+    margin: 0.3em;
+}
+p.time {
+    padding: 0;
+    position: relative;
+    left: 2%;
+    margin-top: 0.4em;
+    width: 3em;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+.btn-check:checked + .btn, 
+:not(.btn-check) + .btn:active, 
+.btn:first-child:active, 
+.btn.active, 
+.btn.show, .btn:checked, 
+.btn,
+input:checked, 
+label:checked {
+    border: none!important;
 }

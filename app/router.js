@@ -48,6 +48,11 @@ const router = createRouter({
             name: 'filial/specific/group-create',
             component: () => import('./src/views/FilialSpecificGroupCreateView.vue')
         },
+        {
+            path: '/timetable/group',
+            name: 'timetable/group',
+            component: () => import('./src/views/TimetableGroupView.vue')
+        },
     ],
 });
 

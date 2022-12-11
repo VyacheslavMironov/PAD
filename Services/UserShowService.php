@@ -14,19 +14,19 @@ class UserShowService
         if (is_null($request->get('organization_id')))
         {
             throw new ErrorException('Укажите ID организации!');
+        }
+        else if (is_null($request->get('role'))) 
+        {
+            throw new ErrorException('Укажите роль пользователя в системе!');   
         } else {
-            if (is_null($request->get('role')))
-            {
-                throw new ErrorException('Укажите роль пользователя в системе!');
-            } else {
-                $repository = new UserShowRepository();
-                return $repository->show(
-                    new UserShowDTO(
-                        $request->get('organization_id'),
-                        $request->get('role')
-                    )
-                );
-            }
+            $repository = new UserShowRepository();
+            return $repository->show(
+                new UserShowDTO(
+                    $request->get('organization_id'),
+                    $request->get('role'),
+                    is_null($request->get('is_lesson_id')) ? null : $request->get('is_lesson_id')
+                )
+            );
         }
     }
 }
