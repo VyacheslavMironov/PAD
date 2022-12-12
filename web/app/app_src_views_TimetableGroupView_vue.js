@@ -58,6 +58,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       alert: null,
+      timetable: null,
       // Дни
       day: null,
       day_mon: false,
@@ -197,10 +198,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
+    },
+    show_timetable: function show_timetable() {
+      var _this4 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this4.server_journal + '/api/timetable/show?organization_id=' + _this4.$route.query.organization_id + '&&filial_id=' + _this4.$route.query.filial_id + '&&group_id=' + _this4.$route.query.group_id, {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }).then(function (response) {
+                  _this4.timetable = response.data[0];
+                })["catch"](function (error) {
+                  _this4.alert = 'Ошибка при формировании рассписания!';
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1;
+                });
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   mounted: function mounted() {
     this.lessons();
+    this.show_timetable();
   }
 });
 
@@ -377,7 +406,61 @@ var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "form-label"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Выбрать преподавателя")], -1 /* HOISTED */);
 var _hoisted_28 = ["value"];
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-1\"></div><div class=\"col-6\"><table class=\"table table-info table-striped table-bordered mx-auto\"><thead><tr class=\"text-center\"><th scope=\"col\">Предмет</th><th scope=\"col\">Время проведения</th><th scope=\"col\">Преподаватель</th></tr></thead><tbody><tr><td colspan=\"3\" class=\"text-center\">Понедельник</td></tr><tr><td>Литература</td><td>09:00 - 10:30</td><td>Виктор Экран</td></tr><tr><td>Русский язык</td><td>09:00 - 10:30</td><td>Виктор Экран</td></tr><tr><td>Математика</td><td>09:00 - 10:30</td><td>Семён Ковш</td></tr><tr><td>История</td><td>09:00 - 10:30</td><td>Ольга Труба</td></tr></tbody><tbody><tr><td colspan=\"3\" class=\"text-center\">Вторник</td></tr><tr><td>Информатика</td><td>09:00 - 10:30</td><td>Светлана Холод</td></tr><tr><td>История</td><td>09:00 - 10:30</td><td>Ольга Труба</td></tr><tr><td>Математика</td><td>09:00 - 10:30</td><td>Семён Ковш</td></tr></tbody></table></div>", 2);
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-1"
+}, null, -1 /* HOISTED */);
+var _hoisted_30 = {
+  "class": "col-6"
+};
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
+  "class": "text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
+}, "Предмет"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
+}, "Время проведения"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
+}, "Преподаватель")])], -1 /* HOISTED */);
+var _hoisted_32 = {
+  colspan: "3",
+  lass: "text-center"
+};
+var _hoisted_33 = {
+  key: 0,
+  "class": "d-block"
+};
+var _hoisted_34 = {
+  key: 1,
+  "class": "d-block"
+};
+var _hoisted_35 = {
+  key: 2,
+  "class": "d-block"
+};
+var _hoisted_36 = {
+  key: 3,
+  "class": "d-block"
+};
+var _hoisted_37 = {
+  key: 4,
+  "class": "d-block"
+};
+var _hoisted_38 = {
+  key: 5,
+  "class": "d-block"
+};
+var _hoisted_39 = {
+  key: 6,
+  "class": "d-block"
+};
+var _hoisted_40 = {
+  key: 0
+};
+var _hoisted_41 = {
+  "class": "text-center"
+};
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Виктор Экран", -1 /* HOISTED */);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_AlertComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("AlertComponent");
@@ -513,7 +596,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END ")])];
     }),
     _: 1 /* STABLE */
-  })]), _hoisted_29])])]);
+  })]), _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.timetable, function (item) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", {
+      key: item,
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([item.length > 0 ? '' : 'd-none', "table table-info table-striped table-bordered mx-auto mb-5"])
+    }, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_32, [item.length > 0 && item[0].day_in == 'ПН ' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_33, "Понедельник")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), item.length > 0 && item[0].day_in == 'ВТ ' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_34, "Вторник")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), item.length > 0 && item[0].day_in == 'СР ' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_35, "Среда")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), item.length > 0 && item[0].day_in == 'ЧТ ' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_36, "Четверг")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), item.length > 0 && item[0].day_in == 'ПТ ' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_37, "Пятница")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), item.length > 0 && item[0].day_in == 'СБ ' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_38, "Суббота")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), item.length > 0 && item[0].day_in == 'ВС ' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_39, "Восскресенье")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(item, function (x) {
+      return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+        key: x
+      }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_this.lesson_list, function (i) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", {
+          key: i
+        }, [i.id == x.lesson_id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i.name), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+      }), 128 /* KEYED_FRAGMENT */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(x.time_to) + " - " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(x.time_end), 1 /* TEXT */), _hoisted_42]);
+    }), 128 /* KEYED_FRAGMENT */))])], 2 /* CLASS */);
+  }), 128 /* KEYED_FRAGMENT */))])])])]);
 }
 
 /***/ }),

@@ -183,7 +183,12 @@
         </div>
         <div class="col-1"></div>
         <div class="col-6">
-          <table class="table table-info table-striped table-bordered mx-auto">
+          <table
+            v-for="item in this.timetable"
+            v-bind:key="item"
+            v-bind:class="item.length > 0 ? '' : 'd-none'"
+            class="table table-info table-striped table-bordered mx-auto mb-5"
+           >
             <thead>
               <tr class="text-center">
                 <th scope="col">Предмет</th>
@@ -192,44 +197,30 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td colspan="3" class="text-center">Понедельник</td></tr>
               <tr>
-                <td>Литература</td>
-                <td>09:00 - 10:30</td>
-                <td>Виктор Экран</td>
+                <td colspan="3" lass="text-center">
+                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ПН '" >Понедельник</span>
+                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ВТ '" >Вторник</span>
+                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'СР '" >Среда</span>
+                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ЧТ '" >Четверг</span>
+                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ПТ '" >Пятница</span>
+                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'СБ '" >Суббота</span>
+                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ВС '" >Восскресенье</span>
+                </td>
               </tr>
-              <tr>
-                <td>Русский язык</td>
-                <td>09:00 - 10:30</td>
-                <td>Виктор Экран</td>
-              </tr>
-              <tr>
-                <td>Математика</td>
-                <td>09:00 - 10:30</td>
-                <td>Семён Ковш</td>
-              </tr>
-              <tr>
-                <td>История</td>
-                <td>09:00 - 10:30</td>
-                <td>Ольга Труба</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr><td colspan="3" class="text-center">Вторник</td></tr>
-              <tr>
-                <td>Информатика</td>
-                <td>09:00 - 10:30</td>
-                <td>Светлана Холод</td>
-              </tr>
-              <tr>
-                <td>История</td>
-                <td>09:00 - 10:30</td>
-                <td>Ольга Труба</td>
-              </tr>
-              <tr>
-                <td>Математика</td>
-                <td>09:00 - 10:30</td>
-                <td>Семён Ковш</td>
+              <tr
+                v-for="x in item"
+                v-bind:key="x"
+              >
+                <td 
+                  v-for="i in this.lesson_list"
+                  v-bind:key="i"
+                >
+                  <span v-if="i.id == x.lesson_id">{{ i.name }}</span>
+                </td>
+                <td class="text-center">{{ x.time_to }} - {{ x.time_end }} </td>
+                <td
+                >Виктор Экран</td>
               </tr>
             </tbody>
           </table>
@@ -249,6 +240,7 @@ export default {
   data () {
     return {
       alert: null,
+      timetable: null,
       // Дни
       day: null,
       day_mon: false,
@@ -379,10 +371,28 @@ export default {
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
+    },
+    async show_timetable () {
+      await axios.post(this.server_journal + '/api/timetable/show?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
+          {
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          })
+          .then((response) => {
+            this.timetable = response.data[0]
+
+          })
+          .catch((error) => {
+            this.alert = 'Ошибка при формировании рассписания!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
     }
   },
   mounted () {
     this.lessons()
+    this.show_timetable()
   }
 }
 </script>
