@@ -237,7 +237,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
         key: i
       }, [i.last_name[0] == x[0] || i.last_name[0] == x[1] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-        href: _this.server + '/timetable/teacher?organization_id=' + _this.$route.query.organization_id + '&&user_id=' + i.id + '&&group_id=' + _this.$route.query.group_id
+        href: _this.server + '/timetable/teacher?organization_id=' + _this.$route.query.organization_id + '&&user_id=' + i.id
       }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i.last_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i.first_name), 9 /* TEXT, PROPS */, _hoisted_8)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
     }), 128 /* KEYED_FRAGMENT */))]);
   }), 128 /* KEYED_FRAGMENT */))])])])])]);

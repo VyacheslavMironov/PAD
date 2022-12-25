@@ -177,10 +177,11 @@ a.btn{
 
 .view-menu{
     position: absolute;
-    left: 18em;
+    left: 14em;
+    width: 42%
 }
 .view-menu li{
-    margin-left: 20%;
+    margin-left: 8%;
 }
 .view-menu li a.absolut-item{
     position: absolute;
@@ -476,7 +477,8 @@ ul li strong.list:hover{
 }
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
 .list-group-item {
-    cursor: auto!important;
+    /* cursor: auto!important; */
+    cursor: pointer;
 }
 #toast{
     opacity: 0;
@@ -594,4 +596,12 @@ tbody tr td ul li span.content{
     padding-bottom: 0.2em;
     background: #27ef37;
     border-radius: 0.5em;
+}
+.header_btn{
+    padding: 0.2em 0.7em;
+    border-radius: 5em;
+    text-decoration: none!important;
+    background-color: #F62626;
+    color: #fff!important;
+    width: 100%;
 }

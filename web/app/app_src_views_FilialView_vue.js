@@ -109,7 +109,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     'Content-Type': 'application/json'
                   }
                 }).then(function (response) {
-                  console.log(response.data[0]);
                   _this.filial_list = response.data[0];
                 })["catch"](function (error) {
                   _this.alert = 'Ошибка загрузки списка филиалов!';

@@ -80,7 +80,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response.data[0])
                 this.filial_list = response.data[0]
             })
             .catch((error) => {

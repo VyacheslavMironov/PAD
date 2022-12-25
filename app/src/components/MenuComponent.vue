@@ -7,20 +7,18 @@
     <div class="offcanvas-body">
       <div v-if="this.user_info" class="list-group mt-2">
         <a
-          v-if="this.user_info.role == 'Администратор' || this.user_info.role == 'Преподаватель'"
-          href="/group-all"
+          v-bind:href="this.server + '/profile'" 
           class="list-group-item btn"
-        >{{ this.user_info.role == 'Преподаватель' ? 'Ведомость' : 'Группы' }}</a>
+        >Профиль</a>
       </div>
       <div v-if="this.user_info" class="list-group mt-2">
         <a
           v-if="this.user_info.role == 'Администратор'"
-          href="/timetable-create"
+          href="/filial"
           class="list-group-item btn"
-        >Расписание</a>
+        >Рабочая область</a>
       </div>
       <div v-if="this.user_info" class="list-group mt-2">
-        <!-- || this.user_info.role == 'Администратор' -->
         <a
           v-if="this.user_info.role == 'Директор'"
           href="/settings_working-space"
@@ -39,8 +37,11 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   props: {
+    server: String,
     user_info: Object
   },
   methods: {

@@ -24,7 +24,7 @@
                   <span
                     v-if="i.last_name[0] == x[0] || i.last_name[0] == x[1]"
                   >
-                    <a v-bind:href="this.server + '/timetable/teacher?organization_id=' + this.$route.query.organization_id + '&&user_id=' + i.id + '&&group_id=' + this.$route.query.group_id">
+                    <a v-bind:href="this.server + '/timetable/teacher?organization_id=' + this.$route.query.organization_id + '&&user_id=' + i.id">
                       {{ i.last_name }} {{ i.first_name }}
                     </a>
                   </span>

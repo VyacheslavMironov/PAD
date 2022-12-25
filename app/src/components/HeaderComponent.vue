@@ -36,22 +36,58 @@
         <div class="collapse navbar-collapse d-flex d-lg-block d-none" id="navbarSupportedContent">
           <ul v-if="this.is_auth >= 0" class="navbar-nav view-menu mb-2 mb-lg-0">
             <li class="nav-item">
-              <a href="/journal-show">Журнал</a>
+              <a href="#">Журнал</a>
             </li>
-            <li class="nav-item">
-              <a href="/timetable-show">Расписание</a>
+            <li
+              v-if="this.user_info.role == 'Администратор' || this.user_info.role == 'Директор'"
+              class="nav-item dropdown"
+            >
+              <a
+                class="dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                v-on:click="group_list(this.user_info.organization_id, this.user_info.id)"
+              >
+                Расписние
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    v-bind:href="this.server + '/timetable/all/teacher?organization_id=' + this.user_info.organization_id"
+                  >Преподаватели</a>
+                </li>
+                <li
+                  v-for="i in this.groups"
+                  v-bind:key="i"
+                >
+                  <a 
+                    v-bind:href="this.server + '/timetable/all/group?organization_id=' + this.user_info.organization_id + '&&filial_id=' + i[1]"
+                  >{{ i[0].name }}</a>
+                </li>
+              </ul>
             </li>
+
             <li
               v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор'"
               class="nav-item"
             >
-              <a href="/students-all">Студенты</a>
+              <a 
+                v-bind:href="this.server + '/filial/all/student?organization_id=' + this.user_info.organization_id"
+              >Студенты</a>
             </li>
             <li
-            v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор' || this.user_info.role == 'Преподаватель'"
+            v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор'"
               class="nav-item"
             >
-              <a href="/filial">Группы</a>
+              <a
+              href="#"
+              class="header_btn"
+              data-bs-toggle="modal"
+              data-bs-target="#loginToStudentModal"
+              >Войти под студентом</a>
             </li>
             <li
               v-if="this.user_info.role == 'Студент'"
@@ -140,26 +176,111 @@
         </div>
       </div>
     </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="loginToStudentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <ButtonComponent
+                text="Войти"
+                css_class="btn"
+                wrapper_css_class="w-100"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
   
-  <script>
-  import ButtonComponent from './ButtonComponent.vue'
-  export default {
-    data () {
-      return {
-        link_signin: '/signin',
-        link_signout: '/signout'
+<script>
+import axios from 'axios'
+import ButtonComponent from './ButtonComponent.vue'
+
+export default {
+  data () {
+    return {
+      count_dropdown: 0,
+      alert: null,
+      groups: [],
+      filial_list: null,
+      link_signin: '/signin',
+      link_signout: '/signout'
+    }
+  },
+  props: {
+    is_auth: Number,
+    user_info: Object,
+    settings_info: Object,
+    server: String,
+    server_journal: String
+  },
+  components: {
+    ButtonComponent
+  },
+  methods: {
+     show_filial (organizationId, userId) {
+       axios.get(this.server + '/api/filial/show?organization_id=' + organizationId,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      .then((response) => {
+        for (var i = 0; i < response.data[0].length; i++) {
+          if (userId == response.data[0][i].admin_id) {
+            this.show_list(organizationId, response.data[0][i].id)
+          } else {
+            this.show_list(organizationId, response.data[0][i].id)
+          }
+        }
+      })
+      .catch((error) => {
+        this.alert = 'Ошибка загрузки списка филиалов!'
+        // Активация всплывающего сообщения
+        document.getElementById('toast').style.opacity = 1
+      })
+    },
+    async show_list (organizationId, filialId) {
+      if (this.user_info.role == 'Администратор' || this.user_info.role == 'Директор') {
+        await axios.get(this.server_journal + '/api/group/list?organization_id=' + organizationId + '&&filial_id=' + filialId,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        .then((response) => {
+          for (var i = 0; i < response.data[0].length; i++) {
+            this.groups.push([response.data[0][i], filialId])
+          }
+          this.count_dropdown = 1
+        })
+        .catch((error) => {
+          this.alert = 'Ошибка загрузки списка групп на стороне сервера, обратитесь в тех-поддержку.'
+          // Активация всплывающего сообщения
+          document.getElementById('toast').style.opacity = 1
+        })
       }
     },
-    props: {
-      is_auth: Number,
-      user_info: Object,
-      settings_info: Object,
-      server: String
-    },
-    components: {
-      ButtonComponent
+    group_list (organizationId, userId) {
+      if (this.count_dropdown == 0) {
+        this.show_filial(organizationId, userId)
+      }
     }
   }
-  </script>
+}
+</script>

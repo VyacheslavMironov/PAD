@@ -49,6 +49,11 @@ const router = createRouter({
             component: () => import('./src/views/FilialSpecificGroupCreateView.vue')
         },
         {
+            path: '/filial/all/student',
+            name: 'filial/all/student',
+            component: () => import('./src/views/FilialAllStudentView.vue')
+        },
+        {
             path: '/timetable/group/create',
             name: 'timetable/group/create',
             component: () => import('./src/views/TimetableGroupCreateView.vue')

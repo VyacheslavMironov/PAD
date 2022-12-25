@@ -3,10 +3,14 @@
       <HeaderComponent
         v-bind:is_auth=this.is_auth
         v-bind:server=this.server
+        v-bind:server_journal=this.server_journal
         v-bind:user_info=Object(this.user_info)
         v-bind:settings_info=Object(this.settings_info)
       />
-      <MenuComponent v-bind:user_info=this.user_info  />
+      <MenuComponent
+        v-bind:user_info=this.user_info
+        v-bind:server=this.server
+      />
       <ContentComponent>
         <router-view
           v-bind:user_info=Object(this.user_info)
