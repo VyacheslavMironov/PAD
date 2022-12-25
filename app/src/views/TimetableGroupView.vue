@@ -1,398 +1,416 @@
 <template>
-  <main class="container_fluid">
-    <!-- Компонент сообщения -->
-    <AlertComponent css_class="toast align-items-cente right" v-bind:mess="this.alert" />
-    <!-- END -->
-    <div class="container">
-      <div class="row">
-        <div class="container mb-5 text-center">
-            <h3>Редактировать рассписание для группы <b>IT6</b></h3>
-        </div>
-        <div class="col-5">
-          <CardComponent class="_card card col-lg-12 col-12 p-5 mx-auto">
-            <form>
-                <div class="mb-3">
-                    <label class="form-label">
-                        <b>Выберите день недели</b>
-                    </label>
-                    <div id="week-day" class="col">
-                      <!-- Понедельник -->
-                      <input
-                        type="checkbox" 
-                        class="btn-check" 
-                        v-model="day_mon"
-                        v-on:click="this.on_week('WeekDayMon')"
-                        id="btn-check-day_mon" 
-                        autocomplete="off"
-                      >
-                      <label 
-                        id="WeekDayMon"
-                        class="btn disable" 
-                        for="btn-check-day_mon">ПН</label>
+    <main class="container_fluid">
+      <!-- Компонент сообщения -->
+      <AlertComponent css_class="toast align-items-cente right" v-bind:mess="this.alert" />
+      <!-- END -->
+      <div class="container">
+        <div class="row">
+          <div class="container mb-5 text-center">
+              <h3>Все преподаватели</h3>
+          </div>
+          
 
-                      <!-- Вторник -->
-                      <input 
-                        type="checkbox" 
-                        class="btn-check" 
-                        v-model="day_tue"
-                        v-on:click="this.on_week('WeekDayTue')"
-                        id="btn-check-day_tue" 
-                        autocomplete="off"
-                      >
-                      <label 
-                        id="WeekDayTue"
-                        class="btn disable" 
-                        for="btn-check-day_tue">ВТ</label>
-
-                      <!-- Среда -->
-                      <input 
-                        type="checkbox" 
-                        class="btn-check" 
-                        v-model="day_cf"
-                        v-on:click="this.on_week('WeekDayCf')"
-                        id="btn-check-day_cf"
-                        autocomplete="off"
-                      >
-                      <label 
-                        id="WeekDayCf"
-                        class="btn disable" 
-                        for="btn-check-day_cf">СР</label>
-
-                      <!-- Четверг -->
-                      <input 
-                        type="checkbox" 
-                        class="btn-check" 
-                        v-model="day_thu"
-                        v-on:click="this.on_week('WeekDayThu')"
-                        id="btn-check-day_thu" 
-                        autocomplete="off"
-                      >
-                      <label 
-                        id="WeekDayThu"
-                        class="btn disable" 
-                        for="btn-check-day_thu">ЧТ</label>
-
-                      <!-- Пятница -->
-                      <input
-                        type="checkbox" 
-                        class="btn-check" 
-                        v-model="day_fri"
-                        v-on:click="this.on_week('WeekDayFri')"
-                        id="btn-check-day_fri" 
-                        autocomplete="off"
-                      >
-                      <label 
-                        id="WeekDayFri"
-                        class="btn disable" 
-                        for="btn-check-day_fri">ПТ</label>
-
-                      <!-- Суббота -->
-                      <input 
-                        type="checkbox" 
-                        class="btn-check" 
-                        v-model="day_sat"
-                        v-on:click="this.on_week('WeekDaySat')"
-                        id="btn-check-day_sat" 
-                        autocomplete="off"
-                      >
-                      <label 
-                        id="WeekDaySat"
-                        class="btn disable" 
-                        for="btn-check-day_sat">СБ</label>
-
-                      <!-- Восскресенье -->
-                      <input 
-                        type="checkbox" 
-                        class="btn-check" 
-                        v-model="day_sun"
-                        v-on:click="this.on_week('WeekDaySut')"
-                        id="btn-check-day_sun" 
-                        autocomplete="off"
-                      >
-                      <label
-                        id="WeekDaySut"
-                        class="btn disable"
-                        for="btn-check-day_sun">ВС</label>
-                    </div>
+          <div class="col-12 mb-5">
+            <div class="col-12 alert alert-primary align-items-center" role="alert">
+              <div class="row">
+                <div class="col-9">
+                  <span>Вы так же можете посмотреть расписание преподавателей.</span>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">
-                        <b>Выберите предмет</b>
-                    </label>
-                    <select
-                      class="form-select"
-                      v-model="lesson_id"
-                      v-on:change="this.all_show_user(this.$route.query.organization_id, 'Преподаватель', this.lesson_id)"
-                      aria-label="Default select example"
-                    >
-                      <option
-                        v-for="x in lesson_list"
-                        v-bind:value="x.id"
-                      >{{ x.name }}</option>
-                    </select>
+                <div class="col-3">
+                  <!-- Компонент кнопки -->
+                  <a 
+                    v-bind:href="this.server + '/timetable/all/teacher?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id" 
+                    class="btn"
+                  >Расписание преподавателей</a>
+                  <!-- END -->
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">
-                        <b>Выберите время проведения</b>
-                    </label>
-                    <div class="row">
-                      <div class="col-1">
-                        <p class="time">С</p>
-                      </div>
-                      <div class="col-5">
-                        <input
-                          type="time"
-                          id="user_email"
-                          v-model="time_to"
-                          class="form-control"
-                        >
-                      </div>
-                      <div class="col-1">
-                        <p class="time">ДО</p>
-                      </div>
-                      <div class="col-5">
-                        <input
-                          type="time"
-                          id="user_email"
-                          v-model="time_end"
-                          class="form-control"
-                        >
-                      </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">
-                        <b>Выбрать преподавателя</b>
-                    </label>
-                    <select class="form-select" v-model="teacher_id" aria-label="Default select example">
-                      <option
-                        v-for="x in users"
-                        v-bind:value="x.id"
-                      >{{ x.last_name }} {{ x.first_name }}</option>
-                    </select>
-                </div>
-                <!-- Компонент кнопки -->
-                <ButtonComponent
-                  text="Добавить"
-                  v-on:click="this.create_timetable()"
-                  css_class="btn mt-2 right"
-                />
-                <!-- END -->
-            </form>
-          </CardComponent>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-          <table
-            v-for="item in this.timetable"
-            v-bind:key="item"
-            v-bind:class="item.length > 0 ? '' : 'd-none'"
-            class="table table-info table-striped table-bordered mx-auto mb-5"
-           >
+              </div>
+            </div>
+          </div>
+
+          <table class="table table-success table-striped table-hover table-bordered border-success">
             <thead>
               <tr class="text-center">
-                <th scope="col">Предмет</th>
-                <th scope="col">Время проведения</th>
-                <th scope="col">Преподаватель</th>
+                <th scope="col">
+                  <div class="mt-2"></div>
+                  Понедельник
+                  <div class="mt-2"></div>
+                </th>
+                <th scope="col">
+                  <div class="mt-2"></div>
+                  Вторник
+                  <div class="mt-2"></div>
+                </th>
+                <th scope="col">
+                  <div class="mt-2"></div>
+                  Среда
+                  <div class="mt-2"></div>
+                </th>
+                <th scope="col">
+                  <div class="mt-2"></div>
+                  Четверг
+                  <div class="mt-2"></div>
+                </th>
+                <th scope="col">
+                  <div class="mt-2"></div>
+                  Пятница
+                  <div class="mt-2"></div>
+                </th>
+                <th scope="col">
+                  <div class="mt-2"></div>
+                  Суббота
+                  <div class="mt-2"></div>
+                </th>
+                <th scope="col">
+                  <div class="mt-2"></div>
+                  Восскресенье
+                  <div class="mt-2"></div>
+                </th>
               </tr>
             </thead>
-            <tbody>
+
+            <tbody class="text-center">
               <tr>
-                <td colspan="3" lass="text-center">
-                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ПН '" >Понедельник</span>
-                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ВТ '" >Вторник</span>
-                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'СР '" >Среда</span>
-                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ЧТ '" >Четверг</span>
-                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ПТ '" >Пятница</span>
-                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'СБ '" >Суббота</span>
-                  <span class="d-block" v-if="item.length > 0 && item[0].day_in == 'ВС '" >Восскресенье</span>
-                </td>
-              </tr>
-              <tr
-                v-for="x in item"
-                v-bind:key="x"
-              >
-                <td 
-                  v-for="i in this.lesson_list"
-                  v-bind:key="i"
-                >
-                  <span v-if="i.id == x.lesson_id">{{ i.name }}</span>
-                </td>
-                <td class="text-center">{{ x.time_to }} - {{ x.time_end }} </td>
+                <!-- ПН -->
                 <td
-                >Виктор Экран</td>
+                  class="table-active"
+                  v-if="Object(Object(this.timetable)['ПН']).length > 0"
+                >
+                  <ul>
+                    <li
+                      v-for="i in Object(this.timetable)['ПН']"
+                      v-bind:key="i"
+                    >
+                      <span
+                        v-for="x in this.lesson_list"
+                        v-bind:key="x"
+                      >
+                        <strong
+                          v-if="x.id == i.lesson_id"
+                        >
+                          {{ x.name }} 
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="d-inline-block" 
+                            tabindex="0" 
+                            data-bs-toggle="popover" 
+                            data-bs-trigger="hover focus" 
+                            v-bind:data-bs-content="i.time_to + ' - ' + i.time_end"
+                          >
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                    <!--  -->
+                    <li>
+                      <span>
+                        <strong>
+                          Пример
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="d-inline-block" 
+                            tabindex="0" 
+                            data-bs-toggle="popover" 
+                            data-bs-trigger="hover focus" 
+                            data-bs-content="09:30 - 11:00"
+                          >
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                    <!--  -->
+                  </ul>
+                </td>
+                <td v-else>Данных нет</td>
+                <!-- END -->
+
+                <!-- ВТ -->
+                <td
+                  v-if="Object(Object(this.timetable)['ВТ']).length > 0"
+                >
+                  <ul>
+                    <li
+                      v-for="i in Object(this.timetable)['ВТ']"
+                      v-bind:key="i"
+                    >
+                      <span
+                        v-for="x in this.lesson_list"
+                        class="d-inline-block" 
+                        tabindex="0" 
+                        data-bs-toggle="popover" 
+                        data-bs-trigger="hover focus" 
+                        v-bind:data-bs-content="i.time_to + ' - ' + i.time_end"
+                      >
+                        <strong
+                          v-if="x.id == i.lesson_id"
+                        >
+                          {{ x.name }} 
+                          <svg xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                  </ul>
+                </td>
+                <td v-else>Данных нет</td>
+                <!-- END -->
+
+                <!-- СР -->
+                <td
+                  class="table-active"
+                  v-if="Object(Object(this.timetable)['СР']).length > 0"
+                >
+                  <ul>
+                    <li
+                      v-for="i in Object(this.timetable)['СР']"
+                      v-bind:key="i"
+                    >
+                      <span
+                        v-for="x in this.lesson_list"
+                        class="d-inline-block" 
+                        tabindex="0" 
+                        data-bs-toggle="popover" 
+                        data-bs-trigger="hover focus" 
+                        v-bind:data-bs-content="i.time_to + ' - ' + i.time_end"
+                      >
+                        <strong
+                          v-if="x.id == i.lesson_id"
+                        >
+                          {{ x.name }} 
+                          <svg xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                  </ul>
+                </td>
+                <td v-else>Данных нет</td>
+                <!-- END -->
+
+                <!-- ЧТ -->
+                <td
+                v-if="Object(Object(this.timetable)['ЧТ']).length > 0"
+                >
+                  <ul>
+                    <li
+                      v-for="i in Object(this.timetable)['ЧТ']"
+                      v-bind:key="i"
+                    >
+                      <span
+                        v-for="x in this.lesson_list"
+                        class="d-inline-block" 
+                        tabindex="0" 
+                        data-bs-toggle="popover" 
+                        data-bs-trigger="hover focus" 
+                        v-bind:data-bs-content="i.time_to + ' - ' + i.time_end"
+                      >
+                        <strong
+                          v-if="x.id == i.lesson_id"
+                        >
+                          {{ x.name }} 
+                          <svg xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                  </ul>
+                </td>
+                <td v-else>Данных нет</td>
+                <!-- END -->
+
+                <!-- ПТ -->
+                <td 
+                  class="table-active"
+                  v-if="Object(Object(this.timetable)['ПТ']).length > 0"
+                >
+                  <ul>
+                    <li
+                      v-for="i in Object(this.timetable)['ПТ']"
+                      v-bind:key="i"
+                    >
+                      <span
+                        v-for="x in this.lesson_list"
+                        class="d-inline-block" 
+                        tabindex="0" 
+                        data-bs-toggle="popover" 
+                        data-bs-trigger="hover focus" 
+                        v-bind:data-bs-content="i.time_to + ' - ' + i.time_end"
+                      >
+                        <strong
+                          v-if="x.id == i.lesson_id"
+                        >
+                          {{ x.name }} 
+                          <svg xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                  </ul>
+                </td>
+                <td v-else>Данных нет</td>
+                <!-- END -->
+
+                <!-- СБ -->
+                <td
+                v-if="Object(Object(this.timetable)['СБ']).length > 0"
+                >
+                  <ul>
+                    <li
+                      v-for="i in Object(this.timetable)['СБ']"
+                      v-bind:key="i"
+                    >
+                      <span
+                        v-for="x in this.lesson_list"
+                        class="d-inline-block" 
+                        tabindex="0" 
+                        data-bs-toggle="popover" 
+                        data-bs-trigger="hover focus" 
+                        v-bind:data-bs-content="i.time_to + ' - ' + i.time_end"
+                      >
+                        <strong
+                          v-if="x.id == i.lesson_id"
+                        >
+                          {{ x.name }} 
+                          <svg xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                  </ul>
+                </td>
+                <td v-else>Данных нет</td>
+                <!-- END -->
+
+                <!-- ВС -->
+                <td
+                class="table-active"
+                v-if="Object(Object(this.timetable)['ВС']).length > 0"
+                >
+                  <ul>
+                    <li
+                      v-for="i in Object(this.timetable)['ВС']"
+                      v-bind:key="i"
+                    >
+                      <span
+                        v-for="x in this.lesson_list"
+                        class="d-inline-block" 
+                        tabindex="0" 
+                        data-bs-toggle="popover" 
+                        data-bs-trigger="hover focus" 
+                        v-bind:data-bs-content="i.time_to + ' - ' + i.time_end"
+                      >
+                        <strong
+                          v-if="x.id == i.lesson_id"
+                        >
+                          {{ x.name }} 
+                          <svg xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.145 8.27 1.563-1.563-1.414-1.414L18.586 7c-1.05-.63-2.274-1-3.586-1-3.859 0-7 3.14-7 7s3.141 7 7 7 7-3.14 7-7a6.966 6.966 0 0 0-1.855-4.73zM15 18c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"></path>
+                            <path d="M14 10h2v4h-2zm-1-7h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2z"></path>
+                          </svg>
+                        </strong>
+                      </span>
+                    </li>
+                  </ul>
+                </td>
+                <td v-else>Данных нет</td>
+                <!-- END -->
               </tr>
             </tbody>
           </table>
+          
         </div>
       </div>
-    </div>
-  </main>
-</template>
+    </main>
+  </template>
+    
+  <script>
+  import axios from 'axios'
+  import AlertComponent from '../components/AlertComponent.vue'
+  import CardComponent from '../components/CardComponent.vue'
+  import ButtonComponent from '../components/ButtonComponent.vue'
   
-<script>
-import axios from 'axios'
-import AlertComponent from '../components/AlertComponent.vue'
-import CardComponent from '../components/CardComponent.vue'
-import ButtonComponent from '../components/ButtonComponent.vue'
-
-export default {
-  data () {
-    return {
-      alert: null,
-      timetable: null,
-      // Дни
-      day: null,
-      day_mon: false,
-      day_tue: false,
-      day_cf: false,
-      day_thu: false,
-      day_fri: false,
-      day_sat: false,
-      day_sun: false,
-      // END
-      users: null,
-      lesson_list: null,
-      lesson_id: null,
-      teacher_id: null,
-      time_to: null,
-      time_end: null
-    }
-  },
-  components: {
-    CardComponent,
-    ButtonComponent,
-    AlertComponent
-  },
-  props: {
-      user_info: Object,
-      settings_info: Object,
-      server: String,
-      server_journal: String,
-      is_auth: Number,
-      token: String
-  },
-  methods: {
-    all_show_user (organization_id, role, lessonId) {
-      axios.get(this.server + '/api/user/show?organization_id=' + organization_id + '&role=' + role + '&is_lesson_id=' + lessonId,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        })
-        .then((response) => {
-          this.users = response.data[0]
-          document.getElementById('personal-info').classList.remove('d-none')
-          document.getElementById('personal-info').classList.add('d-block')
-        })
-    },
-    async lessons () {
-      await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        })
-        .then((response) => {
-          this.lesson_list = response.data
-        })
-        .catch((error) => {
-          this.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.'
-          // Активация всплывающего сообщения
-          document.getElementById('toast').style.opacity = 1
-        })
-    },
-    day_week (exclude=null) {
-      if (exclude == null) {
-        document.querySelector('#WeekDayMon').classList.add('disable')
-        document.querySelector('#WeekDayTue').classList.add('disable')
-        document.querySelector('#WeekDayCf').classList.add('disable')
-        document.querySelector('#WeekDayThu').classList.add('disable')
-        document.querySelector('#WeekDayFri').classList.add('disable')
-        document.querySelector('#WeekDaySat').classList.add('disable')
-        document.querySelector('#WeekDaySut').classList.add('disable')
-      } else {
-        this.day_week()
-        if (exclude == 'WeekDayMon') {
-          document.querySelector('#WeekDayMon').classList.remove('disable')
-          this.day = 'ПН'
-        }
-        if (exclude == 'WeekDayTue') {
-          document.querySelector('#WeekDayTue').classList.remove('disable')
-          this.day = 'ВТ'
-        }
-        if (exclude == 'WeekDayCf') {
-          document.querySelector('#WeekDayCf').classList.remove('disable')
-          this.day = 'СР'
-        }
-        if (exclude == 'WeekDayThu') {
-          document.querySelector('#WeekDayThu').classList.remove('disable')
-          this.day = 'ЧТ'
-        }
-        if (exclude == 'WeekDayFri') {
-          document.querySelector('#WeekDayFri').classList.remove('disable')
-          this.day = 'ПТ'
-        }
-        if (exclude == 'WeekDaySat') {
-          document.querySelector('#WeekDaySat').classList.remove('disable')
-          this.day = 'СБ'
-        }
-        if (exclude == 'WeekDaySut') {
-          document.querySelector('#WeekDaySut').classList.remove('disable')
-          this.day = 'ВС'
-        }
+  export default {
+    data () {
+      return {
+        alert: null,
+        timetable: null,
+        lesson_list: null
       }
     },
-    on_week (data) {
-      this.day_week(data)
+    components: {
+      CardComponent,
+      ButtonComponent,
+      AlertComponent
     },
-    create_timetable () {
-      axios.post(this.server_journal + '/api/timetable/create',
+    props: {
+        user_info: Object,
+        settings_info: Object,
+        server: String,
+        server_journal: String,
+        is_auth: Number,
+        token: String
+    },
+    methods: {
+      async lessons () {
+        await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
           {
             headers: {
-              'Content-Type': 'application/json'
-            },
-            organization_id: this.$route.query.organization_id,
-            filial_id: this.$route.query.filial_id,
-            group_id: this.$route.query.group_id,
-            lesson_id: this.lesson_id,
-            day_in: this.day,
-            time_to: this.time_to,
-            time_end: this.time_end,
+              'Content-Type': 'application/json',
+            }
           })
           .then((response) => {
-            this.alert = 'Изменения сохранены.'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-            window.location.reload()
+            this.lesson_list = response.data
           })
           .catch((error) => {
-            this.alert = 'Ошибка при формировании рассписания!'
+            this.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
+      },
+      async show_timetable () {
+        await axios.post(this.server_journal + '/api/timetable/show?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
+            {
+              headers: {
+                'Content-Type': 'application/json'
+              },
+            })
+            .then((response) => {
+              this.timetable = response.data[0]
+            })
+            .catch((error) => {
+              this.alert = 'Ошибка при формировании рассписания!'
+              // Активация всплывающего сообщения
+              document.getElementById('toast').style.opacity = 1
+            })
+      },
+      popper_event () {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+          return new bootstrap.Popover(popoverTriggerEl)
+        })
+        // var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+        //   container: 'body'
+        // })
+      }
     },
-    async show_timetable () {
-      await axios.post(this.server_journal + '/api/timetable/show?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
-          {
-            headers: {
-              'Content-Type': 'application/json'
-            },
-          })
-          .then((response) => {
-            this.timetable = response.data[0]
-
-          })
-          .catch((error) => {
-            this.alert = 'Ошибка при формировании рассписания!'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          })
+    mounted () {
+      this.lessons()
+      this.show_timetable()
+      this.popper_event()
     }
-  },
-  mounted () {
-    this.lessons()
-    this.show_timetable()
   }
-}
-</script>
+  </script>

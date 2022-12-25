@@ -45,13 +45,19 @@
               v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор'"
               class="nav-item"
             >
-              <a class="absolut-item" href="/students-all">Студенты</a>
+              <a href="/students-all">Студенты</a>
+            </li>
+            <li
+            v-if="this.user_info.role == 'Директор' || this.user_info.role == 'Администратор' || this.user_info.role == 'Преподаватель'"
+              class="nav-item"
+            >
+              <a href="/filial">Группы</a>
             </li>
             <li
               v-if="this.user_info.role == 'Студент'"
               class="nav-item"
             >
-              <a class="absolut-item" href="/journal-show">Домашнии задания</a>
+              <a href="/journal-show">Домашнии задания</a>
             </li>
           </ul>
           <ul

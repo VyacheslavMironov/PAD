@@ -49,9 +49,29 @@ const router = createRouter({
             component: () => import('./src/views/FilialSpecificGroupCreateView.vue')
         },
         {
+            path: '/timetable/group/create',
+            name: 'timetable/group/create',
+            component: () => import('./src/views/TimetableGroupCreateView.vue')
+        },
+        {
             path: '/timetable/group',
             name: 'timetable/group',
             component: () => import('./src/views/TimetableGroupView.vue')
+        },
+        {
+            path: '/timetable/all/group',
+            name: 'timetable/all/group',
+            component: () => import('./src/views/TimetableAllGroupView.vue')
+        },
+        {
+            path: '/timetable/all/teacher',
+            name: 'timetable/all/teacher',
+            component: () => import('./src/views/TimetableAllTeacherView.vue')
+        },
+        {
+            path: '/timetable/teacher',
+            name: 'timetable/teacher',
+            component: () => import('./src/views/TimetableTeacherView.vue')
         },
     ],
 });

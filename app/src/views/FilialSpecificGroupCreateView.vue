@@ -254,10 +254,12 @@ export default {
                     }
                 } catch (TypeError) {}
                 // Так же убираем из другой колонки
-                console.log(this.$refs.StudentData)
-                for (var z = 0; z < this.$refs.StudentData.length; z++) {
-                    this.$refs.StudentData[z].classList.remove('active')
-                }
+                try {
+                    for (var z = 0; z < this.$refs.StudentData.length; z++) {
+                        this.$refs.StudentData[z].classList.remove('active')
+                    }
+                } catch (TypeError) {}
+                
                 // Ставим активный
                 this.$refs.StudentDataAll[index].classList.add('active')
                 this.user_id = item.id

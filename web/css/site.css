@@ -31,6 +31,9 @@ svg{
     height: 2em;
     width: 3em;
 }
+ol, ul {
+    padding-left: 0rem!important;
+}
 ul{}
 
 ul li{
@@ -43,7 +46,9 @@ table svg,
 }
 span, 
 strong, 
-b{
+b,
+td,
+th{
     color: #2c3e50;
     font-family: 'Inter', sans-serif;
 }
@@ -564,4 +569,29 @@ p.time {
 input:checked, 
 label:checked {
     border: none!important;
+}
+#timetable-min .row > *{
+    padding-right: 0!important;
+}
+
+.underline{
+    text-decoration: underline;
+}
+.ht-100{
+    height: 10em;
+}
+tbody.info{
+    font-size: 0.9em;
+}
+tbody tr td{
+    overflow: auto;
+}
+tbody tr td ul li span.content{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    background: #27ef37;
+    border-radius: 0.5em;
 }

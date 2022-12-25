@@ -1,0 +1,406 @@
+a:14:{s:6:"config";s:2031:"a:5:{s:10:"phpVersion";s:16:"8.1.2-1ubuntu2.9";s:10:"yiiVersion";s:6:"2.0.46";s:11:"application";a:8:{s:3:"yii";s:6:"2.0.46";s:4:"name";s:14:"My Application";s:7:"version";s:3:"1.0";s:8:"language";s:5:"en-US";s:14:"sourceLanguage";s:5:"en-US";s:7:"charset";s:5:"UTF-8";s:3:"env";s:3:"dev";s:5:"debug";b:1;}s:3:"php";a:5:{s:7:"version";s:16:"8.1.2-1ubuntu2.9";s:6:"xdebug";b:0;s:3:"apc";b:0;s:8:"memcache";b:0;s:9:"memcached";b:1;}s:10:"extensions";a:7:{s:18:"yiisoft/yii2-debug";a:3:{s:4:"name";s:18:"yiisoft/yii2-debug";s:7:"version";s:8:"2.1.21.0";s:5:"alias";a:1:{s:10:"@yii/debug";s:71:"/var/www/PAD-SettingIdentificationService/vendor/yiisoft/yii2-debug/src";}}s:18:"yiisoft/yii2-faker";a:3:{s:4:"name";s:18:"yiisoft/yii2-faker";s:7:"version";s:7:"2.0.5.0";s:5:"alias";a:1:{s:10:"@yii/faker";s:71:"/var/www/PAD-SettingIdentificationService/vendor/yiisoft/yii2-faker/src";}}s:16:"yiisoft/yii2-gii";a:3:{s:4:"name";s:16:"yiisoft/yii2-gii";s:7:"version";s:7:"2.2.5.0";s:5:"alias";a:1:{s:8:"@yii/gii";s:69:"/var/www/PAD-SettingIdentificationService/vendor/yiisoft/yii2-gii/src";}}s:14:"sizeg/yii2-jwt";a:3:{s:4:"name";s:14:"sizeg/yii2-jwt";s:7:"version";s:7:"1.2.1.0";s:5:"alias";a:1:{s:10:"@sizeg/jwt";s:63:"/var/www/PAD-SettingIdentificationService/vendor/sizeg/yii2-jwt";}}s:23:"yiisoft/yii2-bootstrap5";a:4:{s:4:"name";s:23:"yiisoft/yii2-bootstrap5";s:7:"version";s:7:"2.0.3.0";s:5:"alias";a:1:{s:15:"@yii/bootstrap5";s:76:"/var/www/PAD-SettingIdentificationService/vendor/yiisoft/yii2-bootstrap5/src";}s:9:"bootstrap";s:40:"yii\bootstrap5\i18n\TranslationBootstrap";}s:20:"yii2mod/yii2-swagger";a:3:{s:4:"name";s:20:"yii2mod/yii2-swagger";s:7:"version";s:7:"1.1.1.0";s:5:"alias";a:1:{s:16:"@yii2mod/swagger";s:69:"/var/www/PAD-SettingIdentificationService/vendor/yii2mod/yii2-swagger";}}s:24:"yiisoft/yii2-swiftmailer";a:3:{s:4:"name";s:24:"yiisoft/yii2-swiftmailer";s:7:"version";s:7:"2.1.3.0";s:5:"alias";a:1:{s:16:"@yii/swiftmailer";s:77:"/var/www/PAD-SettingIdentificationService/vendor/yiisoft/yii2-swiftmailer/src";}}}}";s:3:"log";s:8553:"a:1:{s:8:"messages";a:14:{i:0;a:6:{i:0;s:68:"Bootstrap with yii\bootstrap5\i18n\TranslationBootstrap::bootstrap()";i:1;i:8;i:2;s:31:"yii\base\Application::bootstrap";i:3;d:1671951859.898313;i:4;a:0:{}i:5;i:730880;}i:1;a:6:{i:0;s:33:"Bootstrap with yii\log\Dispatcher";i:1;i:8;i:2;s:31:"yii\base\Application::bootstrap";i:3;d:1671951859.898391;i:4;a:0:{}i:5;i:738864;}i:2;a:6:{i:0;s:21:"Loading module: debug";i:1;i:8;i:2;s:26:"yii\base\Module::getModule";i:3;d:1671951859.898408;i:4;a:0:{}i:5;i:739664;}i:3;a:6:{i:0;s:44:"Bootstrap with yii\debug\Module::bootstrap()";i:1;i:8;i:2;s:31:"yii\base\Application::bootstrap";i:3;d:1671951859.899008;i:4;a:0:{}i:5;i:771312;}i:4;a:6:{i:0;s:19:"Loading module: gii";i:1;i:8;i:2;s:26:"yii\base\Module::getModule";i:3;d:1671951859.900444;i:4;a:0:{}i:5;i:1395384;}i:5;a:6:{i:0;s:42:"Bootstrap with yii\gii\Module::bootstrap()";i:1;i:8;i:2;s:31:"yii\base\Application::bootstrap";i:3;d:1671951859.90052;i:4;a:0:{}i:5;i:1396368;}i:84;a:6:{i:0;s:36:"Route requested: 'api/user/show-one'";i:1;i:8;i:2;s:34:"yii\web\Application::handleRequest";i:3;d:1671951859.90401;i:4;a:0:{}i:5;i:1486304;}i:85;a:6:{i:0;s:31:"Route to run: api/user/show-one";i:1;i:8;i:2;s:30:"yii\base\Controller::runAction";i:3;d:1671951859.904255;i:4;a:0:{}i:5;i:1491608;}i:86;a:6:{i:0;s:39:"Rate limit skipped: user not logged in.";i:1;i:4;i:2;s:37:"yii\filters\RateLimiter::beforeAction";i:3;d:1671951859.906488;i:4;a:0:{}i:5;i:1511216;}i:87;a:6:{i:0;s:67:"Running action: app\controllers\api\UserController::actionShowOne()";i:1;i:8;i:2;s:36:"yii\base\InlineAction::runWithParams";i:3;d:1671951859.906581;i:4;a:0:{}i:5;i:1512128;}i:88;a:6:{i:0;s:57:"Opening DB connection: pgsql:host=localhost;dbname=pad_db";i:1;i:4;i:2;s:23:"yii\db\Connection::open";i:3;d:1671951859.907303;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1533120;}i:91;a:6:{i:0;s:2811:"SELECT
+    d.nspname AS table_schema,
+    c.relname AS table_name,
+    a.attname AS column_name,
+    COALESCE(td.typname, tb.typname, t.typname) AS data_type,
+    COALESCE(td.typtype, tb.typtype, t.typtype) AS type_type,
+    (SELECT nspname FROM pg_namespace WHERE oid = COALESCE(td.typnamespace, tb.typnamespace, t.typnamespace)) AS type_scheme,
+    a.attlen AS character_maximum_length,
+    pg_catalog.col_description(c.oid, a.attnum) AS column_comment,
+    a.atttypmod AS modifier,
+    a.attnotnull = false AS is_nullable,
+    CAST(pg_get_expr(ad.adbin, ad.adrelid) AS varchar) AS column_default,
+    coalesce(pg_get_expr(ad.adbin, ad.adrelid) ~ 'nextval',false) OR attidentity != '' AS is_autoinc,
+    pg_get_serial_sequence(quote_ident(d.nspname) || '.' || quote_ident(c.relname), a.attname) AS sequence_name,
+    CASE WHEN COALESCE(td.typtype, tb.typtype, t.typtype) = 'e'::char
+        THEN array_to_string((SELECT array_agg(enumlabel) FROM pg_enum WHERE enumtypid = COALESCE(td.oid, tb.oid, a.atttypid))::varchar[], ',')
+        ELSE NULL
+    END AS enum_values,
+    CASE atttypid
+         WHEN 21 /*int2*/ THEN 16
+         WHEN 23 /*int4*/ THEN 32
+         WHEN 20 /*int8*/ THEN 64
+         WHEN 1700 /*numeric*/ THEN
+              CASE WHEN atttypmod = -1
+               THEN null
+               ELSE ((atttypmod - 4) >> 16) & 65535
+               END
+         WHEN 700 /*float4*/ THEN 24 /*FLT_MANT_DIG*/
+         WHEN 701 /*float8*/ THEN 53 /*DBL_MANT_DIG*/
+         ELSE null
+      END   AS numeric_precision,
+      CASE
+        WHEN atttypid IN (21, 23, 20) THEN 0
+        WHEN atttypid IN (1700) THEN
+        CASE
+            WHEN atttypmod = -1 THEN null
+            ELSE (atttypmod - 4) & 65535
+        END
+           ELSE null
+      END AS numeric_scale,
+    CAST(
+             information_schema._pg_char_max_length(information_schema._pg_truetypid(a, t), information_schema._pg_truetypmod(a, t))
+             AS numeric
+    ) AS size,
+    a.attnum = any (ct.conkey) as is_pkey,
+    COALESCE(NULLIF(a.attndims, 0), NULLIF(t.typndims, 0), (t.typcategory='A')::int) AS dimension
+FROM
+    pg_class c
+    LEFT JOIN pg_attribute a ON a.attrelid = c.oid
+    LEFT JOIN pg_attrdef ad ON a.attrelid = ad.adrelid AND a.attnum = ad.adnum
+    LEFT JOIN pg_type t ON a.atttypid = t.oid
+    LEFT JOIN pg_type tb ON (a.attndims > 0 OR t.typcategory='A') AND t.typelem > 0 AND t.typelem = tb.oid OR t.typbasetype > 0 AND t.typbasetype = tb.oid
+    LEFT JOIN pg_type td ON t.typndims > 0 AND t.typbasetype > 0 AND tb.typelem = td.oid
+    LEFT JOIN pg_namespace d ON d.oid = c.relnamespace
+    LEFT JOIN pg_constraint ct ON ct.conrelid = c.oid AND ct.contype = 'p'
+WHERE
+    a.attnum > 0 AND t.typname != '' AND NOT a.attisdropped
+    AND c.relname = 'users'
+    AND d.nspname = 'public'
+ORDER BY
+    a.attnum;";i:1;i:4;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.068696;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1542792;}i:94;a:6:{i:0;s:873:"select
+    ct.conname as constraint_name,
+    a.attname as column_name,
+    fc.relname as foreign_table_name,
+    fns.nspname as foreign_table_schema,
+    fa.attname as foreign_column_name
+from
+    (SELECT ct.conname, ct.conrelid, ct.confrelid, ct.conkey, ct.contype, ct.confkey, generate_subscripts(ct.conkey, 1) AS s
+       FROM pg_constraint ct
+    ) AS ct
+    inner join pg_class c on c.oid=ct.conrelid
+    inner join pg_namespace ns on c.relnamespace=ns.oid
+    inner join pg_attribute a on a.attrelid=ct.conrelid and a.attnum = ct.conkey[ct.s]
+    left join pg_class fc on fc.oid=ct.confrelid
+    left join pg_namespace fns on fc.relnamespace=fns.oid
+    left join pg_attribute fa on fa.attrelid=ct.confrelid and fa.attnum = ct.confkey[ct.s]
+where
+    ct.contype='f'
+    and c.relname='users'
+    and ns.nspname='public'
+order by
+    fns.nspname, fc.relname, a.attnum";i:1;i:4;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.095075;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1557928;}i:97;a:6:{i:0;s:107:"SELECT * FROM "users" WHERE ("organization_id"=1) AND ("id"='17') AND ("role"='Преподаватель')";i:1;i:4;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.103518;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1571720;}}}";s:9:"profiling";s:13918:"a:3:{s:6:"memory";i:1579424;s:4:"time";d:0.21380996704101562;s:8:"messages";a:8:{i:89;a:6:{i:0;s:57:"Opening DB connection: pgsql:host=localhost;dbname=pad_db";i:1;i:80;i:2;s:23:"yii\db\Connection::open";i:3;d:1671951859.907342;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1535000;}i:90;a:6:{i:0;s:57:"Opening DB connection: pgsql:host=localhost;dbname=pad_db";i:1;i:96;i:2;s:23:"yii\db\Connection::open";i:3;d:1671951860.068365;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1537664;}i:92;a:6:{i:0;s:2811:"SELECT
+    d.nspname AS table_schema,
+    c.relname AS table_name,
+    a.attname AS column_name,
+    COALESCE(td.typname, tb.typname, t.typname) AS data_type,
+    COALESCE(td.typtype, tb.typtype, t.typtype) AS type_type,
+    (SELECT nspname FROM pg_namespace WHERE oid = COALESCE(td.typnamespace, tb.typnamespace, t.typnamespace)) AS type_scheme,
+    a.attlen AS character_maximum_length,
+    pg_catalog.col_description(c.oid, a.attnum) AS column_comment,
+    a.atttypmod AS modifier,
+    a.attnotnull = false AS is_nullable,
+    CAST(pg_get_expr(ad.adbin, ad.adrelid) AS varchar) AS column_default,
+    coalesce(pg_get_expr(ad.adbin, ad.adrelid) ~ 'nextval',false) OR attidentity != '' AS is_autoinc,
+    pg_get_serial_sequence(quote_ident(d.nspname) || '.' || quote_ident(c.relname), a.attname) AS sequence_name,
+    CASE WHEN COALESCE(td.typtype, tb.typtype, t.typtype) = 'e'::char
+        THEN array_to_string((SELECT array_agg(enumlabel) FROM pg_enum WHERE enumtypid = COALESCE(td.oid, tb.oid, a.atttypid))::varchar[], ',')
+        ELSE NULL
+    END AS enum_values,
+    CASE atttypid
+         WHEN 21 /*int2*/ THEN 16
+         WHEN 23 /*int4*/ THEN 32
+         WHEN 20 /*int8*/ THEN 64
+         WHEN 1700 /*numeric*/ THEN
+              CASE WHEN atttypmod = -1
+               THEN null
+               ELSE ((atttypmod - 4) >> 16) & 65535
+               END
+         WHEN 700 /*float4*/ THEN 24 /*FLT_MANT_DIG*/
+         WHEN 701 /*float8*/ THEN 53 /*DBL_MANT_DIG*/
+         ELSE null
+      END   AS numeric_precision,
+      CASE
+        WHEN atttypid IN (21, 23, 20) THEN 0
+        WHEN atttypid IN (1700) THEN
+        CASE
+            WHEN atttypmod = -1 THEN null
+            ELSE (atttypmod - 4) & 65535
+        END
+           ELSE null
+      END AS numeric_scale,
+    CAST(
+             information_schema._pg_char_max_length(information_schema._pg_truetypid(a, t), information_schema._pg_truetypmod(a, t))
+             AS numeric
+    ) AS size,
+    a.attnum = any (ct.conkey) as is_pkey,
+    COALESCE(NULLIF(a.attndims, 0), NULLIF(t.typndims, 0), (t.typcategory='A')::int) AS dimension
+FROM
+    pg_class c
+    LEFT JOIN pg_attribute a ON a.attrelid = c.oid
+    LEFT JOIN pg_attrdef ad ON a.attrelid = ad.adrelid AND a.attnum = ad.adnum
+    LEFT JOIN pg_type t ON a.atttypid = t.oid
+    LEFT JOIN pg_type tb ON (a.attndims > 0 OR t.typcategory='A') AND t.typelem > 0 AND t.typelem = tb.oid OR t.typbasetype > 0 AND t.typbasetype = tb.oid
+    LEFT JOIN pg_type td ON t.typndims > 0 AND t.typbasetype > 0 AND tb.typelem = td.oid
+    LEFT JOIN pg_namespace d ON d.oid = c.relnamespace
+    LEFT JOIN pg_constraint ct ON ct.conrelid = c.oid AND ct.contype = 'p'
+WHERE
+    a.attnum > 0 AND t.typname != '' AND NOT a.attisdropped
+    AND c.relname = 'users'
+    AND d.nspname = 'public'
+ORDER BY
+    a.attnum;";i:1;i:80;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.06874;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1545120;}i:93;a:6:{i:0;s:2811:"SELECT
+    d.nspname AS table_schema,
+    c.relname AS table_name,
+    a.attname AS column_name,
+    COALESCE(td.typname, tb.typname, t.typname) AS data_type,
+    COALESCE(td.typtype, tb.typtype, t.typtype) AS type_type,
+    (SELECT nspname FROM pg_namespace WHERE oid = COALESCE(td.typnamespace, tb.typnamespace, t.typnamespace)) AS type_scheme,
+    a.attlen AS character_maximum_length,
+    pg_catalog.col_description(c.oid, a.attnum) AS column_comment,
+    a.atttypmod AS modifier,
+    a.attnotnull = false AS is_nullable,
+    CAST(pg_get_expr(ad.adbin, ad.adrelid) AS varchar) AS column_default,
+    coalesce(pg_get_expr(ad.adbin, ad.adrelid) ~ 'nextval',false) OR attidentity != '' AS is_autoinc,
+    pg_get_serial_sequence(quote_ident(d.nspname) || '.' || quote_ident(c.relname), a.attname) AS sequence_name,
+    CASE WHEN COALESCE(td.typtype, tb.typtype, t.typtype) = 'e'::char
+        THEN array_to_string((SELECT array_agg(enumlabel) FROM pg_enum WHERE enumtypid = COALESCE(td.oid, tb.oid, a.atttypid))::varchar[], ',')
+        ELSE NULL
+    END AS enum_values,
+    CASE atttypid
+         WHEN 21 /*int2*/ THEN 16
+         WHEN 23 /*int4*/ THEN 32
+         WHEN 20 /*int8*/ THEN 64
+         WHEN 1700 /*numeric*/ THEN
+              CASE WHEN atttypmod = -1
+               THEN null
+               ELSE ((atttypmod - 4) >> 16) & 65535
+               END
+         WHEN 700 /*float4*/ THEN 24 /*FLT_MANT_DIG*/
+         WHEN 701 /*float8*/ THEN 53 /*DBL_MANT_DIG*/
+         ELSE null
+      END   AS numeric_precision,
+      CASE
+        WHEN atttypid IN (21, 23, 20) THEN 0
+        WHEN atttypid IN (1700) THEN
+        CASE
+            WHEN atttypmod = -1 THEN null
+            ELSE (atttypmod - 4) & 65535
+        END
+           ELSE null
+      END AS numeric_scale,
+    CAST(
+             information_schema._pg_char_max_length(information_schema._pg_truetypid(a, t), information_schema._pg_truetypmod(a, t))
+             AS numeric
+    ) AS size,
+    a.attnum = any (ct.conkey) as is_pkey,
+    COALESCE(NULLIF(a.attndims, 0), NULLIF(t.typndims, 0), (t.typcategory='A')::int) AS dimension
+FROM
+    pg_class c
+    LEFT JOIN pg_attribute a ON a.attrelid = c.oid
+    LEFT JOIN pg_attrdef ad ON a.attrelid = ad.adrelid AND a.attnum = ad.adnum
+    LEFT JOIN pg_type t ON a.atttypid = t.oid
+    LEFT JOIN pg_type tb ON (a.attndims > 0 OR t.typcategory='A') AND t.typelem > 0 AND t.typelem = tb.oid OR t.typbasetype > 0 AND t.typbasetype = tb.oid
+    LEFT JOIN pg_type td ON t.typndims > 0 AND t.typbasetype > 0 AND tb.typelem = td.oid
+    LEFT JOIN pg_namespace d ON d.oid = c.relnamespace
+    LEFT JOIN pg_constraint ct ON ct.conrelid = c.oid AND ct.contype = 'p'
+WHERE
+    a.attnum > 0 AND t.typname != '' AND NOT a.attisdropped
+    AND c.relname = 'users'
+    AND d.nspname = 'public'
+ORDER BY
+    a.attnum;";i:1;i:96;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.090392;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1570664;}i:95;a:6:{i:0;s:873:"select
+    ct.conname as constraint_name,
+    a.attname as column_name,
+    fc.relname as foreign_table_name,
+    fns.nspname as foreign_table_schema,
+    fa.attname as foreign_column_name
+from
+    (SELECT ct.conname, ct.conrelid, ct.confrelid, ct.conkey, ct.contype, ct.confkey, generate_subscripts(ct.conkey, 1) AS s
+       FROM pg_constraint ct
+    ) AS ct
+    inner join pg_class c on c.oid=ct.conrelid
+    inner join pg_namespace ns on c.relnamespace=ns.oid
+    inner join pg_attribute a on a.attrelid=ct.conrelid and a.attnum = ct.conkey[ct.s]
+    left join pg_class fc on fc.oid=ct.confrelid
+    left join pg_namespace fns on fc.relnamespace=fns.oid
+    left join pg_attribute fa on fa.attrelid=ct.confrelid and fa.attnum = ct.confkey[ct.s]
+where
+    ct.contype='f'
+    and c.relname='users'
+    and ns.nspname='public'
+order by
+    fns.nspname, fc.relname, a.attnum";i:1;i:80;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.095131;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1560168;}i:96;a:6:{i:0;s:873:"select
+    ct.conname as constraint_name,
+    a.attname as column_name,
+    fc.relname as foreign_table_name,
+    fns.nspname as foreign_table_schema,
+    fa.attname as foreign_column_name
+from
+    (SELECT ct.conname, ct.conrelid, ct.confrelid, ct.conkey, ct.contype, ct.confkey, generate_subscripts(ct.conkey, 1) AS s
+       FROM pg_constraint ct
+    ) AS ct
+    inner join pg_class c on c.oid=ct.conrelid
+    inner join pg_namespace ns on c.relnamespace=ns.oid
+    inner join pg_attribute a on a.attrelid=ct.conrelid and a.attnum = ct.conkey[ct.s]
+    left join pg_class fc on fc.oid=ct.confrelid
+    left join pg_namespace fns on fc.relnamespace=fns.oid
+    left join pg_attribute fa on fa.attrelid=ct.confrelid and fa.attnum = ct.confkey[ct.s]
+where
+    ct.contype='f'
+    and c.relname='users'
+    and ns.nspname='public'
+order by
+    fns.nspname, fc.relname, a.attnum";i:1;i:96;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.102448;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1563936;}i:98;a:6:{i:0;s:107:"SELECT * FROM "users" WHERE ("organization_id"=1) AND ("id"='17') AND ("role"='Преподаватель')";i:1;i:80;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.103596;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1574536;}i:99;a:6:{i:0;s:107:"SELECT * FROM "users" WHERE ("organization_id"=1) AND ("id"='17') AND ("role"='Преподаватель')";i:1;i:96;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.105529;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1579424;}}}";s:2:"db";s:12212:"a:1:{s:8:"messages";a:6:{i:92;a:6:{i:0;s:2811:"SELECT
+    d.nspname AS table_schema,
+    c.relname AS table_name,
+    a.attname AS column_name,
+    COALESCE(td.typname, tb.typname, t.typname) AS data_type,
+    COALESCE(td.typtype, tb.typtype, t.typtype) AS type_type,
+    (SELECT nspname FROM pg_namespace WHERE oid = COALESCE(td.typnamespace, tb.typnamespace, t.typnamespace)) AS type_scheme,
+    a.attlen AS character_maximum_length,
+    pg_catalog.col_description(c.oid, a.attnum) AS column_comment,
+    a.atttypmod AS modifier,
+    a.attnotnull = false AS is_nullable,
+    CAST(pg_get_expr(ad.adbin, ad.adrelid) AS varchar) AS column_default,
+    coalesce(pg_get_expr(ad.adbin, ad.adrelid) ~ 'nextval',false) OR attidentity != '' AS is_autoinc,
+    pg_get_serial_sequence(quote_ident(d.nspname) || '.' || quote_ident(c.relname), a.attname) AS sequence_name,
+    CASE WHEN COALESCE(td.typtype, tb.typtype, t.typtype) = 'e'::char
+        THEN array_to_string((SELECT array_agg(enumlabel) FROM pg_enum WHERE enumtypid = COALESCE(td.oid, tb.oid, a.atttypid))::varchar[], ',')
+        ELSE NULL
+    END AS enum_values,
+    CASE atttypid
+         WHEN 21 /*int2*/ THEN 16
+         WHEN 23 /*int4*/ THEN 32
+         WHEN 20 /*int8*/ THEN 64
+         WHEN 1700 /*numeric*/ THEN
+              CASE WHEN atttypmod = -1
+               THEN null
+               ELSE ((atttypmod - 4) >> 16) & 65535
+               END
+         WHEN 700 /*float4*/ THEN 24 /*FLT_MANT_DIG*/
+         WHEN 701 /*float8*/ THEN 53 /*DBL_MANT_DIG*/
+         ELSE null
+      END   AS numeric_precision,
+      CASE
+        WHEN atttypid IN (21, 23, 20) THEN 0
+        WHEN atttypid IN (1700) THEN
+        CASE
+            WHEN atttypmod = -1 THEN null
+            ELSE (atttypmod - 4) & 65535
+        END
+           ELSE null
+      END AS numeric_scale,
+    CAST(
+             information_schema._pg_char_max_length(information_schema._pg_truetypid(a, t), information_schema._pg_truetypmod(a, t))
+             AS numeric
+    ) AS size,
+    a.attnum = any (ct.conkey) as is_pkey,
+    COALESCE(NULLIF(a.attndims, 0), NULLIF(t.typndims, 0), (t.typcategory='A')::int) AS dimension
+FROM
+    pg_class c
+    LEFT JOIN pg_attribute a ON a.attrelid = c.oid
+    LEFT JOIN pg_attrdef ad ON a.attrelid = ad.adrelid AND a.attnum = ad.adnum
+    LEFT JOIN pg_type t ON a.atttypid = t.oid
+    LEFT JOIN pg_type tb ON (a.attndims > 0 OR t.typcategory='A') AND t.typelem > 0 AND t.typelem = tb.oid OR t.typbasetype > 0 AND t.typbasetype = tb.oid
+    LEFT JOIN pg_type td ON t.typndims > 0 AND t.typbasetype > 0 AND tb.typelem = td.oid
+    LEFT JOIN pg_namespace d ON d.oid = c.relnamespace
+    LEFT JOIN pg_constraint ct ON ct.conrelid = c.oid AND ct.contype = 'p'
+WHERE
+    a.attnum > 0 AND t.typname != '' AND NOT a.attisdropped
+    AND c.relname = 'users'
+    AND d.nspname = 'public'
+ORDER BY
+    a.attnum;";i:1;i:80;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.06874;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1545120;}i:93;a:6:{i:0;s:2811:"SELECT
+    d.nspname AS table_schema,
+    c.relname AS table_name,
+    a.attname AS column_name,
+    COALESCE(td.typname, tb.typname, t.typname) AS data_type,
+    COALESCE(td.typtype, tb.typtype, t.typtype) AS type_type,
+    (SELECT nspname FROM pg_namespace WHERE oid = COALESCE(td.typnamespace, tb.typnamespace, t.typnamespace)) AS type_scheme,
+    a.attlen AS character_maximum_length,
+    pg_catalog.col_description(c.oid, a.attnum) AS column_comment,
+    a.atttypmod AS modifier,
+    a.attnotnull = false AS is_nullable,
+    CAST(pg_get_expr(ad.adbin, ad.adrelid) AS varchar) AS column_default,
+    coalesce(pg_get_expr(ad.adbin, ad.adrelid) ~ 'nextval',false) OR attidentity != '' AS is_autoinc,
+    pg_get_serial_sequence(quote_ident(d.nspname) || '.' || quote_ident(c.relname), a.attname) AS sequence_name,
+    CASE WHEN COALESCE(td.typtype, tb.typtype, t.typtype) = 'e'::char
+        THEN array_to_string((SELECT array_agg(enumlabel) FROM pg_enum WHERE enumtypid = COALESCE(td.oid, tb.oid, a.atttypid))::varchar[], ',')
+        ELSE NULL
+    END AS enum_values,
+    CASE atttypid
+         WHEN 21 /*int2*/ THEN 16
+         WHEN 23 /*int4*/ THEN 32
+         WHEN 20 /*int8*/ THEN 64
+         WHEN 1700 /*numeric*/ THEN
+              CASE WHEN atttypmod = -1
+               THEN null
+               ELSE ((atttypmod - 4) >> 16) & 65535
+               END
+         WHEN 700 /*float4*/ THEN 24 /*FLT_MANT_DIG*/
+         WHEN 701 /*float8*/ THEN 53 /*DBL_MANT_DIG*/
+         ELSE null
+      END   AS numeric_precision,
+      CASE
+        WHEN atttypid IN (21, 23, 20) THEN 0
+        WHEN atttypid IN (1700) THEN
+        CASE
+            WHEN atttypmod = -1 THEN null
+            ELSE (atttypmod - 4) & 65535
+        END
+           ELSE null
+      END AS numeric_scale,
+    CAST(
+             information_schema._pg_char_max_length(information_schema._pg_truetypid(a, t), information_schema._pg_truetypmod(a, t))
+             AS numeric
+    ) AS size,
+    a.attnum = any (ct.conkey) as is_pkey,
+    COALESCE(NULLIF(a.attndims, 0), NULLIF(t.typndims, 0), (t.typcategory='A')::int) AS dimension
+FROM
+    pg_class c
+    LEFT JOIN pg_attribute a ON a.attrelid = c.oid
+    LEFT JOIN pg_attrdef ad ON a.attrelid = ad.adrelid AND a.attnum = ad.adnum
+    LEFT JOIN pg_type t ON a.atttypid = t.oid
+    LEFT JOIN pg_type tb ON (a.attndims > 0 OR t.typcategory='A') AND t.typelem > 0 AND t.typelem = tb.oid OR t.typbasetype > 0 AND t.typbasetype = tb.oid
+    LEFT JOIN pg_type td ON t.typndims > 0 AND t.typbasetype > 0 AND tb.typelem = td.oid
+    LEFT JOIN pg_namespace d ON d.oid = c.relnamespace
+    LEFT JOIN pg_constraint ct ON ct.conrelid = c.oid AND ct.contype = 'p'
+WHERE
+    a.attnum > 0 AND t.typname != '' AND NOT a.attisdropped
+    AND c.relname = 'users'
+    AND d.nspname = 'public'
+ORDER BY
+    a.attnum;";i:1;i:96;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.090392;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1570664;}i:95;a:6:{i:0;s:873:"select
+    ct.conname as constraint_name,
+    a.attname as column_name,
+    fc.relname as foreign_table_name,
+    fns.nspname as foreign_table_schema,
+    fa.attname as foreign_column_name
+from
+    (SELECT ct.conname, ct.conrelid, ct.confrelid, ct.conkey, ct.contype, ct.confkey, generate_subscripts(ct.conkey, 1) AS s
+       FROM pg_constraint ct
+    ) AS ct
+    inner join pg_class c on c.oid=ct.conrelid
+    inner join pg_namespace ns on c.relnamespace=ns.oid
+    inner join pg_attribute a on a.attrelid=ct.conrelid and a.attnum = ct.conkey[ct.s]
+    left join pg_class fc on fc.oid=ct.confrelid
+    left join pg_namespace fns on fc.relnamespace=fns.oid
+    left join pg_attribute fa on fa.attrelid=ct.confrelid and fa.attnum = ct.confkey[ct.s]
+where
+    ct.contype='f'
+    and c.relname='users'
+    and ns.nspname='public'
+order by
+    fns.nspname, fc.relname, a.attnum";i:1;i:80;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.095131;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1560168;}i:96;a:6:{i:0;s:873:"select
+    ct.conname as constraint_name,
+    a.attname as column_name,
+    fc.relname as foreign_table_name,
+    fns.nspname as foreign_table_schema,
+    fa.attname as foreign_column_name
+from
+    (SELECT ct.conname, ct.conrelid, ct.confrelid, ct.conkey, ct.contype, ct.confkey, generate_subscripts(ct.conkey, 1) AS s
+       FROM pg_constraint ct
+    ) AS ct
+    inner join pg_class c on c.oid=ct.conrelid
+    inner join pg_namespace ns on c.relnamespace=ns.oid
+    inner join pg_attribute a on a.attrelid=ct.conrelid and a.attnum = ct.conkey[ct.s]
+    left join pg_class fc on fc.oid=ct.confrelid
+    left join pg_namespace fns on fc.relnamespace=fns.oid
+    left join pg_attribute fa on fa.attrelid=ct.confrelid and fa.attnum = ct.confkey[ct.s]
+where
+    ct.contype='f'
+    and c.relname='users'
+    and ns.nspname='public'
+order by
+    fns.nspname, fc.relname, a.attnum";i:1;i:96;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.102448;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1563936;}i:98;a:6:{i:0;s:107:"SELECT * FROM "users" WHERE ("organization_id"=1) AND ("id"='17') AND ("role"='Преподаватель')";i:1;i:80;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.103596;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1574536;}i:99;a:6:{i:0;s:107:"SELECT * FROM "users" WHERE ("organization_id"=1) AND ("id"='17') AND ("role"='Преподаватель')";i:1;i:96;i:2;s:21:"yii\db\Command::query";i:3;d:1671951860.105529;i:4;a:3:{i:0;a:5:{s:4:"file";s:78:"/var/www/PAD-SettingIdentificationService/Repository/UserShowOneRepository.php";s:4:"line";i:16;s:8:"function";s:7:"findOne";s:5:"class";s:23:"yii\db\BaseActiveRecord";s:4:"type";s:2:"::";}i:1;a:5:{s:4:"file";s:73:"/var/www/PAD-SettingIdentificationService/Services/UserShowOneService.php";s:4:"line";i:31;s:8:"function";s:4:"show";s:5:"class";s:36:"app\Repository\UserShowOneRepository";s:4:"type";s:2:"->";}i:2;a:5:{s:4:"file";s:76:"/var/www/PAD-SettingIdentificationService/controllers/api/UserController.php";s:4:"line";i:85;s:8:"function";s:4:"show";s:5:"class";s:31:"app\Services\UserShowOneService";s:4:"type";s:2:"->";}}i:5;i:1579424;}}}";s:5:"event";s:2287:"a:13:{i:0;a:5:{s:4:"time";d:1671951859.900667;s:4:"name";s:13:"beforeRequest";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:19:"yii\web\Application";}i:1;a:5:{s:4:"time";d:1671951859.906051;s:4:"name";s:12:"beforeAction";s:5:"class";s:20:"yii\base\ActionEvent";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:19:"yii\web\Application";}i:2;a:5:{s:4:"time";d:1671951859.906562;s:4:"name";s:12:"beforeAction";s:5:"class";s:20:"yii\base\ActionEvent";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:34:"app\controllers\api\UserController";}i:3;a:5:{s:4:"time";d:1671951859.906894;s:4:"name";s:4:"init";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:18:"yii\db\ActiveQuery";}i:4;a:5:{s:4:"time";d:1671951860.068354;s:4:"name";s:9:"afterOpen";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:17:"yii\db\Connection";}i:5;a:5:{s:4:"time";d:1671951860.105814;s:4:"name";s:4:"init";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:16:"app\models\Users";}i:6;a:5:{s:4:"time";d:1671951860.105885;s:4:"name";s:9:"afterFind";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:16:"app\models\Users";}i:7;a:5:{s:4:"time";d:1671951860.105942;s:4:"name";s:11:"afterAction";s:5:"class";s:20:"yii\base\ActionEvent";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:34:"app\controllers\api\UserController";}i:8;a:5:{s:4:"time";d:1671951860.10602;s:4:"name";s:11:"afterAction";s:5:"class";s:20:"yii\base\ActionEvent";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:19:"yii\web\Application";}i:9;a:5:{s:4:"time";d:1671951860.106032;s:4:"name";s:12:"afterRequest";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:19:"yii\web\Application";}i:10;a:5:{s:4:"time";d:1671951860.106042;s:4:"name";s:10:"beforeSend";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:16:"yii\web\Response";}i:11;a:5:{s:4:"time";d:1671951860.106411;s:4:"name";s:12:"afterPrepare";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:16:"yii\web\Response";}i:12;a:5:{s:4:"time";d:1671951860.106471;s:4:"name";s:9:"afterSend";s:5:"class";s:14:"yii\base\Event";s:8:"isStatic";s:1:"0";s:11:"senderClass";s:16:"yii\web\Response";}}";s:4:"mail";s:6:"a:0:{}";s:8:"timeline";s:91:"a:3:{s:5:"start";d:1671951859.893065;s:3:"end";d:1671951860.107016;s:6:"memory";i:1579424;}";s:4:"dump";s:6:"a:0:{}";s:6:"router";s:15951:"a:3:{s:8:"messages";a:78:{i:6;a:6:{i:0;a:3:{s:4:"rule";s:3:"gii";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900768;i:4;a:0:{}i:5;i:1418440;}i:7;a:6:{i:0;a:3:{s:4:"rule";s:12:"gii/<id:\w+>";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900781;i:4;a:0:{}i:5;i:1419192;}i:8;a:6:{i:0;a:3:{s:4:"rule";s:41:"gii/<controller:[\w\-]+>/<action:[\w\-]+>";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900789;i:4;a:0:{}i:5;i:1419944;}i:9;a:6:{i:0;a:3:{s:4:"rule";s:5:"debug";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900796;i:4;a:0:{}i:5;i:1421016;}i:10;a:6:{i:0;a:3:{s:4:"rule";s:43:"debug/<controller:[\w\-]+>/<action:[\w\-]+>";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900803;i:4;a:0:{}i:5;i:1421768;}i:11;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900812;i:4;a:0:{}i:5;i:1422520;}i:12;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900818;i:4;a:0:{}i:5;i:1423272;}i:13;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.900823;i:4;a:0:{}i:5;i:1424024;}i:14;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET api/user/info";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903302;i:4;a:0:{}i:5;i:1425200;}i:15;a:6:{i:0;a:3:{s:4:"rule";s:32:"PUT,PATCH api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903322;i:4;a:0:{}i:5;i:1426016;}i:16;a:6:{i:0;a:3:{s:4:"rule";s:29:"DELETE api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903332;i:4;a:0:{}i:5;i:1426824;}i:17;a:6:{i:0;a:3:{s:4:"rule";s:31:"GET,HEAD api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903406;i:4;a:0:{}i:5;i:1428272;}i:18;a:6:{i:0;a:3:{s:4:"rule";s:13:"POST api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903417;i:4;a:0:{}i:5;i:1429064;}i:19;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET,HEAD api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.90345;i:4;a:0:{}i:5;i:1429864;}i:20;a:6:{i:0;a:3:{s:4:"rule";s:23:" api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.90346;i:4;a:0:{}i:5;i:1430664;}i:21;a:6:{i:0;a:3:{s:4:"rule";s:9:" api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903467;i:4;a:0:{}i:5;i:1431456;}i:22;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903475;i:4;a:0:{}i:5;i:1431832;}i:23;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903482;i:4;a:0:{}i:5;i:1432584;}i:24;a:6:{i:0;a:3:{s:4:"rule";s:21:"PUT api/user/activate";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903492;i:4;a:0:{}i:5;i:1433760;}i:25;a:6:{i:0;a:3:{s:4:"rule";s:32:"PUT,PATCH api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903501;i:4;a:0:{}i:5;i:1434576;}i:26;a:6:{i:0;a:3:{s:4:"rule";s:29:"DELETE api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903509;i:4;a:0:{}i:5;i:1435384;}i:27;a:6:{i:0;a:3:{s:4:"rule";s:31:"GET,HEAD api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903519;i:4;a:0:{}i:5;i:1436192;}i:28;a:6:{i:0;a:3:{s:4:"rule";s:13:"POST api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903529;i:4;a:0:{}i:5;i:1436984;}i:29;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET,HEAD api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903539;i:4;a:0:{}i:5;i:1437784;}i:30;a:6:{i:0;a:3:{s:4:"rule";s:23:" api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903547;i:4;a:0:{}i:5;i:1438584;}i:31;a:6:{i:0;a:3:{s:4:"rule";s:9:" api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903553;i:4;a:0:{}i:5;i:1439376;}i:32;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903559;i:4;a:0:{}i:5;i:1439752;}i:33;a:6:{i:0;a:3:{s:4:"rule";s:20:"POST api/user/create";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903568;i:4;a:0:{}i:5;i:1442208;}i:34;a:6:{i:0;a:3:{s:4:"rule";s:32:"PUT,PATCH api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903576;i:4;a:0:{}i:5;i:1443024;}i:35;a:6:{i:0;a:3:{s:4:"rule";s:29:"DELETE api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903584;i:4;a:0:{}i:5;i:1443832;}i:36;a:6:{i:0;a:3:{s:4:"rule";s:31:"GET,HEAD api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903594;i:4;a:0:{}i:5;i:1444640;}i:37;a:6:{i:0;a:3:{s:4:"rule";s:13:"POST api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903602;i:4;a:0:{}i:5;i:1445432;}i:38;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET,HEAD api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903611;i:4;a:0:{}i:5;i:1446232;}i:39;a:6:{i:0;a:3:{s:4:"rule";s:23:" api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903618;i:4;a:0:{}i:5;i:1447032;}i:40;a:6:{i:0;a:3:{s:4:"rule";s:9:" api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903625;i:4;a:0:{}i:5;i:1447824;}i:41;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903631;i:4;a:0:{}i:5;i:1448200;}i:42;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903636;i:4;a:0:{}i:5;i:1448952;}i:43;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903642;i:4;a:0:{}i:5;i:1449704;}i:44;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903648;i:4;a:0:{}i:5;i:1450456;}i:45;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903653;i:4;a:0:{}i:5;i:1451208;}i:46;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET api/user/show";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903691;i:4;a:0:{}i:5;i:1452384;}i:47;a:6:{i:0;a:3:{s:4:"rule";s:32:"PUT,PATCH api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903702;i:4;a:0:{}i:5;i:1453200;}i:48;a:6:{i:0;a:3:{s:4:"rule";s:29:"DELETE api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.90371;i:4;a:0:{}i:5;i:1454008;}i:49;a:6:{i:0;a:3:{s:4:"rule";s:31:"GET,HEAD api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.90372;i:4;a:0:{}i:5;i:1454816;}i:50;a:6:{i:0;a:3:{s:4:"rule";s:13:"POST api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903728;i:4;a:0:{}i:5;i:1455608;}i:51;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET,HEAD api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903738;i:4;a:0:{}i:5;i:1456408;}i:52;a:6:{i:0;a:3:{s:4:"rule";s:23:" api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903747;i:4;a:0:{}i:5;i:1457208;}i:53;a:6:{i:0;a:3:{s:4:"rule";s:9:" api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903754;i:4;a:0:{}i:5;i:1458000;}i:54;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903759;i:4;a:0:{}i:5;i:1458376;}i:55;a:6:{i:0;a:3:{s:4:"rule";s:21:"GET api/user/show/one";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903795;i:4;a:0:{}i:5;i:1459552;}i:56;a:6:{i:0;a:3:{s:4:"rule";s:32:"PUT,PATCH api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903805;i:4;a:0:{}i:5;i:1460368;}i:57;a:6:{i:0;a:3:{s:4:"rule";s:29:"DELETE api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903813;i:4;a:0:{}i:5;i:1461176;}i:58;a:6:{i:0;a:3:{s:4:"rule";s:31:"GET,HEAD api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903823;i:4;a:0:{}i:5;i:1461984;}i:59;a:6:{i:0;a:3:{s:4:"rule";s:13:"POST api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903832;i:4;a:0:{}i:5;i:1462776;}i:60;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET,HEAD api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903843;i:4;a:0:{}i:5;i:1463576;}i:61;a:6:{i:0;a:3:{s:4:"rule";s:23:" api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.90385;i:4;a:0:{}i:5;i:1464376;}i:62;a:6:{i:0;a:3:{s:4:"rule";s:9:" api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903857;i:4;a:0:{}i:5;i:1465168;}i:63;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903863;i:4;a:0:{}i:5;i:1465544;}i:64;a:6:{i:0;a:3:{s:4:"rule";s:19:"PUT api/user/update";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903871;i:4;a:0:{}i:5;i:1466720;}i:65;a:6:{i:0;a:3:{s:4:"rule";s:32:"PUT,PATCH api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903881;i:4;a:0:{}i:5;i:1473168;}i:66;a:6:{i:0;a:3:{s:4:"rule";s:29:"DELETE api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903889;i:4;a:0:{}i:5;i:1473976;}i:67;a:6:{i:0;a:3:{s:4:"rule";s:31:"GET,HEAD api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903899;i:4;a:0:{}i:5;i:1474784;}i:68;a:6:{i:0;a:3:{s:4:"rule";s:13:"POST api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903907;i:4;a:0:{}i:5;i:1475576;}i:69;a:6:{i:0;a:3:{s:4:"rule";s:17:"GET,HEAD api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903917;i:4;a:0:{}i:5;i:1476376;}i:70;a:6:{i:0;a:3:{s:4:"rule";s:23:" api/user/<id:\d[\d,]*>";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903925;i:4;a:0:{}i:5;i:1477176;}i:71;a:6:{i:0;a:3:{s:4:"rule";s:9:" api/user";s:5:"match";b:0;s:6:"parent";s:16:"yii\rest\UrlRule";}i:1;i:8;i:2;s:30:"yii\rest\UrlRule::parseRequest";i:3;d:1671951859.903932;i:4;a:0:{}i:5;i:1477968;}i:72;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903937;i:4;a:0:{}i:5;i:1478344;}i:73;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903943;i:4;a:0:{}i:5;i:1479096;}i:74;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903948;i:4;a:0:{}i:5;i:1479848;}i:75;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903954;i:4;a:0:{}i:5;i:1480600;}i:76;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903959;i:4;a:0:{}i:5;i:1481352;}i:77;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903964;i:4;a:0:{}i:5;i:1482104;}i:78;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.90397;i:4;a:0:{}i:5;i:1482856;}i:79;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903975;i:4;a:0:{}i:5;i:1483608;}i:80;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903981;i:4;a:0:{}i:5;i:1484360;}i:81;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903986;i:4;a:0:{}i:5;i:1485112;}i:82;a:6:{i:0;a:3:{s:4:"rule";s:16:"yii\rest\UrlRule";s:5:"match";b:0;s:6:"parent";N;}i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903991;i:4;a:0:{}i:5;i:1485864;}i:83;a:6:{i:0;s:55:"No matching URL rules. Using default URL parsing logic.";i:1;i:8;i:2;s:32:"yii\web\UrlManager::parseRequest";i:3;d:1671951859.903996;i:4;a:0:{}i:5;i:1486240;}}s:5:"route";s:17:"api/user/show-one";s:6:"action";s:51:"app\controllers\api\UserController::actionShowOne()";}";s:7:"request";s:5065:"a:15:{s:7:"flashes";a:0:{}s:10:"statusCode";i:200;s:14:"requestHeaders";a:18:{s:6:"cookie";s:347:"_csrf=485eaa1345d94a44e4b4c0ef6032e59bd6d33b1f2b37ac3b3eb1ae0c828df03ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22TUaSYqLpiQrv3xkGhizbpxLbqnkxDjp8%22%3B%7D; user=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZXhwIjoxNjcxOTQzOTQwLCJpc3MiOiIxMjcuMC4wLjEiLCJpYXQiOjE2NzE5NDM4OTB9.KxvB3bxElfvoml6FWDvH_MGKrrTfHo4RAt-J7csK9Ek";s:15:"accept-language";s:35:"ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7";s:15:"accept-encoding";s:17:"gzip, deflate, br";s:7:"referer";s:76:"http://127.0.0.1/timetable/teacher?organization_id=1&&user_id=17&&group_id=1";s:14:"sec-fetch-dest";s:5:"empty";s:14:"sec-fetch-mode";s:4:"cors";s:14:"sec-fetch-site";s:11:"same-origin";s:18:"sec-ch-ua-platform";s:7:""Linux"";s:10:"user-agent";s:101:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36";s:16:"sec-ch-ua-mobile";s:2:"?0";s:6:"accept";s:33:"application/json, text/plain, */*";s:9:"sec-ch-ua";s:64:""Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"";s:13:"cache-control";s:8:"no-cache";s:6:"pragma";s:8:"no-cache";s:10:"connection";s:10:"keep-alive";s:4:"host";s:9:"127.0.0.1";s:14:"content-length";s:0:"";s:12:"content-type";s:0:"";}s:15:"responseHeaders";a:7:{s:4:"Vary";s:6:"Accept";s:29:"Access-Control-Expose-Headers";s:25:"X-Pagination-Current-Page";s:28:"Access-Control-Allow-Headers";s:53:"X-Requested-With, Content-Type, Accept, Authorization";s:12:"Content-Type";s:31:"application/json; charset=UTF-8";s:11:"X-Debug-Tag";s:13:"63a7f5f3db7e1";s:16:"X-Debug-Duration";s:3:"214";s:12:"X-Debug-Link";s:37:"/debug/default/view?tag=63a7f5f3db7e1";}s:5:"route";s:17:"api/user/show-one";s:6:"action";s:51:"app\controllers\api\UserController::actionShowOne()";s:12:"actionParams";a:0:{}s:7:"general";a:5:{s:6:"method";s:3:"GET";s:6:"isAjax";b:0;s:6:"isPjax";b:0;s:7:"isFlash";b:0;s:18:"isSecureConnection";b:1;}s:11:"requestBody";a:0:{}s:6:"SERVER";a:45:{s:4:"USER";s:8:"www-data";s:4:"HOME";s:8:"/var/www";s:11:"HTTP_COOKIE";s:347:"_csrf=485eaa1345d94a44e4b4c0ef6032e59bd6d33b1f2b37ac3b3eb1ae0c828df03ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22TUaSYqLpiQrv3xkGhizbpxLbqnkxDjp8%22%3B%7D; user=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZXhwIjoxNjcxOTQzOTQwLCJpc3MiOiIxMjcuMC4wLjEiLCJpYXQiOjE2NzE5NDM4OTB9.KxvB3bxElfvoml6FWDvH_MGKrrTfHo4RAt-J7csK9Ek";s:20:"HTTP_ACCEPT_LANGUAGE";s:35:"ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7";s:20:"HTTP_ACCEPT_ENCODING";s:17:"gzip, deflate, br";s:12:"HTTP_REFERER";s:76:"http://127.0.0.1/timetable/teacher?organization_id=1&&user_id=17&&group_id=1";s:19:"HTTP_SEC_FETCH_DEST";s:5:"empty";s:19:"HTTP_SEC_FETCH_MODE";s:4:"cors";s:19:"HTTP_SEC_FETCH_SITE";s:11:"same-origin";s:23:"HTTP_SEC_CH_UA_PLATFORM";s:7:""Linux"";s:15:"HTTP_USER_AGENT";s:101:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36";s:21:"HTTP_SEC_CH_UA_MOBILE";s:2:"?0";s:11:"HTTP_ACCEPT";s:33:"application/json, text/plain, */*";s:14:"HTTP_SEC_CH_UA";s:64:""Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"";s:18:"HTTP_CACHE_CONTROL";s:8:"no-cache";s:11:"HTTP_PRAGMA";s:8:"no-cache";s:15:"HTTP_CONNECTION";s:10:"keep-alive";s:9:"HTTP_HOST";s:9:"127.0.0.1";s:15:"APPLICATION_ENV";s:11:"development";s:5:"HTTPS";s:2:"on";s:15:"SCRIPT_FILENAME";s:55:"/var/www/PAD-SettingIdentificationService/web/index.php";s:9:"PATH_INFO";s:0:"";s:15:"REDIRECT_STATUS";s:3:"200";s:11:"SERVER_NAME";s:1:"_";s:11:"SERVER_PORT";s:2:"80";s:11:"SERVER_ADDR";s:9:"127.0.0.1";s:11:"REMOTE_USER";s:0:"";s:11:"REMOTE_PORT";s:5:"58710";s:11:"REMOTE_ADDR";s:9:"127.0.0.1";s:15:"SERVER_SOFTWARE";s:12:"nginx/1.18.0";s:17:"GATEWAY_INTERFACE";s:7:"CGI/1.1";s:14:"REQUEST_SCHEME";s:4:"http";s:15:"SERVER_PROTOCOL";s:8:"HTTP/1.1";s:13:"DOCUMENT_ROOT";s:45:"/var/www/PAD-SettingIdentificationService/web";s:12:"DOCUMENT_URI";s:10:"/index.php";s:11:"REQUEST_URI";s:132:"/api/user/show-one?organization_id=1&role=%D0%9F%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B0%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C&&user_id=17";s:11:"SCRIPT_NAME";s:10:"/index.php";s:14:"CONTENT_LENGTH";s:0:"";s:12:"CONTENT_TYPE";s:0:"";s:14:"REQUEST_METHOD";s:3:"GET";s:12:"QUERY_STRING";s:113:"organization_id=1&role=%D0%9F%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B0%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C&&user_id=17";s:9:"FCGI_ROLE";s:9:"RESPONDER";s:8:"PHP_SELF";s:10:"/index.php";s:18:"REQUEST_TIME_FLOAT";d:1671951859.892533;s:12:"REQUEST_TIME";i:1671951859;}s:3:"GET";a:3:{s:15:"organization_id";s:1:"1";s:4:"role";s:26:"Преподаватель";s:7:"user_id";s:2:"17";}s:4:"POST";a:0:{}s:6:"COOKIE";a:2:{s:5:"_csrf";s:130:"485eaa1345d94a44e4b4c0ef6032e59bd6d33b1f2b37ac3b3eb1ae0c828df03ba:2:{i:0;s:5:"_csrf";i:1;s:32:"TUaSYqLpiQrv3xkGhizbpxLbqnkxDjp8";}";s:4:"user";s:168:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZXhwIjoxNjcxOTQzOTQwLCJpc3MiOiIxMjcuMC4wLjEiLCJpYXQiOjE2NzE5NDM4OTB9.KxvB3bxElfvoml6FWDvH_MGKrrTfHo4RAt-J7csK9Ek";}s:5:"FILES";a:0:{}s:7:"SESSION";a:0:{}}";s:4:"user";s:2:"N;";s:5:"asset";s:6:"a:0:{}";s:7:"summary";a:12:{s:3:"tag";s:13:"63a7f5f3db7e1";s:3:"url";s:149:"https://127.0.0.1/api/user/show-one?organization_id=1&role=%D0%9F%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B0%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C&&user_id=17";s:4:"ajax";i:0;s:6:"method";s:3:"GET";s:2:"ip";s:9:"127.0.0.1";s:4:"time";d:1671951859.892533;s:10:"statusCode";i:200;s:8:"sqlCount";i:3;s:9:"mailCount";i:0;s:9:"mailFiles";a:0:{}s:10:"peakMemory";i:1579424;s:14:"processingTime";d:0.21380996704101562;}s:10:"exceptions";a:0:{}}

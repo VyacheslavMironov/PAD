@@ -161,6 +161,14 @@ $config = [
                     'pluralize'=>false,
                     'controller' => ['api/user'],
                     'extraPatterns' => [
+                        'GET show/one' => 'show-one'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=>false,
+                    'controller' => ['api/user'],
+                    'extraPatterns' => [
                         'PUT update' => 'update'
                     ]
                 ],

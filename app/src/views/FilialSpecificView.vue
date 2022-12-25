@@ -101,7 +101,7 @@
                                         <div class="row">
                                             <div class="col d-flex">
                                                 <a
-                                                v-bind:href="this.server + '/timetable/group?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + i.id"
+                                                v-bind:href="this.server + '/timetable/group/create?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + i.id"
                                                 class="m-1"
                                                 >
                                                     <svg xmlns="http://www.w3.org/2000/svg" style="fill: #3574dc;">
@@ -468,10 +468,27 @@
                     this.$refs.GroupPagination[i].style.display = 'none'
                 }
             }
-        }
+        },
+        async lessons () {
+            await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
+            {
+                headers: {
+                'Content-Type': 'application/json',
+                }
+            })
+            .then((response) => {
+                this.lesson_list = response.data
+            })
+            .catch((error) => {
+                this.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.'
+                // Активация всплывающего сообщения
+                document.getElementById('toast').style.opacity = 1
+            })
+      },
     },
     mounted () {
         this.show_list()
+        this.lessons()
     }
  }
  </script>
