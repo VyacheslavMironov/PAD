@@ -78,6 +78,11 @@ const router = createRouter({
             name: 'timetable/teacher',
             component: () => import('./src/views/TimetableTeacherView.vue')
         },
+        {
+            path: '/journal/teacher',
+            name: 'journal/teacher',
+            component: () => import('./src/views/JournalTeacherShowView.vue')
+        },
     ],
 });
 

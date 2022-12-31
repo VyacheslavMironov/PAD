@@ -36,6 +36,9 @@ tests/_support/_generated
 /.vagrant
 
 
+# Логи
+log/access.log
+log/error.log
 
 # Конфиг создать на серваке
 config.php
