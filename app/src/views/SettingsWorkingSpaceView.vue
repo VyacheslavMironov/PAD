@@ -741,7 +741,6 @@
         var imagefile = this.$refs.fileInput
         formData.append("image", imagefile.files[0])
         // Отправка данных
-        // Отправка данных
         axios.post(this.server + '/api/upload/save', formData,
           {
             headers: {

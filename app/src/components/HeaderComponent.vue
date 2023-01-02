@@ -36,7 +36,25 @@
         <div class="collapse navbar-collapse d-flex d-lg-block d-none" id="navbarSupportedContent">
           <ul v-if="this.is_auth >= 0" class="navbar-nav view-menu mb-2 mb-lg-0">
             <li class="nav-item">
-              <a href="#">Журнал</a>
+              <a 
+                v-bind:href="this.user_info.role == 'Администратор' || this.user_info.role == 'Преподаватель' ? this.server + '/journal/list' : this.server + '/journal'"
+              >Журнал</a>
+            </li>
+            <li
+              v-if="this.user_info.role == 'Студент' || this.user_info.role == 'Родитель'" 
+              class="nav-item"
+            >
+              <a
+                v-bind:href="this.server + '/timetable/all/teacher?organization_id=' + this.user_info.organization_id"
+              >Преподаватели</a>
+            </li>
+            <li
+              v-if="this.user_info.role == 'Родитель'" 
+              class="nav-item"
+            >
+              <a
+                href="#"
+              >Статистика успеваемости</a>
             </li>
             <li
               v-if="this.user_info.role == 'Администратор' || this.user_info.role == 'Директор'"
@@ -93,7 +111,7 @@
               v-if="this.user_info.role == 'Студент'"
               class="nav-item"
             >
-              <a href="/journal-show">Домашнии задания</a>
+              <a href="/journal-show">Домашние задания</a>
             </li>
           </ul>
           <ul

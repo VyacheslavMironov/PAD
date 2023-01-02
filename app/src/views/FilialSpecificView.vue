@@ -318,7 +318,7 @@
                     'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
                 },
                 organization_id: this.user_info.organization_id,
-                filial_id: filialId,
+                filial_id: this.role == 'Преподаватель' ? null : filialId,
                 relation_id: studentId,
                 first_name: this.first_name,
                 last_name: this.last_name,

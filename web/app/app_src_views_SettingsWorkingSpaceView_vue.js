@@ -145,7 +145,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var imagefile = this.$refs.fileInput;
       formData.append("image", imagefile.files[0]);
       // Отправка данных
-      // Отправка данных
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/upload/save', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'

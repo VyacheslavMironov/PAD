@@ -35,7 +35,7 @@ class OrganizationController extends \yii\rest\Controller {
         // Вызов сервиса
         $organizationService = new WorkingSpaceOrganizationsService();
         return $this->asJson(array(
-            $organizationService->createWorkingSpaceOrganizations(Yii::$app->request)
+            $organizationService->createWorkingSpaceOrganizations(Yii::$app->request, $_FILES)
         ));
     }
 }

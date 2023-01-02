@@ -1,1 +1,0 @@
-2022/12/16 19:25:33 [crit] 123582#123582: *1 connect() to unix:/run/php/php8.1-fpm.sock failed (2: No such file or directory) while connecting to upstream, client: 127.0.0.1, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "127.0.0.1"

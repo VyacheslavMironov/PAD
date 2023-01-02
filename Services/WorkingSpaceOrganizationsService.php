@@ -2,8 +2,6 @@
 
 namespace app\Services;
 
-use app\Repository\WorkingSpaceOrganizationsRepository;
-
 use ErrorException;
 use DateTime;
 use DateInterval;
@@ -13,6 +11,8 @@ use app\DTO\CreateOrganizationDTO;
 use app\DTO\CreateUserDTO;
 use app\Services\Base;
 use app\Services\SendEmailService;
+use app\Services\UploadService;
+use app\Repository\WorkingSpaceOrganizationsRepository;
 
 class WorkingSpaceOrganizationsService extends Base
 {
@@ -61,10 +61,18 @@ class WorkingSpaceOrganizationsService extends Base
         );
     }
 
-    public function validateSettingsParam($param)
+    public function logo($data)
+    {
+        $logo_service = new UploadService();
+        $service = $logo_service->saved($data);
+        return $service ? trim((string)$service) : 'default';
+    }
+
+    public function validateSettingsParam($param, $logo_file)
     {
         return new CreateSettingsDTO(
             trim((string)$param->post('logo')) ? trim((string)$param->post('logo')) : 'default',
+            // $this->logo($logo_file),
             date('Y/m/d h:i:s', time()), // payment_at
             $this->addition_dates(), // payment_to
             trim((string)$param->post('tariff_from')) ? trim((string)$param->post('tariff_from')) : 'Ежемесячный',
@@ -129,14 +137,14 @@ class WorkingSpaceOrganizationsService extends Base
         }
     }
 
-    public function createWorkingSpaceOrganizations($request)
+    public function createWorkingSpaceOrganizations($request, $logo_file)
     {
         $workingSpace = new WorkingSpaceOrganizationsRepository();
         $create = $workingSpace->create([
             // Привелегии администратора
             'privilege_admin' => $this->validatePrivilegeAdminParam($request),
             // Настройки рабочей области
-            'settings' =>       $this->validateSettingsParam($request),
+            'settings' =>       $this->validateSettingsParam($request, $logo_file),
             // Параметры организации
             'organization' =>   $this->validateOrganizationParam($request),
             // Владелец

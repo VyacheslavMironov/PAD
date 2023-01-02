@@ -144,8 +144,10 @@ __webpack_require__.r(__webpack_exports__);
                 window.location.href = '/settings_working-space';
               } else if (response.data[0][0].role.trim() == 'Администратор') {
                 window.location.href = '/filial';
-              } else if (response.data[0][0].role.trim() == 'Родитель' || response.data[0][0].role.trim() == 'Студент' || response.data[0][0].role.trim() == 'Преподаватель') {
+              } else if (response.data[0][0].role.trim() == 'Родитель' || response.data[0][0].role.trim() == 'Студент') {
                 window.location.href = '/journal';
+              } else if (response.data[0][0].role.trim() == 'Преподаватель') {
+                window.location.href = '/journal/list';
               } else {
                 window.location.href = '/';
               }

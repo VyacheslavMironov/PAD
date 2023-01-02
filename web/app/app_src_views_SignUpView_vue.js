@@ -130,25 +130,7 @@ __webpack_require__.r(__webpack_exports__);
         this.tariff = value;
       }
     },
-    uploadToFile: function uploadToFile() {
-      var formData = new FormData();
-      var imagefile = this.$refs.fileInput;
-      formData.append("image", imagefile.files[0]);
-
-      // Отправка данных
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/upload/save', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then(function (response) {
-        this.logotype = response.data[0];
-      })["catch"](function (error) {
-        this.alert = 'Не удалось сохранить файл!';
-        // Активация всплывающего сообщения
-        document.getElementById('toast').style.opacity = 1;
-      });
-      return this.logotype;
-    },
+    uploadToFile: function uploadToFile() {},
     stepsRegistration: function stepsRegistration(ids) {
       var self = this;
       if (ids === 1) {
@@ -203,6 +185,22 @@ __webpack_require__.r(__webpack_exports__);
           // Загрузка файла
           this.logotype = this.uploadToFile();
           // END
+          var formData = new FormData();
+          var imagefile = this.$refs.fileInput;
+          formData.append("image", imagefile.files[0]);
+
+          // Отправка данных
+          axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/upload/save', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }).then(function (response) {
+            this.logotype = response.data[0];
+          })["catch"](function (error) {
+            this.alert = 'Не удалось сохранить файл!';
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1;
+          });
           // Отправка данных
           axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/organization/create', {
             headers: {
