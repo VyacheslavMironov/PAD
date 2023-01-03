@@ -15,7 +15,7 @@ class UploadService extends Model
             throw new ErrorException('Файл не указан!');
         } else {
             $fileDTO = new UploadFileDTO($request['image']['name']);
-            $file_name = date('Y/m/d h:i:s', time()) . ' - ' . $fileDTO->fileName;
+            $file_name = date('Y-m-d h:i:s', time()) . ' - ' . $fileDTO->fileName;
             if (move_uploaded_file(
                 $request['image']['tmp_name'],
                     Yii::getAlias('@app/web/img/').basename($file_name)

@@ -104,7 +104,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" v-model="testConstruct" id="testConstruct">
                 <label class="form-check-label" for="testConstruct">
-                    Конструктор чатов
+                    Сервис тестирования
                 </label>
               </div>
               <div class="form-check">
@@ -273,26 +273,7 @@ export default {
       }
     },
     uploadToFile () {
-      var formData = new FormData()
-      var imagefile = this.$refs.fileInput
-      formData.append("image", imagefile.files[0])
-
-      // Отправка данных
-      axios.post(this.server + '/api/upload/save', formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        })
-        .then(function (response) {
-          this.logotype = response.data[0]
-        })
-        .catch(function (error) {
-          this.alert = 'Не удалось сохранить файл!'
-          // Активация всплывающего сообщения
-          document.getElementById('toast').style.opacity = 1
-        })
-        return this.logotype
+      
     },
     stepsRegistration: function (ids) {
       const self = this
@@ -348,6 +329,25 @@ export default {
           // Загрузка файла
           this.logotype = this.uploadToFile()
           // END
+          var formData = new FormData()
+        var imagefile = this.$refs.fileInput
+        formData.append("image", imagefile.files[0])
+
+        // Отправка данных
+        axios.post(this.server + '/api/upload/save', formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+          .then(function (response) {
+            this.logotype = response.data[0]
+          })
+          .catch(function (error) {
+            this.alert = 'Не удалось сохранить файл!'
+            // Активация всплывающего сообщения
+            document.getElementById('toast').style.opacity = 1
+          })
           // Отправка данных
           axios.post(this.server + '/api/organization/create',
             {
@@ -391,7 +391,6 @@ export default {
             })
             .catch(function (error) {
               if (error.response.status === 500) {
-                console.log(error)
                 // Деактивация лоадера
                 document.getElementById('loader-bg').style.display = 'none'
                 self.alert = 'Данная организация уже существует!'

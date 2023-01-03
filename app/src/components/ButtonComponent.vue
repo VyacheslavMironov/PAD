@@ -17,20 +17,20 @@
 export default {
     props: {
         text: {
-        type: String,
-        required: true
+            type: String,
+            required: true
         },
         link: {
-        type: String,
-        required: true
+            type: String,
+            required: true
         },
         css_class: {
-        type: String,
-        required: false
+            type: String,
+            required: false
         },
         wrapper_css_class: {
-        type: String,
-        required: false
+            type: String,
+            required: false
         }
     }
 }

@@ -6,10 +6,11 @@
     margin: 0;
     padding: 0;
 }
-
 html,
-body,
-body section{
+body{
+    height: 100%;
+}
+body section#content_block{
     height: 100vh;
 }
 
@@ -30,6 +31,9 @@ svg{
     height: 2em;
     width: 3em;
 }
+ol, ul {
+    padding-left: 0rem!important;
+}
 ul{}
 
 ul li{
@@ -42,7 +46,9 @@ table svg,
 }
 span, 
 strong, 
-b{
+b,
+td,
+th{
     color: #2c3e50;
     font-family: 'Inter', sans-serif;
 }
@@ -85,6 +91,10 @@ header, footer{
 footer{
     margin-top: 5em;
 }
+.disable {
+    background-color: #dfdede!important;
+    color: #2c3e72!important;
+}
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -125,6 +135,9 @@ footer{
 #app a.btn{
     background-color: #F62626;
     text-decoration: none!important;
+    color: #fff;
+}
+a.btn{
     color: #fff!important;
 }
 .mt-10{
@@ -164,10 +177,11 @@ footer{
 
 .view-menu{
     position: absolute;
-    left: 18em;
+    left: 14em;
+    width: 42%
 }
 .view-menu li{
-    margin-left: 20%;
+    margin-left: 8%;
 }
 .view-menu li a.absolut-item{
     position: absolute;
@@ -315,9 +329,10 @@ a.btn a .btn{
     font-weight: bold;
 }
 .list-group-item.active {
-    cursor: pointer;
+    cursor: pointer!important;
     color: #fff!important;
-    background-color: #F62626!important;
+    background-color: #dc3545!important;
+    border: none;
 }
 .pointer{
     cursor: pointer;
@@ -461,6 +476,10 @@ ul li strong.list:hover{
     border-radius: 10em;
 }
 /* ПЕРЕОПРЕДЕЛЕНИЕ КЛАССОВ */
+.list-group-item {
+    /* cursor: auto!important; */
+    cursor: pointer;
+}
 #toast{
     opacity: 0;
 }
@@ -477,3 +496,112 @@ ul li strong.list:hover{
     height: 45vh!important;
 }
 /* END */
+
+span.delete-img {
+    position: absolute;
+    top: -5%;
+    left: 85%;
+    cursor: pointer;
+    background: white;
+    width: 23%;
+    height: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-organization {
+    max-width: 10%;
+}
+.accordion {
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgb(223 222 222 / 45%);
+}
+.accordion-button:focus {
+    border-color: rgba(255, 255, 255, 0);
+}
+.accordion-button, 
+.accordion-button:not(.collapsed) {
+    font-size: 0.45em;
+}
+.accordion-button:not(.collapsed) {
+    color: #2c3e50;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+}
+.filial_name strong{
+    font-size: 1.2em;
+}
+.pointer{
+    cursor: pointer;
+}
+.pagination li, .pagination li:hover{
+    background-color: #c5c5c500!important;
+}
+.pagination li a.page-link{
+    height: 80%;
+    background: #dc3545;
+}
+.pagination li a.page-link svg{
+    position: relative;
+    left: 15%;
+}
+li.list-group-item{
+    display: flex;
+}
+.list-group-item + .list-group-item {
+    cursor: pointer!important;
+}
+#week-day label{
+    margin: 0.3em;
+}
+p.time {
+    padding: 0;
+    position: relative;
+    left: 2%;
+    margin-top: 0.4em;
+    width: 3em;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+.btn-check:checked + .btn, 
+:not(.btn-check) + .btn:active, 
+.btn:first-child:active, 
+.btn.active, 
+.btn.show, .btn:checked, 
+.btn,
+input:checked, 
+label:checked {
+    border: none!important;
+}
+#timetable-min .row > *{
+    padding-right: 0!important;
+}
+
+.underline{
+    text-decoration: underline;
+}
+.ht-100{
+    height: 10em;
+}
+tbody.info{
+    font-size: 0.9em;
+}
+tbody tr td{
+    overflow: auto;
+}
+tbody tr td ul li span.content{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    background: #27ef37;
+    border-radius: 0.5em;
+}
+.header_btn{
+    padding: 0.2em 0.7em;
+    border-radius: 5em;
+    text-decoration: none!important;
+    background-color: #F62626;
+    color: #fff!important;
+    width: 100%;
+}

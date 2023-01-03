@@ -23,6 +23,5 @@ class AuthUserService
                 throw new ErrorException('Логин или пароль введны не правильно!');
             }
         }
-        
     }
 }
