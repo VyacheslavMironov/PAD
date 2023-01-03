@@ -20,7 +20,7 @@ class AuthTest extends \Codeception\Test\Unit
     protected function _before()
     {
         $workingSpaceTest = new WorkingSpaceOrganizationsRepository();
-        $response = $workingSpaceTest->create([
+        $response_create_organization = $workingSpaceTest->create([
             // Привелегии администратора
             'privilege_admin' => new CreatePrivilegeAdminDTO(true, true, false, false, true,),
             // Настройки рабочей области
@@ -34,38 +34,42 @@ class AuthTest extends \Codeception\Test\Unit
                                     'test-image.png', null, /* email_code */ 'blablabla22',),
         ]);
 
+        // codecept_debug($response_create_organization);
+
         // Проверка параметров возвращаемого массива
-        $this->assertNotNull($response);
+        $this->assertNotNull($response_create_organization);
 
-        $this->assertArrayHasKey('name', $response[2]);
-        $this->assertEquals('Тестовая школа', $response[2]['name']);
+        $this->assertArrayHasKey('name', $response_create_organization[2]);
+        $this->assertEquals('Тестовая школа', $response_create_organization[2]['name']);
 
-        $this->assertArrayHasKey('destination', $response[2]);
-        $this->assertEquals('Школа', $response[2]['destination']);
+        $this->assertArrayHasKey('destination', $response_create_organization[2]);
+        $this->assertEquals('Школа', $response_create_organization[2]['destination']);
 
-        $this->assertArrayHasKey('first_name', $response[3]);
-        $this->assertEquals('Колька', $response[3]['first_name']);
+        $this->assertArrayHasKey('first_name', $response_create_organization[3]);
+        $this->assertEquals('Колька', $response_create_organization[3]['first_name']);
 
-        $this->assertArrayHasKey('last_name', $response[3]);
-        $this->assertEquals('Басурманов', $response[3]['last_name']);
+        $this->assertArrayHasKey('last_name', $response_create_organization[3]);
+        $this->assertEquals('Басурманов', $response_create_organization[3]['last_name']);
 
-        $this->assertArrayHasKey('email', $response[3]);
-        $this->assertEquals('test.mail@mail.ru', $response[3]['email']);
+        $this->assertArrayHasKey('email', $response_create_organization[3]);
+        $this->assertEquals('test.mail@mail.ru', $response_create_organization[3]['email']);
 
-        $this->assertArrayHasKey('role', $response[3]);
-        $this->assertEquals('Директор', $response[3]['role']);
+        $this->assertArrayHasKey('role', $response_create_organization[3]);
+        $this->assertEquals('Директор', $response_create_organization[3]['role']);
 
-        $this->assertArrayHasKey('password', $response[3]);
-        $this->assertEquals('blablabla22', $response[3]['password']);
+        $this->assertArrayHasKey('password', $response_create_organization[3]);
+        $this->assertEquals('blablabla22', $response_create_organization[3]['password']);
 
-        $this->assertArrayHasKey('organization_id', $response[3]);
-        $this->assertNotNull($response[3]['organization_id']);
+        $this->assertArrayHasKey('organization_id', $response_create_organization[3]);
+        $this->assertNotNull($response_create_organization[3]['organization_id']);
 
-        $this->assertEquals(4, count($response));
+        $this->assertEquals(4, count($response_create_organization));
 
         // Аутентификация
         $authTest = new AuthUserRepository();
         $response = $authTest->auth(new AuthUserDTO('test.mail@mail.ru', 'blablabla22'));
+
+        // codecept_debug($response);
 
         // Проверка параметров возвращаемого массива
         $this->assertNotNull($response);

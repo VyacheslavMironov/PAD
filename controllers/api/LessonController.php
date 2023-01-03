@@ -4,6 +4,7 @@ namespace app\controllers\api;
 
 use Yii;
 use yii\filters\Cors;
+use sizeg\jwt\JwtHttpBearerAuth;
 use app\Services\LessonCreateService;
 use app\Services\LessonListService;
 use app\Services\LessonUpdateService;
@@ -18,6 +19,9 @@ class LessonController extends \yii\rest\Controller {
     public function behaviors()
     {
         $behaviors = parent::behaviors();
+        // $behaviors['authenticator'] = [
+        //     'class' => JwtHttpBearerAuth::class,
+        // ];
         $behaviors['corsFilter'] = [
             'class' => Cors::class,
             'cors' => [
