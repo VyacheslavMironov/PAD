@@ -89,7 +89,12 @@ $config = [
                     'pluralize'=>false,
                     'controller' => ['api/user'],
                     'extraPatterns' => [
-                        'GET info' => 'info'
+                        'GET info' => 'info',
+                        'PUT activate' => 'activate',
+                        'POST create' => 'create',
+                        'GET show' => 'show',
+                        'GET show/one' => 'show-one',
+                        'PUT update' => 'update'
                     ]
                 ],
                 [
@@ -103,128 +108,25 @@ $config = [
                 [
                     'class' => 'yii\rest\UrlRule', 
                     'pluralize'=>false,
-                    'controller' => ['api/user'],
-                    'extraPatterns' => [
-                        'PUT activate' => 'activate'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/user'],
-                    'extraPatterns' => [
-                        'POST create' => 'create'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
                     'controller' => ['api/lesson'],
                     'extraPatterns' => [
-                        'POST create' => 'create'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/lesson'],
-                    'extraPatterns' => [
-                        'GET list' => 'list'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/lesson'],
-                    'extraPatterns' => [
-                        'PUT update' => 'update'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/lesson'],
-                    'extraPatterns' => [
+                        'POST create' => 'create',
+                        'GET list' => 'list',
+                        'PUT update' => 'update',
                         'DELETE delete' => 'delete'
                     ]
                 ],
                 [
                     'class' => 'yii\rest\UrlRule', 
                     'pluralize'=>false,
-                    'controller' => ['api/user'],
-                    'extraPatterns' => [
-                        'GET show' => 'show'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/user'],
-                    'extraPatterns' => [
-                        'GET show/one' => 'show-one'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/user'],
-                    'extraPatterns' => [
-                        'PUT update' => 'update'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
                     'controller' => ['api/settings'],
                     'extraPatterns' => [
-                        'GET info' => 'info'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/settings'],
-                    'extraPatterns' => [
-                        'POST logo/update' => 'logo_update'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/settings'],
-                    'extraPatterns' => [
-                        'DELETE logo/delete' => 'logo_delete'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/settings'],
-                    'extraPatterns' => [
-                        'PUT update/value-type' => 'update_value_type'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/settings'],
-                    'extraPatterns' => [
-                        'GET show/priveleges-admin' => 'priveleges_admin_show'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/settings'],
-                    'extraPatterns' => [
-                        'PUT update/priveleges-admin' => 'priveleges_admin_update'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/settings'],
-                    'extraPatterns' => [
+                        'GET info' => 'info',
+                        'POST logo/update' => 'logo_update',
+                        'DELETE logo/delete' => 'logo_delete',
+                        'PUT update/value-type' => 'update_value_type',
+                        'GET show/priveleges-admin' => 'priveleges_admin_show',
+                        'PUT update/priveleges-admin' => 'priveleges_admin_update',
                         'PUT update/service-connect' => 'service_connect_update'
                     ]
                 ],
@@ -233,23 +135,58 @@ $config = [
                     'pluralize'=>false,
                     'controller' => ['api/filial'],
                     'extraPatterns' => [
-                        'POST create' => 'create'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/filial'],
-                    'extraPatterns' => [
-                        'GET show' => 'show'
-                    ]
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'pluralize'=>false,
-                    'controller' => ['api/filial'],
-                    'extraPatterns' => [
+                        'POST create' => 'create',
+                        'GET show' => 'show',
                         'DELETE delete' => 'delete'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=> false,
+                    'controller' => ['api/group'],
+                    'extraPatterns' => [
+                        'POST create' => 'create',
+                        'GET list' => 'list',
+                        'GET show' => 'show',
+                        'GET delete' => 'delete',
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=> false,
+                    'controller' => ['api/user-group'],
+                    'extraPatterns' => [
+                        'GET show' => 'show',
+                        'GET user/not-group' => 'not',
+                        'POST create' => 'create',
+                        'GET remove' => 'remove',
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=> false,
+                    'controller' => ['api/timetable'],
+                    'extraPatterns' => [
+                        'POST create' => 'create',
+                        'GET show' => 'show',
+                        'GET show/teacher' => 'show-teacher'
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=> false,
+                    'controller' => ['api/statement'],
+                    'extraPatterns' => [
+                        'POST create' => 'create',
+                        'GET list' => 'list',
+                    ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'pluralize'=> false,
+                    'controller' => ['api/user-value'],
+                    'extraPatterns' => [
+                        'GET show' => 'show',
                     ]
                 ],
             ],
