@@ -42,3 +42,5 @@ log/error.log
 
 # Конфиг создать на серваке
 config.php
+
+.web/img/*
