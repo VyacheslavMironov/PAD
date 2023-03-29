@@ -54,7 +54,7 @@ export default {
     return {
       is_activate: this.$route.query,
       first_name: null,
-      alert: 'Такого пользователя не существует!',
+      alert: 'Такого пользователя не существует!!',
       link_signup: '/signup',
       link_reset_password: '/password-reset',
       username: '',
@@ -150,6 +150,7 @@ export default {
               }
             })
             .catch((error) => {
+              console.log(error)
               this.alert = 'Такого пользователя не существует!'
               // Активация всплывающего сообщения
               document.getElementById('toast').style.opacity = 1

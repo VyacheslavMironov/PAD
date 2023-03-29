@@ -44,7 +44,7 @@ export default {
         is_auth: document.cookie.search('user'),
         user_info: null,
         settings_info: null,
-        server: 'http://127.0.0.1',
+        server: 'http://localhost:8080',
         server_journal: 'http://127.0.0.1:8082'
       }
     },

@@ -1,7 +1,7 @@
 <?php
 
 namespace app\Services;
-require_once '/var/www/PAD-SettingIdentificationService/conf.php';
+require_once '../conf.php';
 // use app\config\EMAIL_SERVICE_V1;
 
 class SendEmailService
