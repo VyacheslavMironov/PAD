@@ -4,9 +4,9 @@ namespace app\controllers\api;
 
 use Yii;
 use yii\filters\Cors;
-use app\Service\TimetableCreateService;
-use app\Service\TimetableShowService;
-use app\Service\TimetableShowTeacherService;
+use app\Services\TimetableCreateService;
+use app\Services\TimetableShowService;
+use app\Services\TimetableShowTeacherService;
 
 class TimetableController extends \yii\rest\Controller
 {

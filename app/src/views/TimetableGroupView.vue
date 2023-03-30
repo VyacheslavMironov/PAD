@@ -360,7 +360,6 @@
         user_info: Object,
         settings_info: Object,
         server: String,
-        server_journal: String,
         is_auth: Number,
         token: String
     },
@@ -382,7 +381,7 @@
           })
       },
       async show_timetable () {
-        await axios.post(this.server_journal + '/api/timetable/show?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
+        await axios.post(this.server + '/api/timetable/show?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
             {
               headers: {
                 'Content-Type': 'application/json'

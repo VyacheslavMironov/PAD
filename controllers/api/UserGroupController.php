@@ -4,10 +4,10 @@ namespace app\controllers\api;
 
 use Yii;
 use yii\filters\Cors;
-use app\Service\UserGroupShowService;
-use app\Service\UserGroupShowIsNotService;
-use app\Service\UserGroupCreateService;
-use app\Service\UserGroupRemoveService;
+use app\Services\UserGroupShowService;
+use app\Services\UserGroupShowIsNotService;
+use app\Services\UserGroupCreateService;
+use app\Services\UserGroupRemoveService;
 
 class UserGroupController extends \yii\rest\Controller
 {

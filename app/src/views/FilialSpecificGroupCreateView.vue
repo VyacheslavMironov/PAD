@@ -109,7 +109,6 @@ export default {
         user_info: Object,
         settings_info: Object,
         server: String,
-        server_journal: String,
         is_auth: Number,
         token: String
     },
@@ -121,7 +120,7 @@ export default {
         add () {
             if (this.data_all) {
                 // Отправка данных
-                axios.post(this.server_journal + '/api/user-group/create',
+                axios.post(this.server + '/api/user-group/create',
                     {
                         headers: {
                             'Content-Type': 'application/json',
@@ -152,7 +151,7 @@ export default {
         remove () {
             if (this.data) {
                 // Отправка данных
-                axios.get(this.server_journal + '/api/user-group/remove?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id + '&&user_id=' + this.user_id,
+                axios.get(this.server + '/api/user-group/remove?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id + '&&user_id=' + this.user_id,
                     {
                         headers: {
                             'Content-Type': 'application/json'
@@ -175,7 +174,7 @@ export default {
             }
         },
         async group_show () {
-            await axios.get(this.server_journal + '/api/group/show?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&id=' + this.$route.query.group_id,
+            await axios.get(this.server + '/api/group/show?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&id=' + this.$route.query.group_id,
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -194,7 +193,7 @@ export default {
             })
         },
         async is_user_show () {
-            await axios.get(this.server_journal + '/api/user-group/show?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
+            await axios.get(this.server + '/api/user-group/show?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -210,7 +209,7 @@ export default {
             })
         },
         async is_not_user_show () {
-            await axios.get(this.server_journal + '/api/user-group/user/not-group?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
+            await axios.get(this.server + '/api/user-group/user/not-group?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -220,6 +219,7 @@ export default {
                 this.is_not_users = response.data[0]
             })
             .catch((error) => {
+                console.log(error)
                 this.alert = 'Ошибка. Загрузки информации участников группы!'
                 // Активация всплывающего сообщения
                 document.getElementById('toast').style.opacity = 1

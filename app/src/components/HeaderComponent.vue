@@ -116,7 +116,7 @@
           </ul>
           <ul
             v-if="this.is_auth >= 0"
-            v-bind:class="this.settings_info.logo == 'default' ? 'navbar-nav me-auto mb-2 l-60 w-50 mb-lg-0' : 'navbar-nav me-auto mb-2 w-50 mb-lg-0'"
+            v-bind:class="this.settings_info.logo == 'default' ? 'navbar-nav me-auto mb-2 l-75 w-25 mb-lg-0' : 'navbar-nav me-auto mb-2 w-50 mb-lg-0'"
           >
             
             <li class="nav-item">

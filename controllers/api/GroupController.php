@@ -4,10 +4,10 @@ namespace app\controllers\api;
 
 use Yii;
 use yii\filters\Cors;
-use app\Service\GroupCreateService;
-use app\Service\GroupListService;
-use app\Service\GroupDeleteService;
-use app\Service\GroupShowService;
+use app\Services\GroupCreateService;
+use app\Services\GroupListService;
+use app\Services\GroupDeleteService;
+use app\Services\GroupShowService;
 
 class GroupController extends \yii\rest\Controller
 {

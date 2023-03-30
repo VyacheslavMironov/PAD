@@ -274,7 +274,6 @@
         user_info: Object,
         settings_info: Object,
         server: String,
-        server_journal: String,
         is_auth: Number,
         token: String
     },
@@ -368,7 +367,7 @@
             }
         },
         async show_list () {
-            await axios.get(this.server_journal + '/api/group/list?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id,
+            await axios.get(this.server + '/api/group/list?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id,
                 {
                     headers: {
                     'Content-Type': 'application/json',
@@ -384,7 +383,7 @@
                 })
         },
         create_group () {
-            axios.post(this.server_journal + '/api/group/create',
+            axios.post(this.server + '/api/group/create',
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -405,6 +404,7 @@
                     window.location.reload()
                 })
                 .catch((error) => {
+                    console.log(error)
                     this.alert = 'Ошибка, невозможно добавить новую группу!'
                     // Активация всплывающего сообщения
                     document.getElementById('toast').style.opacity = 1
@@ -414,7 +414,7 @@
         //     // ...
         // },
         drop_group (groupId) {
-            axios.get(this.server_journal + '/api/group/delete?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&id=' + groupId,
+            axios.get(this.server + '/api/group/delete?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&id=' + groupId,
                 {
                     headers: {
                         'Content-Type': 'application/json',

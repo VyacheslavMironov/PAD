@@ -973,7 +973,7 @@
           })
       },
       ///Ошибка функции порождающая "Uncaught SyntaxError: Unexpected identifier 'Promise'"
-    /*
+     
       async lessons () {
         await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
           {
@@ -989,7 +989,7 @@
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
-      },*/
+      },
       update_lesson_open (id) {
         const data = this.$refs.lessonUpdate
         data[id].classList.remove('d-none')
@@ -1065,6 +1065,7 @@
             }
           })
           .then((response) => {
+            console.log(response)
             // this.priveleges_admin_list = response.data[0]
             this.userAccess = response.data[0].user_access
             this.userEmail = response.data[0].user_email
@@ -1201,10 +1202,10 @@
       }
     },
     mounted () {
-      setInterval(this.lessons(), 200)
-      setInterval(this.show_param(), 300)
-      setInterval(this.all_user_admin(this.user_info.organization_id), 400)
-      setInterval(this.show_filial(), 500)
+      this.show_param()
+      this.lessons()
+      this.all_user_admin(this.user_info.organization_id)
+      this.show_filial()
     }
   }
 </script>

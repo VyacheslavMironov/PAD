@@ -99,7 +99,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     user_info: Object,
     settings_info: Object,
     server: String,
-    server_journal: String,
     is_auth: Number,
     token: String
   },
@@ -112,7 +111,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
       if (this.data_all) {
         // Отправка данных
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server_journal + '/api/user-group/create', {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/user-group/create', {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
@@ -141,7 +140,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
       if (this.data) {
         // Отправка данных
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server_journal + '/api/user-group/remove?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id + '&&user_id=' + this.user_id, {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/user-group/remove?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id + '&&user_id=' + this.user_id, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -168,7 +167,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this3.server_journal + '/api/group/show?organization_id=' + _this3.user_info.organization_id + '&&filial_id=' + _this3.$route.query.filial_id + '&&id=' + _this3.$route.query.group_id, {
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this3.server + '/api/group/show?organization_id=' + _this3.user_info.organization_id + '&&filial_id=' + _this3.$route.query.filial_id + '&&id=' + _this3.$route.query.group_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
@@ -198,7 +197,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this4.server_journal + '/api/user-group/show?organization_id=' + _this4.user_info.organization_id + '&&filial_id=' + _this4.$route.query.filial_id + '&&group_id=' + _this4.$route.query.group_id, {
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this4.server + '/api/user-group/show?organization_id=' + _this4.user_info.organization_id + '&&filial_id=' + _this4.$route.query.filial_id + '&&group_id=' + _this4.$route.query.group_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
@@ -225,13 +224,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this5.server_journal + '/api/user-group/user/not-group?organization_id=' + _this5.$route.query.organization_id + '&&filial_id=' + _this5.$route.query.filial_id + '&&group_id=' + _this5.$route.query.group_id, {
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this5.server + '/api/user-group/user/not-group?organization_id=' + _this5.$route.query.organization_id + '&&filial_id=' + _this5.$route.query.filial_id + '&&group_id=' + _this5.$route.query.group_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
                 }).then(function (response) {
                   _this5.is_not_users = response.data[0];
                 })["catch"](function (error) {
+                  console.log(error);
                   _this5.alert = 'Ошибка. Загрузки информации участников группы!';
                   // Активация всплывающего сообщения
                   document.getElementById('toast').style.opacity = 1;

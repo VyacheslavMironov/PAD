@@ -364,23 +364,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
     },
     ///Ошибка функции порождающая "Uncaught SyntaxError: Unexpected identifier 'Promise'"
-    /*
-      async lessons () {
-        await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
-          {
-            headers: {
-              'Content-Type': 'application/json',
+    lessons: function lessons() {
+      var _this9 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this9.server + '/api/lesson/list?organization_id=' + _this9.user_info.organization_id, {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }).then(function (response) {
+                  _this9.lesson_list = response.data;
+                })["catch"](function (error) {
+                  _this9.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.';
+                  // Активация всплывающего сообщения
+                  document.getElementById('toast').style.opacity = 1;
+                });
+              case 2:
+              case "end":
+                return _context2.stop();
             }
-          })
-          .then((response) => {
-            this.lesson_list = response.data
-          })
-          .catch((error) => {
-            this.alert = 'Ошибка загрузки списка предметов на стороне сервера, обратитесь в тех-поддержку.'
-            // Активация всплывающего сообщения
-            document.getElementById('toast').style.opacity = 1
-          })
-      },*/
+          }
+        }, _callee2);
+      }))();
+    },
     update_lesson_open: function update_lesson_open(id) {
       var data = this.$refs.lessonUpdate;
       data[id].classList.remove('d-none');
@@ -402,7 +412,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       text[id].classList.add('d-block');
     },
     update_lessons: function update_lessons(id, organizationId, idx) {
-      var _this9 = this;
+      var _this10 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/lesson/update', {
         headers: {
           'Content-Type': 'application/json',
@@ -413,20 +423,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         organization_id: organizationId,
         name: this.$refs.inputLessonText[idx].value
       }).then(function (response) {
-        _this9.alert = 'Данные предмета обновлены!';
+        _this10.alert = 'Данные предмета обновлены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         // Закрывает активное поле ввода обновления
-        _this9.update_lesson_close(idx);
+        _this10.update_lesson_close(idx);
         window.location.reload();
       })["catch"](function (error) {
-        _this9.alert = 'Ошибка! Не возможно обновить предмет.';
+        _this10.alert = 'Ошибка! Не возможно обновить предмет.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     drop_lesson: function drop_lesson(id) {
-      var _this10 = this;
+      var _this11 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](this.server + '/api/lesson/delete?id=' + id, {
         headers: {
           'Content-Type': 'application/json',
@@ -434,54 +444,55 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length'
         }
       }).then(function (response) {
-        _this10.alert = 'Данные предмета удалены!';
+        _this11.alert = 'Данные предмета удалены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         location.reload();
       })["catch"](function (error) {
-        _this10.alert = 'Ошибка! Не возможно удалить предмет.';
+        _this11.alert = 'Ошибка! Не возможно удалить предмет.';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     show_param: function show_param() {
-      var _this11 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      var _this12 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this11.server + '/api/settings/show/priveleges-admin?organization_id=' + _this11.user_info.organization_id, {
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this12.server + '/api/settings/show/priveleges-admin?organization_id=' + _this12.user_info.organization_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
                 }).then(function (response) {
+                  console.log(response);
                   // this.priveleges_admin_list = response.data[0]
-                  _this11.userAccess = response.data[0].user_access;
-                  _this11.userEmail = response.data[0].user_email;
-                  _this11.isEnvaluation = response.data[0].is_envaluation;
-                  _this11.addUser = response.data[0].add_user;
-                  _this11.uploadFile = response.data[0].upload_file;
-                  _this11.onlineLesson = _this11.settings_info.is_video_platform;
-                  _this11.sistemChat = _this11.settings_info.is_chat_platform;
-                  _this11.testConstruct = _this11.settings_info.is_test_platform;
-                  _this11.isGameTematic = _this11.settings_info.is_game_platform;
+                  _this12.userAccess = response.data[0].user_access;
+                  _this12.userEmail = response.data[0].user_email;
+                  _this12.isEnvaluation = response.data[0].is_envaluation;
+                  _this12.addUser = response.data[0].add_user;
+                  _this12.uploadFile = response.data[0].upload_file;
+                  _this12.onlineLesson = _this12.settings_info.is_video_platform;
+                  _this12.sistemChat = _this12.settings_info.is_chat_platform;
+                  _this12.testConstruct = _this12.settings_info.is_test_platform;
+                  _this12.isGameTematic = _this12.settings_info.is_game_platform;
                 })["catch"](function (error) {
-                  _this11.alert = 'Ошибка! Не возможно загрузить привелегии администратора!';
+                  _this12.alert = 'Ошибка! Не возможно загрузить привелегии администратора!';
                   // Активация всплывающего сообщения
                   document.getElementById('toast').style.opacity = 1;
                 });
               case 2:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2);
+        }, _callee3);
       }))();
     },
     priveleges_admin_update: function priveleges_admin_update() {
-      var _this12 = this;
+      var _this13 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/settings/update/priveleges-admin', {
         headers: {
           'Content-Type': 'application/json',
@@ -495,18 +506,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         add_user: this.addUser,
         upload_file: this.uploadFile
       }).then(function (response) {
-        _this12.alert = 'Данные изменены!';
+        _this13.alert = 'Данные изменены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         window.location.reload();
       })["catch"](function (error) {
-        _this12.alert = 'Ошибка. Невозможно изменить права!';
+        _this13.alert = 'Ошибка. Невозможно изменить права!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     connect_services_update: function connect_services_update() {
-      var _this13 = this;
+      var _this14 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put(this.server + '/api/settings/update/service-connect', {
         headers: {
           'Content-Type': 'application/json',
@@ -519,19 +530,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         is_test_platform: this.testConstruct,
         is_game_platform: this.isGameTematic
       }).then(function (response) {
-        _this13.alert = 'Данные изменены!';
+        _this14.alert = 'Данные изменены!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
         window.location.reload();
       })["catch"](function (error) {
-        _this13.alert = 'Ошибка. Невозможно изменить список сервисов!';
+        _this14.alert = 'Ошибка. Невозможно изменить список сервисов!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     create_filial: function create_filial() {
       var _axios$post,
-        _this14 = this;
+        _this15 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/filial/create', (_axios$post = {
         headers: {
           'Content-Type': 'application/json',
@@ -542,64 +553,64 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         avatar: this.avatar,
         issaunce_pass: this.issaunce_pass
       }, _defineProperty(_axios$post, "fio_format", this.fio_format), _defineProperty(_axios$post, "theme", '-'), _defineProperty(_axios$post, "academic_month", 'Сентябрь,Октябрь,Ноябрь,Декабрь,Январь,Февраль,Март,Апрель,Май'), _defineProperty(_axios$post, "admin_id", this.admin_id), _defineProperty(_axios$post, "organization_id", this.user_info.organization_id), _defineProperty(_axios$post, "name", this.filial_name), _axios$post)).then(function (response) {
-        _this14.alert = 'Создан новый филиал!';
+        _this15.alert = 'Создан новый филиал!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       })["catch"](function (error) {
-        _this14.alert = 'Ошибка. Невозможно создать филиал!';
+        _this15.alert = 'Ошибка. Невозможно создать филиал!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     },
     show_filial: function show_filial() {
-      var _this15 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      var _this16 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context3.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this15.server + '/api/filial/show?organization_id=' + _this15.user_info.organization_id, {
+                _context4.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this16.server + '/api/filial/show?organization_id=' + _this16.user_info.organization_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
                 }).then(function (response) {
-                  _this15.filial_list = response.data[0];
+                  _this16.filial_list = response.data[0];
                 })["catch"](function (error) {
-                  _this15.alert = 'Ошибка загрузки списка филиалов!';
+                  _this16.alert = 'Ошибка загрузки списка филиалов!';
                   // Активация всплывающего сообщения
                   document.getElementById('toast').style.opacity = 1;
                 });
               case 2:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3);
+        }, _callee4);
       }))();
     },
     drop_filial: function drop_filial(id) {
-      var _this16 = this;
+      var _this17 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](this.server + '/api/filial/delete?id=' + id, {
         headers: {
           'Content-Type': 'application/json'
         }
       }).then(function (response) {
-        _this16.alert = 'Филиал успешно удалён!';
+        _this17.alert = 'Филиал успешно удалён!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       })["catch"](function (error) {
-        _this16.alert = 'Ошибка удаления филиала!';
+        _this17.alert = 'Ошибка удаления филиала!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
       });
     }
   },
   mounted: function mounted() {
-    setInterval(this.lessons(), 200);
-    setInterval(this.show_param(), 300);
-    setInterval(this.all_user_admin(this.user_info.organization_id), 400);
-    setInterval(this.show_filial(), 500);
+    this.show_param();
+    this.lessons();
+    this.all_user_admin(this.user_info.organization_id);
+    this.show_filial();
   }
 });
 
@@ -1778,13 +1789,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _AlertComponent_vue_vue_type_template_id_a952417a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AlertComponent.vue?vue&type=template&id=a952417a */ "./app/src/components/AlertComponent.vue?vue&type=template&id=a952417a");
 /* harmony import */ var _AlertComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AlertComponent.vue?vue&type=script&lang=js */ "./app/src/components/AlertComponent.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AlertComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AlertComponent_vue_vue_type_template_id_a952417a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/AlertComponent.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AlertComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AlertComponent_vue_vue_type_template_id_a952417a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/AlertComponent.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1805,13 +1816,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _CardComponent_vue_vue_type_template_id_9e1f9f0a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardComponent.vue?vue&type=template&id=9e1f9f0a */ "./app/src/components/CardComponent.vue?vue&type=template&id=9e1f9f0a");
 /* harmony import */ var _CardComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardComponent.vue?vue&type=script&lang=js */ "./app/src/components/CardComponent.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_CardComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CardComponent_vue_vue_type_template_id_9e1f9f0a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/CardComponent.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_CardComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CardComponent_vue_vue_type_template_id_9e1f9f0a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/CardComponent.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1831,12 +1842,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _LoaderComponent_vue_vue_type_template_id_1dd52ad8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoaderComponent.vue?vue&type=template&id=1dd52ad8 */ "./app/src/components/LoaderComponent.vue?vue&type=template&id=1dd52ad8");
-/* harmony import */ var C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_LoaderComponent_vue_vue_type_template_id_1dd52ad8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/LoaderComponent.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_LoaderComponent_vue_vue_type_template_id_1dd52ad8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/components/LoaderComponent.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1857,13 +1868,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _SettingsWorkingSpaceView_vue_vue_type_template_id_60a36745__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SettingsWorkingSpaceView.vue?vue&type=template&id=60a36745 */ "./app/src/views/SettingsWorkingSpaceView.vue?vue&type=template&id=60a36745");
 /* harmony import */ var _SettingsWorkingSpaceView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SettingsWorkingSpaceView.vue?vue&type=script&lang=js */ "./app/src/views/SettingsWorkingSpaceView.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_OniDem1_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_SettingsWorkingSpaceView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SettingsWorkingSpaceView_vue_vue_type_template_id_60a36745__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/views/SettingsWorkingSpaceView.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_VuacheslavMironov_Desktop_PAD_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_SettingsWorkingSpaceView_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SettingsWorkingSpaceView_vue_vue_type_template_id_60a36745__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"app/src/views/SettingsWorkingSpaceView.vue"]])
 /* hot reload */
 if (false) {}
 

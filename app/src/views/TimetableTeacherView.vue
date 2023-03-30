@@ -289,7 +289,7 @@
         user_info: Object,
         settings_info: Object,
         server: String,
-        server_journal: String,
+        // server_journal: String,
         is_auth: Number,
         token: String
     },
@@ -311,7 +311,7 @@
           })
       },
       async show_timetable (type_=null) {
-        await axios.get(this.server_journal + '/api/timetable/show/teacher?organization_id=' + this.$route.query.organization_id + '&&teacher_id=' + this.$route.query.user_id,
+        await axios.get(this.server + '/api/timetable/show/teacher?organization_id=' + this.$route.query.organization_id + '&&teacher_id=' + this.$route.query.user_id,
             {
               headers: {
                 'Content-Type': 'application/json'

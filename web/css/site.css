@@ -147,6 +147,10 @@ a.btn{
     position: relative;
     left: 60%;
 }
+.l-75{
+    position: relative;
+    left: 75%;
+}
 .l-30{
     left: 30%!important;
 }
@@ -177,7 +181,7 @@ a.btn{
 
 .view-menu{
     position: absolute;
-    left: 14em;
+    left: 28em;
     width: 42%
 }
 .view-menu li{

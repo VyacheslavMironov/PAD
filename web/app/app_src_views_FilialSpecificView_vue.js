@@ -99,7 +99,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     user_info: Object,
     settings_info: Object,
     server: String,
-    server_journal: String,
     is_auth: Number,
     token: String
   },
@@ -195,7 +194,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this3.server_journal + '/api/group/list?organization_id=' + _this3.user_info.organization_id + '&&filial_id=' + _this3.$route.query.filial_id, {
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this3.server + '/api/group/list?organization_id=' + _this3.user_info.organization_id + '&&filial_id=' + _this3.$route.query.filial_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
@@ -216,7 +215,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     create_group: function create_group() {
       var _this4 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server_journal + '/api/group/create', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/group/create', {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
@@ -233,6 +232,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _this4.group_name = '';
         window.location.reload();
       })["catch"](function (error) {
+        console.log(error);
         _this4.alert = 'Ошибка, невозможно добавить новую группу!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
@@ -243,7 +243,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // },
     drop_group: function drop_group(groupId) {
       var _this5 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server_journal + '/api/group/delete?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&id=' + groupId, {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.server + '/api/group/delete?organization_id=' + this.user_info.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&id=' + groupId, {
         headers: {
           'Content-Type': 'application/json'
         }

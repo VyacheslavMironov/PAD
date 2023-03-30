@@ -220,8 +220,7 @@
                   <span v-if="i.id == x.lesson_id">{{ i.name }}</span>
                 </td>
                 <td class="text-center">{{ x.time_to }} - {{ x.time_end }} </td>
-                <td
-                >Виктор Экран</td>
+                <td>....</td>
               </tr>
             </tbody>
           </table>
@@ -269,7 +268,6 @@ export default {
       user_info: Object,
       settings_info: Object,
       server: String,
-      server_journal: String,
       is_auth: Number,
       token: String
   },
@@ -348,7 +346,7 @@ export default {
       this.day_week(data)
     },
     create_timetable () {
-      axios.post(this.server_journal + '/api/timetable/create',
+      axios.post(this.server + '/api/timetable/create',
           {
             headers: {
               'Content-Type': 'application/json'
@@ -369,13 +367,14 @@ export default {
             window.location.reload()
           })
           .catch((error) => {
+            console.log(error)
             this.alert = 'Ошибка при формировании рассписания!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
     },
     async show_timetable () {
-      await axios.post(this.server_journal + '/api/timetable/show?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
+      await axios.post(this.server + '/api/timetable/show?organization_id=' + this.$route.query.organization_id + '&&filial_id=' + this.$route.query.filial_id + '&&group_id=' + this.$route.query.group_id,
           {
             headers: {
               'Content-Type': 'application/json'

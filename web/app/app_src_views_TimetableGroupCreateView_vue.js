@@ -107,7 +107,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     user_info: Object,
     settings_info: Object,
     server: String,
-    server_journal: String,
     is_auth: Number,
     token: String
   },
@@ -198,7 +197,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     create_timetable: function create_timetable() {
       var _this3 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server_journal + '/api/timetable/create', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.server + '/api/timetable/create', {
         headers: {
           'Content-Type': 'application/json'
         },
@@ -216,6 +215,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         document.getElementById('toast').style.opacity = 1;
         window.location.reload();
       })["catch"](function (error) {
+        console.log(error);
         _this3.alert = 'Ошибка при формировании рассписания!';
         // Активация всплывающего сообщения
         document.getElementById('toast').style.opacity = 1;
@@ -229,7 +229,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this4.server_journal + '/api/timetable/show?organization_id=' + _this4.$route.query.organization_id + '&&filial_id=' + _this4.$route.query.filial_id + '&&group_id=' + _this4.$route.query.group_id, {
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this4.server + '/api/timetable/show?organization_id=' + _this4.$route.query.organization_id + '&&filial_id=' + _this4.$route.query.filial_id + '&&group_id=' + _this4.$route.query.group_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
@@ -480,7 +480,7 @@ var _hoisted_40 = {
 var _hoisted_41 = {
   "class": "text-center"
 };
-var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Виктор Экран", -1 /* HOISTED */);
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "....", -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;

@@ -100,7 +100,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     user_info: Object,
     settings_info: Object,
     server: String,
-    server_journal: String,
+    // server_journal: String,
     is_auth: Number,
     token: String
   },
@@ -143,7 +143,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 type_ = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this2.server_journal + '/api/timetable/show/teacher?organization_id=' + _this2.$route.query.organization_id + '&&teacher_id=' + _this2.$route.query.user_id, {
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this2.server + '/api/timetable/show/teacher?organization_id=' + _this2.$route.query.organization_id + '&&teacher_id=' + _this2.$route.query.user_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }

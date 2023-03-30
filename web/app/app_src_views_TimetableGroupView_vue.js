@@ -92,7 +92,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     user_info: Object,
     settings_info: Object,
     server: String,
-    server_journal: String,
     is_auth: Number,
     token: String
   },
@@ -132,7 +131,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this2.server_journal + '/api/timetable/show?organization_id=' + _this2.$route.query.organization_id + '&&filial_id=' + _this2.$route.query.filial_id + '&&group_id=' + _this2.$route.query.group_id, {
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this2.server + '/api/timetable/show?organization_id=' + _this2.$route.query.organization_id + '&&filial_id=' + _this2.$route.query.filial_id + '&&group_id=' + _this2.$route.query.group_id, {
                   headers: {
                     'Content-Type': 'application/json'
                   }
