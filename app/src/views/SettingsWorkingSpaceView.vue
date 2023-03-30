@@ -962,7 +962,7 @@
             this.alert = 'Предмет успешно добавлен!'
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
-            // Очистка поля 
+            // Очистка поля lessons 
             this.lesson_name = ''
             window.location.reload()
           })
@@ -972,6 +972,8 @@
             document.getElementById('toast').style.opacity = 1
           })
       },
+      ///Ошибка функции порождающая "Uncaught SyntaxError: Unexpected identifier 'Promise'"
+    /*
       async lessons () {
         await axios.get(this.server + '/api/lesson/list?organization_id=' + this.user_info.organization_id,
           {
@@ -987,7 +989,7 @@
             // Активация всплывающего сообщения
             document.getElementById('toast').style.opacity = 1
           })
-      },
+      },*/
       update_lesson_open (id) {
         const data = this.$refs.lessonUpdate
         data[id].classList.remove('d-none')
