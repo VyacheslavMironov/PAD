@@ -48,7 +48,7 @@ class CreateStatementsTest extends \Codeception\Test\Unit
                                     'test-image.png', null, /* email_code */ 'blablabla22',),
         ]);
 
-        // codecept_debug($response_create_organization);
+        codecept_debug($response_create_organization);
 
         // Проверка параметров возвращаемого массива
         $this->assertNotNull($response_create_organization);
@@ -88,6 +88,7 @@ class CreateStatementsTest extends \Codeception\Test\Unit
             null,   // teacher_id
             'Математика'
         ));
+        codecept_debug($response_lesson_create);
 
         // codecept_debug($response);
 
